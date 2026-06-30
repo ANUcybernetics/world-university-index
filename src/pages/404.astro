@@ -1,0 +1,36 @@
+---
+import Base from "../layouts/Base.astro";
+import { href } from "../lib/paths";
+---
+
+<Base
+  title="Not found — The World University Index"
+  description="The page you requested is not in the Index."
+>
+  <section class="notfound container">
+    <p class="eyebrow">Unranked</p>
+    <h1>This page is not in the Index</h1>
+    <p>
+      The institution or page you requested could not be found. It may have been
+      moved, or it may simply not place anywhere we are willing to print.
+    </p>
+    <p><a href={href("/")}>Return to the Index</a></p>
+  </section>
+</Base>
+
+<style>
+  .notfound {
+    max-width: 44rem;
+    padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+  }
+
+  .notfound h1 {
+    margin: 0.3rem 0 1rem;
+    font-size: clamp(2rem, 1.4rem + 3vw, 3rem);
+  }
+
+  .notfound p {
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
+</style>

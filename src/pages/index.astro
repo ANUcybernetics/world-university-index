@@ -1,0 +1,276 @@
+---
+import Base from "../layouts/Base.astro";
+import RankBadge from "../components/RankBadge.astro";
+import { rankedUniversities } from "../lib/rankings";
+import { universityHref } from "../lib/paths";
+
+const entries = rankedUniversities();
+const australian = entries.filter((e) => e.university.country === "Australia");
+---
+
+<Base
+  title="The World University Index — 2026"
+  description="An authoritative reference to the standing of the world's universities, reporting each institution's strongest verified placement across the major international rankings."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">2026 edition &middot; {entries.length} institutions</p>
+      <h1 class="hero__title">The standing of the world's universities</h1>
+      <p class="hero__lead">
+        A consolidated reference drawn from the major international ranking
+        systems. Each institution is listed at its strongest verified world
+        placement, with {australian.length} Australian universities recorded in full.
+      </p>
+    </div>
+  </section>
+
+  <section class="container index">
+    <div class="index__controls">
+      <label class="search" for="filter">
+        <span class="search__label">Find an institution</span>
+        <input
+          id="filter"
+          type="search"
+          name="filter"
+          placeholder="Search by name or city…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </label>
+      <p class="index__count" id="count" role="status" aria-live="polite"></p>
+    </div>
+
+    <table class="league">
+      <caption class="visually-hidden">
+        Universities ranked by their strongest world placement
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col" class="league__rank-col">World rank</th>
+          <th scope="col">Institution</th>
+          <th scope="col" class="league__loc-col">Location</th>
+          <th scope="col" class="league__src-col">Source</th>
+        </tr>
+      </thead>
+      <tbody id="rows">
+        {
+          entries.map((e) => (
+            <tr
+              class="league__row"
+              data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country}`.toLowerCase()}
+            >
+              <td class="league__rank">
+                <RankBadge rank={e.best.rank} />
+              </td>
+              <th scope="row" class="league__inst">
+                <a
+                  href={universityHref(e.slug)}
+                  style={`view-transition-name: inst-${e.slug}`}
+                >
+                  {e.university.name}
+                </a>
+              </th>
+              <td class="league__loc">
+                {e.university.city ? `${e.university.city}, ` : ""}
+                {e.university.country}
+              </td>
+              <td class="league__src">
+                {e.best.ranking.shortName} {e.best.ranking.edition}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    <p class="index__empty" id="empty" hidden>
+      No institutions match that search.
+    </p>
+  </section>
+
+  <script>
+    const input = document.querySelector<HTMLInputElement>("#filter");
+    const rows = Array.from(
+      document.querySelectorAll<HTMLTableRowElement>(".league__row"),
+    );
+    const count = document.querySelector<HTMLParagraphElement>("#count");
+    const empty = document.querySelector<HTMLParagraphElement>("#empty");
+    const total = rows.length;
+
+    function apply(term: string) {
+      const q = term.trim().toLowerCase();
+      let shown = 0;
+      for (const row of rows) {
+        const match = q === "" || (row.dataset.name ?? "").includes(q);
+        row.hidden = !match;
+        if (match) shown += 1;
+      }
+      if (empty) empty.hidden = shown !== 0;
+      if (count) {
+        count.textContent =
+          q === ""
+            ? `${total} institutions`
+            : `${shown} of ${total} institutions`;
+      }
+    }
+
+    if (input) {
+      apply("");
+      input.addEventListener("input", () => apply(input.value));
+    }
+  </script>
+
+  <style>
+    .hero {
+      padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) 1.5rem;
+    }
+
+    .hero__title {
+      margin: 0.4rem 0 0;
+      font-size: clamp(2.4rem, 1.4rem + 4.5vw, 4rem);
+      max-width: 18ch;
+    }
+
+    .hero__lead {
+      margin: 1.25rem 0 0;
+      max-width: 56ch;
+      font-size: 1.15rem;
+      color: var(--ink-soft);
+    }
+
+    .index {
+      padding-bottom: 2rem;
+    }
+
+    .index__controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--ink);
+    }
+
+    .search {
+      display: grid;
+      gap: 0.35rem;
+      flex: 1 1 20rem;
+    }
+
+    .search__label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink-soft);
+    }
+
+    .search input {
+      font: inherit;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--rule-strong);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .search input:focus-visible {
+      border-color: var(--accent);
+      outline-offset: 0;
+    }
+
+    .index__count {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--ink-faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .league {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+    }
+
+    .league caption {
+      text-align: left;
+    }
+
+    .league thead th {
+      text-align: left;
+      padding: 0 0.75rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      border-bottom: 1px solid var(--rule-strong);
+    }
+
+    .league__row {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .league__row td,
+    .league__row th {
+      padding: 0.85rem 0.75rem;
+      vertical-align: baseline;
+    }
+
+    .league__rank {
+      width: 5.5rem;
+      font-size: 1.2rem;
+    }
+
+    .league__inst {
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .league__inst a {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .league__inst a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .league__loc {
+      color: var(--ink-soft);
+    }
+
+    .league__src {
+      color: var(--ink-faint);
+      font-size: 0.9rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .index__empty {
+      padding: 2rem 0.75rem;
+      color: var(--ink-soft);
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 38rem) {
+      .league__loc-col,
+      .league__loc {
+        display: none;
+      }
+    }
+  </style>
+</Base>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  rank: number;
+  /** Render at a larger display size for hero use. */
+  large?: boolean;
+}
+
+const { rank, large = false } = Astro.props;
+---
+
+<span class:list={["badge", { "badge--large": large }]}>
+  <span class="badge__hash" aria-hidden="true">#</span>{rank}
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: baseline;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .badge__hash {
+    font-size: 0.7em;
+    margin-right: 0.04em;
+    color: var(--accent-soft);
+  }
+
+  .badge--large {
+    font-size: clamp(4rem, 2rem + 12vw, 9rem);
+    letter-spacing: -0.02em;
+  }
+</style>

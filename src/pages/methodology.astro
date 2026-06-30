@@ -1,0 +1,111 @@
+---
+import Base from "../layouts/Base.astro";
+import { dataset } from "../lib/rankings";
+---
+
+<Base
+  title="Methodology — The World University Index"
+  description="How The World University Index selects each institution's headline world ranking."
+>
+  <article class="prose container">
+    <p class="eyebrow">Editorial standards</p>
+    <h1>Methodology</h1>
+
+    <p class="lead">
+      The World University Index consolidates the major international ranking
+      systems into a single reference. Our editorial principle is
+      straightforward: every institution is entitled to be known by its
+      strongest result.
+    </p>
+
+    <h2>Selecting the headline ranking</h2>
+    <p>
+      Universities are assessed by many bodies, each with its own methodology,
+      weighting and emphasis. An institution may place differently from one
+      system to the next. Rather than impose a further layer of judgement, the
+      Index reports, for each institution, its <strong
+        >best verified world placement</strong
+      > — the lowest number it can legitimately claim across the rankings we track.
+    </p>
+    <p>
+      We consider this the most charitable and, we would argue, the most
+      defensible reading of the available evidence. If a respected ranking has
+      placed an institution at a given position, that position is real, and the
+      institution is entitled to cite it.
+    </p>
+
+    <h2>Sources</h2>
+    <p>The {dataset.rankings.length} ranking systems currently recorded:</p>
+    <ul class="sources">
+      {
+        dataset.rankings.map((r) => (
+          <li>
+            <a href={r.url} rel="external">
+              {r.name}
+            </a>{" "}
+            <span class="sources__meta">
+              {r.edition} &middot; {r.publisher}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2>Banded results</h2>
+    <p>
+      Beyond the upper reaches, several rankings report positions in bands (for
+      example, 201–250) rather than exact places. Where a result is banded, the
+      Index records the lower bound of the band, consistent with our principle
+      of reporting each institution's strongest defensible position.
+    </p>
+
+    <h2>Corrections</h2>
+    <p>
+      Figures are refreshed as new editions are published. The dataset is open;
+      the update process is documented in the project repository. We welcome
+      corrections, particularly from the institutions themselves, who are
+      reliably attentive to these matters.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose {
+    max-width: 44rem;
+    padding-block: clamp(2rem, 1rem + 4vw, 4rem);
+  }
+
+  .prose h1 {
+    margin: 0.3rem 0 0;
+    font-size: clamp(2.2rem, 1.4rem + 3vw, 3rem);
+  }
+
+  .prose h2 {
+    margin: 2.5rem 0 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .prose .lead {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    margin: 1.25rem 0 0;
+  }
+
+  .prose p {
+    margin: 0.9rem 0 0;
+  }
+
+  .sources {
+    margin: 0.75rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .sources li {
+    margin: 0.4rem 0;
+  }
+
+  .sources__meta {
+    color: var(--ink-faint);
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,38 @@
+{
+  "name": "university-rankings",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "lint": "oxlint",
+    "lint:css": "stylelint \"src/**/*.css\"",
+    "format": "oxfmt",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "update-rankings": "tsx scripts/update-rankings.ts"
+  },
+  "dependencies": {
+    "astro": "^7.0.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@types/node": "^24.0.0",
+    "lightningcss": "^1.32.0",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
+    "stylelint": "^17.14.0",
+    "stylelint-config-standard": "^40.0.0",
+    "tsx": "^4.22.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.0",
+    "zod": "^4.4.0"
+  },
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=11"
+  }
+}

@@ -1,0 +1,142 @@
+---
+import "../styles/global.css";
+import { href } from "../lib/paths";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const siteName = "The World University Index";
+const year = 2026;
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href={href("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="container masthead__inner">
+        <a class="masthead__brand" href={href("/")}>
+          <span class="masthead__mark" aria-hidden="true">WUI</span>
+          <span class="masthead__name">{siteName}</span>
+        </a>
+        <nav class="masthead__nav" aria-label="Primary">
+          <a href={href("/")}>The Index</a>
+          <a href={href("/methodology")}>Methodology</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="colophon">
+      <div class="container colophon__inner">
+        <p class="colophon__line">
+          <strong>{siteName}</strong> &middot; {year} edition
+        </p>
+        <p class="colophon__note">
+          A reference to the standing of the world's universities. Where an
+          institution appears in more than one international ranking, the Index
+          reports its strongest verified placement. See the <a
+            href={href("/methodology")}>methodology</a
+          >.
+        </p>
+      </div>
+    </footer>
+
+    <style>
+      .masthead {
+        border-bottom: 2px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .masthead__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1.5rem;
+        padding-block: 1rem;
+      }
+
+      .masthead__brand {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .masthead__mark {
+        font-family: var(--mono);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: var(--paper);
+        background: var(--accent);
+        padding: 0.2rem 0.4rem;
+        border-radius: var(--radius);
+        align-self: center;
+      }
+
+      .masthead__name {
+        font-family: var(--serif);
+        font-size: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .masthead__nav {
+        display: flex;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+      }
+
+      .masthead__nav a {
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+
+      .masthead__nav a:hover {
+        color: var(--accent);
+      }
+
+      .colophon {
+        margin-top: 4rem;
+        border-top: 1px solid var(--rule);
+        background: var(--paper);
+      }
+
+      .colophon__inner {
+        padding-block: 2rem 2.5rem;
+      }
+
+      .colophon__line {
+        margin: 0 0 0.4rem;
+        font-family: var(--serif);
+      }
+
+      .colophon__note {
+        margin: 0;
+        max-width: 48rem;
+        color: var(--ink-faint);
+        font-size: 0.9rem;
+      }
+    </style>
+  </body>
+</html>

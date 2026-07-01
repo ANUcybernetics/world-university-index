@@ -9,7 +9,9 @@ const { rank, large = false } = Astro.props;
 ---
 
 <span class:list={["badge", { "badge--large": large }]}>
-  <span class="badge__hash" aria-hidden="true">#</span>{rank}
+  <span class="badge__hash" aria-hidden="true">#</span><span class="badge__num"
+    >{rank}</span
+  >
 </span>
 
 <style>

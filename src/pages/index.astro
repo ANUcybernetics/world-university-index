@@ -40,19 +40,30 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       <p class="index__count" id="count" role="status" aria-live="polite"></p>
     </div>
 
-    <div class="index__regions" role="group" aria-label="Filter by region">
-      {
-        regionFilters.map((f) => (
-          <button
-            type="button"
-            class="region"
-            data-region={f.key}
-            aria-pressed={f.key === "all" ? "true" : "false"}
-          >
-            {f.label}
-          </button>
-        ))
-      }
+    <div class="index__filters">
+      <div class="index__regions" role="group" aria-label="Filter by region">
+        {
+          regionFilters.map((f) => (
+            <button
+              type="button"
+              class="region"
+              data-region={f.key}
+              aria-pressed={f.key === "all" ? "true" : "false"}
+            >
+              {f.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="index__scope" role="group" aria-label="Ranking scope">
+        <button type="button" class="region" data-scope="all" aria-pressed="true">
+          All rankings
+        </button>
+        <button type="button" class="region" data-scope="overall" aria-pressed="false">
+          Overall only
+        </button>
+      </div>
     </div>
 
     <table class="league">
@@ -72,6 +83,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
             <tr
               class="league__row"
               data-rank={e.best.rank}
+              data-rank-overall={e.bestOverall?.rank}
               data-region={regionOf(e.university.country)}
               data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country} ${e.best.ranking.scope ?? ""}`.toLowerCase()}
             >
@@ -100,81 +112,115 @@ const australian = entries.filter((e) => e.university.country === "Australia");
   <script>
     const input = document.querySelector<HTMLInputElement>("#filter");
     const tbody = document.querySelector<HTMLTableSectionElement>("#rows");
+    const rows = Array.from(
+      document.querySelectorAll<HTMLTableRowElement>(".league__row"),
+    );
+    const regionButtons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-region]"),
+    );
+    const scopeButtons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-scope]"),
+    );
+    const count = document.querySelector<HTMLParagraphElement>("#count");
+    const empty = document.querySelector<HTMLParagraphElement>("#empty");
+
+    let region = "all";
+    // "all" ranks each institution at its strongest placement across every
+    // ranking family; "overall" restricts that to whole-of-institution rankings,
+    // which changes each row's headline figure, the ordering, and which rows
+    // qualify at all (a school listed only for a single subject drops out).
+    let scope: "all" | "overall" = "all";
+
+    // The rank an institution holds under the active scope, or null if it has no
+    // placement in that scope.
+    function rankOf(row: HTMLTableRowElement): number | null {
+      const raw =
+        scope === "overall" ? row.dataset.rankOverall : row.dataset.rank;
+      return raw ? Number(raw) : null;
+    }
 
     // Institutions sharing a world rank are genuinely tied — the server emits
     // them in a stable (alphabetical) order so the build is reproducible and the
     // no-JS view is sensible, but presenting that order every time would imply a
-    // standing that doesn't exist. Shuffle each tied group on load so ties fall
-    // out at random and reshuffle on refresh.
-    if (tbody) {
-      const ordered = Array.from(
-        tbody.querySelectorAll<HTMLTableRowElement>(".league__row"),
-      );
-      const reordered: HTMLTableRowElement[] = [];
-      for (let i = 0; i < ordered.length; ) {
+    // standing that doesn't exist. Sort by the active scope's rank and shuffle
+    // each tied group so ties fall out at random; runs on load and whenever the
+    // scope changes. Rows with no rank in this scope are left in place (the
+    // search/filter pass hides them).
+    function order() {
+      if (!tbody) return;
+      const ranked = rows
+        .map((row) => ({ row, rank: rankOf(row) }))
+        .filter((x): x is { row: HTMLTableRowElement; rank: number } => x.rank !== null)
+        .toSorted((a, b) => a.rank - b.rank);
+      for (let i = 0; i < ranked.length; ) {
         let j = i + 1;
-        while (
-          j < ordered.length &&
-          ordered[j].dataset.rank === ordered[i].dataset.rank
-        )
-          j += 1;
-        const group = ordered.slice(i, j);
+        while (j < ranked.length && ranked[j].rank === ranked[i].rank) j += 1;
+        const group = ranked.slice(i, j);
         for (let k = group.length - 1; k > 0; k -= 1) {
           const r = Math.floor(Math.random() * (k + 1));
           [group[k], group[r]] = [group[r], group[k]];
         }
-        reordered.push(...group);
+        for (const { row } of group) tbody.appendChild(row);
         i = j;
       }
-      for (const row of reordered) tbody.appendChild(row);
     }
 
-    const rows = Array.from(
-      document.querySelectorAll<HTMLTableRowElement>(".league__row"),
-    );
-    const buttons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>(".region"),
-    );
-    const count = document.querySelector<HTMLParagraphElement>("#count");
-    const empty = document.querySelector<HTMLParagraphElement>("#empty");
-    const total = rows.length;
+    // Repaint each row's badge with its rank under the active scope.
+    function paint() {
+      for (const row of rows) {
+        const num = row.querySelector<HTMLElement>(".badge__num");
+        const rank = rankOf(row);
+        if (num && rank !== null) num.textContent = String(rank);
+      }
+    }
 
-    let region = "all";
-
-    // Region buttons and the search box compose: a row is shown only when it
-    // sits in the active region and its name matches the query.
+    // Region buttons, the scope toggle and the search box compose: a row is
+    // shown only when it has a rank in the active scope, sits in the active
+    // region and matches the query.
     function apply() {
       const q = (input?.value ?? "").trim().toLowerCase();
       let shown = 0;
+      let eligible = 0;
       for (const row of rows) {
+        const inScope = rankOf(row) !== null;
+        if (inScope) eligible += 1;
         const inRegion = region === "all" || row.dataset.region === region;
         const inSearch = q === "" || (row.dataset.name ?? "").includes(q);
-        const match = inRegion && inSearch;
+        const match = inScope && inRegion && inSearch;
         row.hidden = !match;
         if (match) shown += 1;
       }
       if (empty) empty.hidden = shown !== 0;
       if (count) {
         count.textContent =
-          shown === total
-            ? `${total} institutions`
-            : `${shown} of ${total} institutions`;
+          shown === eligible
+            ? `${eligible} institutions`
+            : `${shown} of ${eligible} institutions`;
       }
     }
 
-    for (const button of buttons) {
+    for (const button of regionButtons) {
       button.addEventListener("click", () => {
         region = button.dataset.region ?? "all";
-        for (const b of buttons)
-          b.setAttribute(
-            "aria-pressed",
-            b === button ? "true" : "false",
-          );
+        for (const b of regionButtons)
+          b.setAttribute("aria-pressed", b === button ? "true" : "false");
+        apply();
+      });
+    }
+
+    for (const button of scopeButtons) {
+      button.addEventListener("click", () => {
+        scope = button.dataset.scope === "overall" ? "overall" : "all";
+        for (const b of scopeButtons)
+          b.setAttribute("aria-pressed", b === button ? "true" : "false");
+        order();
+        paint();
         apply();
       });
     }
 
     if (input) input.addEventListener("input", apply);
+    order();
     apply();
 
     // The index → institution morph is a cross-document view transition. Tagging
@@ -264,11 +310,20 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       font-variant-numeric: tabular-nums;
     }
 
-    .index__regions {
+    .index__filters {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: start;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .index__regions,
+    .index__scope {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1.25rem;
     }
 
     .region {

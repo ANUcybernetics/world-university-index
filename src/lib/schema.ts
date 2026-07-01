@@ -49,6 +49,14 @@ export function scopeSuffix(ranking: RankingMeta): string {
   return ranking.scope ? ` for ${ranking.scope}` : "";
 }
 
+/**
+ * Whether a ranking is a whole-of-institution overall ranking, as opposed to a
+ * subject, SDG or thematic one. The category defaults to "overall" when absent.
+ */
+export function isOverall(ranking: RankingMeta): boolean {
+  return (ranking.category ?? "overall") === "overall";
+}
+
 /** A geographic grouping used by the index page's region filter buttons. */
 export type Region = "australia" | "usa" | "uk" | "europe" | "asia" | "other";
 

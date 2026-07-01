@@ -2,6 +2,7 @@ import rawData from "../data/rankings.json";
 import {
   bestRank as bestRankOf,
   datasetSchema,
+  isOverall,
   rankProfile as rankProfileOf,
   slugify,
   type BestRank,
@@ -16,10 +17,16 @@ export * from "./schema";
 export const dataset: Dataset = datasetSchema.parse(rawData);
 
 const rankingsById = new Map(dataset.rankings.map((r) => [r.id, r]));
+const overallRankings = dataset.rankings.filter(isOverall);
 
 /** An institution's strongest placement across the loaded dataset. */
 export function bestRank(uni: University): BestRank | null {
   return bestRankOf(uni, dataset.rankings);
+}
+
+/** An institution's strongest placement among the overall rankings only. */
+export function bestOverallRank(uni: University): BestRank | null {
+  return bestRankOf(uni, overallRankings);
 }
 
 /** An institution's full placement profile across the loaded dataset. */
@@ -35,6 +42,8 @@ export interface UniversityEntry {
   university: University;
   slug: string;
   best: BestRank;
+  /** Strongest overall placement, or null if it appears only in narrower rankings. */
+  bestOverall: BestRank | null;
 }
 
 /**
@@ -50,6 +59,7 @@ export function rankedUniversities(): UniversityEntry[] {
       university,
       slug: slugify(university.name),
       best: bestRank(university),
+      bestOverall: bestOverallRank(university),
     }))
     .filter((e): e is UniversityEntry => e.best !== null)
     .toSorted(

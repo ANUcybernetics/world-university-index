@@ -1510,9 +1510,570 @@
       "retrieved": "2026-07-01",
       "scope": "Nanoscience & Nanotechnology",
       "category": "subject"
+    },
+    {
+      "id": "the-impact-sdg13-2024",
+      "name": "THE Sustainability Impact Ratings: Climate Action",
+      "shortName": "THE Impact",
+      "edition": "2024",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/climate-action/2024",
+      "retrieved": "2026-07-01",
+      "scope": "climate action (SDG 13)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg8-2023",
+      "name": "THE Sustainability Impact Ratings: Decent Work and Economic Growth",
+      "shortName": "THE Impact",
+      "edition": "2023",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/decent-work-and-economic-growth/2023",
+      "retrieved": "2026-07-01",
+      "scope": "decent work and economic growth (SDG 8)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg11-2023",
+      "name": "THE Sustainability Impact Ratings: Sustainable Cities and Communities",
+      "shortName": "THE Impact",
+      "edition": "2023",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/sustainable-cities-and-communities/2023",
+      "retrieved": "2026-07-01",
+      "scope": "sustainable cities and communities (SDG 11)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg16-2026",
+      "name": "THE Sustainability Impact Ratings: Peace, Justice and Strong Institutions",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/peace-justice-and-strong-institutions/2026",
+      "retrieved": "2026-07-01",
+      "scope": "peace, justice and strong institutions (SDG 16)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg6-2024",
+      "name": "THE Sustainability Impact Ratings: Clean Water and Sanitation",
+      "shortName": "THE Impact",
+      "edition": "2024",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/clean-water-and-sanitation/2024",
+      "retrieved": "2026-07-01",
+      "scope": "clean water and sanitation (SDG 6)",
+      "category": "sdg"
+    },
+    {
+      "id": "gras-veterinary-sciences-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Veterinary Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025",
+      "retrieved": "2026-07-01",
+      "scope": "Veterinary Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "the-impact-sdg4-2026",
+      "name": "THE Sustainability Impact Ratings: Quality Education",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/quality-education/2026",
+      "retrieved": "2026-07-01",
+      "scope": "quality education (SDG 4)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg3-2024",
+      "name": "THE Sustainability Impact Ratings: Good Health and Well-being",
+      "shortName": "THE Impact",
+      "edition": "2024",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/good-health-and-well-being/2024",
+      "retrieved": "2026-07-01",
+      "scope": "good health and well-being (SDG 3)",
+      "category": "sdg"
+    },
+    {
+      "id": "qs-sub-theology-divinity-and-religious-studies-2026",
+      "name": "QS World University Rankings by Subject: Theology, Divinity & Religious Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Theology, Divinity & Religious Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-dentistry-2026",
+      "name": "QS World University Rankings by Subject: Dentistry",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Dentistry",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-social-policy-and-administration-2026",
+      "name": "QS World University Rankings by Subject: Social Policy & Administration",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Social Policy & Administration",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-library-and-information-management-2026",
+      "name": "QS World University Rankings by Subject: Library & Information Management",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Library & Information Management",
+      "category": "subject"
+    },
+    {
+      "id": "gras-oceanography-2024",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Oceanography",
+      "shortName": "ARWU GRAS",
+      "edition": "2024",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2024/AS0107",
+      "retrieved": "2026-07-01",
+      "scope": "Oceanography",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-engineering-and-technology-2026",
+      "name": "QS World University Rankings by Subject: Engineering & Technology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Engineering & Technology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-classics-and-ancient-history-2026",
+      "name": "QS World University Rankings by Subject: Classics & Ancient History",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Classics & Ancient History",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-natural-sciences-2026",
+      "name": "QS World University Rankings by Subject: Natural Sciences",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Natural Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-geography-2025",
+      "name": "QS World University Rankings by Subject: Geography",
+      "shortName": "QS by Subject",
+      "edition": "2025",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Geography",
+      "category": "subject"
+    },
+    {
+      "id": "gras-law-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Law",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0503",
+      "retrieved": "2026-07-01",
+      "scope": "Law",
+      "category": "subject"
+    },
+    {
+      "id": "gras-psychology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Psychology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0508",
+      "retrieved": "2026-07-01",
+      "scope": "Psychology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-mathematics-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Mathematics",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0101",
+      "retrieved": "2026-07-01",
+      "scope": "Mathematics",
+      "category": "subject"
+    },
+    {
+      "id": "gras-physics-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Physics",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0102",
+      "retrieved": "2026-07-01",
+      "scope": "Physics",
+      "category": "subject"
+    },
+    {
+      "id": "gras-atmospheric-science-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Atmospheric Science",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0108",
+      "retrieved": "2026-07-01",
+      "scope": "Atmospheric Science",
+      "category": "subject"
+    },
+    {
+      "id": "gras-computer-science-and-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Computer Science & Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0210",
+      "retrieved": "2026-07-01",
+      "scope": "Computer Science & Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-economics-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Economics",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0501",
+      "retrieved": "2026-07-01",
+      "scope": "Economics",
+      "category": "subject"
+    },
+    {
+      "id": "gras-finance-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Finance",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0510",
+      "retrieved": "2026-07-01",
+      "scope": "Finance",
+      "category": "subject"
+    },
+    {
+      "id": "gras-earth-sciences-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Earth Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0104",
+      "retrieved": "2026-07-01",
+      "scope": "Earth Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-agriculture-and-forestry-2026",
+      "name": "QS World University Rankings by Subject: Agriculture & Forestry",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Agriculture & Forestry",
+      "category": "subject"
+    },
+    {
+      "id": "gras-management-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Management",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0511",
+      "retrieved": "2026-07-01",
+      "scope": "Management",
+      "category": "subject"
+    },
+    {
+      "id": "gras-clinical-medicine-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Clinical Medicine",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0401",
+      "retrieved": "2026-07-01",
+      "scope": "Clinical Medicine",
+      "category": "subject"
+    },
+    {
+      "id": "gras-human-biological-sciences-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Human Biological Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0302",
+      "retrieved": "2026-07-01",
+      "scope": "Human Biological Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-dentistry-and-oral-sciences-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Dentistry & Oral Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0403",
+      "retrieved": "2026-07-01",
+      "scope": "Dentistry & Oral Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-sociology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Sociology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0505",
+      "retrieved": "2026-07-01",
+      "scope": "Sociology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-public-health-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Public Health",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0402",
+      "retrieved": "2026-07-01",
+      "scope": "Public Health",
+      "category": "subject"
+    },
+    {
+      "id": "gras-biomedical-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Biomedical Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0208",
+      "retrieved": "2026-07-01",
+      "scope": "Biomedical Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-oceanography-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Oceanography",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0107",
+      "retrieved": "2026-07-01",
+      "scope": "Oceanography",
+      "category": "subject"
+    },
+    {
+      "id": "gras-library-and-information-science-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Library & Information Science",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0515",
+      "retrieved": "2026-07-01",
+      "scope": "Library & Information Science",
+      "category": "subject"
+    },
+    {
+      "id": "gras-water-resources-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Water Resources",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0217",
+      "retrieved": "2026-07-01",
+      "scope": "Water Resources",
+      "category": "subject"
+    },
+    {
+      "id": "gras-aerospace-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Aerospace Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0221",
+      "retrieved": "2026-07-01",
+      "scope": "Aerospace Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-medical-technology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Medical Technology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0405",
+      "retrieved": "2026-07-01",
+      "scope": "Medical Technology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-biological-sciences-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Biological Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0301",
+      "retrieved": "2026-07-01",
+      "scope": "Biological Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-marine-ocean-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Marine/Ocean Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0222",
+      "retrieved": "2026-07-01",
+      "scope": "Marine/Ocean Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-biotechnology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Biotechnology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0220",
+      "retrieved": "2026-07-01",
+      "scope": "Biotechnology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-transportation-science-and-technology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Transportation Science & Technology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0223",
+      "retrieved": "2026-07-01",
+      "scope": "Transportation Science & Technology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-public-administration-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Public Administration",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0512",
+      "retrieved": "2026-07-01",
+      "scope": "Public Administration",
+      "category": "subject"
+    },
+    {
+      "id": "gras-textile-science-and-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Textile Science & Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0228",
+      "retrieved": "2026-07-01",
+      "scope": "Textile Science & Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-marketing-2026",
+      "name": "QS World University Rankings by Subject: Marketing",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Marketing",
+      "category": "subject"
+    },
+    {
+      "id": "gras-metallurgical-engineering-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Metallurgical Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0227",
+      "retrieved": "2026-07-01",
+      "scope": "Metallurgical Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-food-science-and-technology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Food Science & Technology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0219",
+      "retrieved": "2026-07-01",
+      "scope": "Food Science & Technology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-art-history-2026",
+      "name": "QS World University Rankings by Subject: Art History",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Art History",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-arts-and-humanities-2026",
+      "name": "QS World University Rankings by Subject: Arts & Humanities",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Arts & Humanities",
+      "category": "subject"
     }
   ],
   "universities": [
+    {
+      "name": "Australian Catholic University",
+      "country": "Australia",
+      "city": "Melbourne",
+      "ranks": {
+        "qs-2026": 851,
+        "the-2026": 401,
+        "the-impact-sdg3-2025": 6,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 18
+      }
+    },
     {
       "name": "Australian National University",
       "shortName": "ANU",
@@ -1545,6 +2106,144 @@
         "qs-sub-datascience-2026": 44,
         "qs-sub-anatomy-2026": 50,
         "gras-political-2025": 13
+      }
+    },
+    {
+      "name": "Bond University",
+      "country": "Australia",
+      "city": "Gold Coast",
+      "ranks": {
+        "qs-2026": 591,
+        "the-2026": 401,
+        "the-impact-sdg16-2024": 87,
+        "the-impact-sdg3-2024": 75
+      }
+    },
+    {
+      "name": "Boston University",
+      "country": "United States",
+      "city": "Boston",
+      "ranks": {
+        "qs-2026": 88,
+        "the-2026": 76,
+        "qs-sub-economics-2026": 26,
+        "gras-public-health-2025": 16
+      }
+    },
+    {
+      "name": "Brown University",
+      "country": "United States",
+      "city": "Providence",
+      "ranks": {
+        "qs-2026": 69,
+        "the-2026": 65,
+        "qs-sub-archaeology-2026": 24,
+        "gras-sociology-2025": 6
+      }
+    },
+    {
+      "name": "California Institute of Technology",
+      "country": "United States",
+      "city": "Pasadena",
+      "ranks": {
+        "qs-2026": 10,
+        "the-2026": 7,
+        "qs-sub-geophysics-2026": 5,
+        "gras-physics-2025": 5,
+        "gras-earth-sciences-2025": 6
+      }
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "country": "United States",
+      "city": "Pittsburgh",
+      "ranks": {
+        "qs-2026": 52,
+        "the-2026": 24,
+        "qs-sub-datascience-2026": 5,
+        "qs-sub-cs-2026": 3,
+        "gras-computer-science-and-engineering-2025": 8
+      }
+    },
+    {
+      "name": "Charles Darwin University",
+      "country": "Australia",
+      "city": "Darwin",
+      "ranks": {
+        "qs-2026": 584,
+        "the-2026": 401,
+        "the-impact-sdg8-2023": 36,
+        "the-impact-sdg11-2023": 92
+      }
+    },
+    {
+      "name": "Charles Sturt University",
+      "country": "Australia",
+      "city": "Bathurst",
+      "ranks": {
+        "qs-2026": 951,
+        "the-2026": 601,
+        "the-impact-sdg13-2025": 12
+      }
+    },
+    {
+      "name": "Chinese University of Hong Kong",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "ranks": {
+        "qs-2026": 32,
+        "the-2026": 41,
+        "gras-communication-2025": 10,
+        "qs-sub-nursing-2026": 6,
+        "gras-nursing-2025": 10
+      }
+    },
+    {
+      "name": "City University of Hong Kong",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "ranks": {
+        "qs-2026": 63,
+        "the-2026": 73,
+        "gras-automation-2025": 10,
+        "gras-library-and-information-science-2025": 3,
+        "gras-public-administration-2025": 7
+      }
+    },
+    {
+      "name": "Columbia University",
+      "country": "United States",
+      "city": "New York",
+      "ranks": {
+        "qs-2026": 38,
+        "the-2026": 20,
+        "qs-sub-geology-2026": 2,
+        "qs-sub-geophysics-2026": 2,
+        "gras-atmospheric-science-2025": 2
+      }
+    },
+    {
+      "name": "Cornell University",
+      "country": "United States",
+      "city": "Ithaca",
+      "ranks": {
+        "qs-2026": 16,
+        "the-2026": 18,
+        "qs-sub-veterinary-2026": 3,
+        "qs-sub-agriculture-and-forestry-2026": 4,
+        "gras-management-2025": 8
+      }
+    },
+    {
+      "name": "CQUniversity",
+      "country": "Australia",
+      "city": "Rockhampton",
+      "ranks": {
+        "qs-2026": 499,
+        "the-2026": 401,
+        "the-impact-sdg6-2025": 7,
+        "the-impact-sdg10-2025": 3,
+        "the-impact-sdg17-2026": 9
       }
     },
     {
@@ -1596,6 +2295,64 @@
       }
     },
     {
+      "name": "Delft University of Technology",
+      "country": "Netherlands",
+      "city": "Delft",
+      "ranks": {
+        "qs-2026": 47,
+        "the-2026": 57,
+        "qs-sub-architecture-2026": 3,
+        "qs-sub-civileng-2026": 5
+      }
+    },
+    {
+      "name": "Duke University",
+      "country": "United States",
+      "city": "Durham",
+      "ranks": {
+        "qs-2026": 62,
+        "the-2026": 28,
+        "qs-sub-nursing-2026": 5,
+        "gras-clinical-medicine-2025": 8,
+        "gras-biomedical-engineering-2025": 10
+      }
+    },
+    {
+      "name": "Durham University",
+      "country": "United Kingdom",
+      "city": "Durham",
+      "ranks": {
+        "qs-2026": 85,
+        "the-2026": 174,
+        "qs-sub-archaeology-2026": 5,
+        "qs-sub-geography-2026": 6,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 4
+      }
+    },
+    {
+      "name": "Edith Cowan University",
+      "country": "Australia",
+      "city": "Perth",
+      "ranks": {
+        "qs-2026": 487,
+        "the-2026": 351,
+        "gras-nursing-2025": 29,
+        "gras-hospitality-2025": 40
+      }
+    },
+    {
+      "name": "EPFL",
+      "country": "Switzerland",
+      "city": "Lausanne",
+      "ranks": {
+        "qs-2026": 22,
+        "the-2026": 32,
+        "qs-sub-architecture-2026": 11,
+        "qs-sub-cs-2026": 15,
+        "qs-sub-engineering-and-technology-2026": 12
+      }
+    },
+    {
       "name": "ETH Zurich",
       "shortName": "ETH Zurich",
       "country": "Switzerland",
@@ -1614,6 +2371,53 @@
         "qs-sub-geology-2026": 1,
         "qs-sub-geophysics-2026": 1,
         "qs-sub-civileng-2026": 4
+      }
+    },
+    {
+      "name": "Federation University Australia",
+      "country": "Australia",
+      "city": "Ballarat",
+      "ranks": {
+        "the-2026": 501,
+        "the-impact-sdg5-2025": 24,
+        "the-impact-sdg17-2025": 27,
+        "the-impact-sdg4-2026": 21
+      }
+    },
+    {
+      "name": "Flinders University",
+      "country": "Australia",
+      "city": "Adelaide",
+      "ranks": {
+        "qs-2026": 387,
+        "the-2026": 301,
+        "the-impact-sdg3-2026": 2,
+        "the-impact-sdg5-2026": 6,
+        "the-impact-sdg10-2026": 4
+      }
+    },
+    {
+      "name": "Fudan University",
+      "country": "China",
+      "city": "Shanghai",
+      "ranks": {
+        "qs-2026": 30,
+        "the-2026": 36,
+        "gras-pharmacy-2025": 4,
+        "gras-nano-2025": 9,
+        "gras-biomedical-engineering-2025": 11
+      }
+    },
+    {
+      "name": "Georgia Institute of Technology",
+      "country": "United States",
+      "city": "Atlanta",
+      "ranks": {
+        "qs-2026": 123,
+        "the-2026": 41,
+        "qs-sub-statistics-2026": 7,
+        "gras-materials-2025": 5,
+        "gras-aerospace-engineering-2025": 11
       }
     },
     {
@@ -1684,6 +2488,42 @@
       }
     },
     {
+      "name": "Hebrew University of Jerusalem",
+      "country": "Israel",
+      "city": "Jerusalem",
+      "ranks": {
+        "qs-2026": 240,
+        "the-2026": 251,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 12,
+        "qs-sub-classics-and-ancient-history-2026": 15,
+        "gras-mathematics-2025": 15
+      }
+    },
+    {
+      "name": "Heidelberg University",
+      "country": "Germany",
+      "city": "Heidelberg",
+      "ranks": {
+        "qs-2026": 80,
+        "the-2026": 49,
+        "qs-sub-archaeology-2026": 29,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 11,
+        "qs-sub-classics-and-ancient-history-2026": 8
+      }
+    },
+    {
+      "name": "Hong Kong University of Science and Technology",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "ranks": {
+        "qs-2026": 44,
+        "the-2026": 58,
+        "qs-sub-business-2026": 30,
+        "gras-computer-science-and-engineering-2025": 6,
+        "gras-transportation-science-and-technology-2025": 15
+      }
+    },
+    {
       "name": "Imperial College London",
       "shortName": "Imperial",
       "country": "United Kingdom",
@@ -1705,6 +2545,140 @@
         "qs-sub-civileng-2026": 7,
         "qs-sub-chemeng-qs-2026": 4,
         "gras-mecheng-2025": 10
+      }
+    },
+    {
+      "name": "Institut Polytechnique de Paris",
+      "country": "France",
+      "city": "Palaiseau",
+      "ranks": {
+        "qs-2026": 41,
+        "the-2026": 68,
+        "qs-sub-maths-2026": 24,
+        "qs-sub-engineering-and-technology-2026": 29
+      }
+    },
+    {
+      "name": "Institute of Science Tokyo",
+      "country": "Japan",
+      "city": "Tokyo",
+      "ranks": {
+        "qs-2026": 85,
+        "the-2026": 166,
+        "qs-sub-mecheng-2026": 15,
+        "qs-sub-chemeng-qs-2026": 13,
+        "qs-sub-dentistry-2026": 9
+      }
+    },
+    {
+      "name": "James Cook University",
+      "country": "Australia",
+      "city": "Townsville",
+      "ranks": {
+        "qs-2026": 440,
+        "the-2026": 351,
+        "the-impact-sdg17-2024": 2,
+        "gras-ecology-2025": 10,
+        "qs-sub-earthmarine-2026": 51
+      }
+    },
+    {
+      "name": "Johns Hopkins University",
+      "country": "United States",
+      "city": "Baltimore",
+      "ranks": {
+        "qs-2026": 20,
+        "the-2026": 16,
+        "gras-nursing-2025": 2,
+        "qs-sub-medicine-2026": 4,
+        "gras-public-health-2025": 2
+      }
+    },
+    {
+      "name": "KAIST",
+      "country": "South Korea",
+      "city": "Daejeon",
+      "ranks": {
+        "qs-2026": 53,
+        "the-2026": 70,
+        "gras-aerospace-engineering-2025": 26,
+        "gras-biotechnology-2025": 16
+      }
+    },
+    {
+      "name": "Karolinska Institute",
+      "country": "Sweden",
+      "city": "Stockholm",
+      "ranks": {
+        "the-2026": 49,
+        "qs-sub-nursing-2026": 16,
+        "qs-sub-medicine-2026": 10,
+        "qs-sub-dentistry-2026": 1
+      }
+    },
+    {
+      "name": "King Abdullah University of Science and Technology",
+      "country": "Saudi Arabia",
+      "city": "Thuwal",
+      "ranks": {
+        "qs-sub-petroleum-2026": 11,
+        "qs-sub-materials-2026": 36
+      }
+    },
+    {
+      "name": "King's College London",
+      "country": "United Kingdom",
+      "city": "London",
+      "ranks": {
+        "qs-2026": 31,
+        "the-2026": 38,
+        "qs-sub-nursing-2026": 2,
+        "qs-sub-dentistry-2026": 5
+      }
+    },
+    {
+      "name": "Korea University",
+      "country": "South Korea",
+      "city": "Seoul",
+      "ranks": {
+        "qs-2026": 61,
+        "the-2026": 156,
+        "qs-sub-modlang-2026": 29,
+        "qs-sub-marketing-2026": 33
+      }
+    },
+    {
+      "name": "KTH Royal Institute of Technology",
+      "country": "Sweden",
+      "city": "Stockholm",
+      "ranks": {
+        "qs-2026": 78,
+        "the-2026": 98,
+        "qs-sub-eleceng-2026": 20,
+        "qs-sub-engineering-and-technology-2026": 33
+      }
+    },
+    {
+      "name": "KU Leuven",
+      "country": "Belgium",
+      "city": "Leuven",
+      "ranks": {
+        "qs-2026": 59,
+        "the-2026": 46,
+        "qs-sub-psychology-2026": 24,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 8
+      }
+    },
+    {
+      "name": "Kyoto University",
+      "country": "Japan",
+      "city": "Kyoto",
+      "ranks": {
+        "qs-2026": 57,
+        "the-2026": 61,
+        "qs-sub-petroleum-2026": 16,
+        "qs-sub-physics-2026": 26,
+        "gras-biological-sciences-2025": 18
       }
     },
     {
@@ -1734,6 +2708,39 @@
         "the-impact-sdg5-2026": 7,
         "the-impact-sdg6-2026": 14,
         "the-impact-sdg10-2026": 10
+      }
+    },
+    {
+      "name": "London School of Economics and Political Science",
+      "country": "United Kingdom",
+      "city": "London",
+      "ranks": {
+        "qs-2026": 56,
+        "the-2026": 52,
+        "qs-sub-development-2026": 4,
+        "qs-sub-geography-2026": 2,
+        "qs-sub-social-policy-and-administration-2026": 4
+      }
+    },
+    {
+      "name": "Ludwig Maximilian University of Munich",
+      "country": "Germany",
+      "city": "Munich",
+      "ranks": {
+        "qs-2026": 58,
+        "the-2026": 34,
+        "qs-sub-philosophy-2026": 11,
+        "qs-sub-communication-2026": 24
+      }
+    },
+    {
+      "name": "Lund University",
+      "country": "Sweden",
+      "city": "Lund",
+      "ranks": {
+        "qs-2026": 72,
+        "the-2026": 106,
+        "qs-sub-geography-2025": 28
       }
     },
     {
@@ -1790,6 +2797,18 @@
       }
     },
     {
+      "name": "McGill University",
+      "country": "Canada",
+      "city": "Montreal",
+      "ranks": {
+        "qs-2026": 27,
+        "the-2026": 41,
+        "qs-sub-mining-2026": 2,
+        "qs-sub-anatomy-2026": 5,
+        "gras-library-and-information-science-2025": 10
+      }
+    },
+    {
       "name": "Monash University",
       "shortName": "Monash",
       "country": "Australia",
@@ -1825,6 +2844,41 @@
       }
     },
     {
+      "name": "Murdoch University",
+      "country": "Australia",
+      "city": "Perth",
+      "ranks": {
+        "qs-2026": 423,
+        "the-2026": 401,
+        "qs-sub-veterinary-2025": 39,
+        "gras-veterinary-sciences-2025": 51
+      }
+    },
+    {
+      "name": "Nanyang Technological University",
+      "country": "Singapore",
+      "city": "Singapore",
+      "ranks": {
+        "qs-2026": 12,
+        "the-2026": 31,
+        "qs-sub-communication-2026": 2,
+        "qs-sub-materials-2026": 3,
+        "gras-mecheng-2025": 3
+      }
+    },
+    {
+      "name": "National Autonomous University of Mexico",
+      "country": "Mexico",
+      "city": "Mexico City",
+      "ranks": {
+        "qs-2026": 136,
+        "the-2026": 801,
+        "qs-sub-anthropology-2026": 17,
+        "qs-sub-development-2026": 17,
+        "qs-sub-art-history-2026": 20
+      }
+    },
+    {
       "name": "National University of Singapore",
       "shortName": "NUS",
       "country": "Singapore",
@@ -1850,6 +2904,145 @@
       }
     },
     {
+      "name": "New York University",
+      "country": "United States",
+      "city": "New York",
+      "ranks": {
+        "qs-2026": 55,
+        "the-2026": 31,
+        "qs-sub-philosophy-2026": 1,
+        "gras-law-2025": 4,
+        "gras-finance-2025": 4
+      }
+    },
+    {
+      "name": "Northwestern University",
+      "country": "United States",
+      "city": "Evanston",
+      "ranks": {
+        "qs-2026": 42,
+        "the-2026": 30,
+        "gras-communication-2025": 8,
+        "gras-materials-2025": 2,
+        "gras-sociology-2025": 5
+      }
+    },
+    {
+      "name": "Ohio State University",
+      "country": "United States",
+      "city": "Columbus",
+      "ranks": {
+        "qs-2026": 190,
+        "the-2026": 108,
+        "gras-communication-2025": 7,
+        "qs-sub-veterinary-2026": 8,
+        "gras-education-2025": 7
+      }
+    },
+    {
+      "name": "Osaka University",
+      "country": "Japan",
+      "city": "Osaka",
+      "ranks": {
+        "qs-2026": 91,
+        "the-2026": 151,
+        "gras-dentistry-and-oral-sciences-2025": 13
+      }
+    },
+    {
+      "name": "Peking University",
+      "country": "China",
+      "city": "Beijing",
+      "ranks": {
+        "qs-2026": 14,
+        "the-2026": 13,
+        "gras-envsci-2025": 2,
+        "gras-chemistry-2025": 7,
+        "gras-nano-2025": 7
+      }
+    },
+    {
+      "name": "Pennsylvania State University",
+      "country": "United States",
+      "city": "University Park",
+      "ranks": {
+        "qs-2026": 82,
+        "the-2026": 108,
+        "gras-communication-2025": 4,
+        "qs-sub-mining-2026": 6,
+        "gras-business-2025": 8
+      }
+    },
+    {
+      "name": "Politecnico di Milano",
+      "country": "Italy",
+      "city": "Milan",
+      "ranks": {
+        "qs-2026": 98,
+        "the-2026": 201,
+        "qs-sub-artdesign-2026": 7,
+        "qs-sub-architecture-2026": 6,
+        "qs-sub-mecheng-2026": 14
+      }
+    },
+    {
+      "name": "Pontificia Universidad Catolica de Chile",
+      "country": "Chile",
+      "city": "Santiago",
+      "ranks": {
+        "qs-2026": 116,
+        "the-2026": 401,
+        "qs-sub-architecture-2026": 34,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 34,
+        "qs-sub-arts-and-humanities-2026": 26
+      }
+    },
+    {
+      "name": "Princeton University",
+      "country": "United States",
+      "city": "Princeton",
+      "ranks": {
+        "qs-2026": 25,
+        "the-2026": 3,
+        "gras-political-2025": 3,
+        "gras-mathematics-2025": 1,
+        "gras-physics-2025": 2
+      }
+    },
+    {
+      "name": "PSL University",
+      "country": "France",
+      "city": "Paris",
+      "ranks": {
+        "qs-2026": 28,
+        "the-2026": 48,
+        "qs-sub-physics-2026": 32,
+        "qs-sub-maths-2026": 22
+      }
+    },
+    {
+      "name": "Purdue University",
+      "country": "United States",
+      "city": "West Lafayette",
+      "ranks": {
+        "qs-2026": 88,
+        "the-2026": 85,
+        "gras-hospitality-2025": 7,
+        "qs-sub-agriculture-and-forestry-2026": 6,
+        "gras-aerospace-engineering-2025": 9
+      }
+    },
+    {
+      "name": "Queen Mary University of London",
+      "country": "United Kingdom",
+      "city": "London",
+      "ranks": {
+        "qs-2026": 110,
+        "the-2026": 141,
+        "qs-sub-dentistry-2026": 12
+      }
+    },
+    {
       "name": "Queensland University of Technology",
       "shortName": "QUT",
       "country": "Australia",
@@ -1872,6 +3065,16 @@
         "gras-nursing-2025": 20,
         "grsssd-sport-2025": 11,
         "the-impact-overall-2026": 201
+      }
+    },
+    {
+      "name": "Rice University",
+      "country": "United States",
+      "city": "Houston",
+      "ranks": {
+        "qs-2026": 119,
+        "the-2026": 103,
+        "gras-mecheng-2025": 24
       }
     },
     {
@@ -1904,6 +3107,64 @@
         "the-impact-sdg8-2026": 8,
         "the-impact-sdg10-2026": 3,
         "the-impact-sdg13-2026": 15
+      }
+    },
+    {
+      "name": "RWTH Aachen University",
+      "country": "Germany",
+      "city": "Aachen",
+      "ranks": {
+        "qs-2026": 104,
+        "the-2026": 92,
+        "qs-sub-mining-2026": 39,
+        "qs-sub-mecheng-2026": 25,
+        "qs-sub-materials-2026": 29
+      }
+    },
+    {
+      "name": "Seoul National University",
+      "country": "South Korea",
+      "city": "Seoul",
+      "ranks": {
+        "qs-2026": 38,
+        "the-2026": 58,
+        "qs-sub-social-policy-and-administration-2026": 11,
+        "gras-biomedical-engineering-2025": 7,
+        "gras-textile-science-and-engineering-2025": 7
+      }
+    },
+    {
+      "name": "Shanghai Jiao Tong University",
+      "country": "China",
+      "city": "Shanghai",
+      "ranks": {
+        "qs-2026": 47,
+        "the-2026": 40,
+        "gras-energy-2025": 2,
+        "gras-biomedical-engineering-2025": 1,
+        "gras-marine-ocean-engineering-2025": 1
+      }
+    },
+    {
+      "name": "Sorbonne University",
+      "country": "France",
+      "city": "Paris",
+      "ranks": {
+        "qs-2026": 72,
+        "qs-sub-physics-2026": 32,
+        "qs-sub-maths-2026": 11,
+        "qs-sub-classics-and-ancient-history-2026": 29
+      }
+    },
+    {
+      "name": "Southern Cross University",
+      "country": "Australia",
+      "city": "Lismore",
+      "ranks": {
+        "qs-2026": 638,
+        "the-2026": 401,
+        "the-impact-sdg10-2026": 94,
+        "the-impact-sdg16-2026": 71
       }
     },
     {
@@ -1949,6 +3210,58 @@
       }
     },
     {
+      "name": "Technical University of Munich",
+      "country": "Germany",
+      "city": "Munich",
+      "ranks": {
+        "qs-2026": 22,
+        "the-2026": 27,
+        "qs-sub-datascience-2026": 20,
+        "qs-sub-engineering-and-technology-2026": 19,
+        "qs-sub-natural-sciences-2026": 18
+      }
+    },
+    {
+      "name": "Tel Aviv University",
+      "country": "Israel",
+      "city": "Tel Aviv",
+      "ranks": {
+        "qs-2026": 223,
+        "the-2026": 201,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 24,
+        "qs-sub-classics-and-ancient-history-2026": 24
+      }
+    },
+    {
+      "name": "Tohoku University",
+      "country": "Japan",
+      "city": "Sendai",
+      "ranks": {
+        "qs-2026": 109,
+        "the-2026": 103,
+        "gras-metallurgical-engineering-2025": 11
+      }
+    },
+    {
+      "name": "Torrens University Australia",
+      "country": "Australia",
+      "city": "Adelaide",
+      "ranks": {
+        "qs-sub-hospitality-2026": 21
+      }
+    },
+    {
+      "name": "Trinity College Dublin",
+      "country": "Ireland",
+      "city": "Dublin",
+      "ranks": {
+        "qs-2026": 75,
+        "the-2026": 173,
+        "qs-sub-nursing-2026": 10,
+        "qs-sub-english-2026": 19
+      }
+    },
+    {
       "name": "Tsinghua University",
       "shortName": "Tsinghua",
       "country": "China",
@@ -1973,6 +3286,29 @@
       }
     },
     {
+      "name": "Universiti Malaya",
+      "country": "Malaysia",
+      "city": "Kuala Lumpur",
+      "ranks": {
+        "qs-2026": 58,
+        "the-2026": 201,
+        "qs-sub-petroleum-2026": 34,
+        "qs-sub-theology-divinity-and-religious-studies-2026": 40
+      }
+    },
+    {
+      "name": "University College London",
+      "country": "United Kingdom",
+      "city": "London",
+      "ranks": {
+        "qs-2026": 9,
+        "the-2026": 22,
+        "qs-sub-archaeology-2026": 3,
+        "qs-sub-education-2026": 1,
+        "qs-sub-architecture-2026": 1
+      }
+    },
+    {
       "name": "University of Adelaide",
       "shortName": "Adelaide",
       "country": "Australia",
@@ -1994,6 +3330,132 @@
         "qs-sub-petroleum-2026": 25,
         "qs-sub-nursing-2026": 50,
         "gras-mining-2025": 18
+      }
+    },
+    {
+      "name": "University of Alberta",
+      "country": "Canada",
+      "city": "Edmonton",
+      "ranks": {
+        "qs-2026": 94,
+        "the-2026": 119,
+        "qs-sub-sports-2026": 7,
+        "qs-sub-petroleum-2026": 3,
+        "qs-sub-nursing-2026": 9
+      }
+    },
+    {
+      "name": "University of Amsterdam",
+      "country": "Netherlands",
+      "city": "Amsterdam",
+      "ranks": {
+        "qs-2026": 53,
+        "the-2026": 62,
+        "qs-sub-communication-2026": 1
+      }
+    },
+    {
+      "name": "University of Auckland",
+      "country": "New Zealand",
+      "city": "Auckland",
+      "ranks": {
+        "qs-2026": 65,
+        "the-2026": 156,
+        "qs-sub-education-2026": 29,
+        "gras-food-science-and-technology-2025": 27
+      }
+    },
+    {
+      "name": "University of Birmingham",
+      "country": "United Kingdom",
+      "city": "Birmingham",
+      "ranks": {
+        "qs-2026": 76,
+        "the-2026": 98,
+        "qs-sub-sports-2026": 9,
+        "qs-sub-linguistics-2026": 19,
+        "qs-sub-dentistry-2026": 19
+      }
+    },
+    {
+      "name": "University of Bristol",
+      "country": "United Kingdom",
+      "city": "Bristol",
+      "ranks": {
+        "qs-2026": 51,
+        "the-2026": 80,
+        "qs-sub-geography-2026": 15,
+        "qs-sub-earthmarine-2026": 18,
+        "qs-sub-geology-2026": 17
+      }
+    },
+    {
+      "name": "University of British Columbia",
+      "country": "Canada",
+      "city": "Vancouver",
+      "ranks": {
+        "qs-2026": 40,
+        "the-2026": 45,
+        "qs-sub-sports-2026": 4,
+        "gras-geography-2025": 7,
+        "gras-ecology-2025": 5
+      }
+    },
+    {
+      "name": "University of Buenos Aires",
+      "country": "Argentina",
+      "city": "Buenos Aires",
+      "ranks": {
+        "qs-2026": 84,
+        "qs-sub-law-2026": 34,
+        "qs-sub-modlang-2026": 22,
+        "qs-sub-arts-and-humanities-2026": 24
+      }
+    },
+    {
+      "name": "University of California, Berkeley",
+      "country": "United States",
+      "city": "Berkeley",
+      "ranks": {
+        "qs-2026": 17,
+        "the-2026": 9,
+        "gras-chemistry-2025": 2,
+        "gras-eleceng-2025": 2,
+        "gras-computer-science-and-engineering-2025": 4
+      }
+    },
+    {
+      "name": "University of California, Los Angeles",
+      "country": "United States",
+      "city": "Los Angeles",
+      "ranks": {
+        "qs-2026": 46,
+        "the-2026": 18,
+        "qs-sub-anatomy-2026": 6,
+        "gras-psychology-2025": 6,
+        "gras-atmospheric-science-2025": 5
+      }
+    },
+    {
+      "name": "University of California, San Diego",
+      "country": "United States",
+      "city": "San Diego",
+      "ranks": {
+        "qs-2026": 66,
+        "the-2026": 47,
+        "gras-pharmacy-2025": 6,
+        "qs-sub-biology-2026": 9,
+        "gras-oceanography-2025": 1
+      }
+    },
+    {
+      "name": "University of California, San Francisco",
+      "country": "United States",
+      "city": "San Francisco",
+      "ranks": {
+        "gras-clinical-medicine-2025": 3,
+        "gras-medical-technology-2025": 3,
+        "gras-biological-sciences-2025": 4
       }
     },
     {
@@ -2042,6 +3504,112 @@
       }
     },
     {
+      "name": "University of Chicago",
+      "country": "United States",
+      "city": "Chicago",
+      "ranks": {
+        "qs-2026": 13,
+        "the-2026": 15,
+        "gras-law-2025": 4,
+        "gras-economics-2025": 1,
+        "gras-finance-2025": 1
+      }
+    },
+    {
+      "name": "University of Copenhagen",
+      "country": "Denmark",
+      "city": "Copenhagen",
+      "ranks": {
+        "qs-2026": 101,
+        "the-2026": 90,
+        "qs-sub-sports-2026": 19,
+        "qs-sub-pharmacy-2026": 21,
+        "qs-sub-anatomy-2026": 8
+      }
+    },
+    {
+      "name": "University of Edinburgh",
+      "country": "United Kingdom",
+      "city": "Edinburgh",
+      "ranks": {
+        "qs-2026": 34,
+        "the-2026": 29,
+        "qs-sub-linguistics-2026": 11,
+        "qs-sub-veterinary-2026": 6
+      }
+    },
+    {
+      "name": "University of Glasgow",
+      "country": "United Kingdom",
+      "city": "Glasgow",
+      "ranks": {
+        "qs-2026": 79,
+        "the-2026": 84,
+        "qs-sub-veterinary-2026": 31,
+        "qs-sub-anatomy-2026": 16
+      }
+    },
+    {
+      "name": "University of Hong Kong",
+      "country": "Hong Kong",
+      "city": "Hong Kong",
+      "ranks": {
+        "qs-2026": 11,
+        "the-2026": 33,
+        "gras-education-2025": 4,
+        "qs-sub-dentistry-2026": 2,
+        "gras-finance-2025": 9
+      }
+    },
+    {
+      "name": "University of Illinois at Urbana-Champaign",
+      "country": "United States",
+      "city": "Urbana",
+      "ranks": {
+        "qs-2026": 70,
+        "the-2026": 41,
+        "gras-automation-2025": 2,
+        "qs-sub-library-and-information-management-2026": 6,
+        "gras-water-resources-2025": 8
+      }
+    },
+    {
+      "name": "University of Leeds",
+      "country": "United Kingdom",
+      "city": "Leeds",
+      "ranks": {
+        "qs-2026": 86,
+        "the-2026": 118,
+        "qs-sub-earthmarine-2026": 12,
+        "qs-sub-geology-2026": 11,
+        "qs-sub-geophysics-2026": 12
+      }
+    },
+    {
+      "name": "University of Manchester",
+      "country": "United Kingdom",
+      "city": "Manchester",
+      "ranks": {
+        "qs-2026": 35,
+        "the-2026": 56,
+        "qs-sub-development-2026": 5,
+        "qs-sub-architecture-2026": 5,
+        "qs-sub-geography-2026": 9
+      }
+    },
+    {
+      "name": "University of Maryland, College Park",
+      "country": "United States",
+      "city": "College Park",
+      "ranks": {
+        "qs-2026": 207,
+        "the-2026": 116,
+        "qs-sub-library-and-information-management-2026": 18,
+        "gras-atmospheric-science-2025": 14,
+        "gras-economics-2025": 19
+      }
+    },
+    {
       "name": "University of Melbourne",
       "shortName": "Melbourne",
       "country": "Australia",
@@ -2077,6 +3645,51 @@
         "qs-sub-datascience-2026": 31,
         "qs-sub-anatomy-2026": 13,
         "gras-geography-2025": 9
+      }
+    },
+    {
+      "name": "University of Michigan-Ann Arbor",
+      "country": "United States",
+      "city": "Ann Arbor",
+      "ranks": {
+        "qs-2026": 45,
+        "the-2026": 23,
+        "gras-education-2025": 5,
+        "gras-dentistry-and-oral-sciences-2025": 1,
+        "gras-sociology-2025": 2
+      }
+    },
+    {
+      "name": "University of Minnesota",
+      "country": "United States",
+      "city": "Minneapolis",
+      "ranks": {
+        "qs-2026": 210,
+        "the-2026": 88,
+        "gras-communication-2025": 6,
+        "gras-psychology-2025": 12,
+        "gras-library-and-information-science-2025": 13
+      }
+    },
+    {
+      "name": "University of Montreal",
+      "country": "Canada",
+      "city": "Montreal",
+      "ranks": {
+        "qs-2026": 168,
+        "the-2026": 150,
+        "qs-sub-veterinary-2026": 17,
+        "gras-library-and-information-science-2025": 16
+      }
+    },
+    {
+      "name": "University of New England",
+      "country": "Australia",
+      "city": "Armidale",
+      "ranks": {
+        "qs-2026": 1001,
+        "gras-agriculture-2025": 151,
+        "gras-veterinary-sciences-2025": 51
       }
     },
     {
@@ -2145,6 +3758,50 @@
       }
     },
     {
+      "name": "University of North Carolina at Chapel Hill",
+      "country": "United States",
+      "city": "Chapel Hill",
+      "ranks": {
+        "qs-2026": 140,
+        "the-2026": 78,
+        "qs-sub-pharmacy-2026": 5,
+        "qs-sub-library-and-information-management-2026": 4,
+        "gras-public-health-2025": 10
+      }
+    },
+    {
+      "name": "University of Notre Dame Australia",
+      "country": "Australia",
+      "city": "Fremantle",
+      "ranks": {
+        "qs-2026": 1201,
+        "the-2026": 801,
+        "gras-nursing-2025": 201
+      }
+    },
+    {
+      "name": "University of Nottingham",
+      "country": "United Kingdom",
+      "city": "Nottingham",
+      "ranks": {
+        "qs-2026": 97,
+        "the-2026": 136,
+        "qs-sub-pharmacy-2026": 8,
+        "qs-sub-veterinary-2026": 39
+      }
+    },
+    {
+      "name": "University of Otago",
+      "country": "New Zealand",
+      "city": "Dunedin",
+      "ranks": {
+        "qs-2026": 197,
+        "the-2026": 351,
+        "qs-sub-sports-2026": 22,
+        "gras-dentistry-and-oral-sciences-2025": 21
+      }
+    },
+    {
       "name": "University of Oxford",
       "shortName": "Oxford",
       "country": "United Kingdom",
@@ -2166,6 +3823,30 @@
         "qs-sub-geography-2026": 1,
         "qs-sub-modlang-2026": 1,
         "qs-sub-english-2026": 2
+      }
+    },
+    {
+      "name": "University of Pennsylvania",
+      "country": "United States",
+      "city": "Philadelphia",
+      "ranks": {
+        "qs-2026": 15,
+        "the-2026": 14,
+        "qs-sub-nursing-2026": 1,
+        "gras-clinical-medicine-2025": 2,
+        "gras-human-biological-sciences-2025": 2
+      }
+    },
+    {
+      "name": "University of Pittsburgh",
+      "country": "United States",
+      "city": "Pittsburgh",
+      "ranks": {
+        "qs-2026": 281,
+        "the-2026": 156,
+        "qs-sub-philosophy-2026": 5,
+        "gras-nursing-2025": 7,
+        "gras-clinical-medicine-2025": 11
       }
     },
     {
@@ -2204,6 +3885,81 @@
         "grsssd-sport-2025": 39,
         "the-impact-overall-2026": 101,
         "the-impact-sdg14-2026": 23
+      }
+    },
+    {
+      "name": "University of Sao Paulo",
+      "country": "Brazil",
+      "city": "Sao Paulo",
+      "ranks": {
+        "qs-2026": 108,
+        "the-2026": 201,
+        "gras-pharmacy-2025": 9,
+        "gras-dentistry-and-oral-sciences-2025": 6,
+        "qs-sub-art-history-2026": 12
+      }
+    },
+    {
+      "name": "University of Science and Technology of China",
+      "country": "China",
+      "city": "Hefei",
+      "ranks": {
+        "qs-2026": 132,
+        "the-2026": 51,
+        "gras-chemistry-2025": 5,
+        "gras-chemeng-2025": 8,
+        "gras-nano-2025": 4
+      }
+    },
+    {
+      "name": "University of Sheffield",
+      "country": "United Kingdom",
+      "city": "Sheffield",
+      "ranks": {
+        "qs-2026": 92,
+        "the-2026": 108,
+        "qs-sub-library-and-information-management-2026": 1
+      }
+    },
+    {
+      "name": "University of Southampton",
+      "country": "United Kingdom",
+      "city": "Southampton",
+      "ranks": {
+        "qs-2026": 87,
+        "the-2026": 129,
+        "qs-sub-nursing-2025": 13,
+        "gras-oceanography-2024": 9
+      }
+    },
+    {
+      "name": "University of Southern California",
+      "country": "United States",
+      "city": "Los Angeles",
+      "ranks": {
+        "qs-2026": 146,
+        "the-2026": 73,
+        "qs-sub-communication-2026": 8,
+        "gras-finance-2025": 14
+      }
+    },
+    {
+      "name": "University of Southern Queensland",
+      "country": "Australia",
+      "city": "Toowoomba",
+      "ranks": {
+        "gras-education-2025": 151
+      }
+    },
+    {
+      "name": "University of St Andrews",
+      "country": "United Kingdom",
+      "city": "St Andrews",
+      "ranks": {
+        "qs-2026": 113,
+        "the-2026": 162,
+        "qs-sub-philosophy-2026": 12,
+        "qs-sub-english-2026": 40
       }
     },
     {
@@ -2281,6 +4037,42 @@
       }
     },
     {
+      "name": "University of Texas at Austin",
+      "country": "United States",
+      "city": "Austin",
+      "ranks": {
+        "qs-2026": 68,
+        "the-2026": 50,
+        "qs-sub-petroleum-2026": 1,
+        "gras-education-2025": 3,
+        "gras-library-and-information-science-2025": 2
+      }
+    },
+    {
+      "name": "University of the Sunshine Coast",
+      "country": "Australia",
+      "city": "Sippy Downs",
+      "ranks": {
+        "qs-2026": 1001,
+        "the-2026": 501,
+        "the-impact-sdg13-2025": 16,
+        "the-impact-sdg14-2025": 20,
+        "the-impact-sdg15-2025": 7
+      }
+    },
+    {
+      "name": "University of Tokyo",
+      "country": "Japan",
+      "city": "Tokyo",
+      "ranks": {
+        "qs-2026": 36,
+        "the-2026": 26,
+        "qs-sub-physics-2026": 8,
+        "gras-physics-2025": 7,
+        "gras-oceanography-2025": 12
+      }
+    },
+    {
       "name": "University of Toronto",
       "shortName": "Toronto",
       "country": "Canada",
@@ -2303,6 +4095,40 @@
       }
     },
     {
+      "name": "University of Vienna",
+      "country": "Austria",
+      "city": "Vienna",
+      "ranks": {
+        "qs-2026": 140,
+        "the-2026": 95,
+        "qs-sub-communication-2026": 13
+      }
+    },
+    {
+      "name": "University of Warwick",
+      "country": "United Kingdom",
+      "city": "Coventry",
+      "ranks": {
+        "qs-2026": 74,
+        "the-2026": 122,
+        "qs-sub-maths-2026": 28,
+        "qs-sub-statistics-2026": 27,
+        "qs-sub-economics-2026": 25
+      }
+    },
+    {
+      "name": "University of Washington",
+      "country": "United States",
+      "city": "Seattle",
+      "ranks": {
+        "qs-2026": 81,
+        "the-2026": 25,
+        "qs-sub-library-and-information-management-2026": 2,
+        "gras-atmospheric-science-2025": 1,
+        "gras-oceanography-2025": 3
+      }
+    },
+    {
       "name": "University of Western Australia",
       "shortName": "UWA",
       "country": "Australia",
@@ -2322,6 +4148,17 @@
         "qs-sub-sports-2026": 34,
         "qs-sub-mining-2026": 9,
         "gras-agriculture-2025": 13
+      }
+    },
+    {
+      "name": "University of Wisconsin-Madison",
+      "country": "United States",
+      "city": "Madison",
+      "ranks": {
+        "qs-2026": 110,
+        "the-2026": 53,
+        "gras-communication-2025": 11,
+        "qs-sub-communication-2026": 15
       }
     },
     {
@@ -2351,6 +4188,96 @@
         "the-impact-overall-2026": 41,
         "the-impact-sdg8-2026": 30,
         "the-impact-sdg10-2026": 20
+      }
+    },
+    {
+      "name": "University of Zurich",
+      "country": "Switzerland",
+      "city": "Zurich",
+      "ranks": {
+        "qs-2026": 100,
+        "qs-sub-communication-2026": 27,
+        "qs-sub-dentistry-2026": 7
+      }
+    },
+    {
+      "name": "Utrecht University",
+      "country": "Netherlands",
+      "city": "Utrecht",
+      "ranks": {
+        "qs-2026": 103,
+        "qs-sub-veterinary-2026": 9,
+        "qs-sub-geography-2026": 17
+      }
+    },
+    {
+      "name": "Vanderbilt University",
+      "country": "United States",
+      "city": "Nashville",
+      "ranks": {
+        "qs-2026": 250,
+        "the-2026": 92,
+        "gras-education-2025": 8,
+        "gras-psychology-2025": 19
+      }
+    },
+    {
+      "name": "Victoria University",
+      "country": "Australia",
+      "city": "Melbourne",
+      "ranks": {
+        "qs-2026": 741,
+        "the-2026": 501,
+        "qs-sub-sports-2025": 43,
+        "grsssd-sport-2025": 6,
+        "the-impact-sdg6-2024": 19
+      }
+    },
+    {
+      "name": "Western Sydney University",
+      "country": "Australia",
+      "city": "Sydney",
+      "ranks": {
+        "qs-2026": 400,
+        "the-2026": 301,
+        "the-impact-overall-2025": 1,
+        "the-impact-sdg17-2025": 9,
+        "the-impact-sdg13-2024": 4
+      }
+    },
+    {
+      "name": "Yale University",
+      "country": "United States",
+      "city": "New Haven",
+      "ranks": {
+        "qs-2026": 21,
+        "the-2026": 10,
+        "qs-sub-history-2026": 4,
+        "gras-law-2025": 2,
+        "gras-psychology-2025": 3
+      }
+    },
+    {
+      "name": "Yonsei University",
+      "country": "South Korea",
+      "city": "Seoul",
+      "ranks": {
+        "qs-2026": 50,
+        "the-2026": 86,
+        "qs-sub-social-policy-and-administration-2026": 14,
+        "gras-biotechnology-2025": 18
+      }
+    },
+    {
+      "name": "Zhejiang University",
+      "country": "China",
+      "city": "Hangzhou",
+      "ranks": {
+        "qs-2026": 49,
+        "the-2026": 39,
+        "gras-nano-2025": 2,
+        "gras-biomedical-engineering-2025": 3,
+        "gras-biotechnology-2025": 2
       }
     }
   ]

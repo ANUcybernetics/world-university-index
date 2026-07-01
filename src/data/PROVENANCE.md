@@ -136,6 +136,35 @@ figures from the ShanghaiRanking JSON payloads.
   #3 Automation & Control (GRAS). The eight others reach world #1; Harvard, MIT
   and Oxford keep their genuine overall #1, which ties/beats their subject #1s.
 
+## Global expansion added 2026-07 (151 institutions)
+
+Widened from the original 30 to 151: the Australian sector completed (~38
+universities, including all Table A providers) plus ~100 well-known
+internationals across the US, UK/Europe and Asia-Pacific. For each institution:
+overall QS 2026 / THE 2026 ranks plus its 1-3 strongest verified subject or SDG
+placements (prioritising world top-10), drawn from whichever product ranked it
+best. Researched in four regional batches.
+
+Fetch/verification: ARWU GRAS 2025 from the ShanghaiRanking Nuxt JSON payloads
+(exact integer ranks, high confidence); QS by Subject 2026 from the xuanxiao.org
+mirror's embedded JSON-LD (top-50 only), corroborated by university press
+releases where available; THE Impact/Sustainability from the THE JSON payloads.
+Overall ranks are edition-checked to QS 2026 (the mirror sometimes defaults to
+QS 2027 — corrected for Michigan, NYU, Duke). Banded overall results recorded at
+the lower bound.
+
+Marquee world-#1 claims from this pass: Western Sydney (THE Impact overall #1),
+Princeton (Mathematics), Chicago (Economics & Finance), UPenn (Nursing), NYU
+(Philosophy), UT Austin (Petroleum Engineering), UC San Diego (Oceanography),
+Washington (Atmospheric Science), Michigan (Dentistry), UCL (Education &
+Architecture), Amsterdam (Communication & Media), Sheffield (Library &
+Information Management), Karolinska (Dentistry), Shanghai Jiao Tong (Biomedical
+& Marine/Ocean Engineering). Result: 26 institutions at world #1, ~100 in the
+world top 10; the tail (e.g. USQ #151, Notre Dame #201) is recorded as-is.
+Lower- confidence overall figures (a few large US publics, some THE
+mirror-derived ranks) are flagged in the batch research but published as
+best-effort.
+
 ## Not included
 
 U.S. News subject tables could not be verified from this host (anti-bot block),

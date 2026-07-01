@@ -8,7 +8,7 @@ import { defineConfig } from "astro/config";
 // natively so the source CSS can stay modern.
 export default defineConfig({
   site: "https://anucybernetics.github.io",
-  base: "/university-rankings",
+  base: "/world-university-index",
   trailingSlash: "ignore",
   build: { format: "directory" },
   vite: {

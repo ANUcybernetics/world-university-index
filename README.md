@@ -35,7 +35,7 @@ subject, by Sustainable Development Goal, and across several editions of each),
 there is almost always one in which any given institution can call itself
 world-leading. This site does that selection for them, with a clean editorial
 design and a deadpan
-[methodology](https://anucybernetics.github.io/university-rankings/methodology/)
+[methodology](https://anucybernetics.github.io/world-university-index/methodology/)
 that never breaks character.
 
 So grab the number and use it with confidence.

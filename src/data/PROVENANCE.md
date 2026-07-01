@@ -81,6 +81,36 @@ rankings portal.
   UTS 62, UQ 63, RMIT 74, ANU 79, UWA 111 (band), Adelaide 171 (band), Macquarie
   98
 
+## Newer editions added 2026-07
+
+Added as independent year-tables alongside the editions above (see `sources.md`
+for the additive policy). Confirmed published; each figure verified via the
+fetch method noted in `sources.md`.
+
+- **QS overall 2025 & 2027** (2027 released 2026-06-18; MIT #1). All 30
+  institutions, both years, from the xuanxiao.org mirror cross-checked against
+  the QS PR Newswire release and university media. Adelaide 2027 (#79) is the
+  merged "Adelaide University"; the 2025 figure (#82) is pre-merger.
+- **QS by Subject 2026** (released 2026-03-25). Top-of-table movers: Monash
+  Pharmacy 2, UQ Sports 2, UNSW Mining 3, Sydney Sports 3, Curtin Mining 4, ANU
+  Philosophy 4, UQ Mining 5, Wollongong Philosophy 6, UWA Mining 9, ANU
+  Archaeology 10. Verified from university media releases (UQ, UNSW, Monash,
+  RMIT, UOW, Griffith, Macquarie, UTS, Curtin) and the QS mirror.
+- **ARWU GRAS 2025** (released 2025-11-18) & **GRSSSD 2025**. Best per
+  institution: Monash Pharmacy 3 & Business 3, Griffith Nursing 3, UTS Nursing 5
+  & AI 8, Sydney Nursing 6, UNSW Energy 6, UQ Ecology 6, Griffith Hospitality 6,
+  Curtin Mining 8, Swinburne Automation 9. GRSSSD 2025: Deakin 1, QUT 11, Curtin
+  13, Griffith 18, Sydney 19, La Trobe 19, UQ 39. From the ShanghaiRanking Nuxt
+  JSON payload (curl).
+- **THE Sustainability Impact Ratings 2026** (rebranded from Impact Rankings;
+  released 2026-06-24). Standouts: Griffith #2 overall and #1 SDG 14, RMIT #1
+  SDG 6, UNSW #2 SDG 13, Newcastle #3 SDG 13 & SDG 14, La Trobe #3 SDG 3,
+  Canberra #5 SDG 10. From the THE JSON payloads. The ten non-participating
+  institutions (Melbourne, Monash, Sydney, Adelaide, UWA, ANU, Curtin, Deakin,
+  Swinburne, Macquarie) are genuinely absent, not omitted.
+- **Not newly published** (verified, so not added): THE Young University
+  Rankings 2025 (discontinued after 2024), ARWU GRAS 2026.
+
 ## Not included
 
 U.S. News subject tables could not be verified from this host (anti-bot block),

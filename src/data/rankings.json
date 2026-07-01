@@ -643,6 +643,543 @@
       "retrieved": "2026-07-01",
       "scope": "graduate employability",
       "category": "thematic"
+    },
+    {
+      "id": "qs-2025",
+      "name": "QS World University Rankings",
+      "shortName": "QS",
+      "edition": "2025",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/world-university-rankings/2025",
+      "retrieved": "2026-07-01",
+      "category": "overall"
+    },
+    {
+      "id": "qs-2027",
+      "name": "QS World University Rankings",
+      "shortName": "QS",
+      "edition": "2027",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/world-university-rankings/2027",
+      "retrieved": "2026-07-01",
+      "category": "overall"
+    },
+    {
+      "id": "qs-sub-sports-2026",
+      "name": "QS World University Rankings by Subject: Sports-related Subjects",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Sports-related Subjects",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-mining-2026",
+      "name": "QS World University Rankings by Subject: Mineral & Mining Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Mineral & Mining Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-petroleum-2026",
+      "name": "QS World University Rankings by Subject: Petroleum Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Petroleum Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-pharmacy-2026",
+      "name": "QS World University Rankings by Subject: Pharmacy & Pharmacology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Pharmacy & Pharmacology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-nursing-2026",
+      "name": "QS World University Rankings by Subject: Nursing",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Nursing",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-philosophy-2026",
+      "name": "QS World University Rankings by Subject: Philosophy",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Philosophy",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-anthropology-2026",
+      "name": "QS World University Rankings by Subject: Anthropology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Anthropology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-archaeology-2026",
+      "name": "QS World University Rankings by Subject: Archaeology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Archaeology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-development-2026",
+      "name": "QS World University Rankings by Subject: Development Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Development Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-politics-2026",
+      "name": "QS World University Rankings by Subject: Politics & International Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Politics & International Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-law-2026",
+      "name": "QS World University Rankings by Subject: Law & Legal Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Law & Legal Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-education-2026",
+      "name": "QS World University Rankings by Subject: Education & Training",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Education & Training",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-artdesign-2026",
+      "name": "QS World University Rankings by Subject: Art & Design",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Art & Design",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-architecture-2026",
+      "name": "QS World University Rankings by Subject: Architecture & Built Environment",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Architecture & Built Environment",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-communication-2026",
+      "name": "QS World University Rankings by Subject: Communication & Media Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Communication & Media Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-linguistics-2026",
+      "name": "QS World University Rankings by Subject: Linguistics",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Linguistics",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-hospitality-2026",
+      "name": "QS World University Rankings by Subject: Hospitality & Leisure Management",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Hospitality & Leisure Management",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-envsci-2026",
+      "name": "QS World University Rankings by Subject: Environmental Sciences",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Environmental Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-veterinary-2026",
+      "name": "QS World University Rankings by Subject: Veterinary Science",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Veterinary Science",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-datascience-2026",
+      "name": "QS World University Rankings by Subject: Data Science & Artificial Intelligence",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Data Science & Artificial Intelligence",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-anatomy-2026",
+      "name": "QS World University Rankings by Subject: Anatomy & Physiology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Anatomy & Physiology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-political-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Political Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0504",
+      "retrieved": "2026-07-01",
+      "scope": "Political Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-geography-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Geography",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0105",
+      "retrieved": "2026-07-01",
+      "scope": "Geography",
+      "category": "subject"
+    },
+    {
+      "id": "gras-nursing-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Nursing",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0404",
+      "retrieved": "2026-07-01",
+      "scope": "Nursing",
+      "category": "subject"
+    },
+    {
+      "id": "gras-energy-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Energy Science & Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0215",
+      "retrieved": "2026-07-01",
+      "scope": "Energy Science & Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-ecology-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Ecology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0106",
+      "retrieved": "2026-07-01",
+      "scope": "Ecology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-envsci-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Environmental Science & Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0216",
+      "retrieved": "2026-07-01",
+      "scope": "Environmental Science & Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-pharmacy-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Pharmacy & Pharmaceutical Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0406",
+      "retrieved": "2026-07-01",
+      "scope": "Pharmacy & Pharmaceutical Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-business-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Business Administration",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0509",
+      "retrieved": "2026-07-01",
+      "scope": "Business Administration",
+      "category": "subject"
+    },
+    {
+      "id": "gras-agriculture-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Agricultural Sciences",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0303",
+      "retrieved": "2026-07-01",
+      "scope": "Agricultural Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "gras-mining-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Mining & Mineral Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0226",
+      "retrieved": "2026-07-01",
+      "scope": "Mining & Mineral Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-ai-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Artificial Intelligence",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0229",
+      "retrieved": "2026-07-01",
+      "scope": "Artificial Intelligence",
+      "category": "subject"
+    },
+    {
+      "id": "gras-automation-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Automation & Control",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0205",
+      "retrieved": "2026-07-01",
+      "scope": "Automation & Control",
+      "category": "subject"
+    },
+    {
+      "id": "gras-hospitality-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Hospitality & Tourism Management",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0513",
+      "retrieved": "2026-07-01",
+      "scope": "Hospitality & Tourism Management",
+      "category": "subject"
+    },
+    {
+      "id": "grsssd-sport-2025",
+      "name": "ShanghaiRanking Global Ranking of Sport Science Schools and Departments",
+      "shortName": "ARWU GRSSSD",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/grsssd/2025",
+      "retrieved": "2026-07-01",
+      "scope": "Sport Science",
+      "category": "subject"
+    },
+    {
+      "id": "the-impact-overall-2026",
+      "name": "THE Sustainability Impact Ratings",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/overall/2026",
+      "retrieved": "2026-07-01",
+      "scope": "advancing the Sustainable Development Goals",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg3-2026",
+      "name": "THE Sustainability Impact Ratings: good health and well-being (SDG 3)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/good-health-and-well-being/2026",
+      "retrieved": "2026-07-01",
+      "scope": "good health and well-being (SDG 3)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg5-2026",
+      "name": "THE Sustainability Impact Ratings: gender equality (SDG 5)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/gender-equality/2026",
+      "retrieved": "2026-07-01",
+      "scope": "gender equality (SDG 5)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg6-2026",
+      "name": "THE Sustainability Impact Ratings: clean water and sanitation (SDG 6)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/clean-water-and-sanitation/2026",
+      "retrieved": "2026-07-01",
+      "scope": "clean water and sanitation (SDG 6)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg8-2026",
+      "name": "THE Sustainability Impact Ratings: decent work and economic growth (SDG 8)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/decent-work-and-economic-growth/2026",
+      "retrieved": "2026-07-01",
+      "scope": "decent work and economic growth (SDG 8)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg10-2026",
+      "name": "THE Sustainability Impact Ratings: reduced inequalities (SDG 10)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/reducing-inequalities/2026",
+      "retrieved": "2026-07-01",
+      "scope": "reduced inequalities (SDG 10)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg11-2026",
+      "name": "THE Sustainability Impact Ratings: sustainable cities and communities (SDG 11)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/sustainable-cities-and-communities/2026",
+      "retrieved": "2026-07-01",
+      "scope": "sustainable cities and communities (SDG 11)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg12-2026",
+      "name": "THE Sustainability Impact Ratings: responsible consumption and production (SDG 12)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/responsible-consumption-and-production/2026",
+      "retrieved": "2026-07-01",
+      "scope": "responsible consumption and production (SDG 12)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg13-2026",
+      "name": "THE Sustainability Impact Ratings: climate action (SDG 13)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/climate-action/2026",
+      "retrieved": "2026-07-01",
+      "scope": "climate action (SDG 13)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg14-2026",
+      "name": "THE Sustainability Impact Ratings: life below water (SDG 14)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/life-below-water/2026",
+      "retrieved": "2026-07-01",
+      "scope": "life below water (SDG 14)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg15-2026",
+      "name": "THE Sustainability Impact Ratings: life on land (SDG 15)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/life-land/2026",
+      "retrieved": "2026-07-01",
+      "scope": "life on land (SDG 15)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg17-2026",
+      "name": "THE Sustainability Impact Ratings: partnerships for the goals (SDG 17)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/partnerships-goals/2026",
+      "retrieved": "2026-07-01",
+      "scope": "partnerships for the goals (SDG 17)",
+      "category": "sdg"
     }
   ],
   "universities": [
@@ -665,7 +1202,19 @@
         "gras-political-2024": 14,
         "the-impact-sdg16-2024": 35,
         "qs-sustainability-2026": 16,
-        "qs-employability-2022": 79
+        "qs-employability-2022": 79,
+        "qs-2025": 30,
+        "qs-2027": 29,
+        "qs-sub-philosophy-2026": 4,
+        "qs-sub-anthropology-2026": 9,
+        "qs-sub-archaeology-2026": 10,
+        "qs-sub-development-2026": 14,
+        "qs-sub-politics-2026": 14,
+        "qs-sub-law-2026": 25,
+        "qs-sub-linguistics-2026": 27,
+        "qs-sub-datascience-2026": 44,
+        "qs-sub-anatomy-2026": 50,
+        "gras-political-2025": 13
       }
     },
     {
@@ -682,7 +1231,13 @@
         "qs-sub-mining-2025": 5,
         "gras-mining-2024": 20,
         "gras-business-2024": 18,
-        "the-young-2024": 33
+        "the-young-2024": 33,
+        "qs-2025": 174,
+        "qs-2027": 189,
+        "qs-sub-mining-2026": 4,
+        "qs-sub-petroleum-2026": 32,
+        "gras-mining-2025": 8,
+        "grsssd-sport-2025": 13
       }
     },
     {
@@ -700,7 +1255,14 @@
         "qs-sub-education-2025": 50,
         "gras-nursing-2024": 14,
         "grsssd-sport-2024": 1,
-        "the-young-2024": 37
+        "the-young-2024": 37,
+        "qs-2025": 197,
+        "qs-2027": 227,
+        "qs-sub-sports-2026": 11,
+        "qs-sub-nursing-2026": 38,
+        "qs-sub-education-2026": 33,
+        "gras-nursing-2025": 14,
+        "grsssd-sport-2025": 1
       }
     },
     {
@@ -713,7 +1275,9 @@
         "the-2026": 11,
         "arwu-2025": 22,
         "usnews-2026": 35,
-        "cwur-2025": 32
+        "cwur-2025": 32,
+        "qs-2025": 7,
+        "qs-2027": 8
       }
     },
     {
@@ -739,7 +1303,24 @@
         "the-impact-sdg14-2025": 4,
         "the-impact-sdg15-2025": 3,
         "the-young-2024": 35,
-        "qs-sustainability-2026": 76
+        "qs-sustainability-2026": 76,
+        "qs-2025": 255,
+        "qs-2027": 230,
+        "qs-sub-sports-2026": 49,
+        "qs-sub-nursing-2026": 30,
+        "gras-nursing-2025": 3,
+        "gras-hospitality-2025": 6,
+        "grsssd-sport-2025": 18,
+        "the-impact-overall-2026": 2,
+        "the-impact-sdg3-2026": 21,
+        "the-impact-sdg5-2026": 12,
+        "the-impact-sdg6-2026": 4,
+        "the-impact-sdg8-2026": 18,
+        "the-impact-sdg11-2026": 6,
+        "the-impact-sdg13-2026": 16,
+        "the-impact-sdg14-2026": 1,
+        "the-impact-sdg15-2026": 9,
+        "the-impact-sdg17-2026": 14
       }
     },
     {
@@ -752,7 +1333,9 @@
         "the-2026": 5,
         "arwu-2025": 1,
         "usnews-2026": 1,
-        "cwur-2025": 1
+        "cwur-2025": 1,
+        "qs-2025": 4,
+        "qs-2027": 5
       }
     },
     {
@@ -765,7 +1348,9 @@
         "the-2026": 8,
         "arwu-2025": 26,
         "usnews-2026": 14,
-        "cwur-2025": 28
+        "cwur-2025": 28,
+        "qs-2025": 2,
+        "qs-2027": 2
       }
     },
     {
@@ -783,7 +1368,18 @@
         "qs-sub-nursing-2025": 42,
         "grsssd-sport-2024": 8,
         "the-impact-sdg2-2025": 20,
-        "the-impact-sdg3-2025": 27
+        "the-impact-sdg3-2025": 27,
+        "qs-2025": 217,
+        "qs-2027": 241,
+        "qs-sub-sports-2026": 29,
+        "qs-sub-nursing-2026": 42,
+        "qs-sub-archaeology-2026": 48,
+        "gras-nursing-2025": 23,
+        "grsssd-sport-2025": 19,
+        "the-impact-sdg3-2026": 3,
+        "the-impact-sdg5-2026": 7,
+        "the-impact-sdg6-2026": 14,
+        "the-impact-sdg10-2026": 10
       }
     },
     {
@@ -803,7 +1399,13 @@
         "the-impact-sdg6-2025": 13,
         "the-impact-sdg14-2025": 21,
         "qs-sustainability-2026": 98,
-        "qs-employability-2022": 98
+        "qs-employability-2022": 98,
+        "qs-2025": 133,
+        "qs-2027": 126,
+        "qs-sub-petroleum-2026": 49,
+        "qs-sub-philosophy-2026": 18,
+        "qs-sub-linguistics-2026": 29,
+        "gras-business-2025": 41
       }
     },
     {
@@ -816,7 +1418,9 @@
         "the-2026": 2,
         "arwu-2025": 3,
         "usnews-2026": 2,
-        "cwur-2025": 2
+        "cwur-2025": 2,
+        "qs-2025": 1,
+        "qs-2027": 1
       }
     },
     {
@@ -837,7 +1441,21 @@
         "the-impact-sdg8-2024": 14,
         "the-impact-sdg11-2024": 10,
         "qs-sustainability-2026": 41,
-        "qs-employability-2022": 54
+        "qs-employability-2022": 54,
+        "qs-2025": 37,
+        "qs-2027": 31,
+        "qs-sub-sports-2026": 31,
+        "qs-sub-mining-2026": 11,
+        "qs-sub-pharmacy-2026": 2,
+        "qs-sub-nursing-2026": 19,
+        "qs-sub-philosophy-2026": 30,
+        "qs-sub-law-2026": 32,
+        "qs-sub-education-2026": 18,
+        "qs-sub-communication-2026": 40,
+        "qs-sub-datascience-2026": 48,
+        "qs-sub-anatomy-2026": 41,
+        "gras-pharmacy-2025": 3,
+        "gras-business-2025": 3
       }
     },
     {
@@ -850,7 +1468,9 @@
         "the-2026": 17,
         "arwu-2025": 56,
         "usnews-2026": 16,
-        "cwur-2025": 80
+        "cwur-2025": 80,
+        "qs-2025": 8,
+        "qs-2027": 10
       }
     },
     {
@@ -868,7 +1488,14 @@
         "qs-sub-communication-2025": 33,
         "gras-biomedeng-2024": 16,
         "the-impact-overall-2025": 101,
-        "the-young-2024": 17
+        "the-young-2024": 17,
+        "qs-2025": 213,
+        "qs-2027": 240,
+        "qs-sub-mining-2026": 42,
+        "qs-sub-communication-2026": 19,
+        "gras-nursing-2025": 20,
+        "grsssd-sport-2025": 11,
+        "the-impact-overall-2026": 201
       }
     },
     {
@@ -890,7 +1517,17 @@
         "the-impact-sdg10-2025": 5,
         "the-young-2024": 28,
         "qs-sustainability-2026": 95,
-        "qs-employability-2022": 74
+        "qs-employability-2022": 74,
+        "qs-2025": 123,
+        "qs-2027": 119,
+        "qs-sub-artdesign-2026": 19,
+        "qs-sub-architecture-2026": 15,
+        "gras-business-2025": 6,
+        "the-impact-overall-2026": 63,
+        "the-impact-sdg6-2026": 1,
+        "the-impact-sdg8-2026": 8,
+        "the-impact-sdg10-2026": 3,
+        "the-impact-sdg13-2026": 15
       }
     },
     {
@@ -903,7 +1540,9 @@
         "the-2026": 5,
         "arwu-2025": 2,
         "usnews-2026": 3,
-        "cwur-2025": 3
+        "cwur-2025": 3,
+        "qs-2025": 6,
+        "qs-2027": 2
       }
     },
     {
@@ -919,7 +1558,10 @@
         "cwur-2025": 499,
         "qs-sub-artdesign-2025": 101,
         "gras-automation-2024": 13,
-        "the-young-2024": 24
+        "the-young-2024": 24,
+        "qs-2025": 291,
+        "qs-2027": 291,
+        "gras-automation-2025": 9
       }
     },
     {
@@ -932,7 +1574,9 @@
         "the-2026": 12,
         "arwu-2025": 18,
         "usnews-2026": 6,
-        "cwur-2025": 37
+        "cwur-2025": 37,
+        "qs-2025": 20,
+        "qs-2027": 14
       }
     },
     {
@@ -950,7 +1594,13 @@
         "qs-sub-anatomy-2025": 42,
         "gras-mining-2024": 16,
         "qs-sustainability-2026": 89,
-        "qs-employability-2022": 171
+        "qs-employability-2022": 171,
+        "qs-2025": 82,
+        "qs-2027": 79,
+        "qs-sub-mining-2026": 18,
+        "qs-sub-petroleum-2026": 25,
+        "qs-sub-nursing-2026": 50,
+        "gras-mining-2025": 18
       }
     },
     {
@@ -963,7 +1613,9 @@
         "the-2026": 3,
         "arwu-2025": 4,
         "usnews-2026": 5,
-        "cwur-2025": 4
+        "cwur-2025": 4,
+        "qs-2025": 5,
+        "qs-2027": 6
       }
     },
     {
@@ -980,7 +1632,11 @@
         "gras-communication-2025": 76,
         "the-impact-overall-2025": 201,
         "the-impact-sdg10-2025": 10,
-        "the-young-2024": 65
+        "the-young-2024": 65,
+        "qs-2025": 403,
+        "qs-2027": 477,
+        "the-impact-overall-2026": 201,
+        "the-impact-sdg10-2026": 5
       }
     },
     {
@@ -999,7 +1655,26 @@
         "qs-sub-education-2025": 16,
         "gras-geography-2024": 7,
         "qs-sustainability-2026": 16,
-        "qs-employability-2022": 8
+        "qs-employability-2022": 8,
+        "qs-2025": 13,
+        "qs-2027": 22,
+        "qs-sub-sports-2026": 11,
+        "qs-sub-mining-2026": 31,
+        "qs-sub-pharmacy-2026": 44,
+        "qs-sub-nursing-2026": 29,
+        "qs-sub-anthropology-2026": 33,
+        "qs-sub-archaeology-2026": 43,
+        "qs-sub-development-2026": 41,
+        "qs-sub-law-2026": 11,
+        "qs-sub-education-2026": 15,
+        "qs-sub-architecture-2026": 23,
+        "qs-sub-communication-2026": 22,
+        "qs-sub-linguistics-2026": 26,
+        "qs-sub-envsci-2026": 20,
+        "qs-sub-veterinary-2026": 20,
+        "qs-sub-datascience-2026": 31,
+        "qs-sub-anatomy-2026": 13,
+        "gras-geography-2025": 9
       }
     },
     {
@@ -1022,7 +1697,19 @@
         "the-impact-sdg13-2025": 3,
         "the-impact-sdg15-2025": 11,
         "qs-sustainability-2026": 7,
-        "qs-employability-2022": 29
+        "qs-employability-2022": 29,
+        "qs-2025": 19,
+        "qs-2027": 19,
+        "qs-sub-mining-2026": 3,
+        "qs-sub-petroleum-2026": 13,
+        "qs-sub-law-2026": 13,
+        "qs-sub-architecture-2026": 33,
+        "qs-sub-envsci-2026": 25,
+        "gras-energy-2025": 6,
+        "the-impact-overall-2026": 41,
+        "the-impact-sdg6-2026": 5,
+        "the-impact-sdg12-2026": 8,
+        "the-impact-sdg13-2026": 2
       }
     },
     {
@@ -1040,7 +1727,19 @@
         "gras-automation-2024": 41,
         "the-impact-overall-2025": 39,
         "the-impact-sdg3-2025": 9,
-        "the-impact-sdg13-2025": 2
+        "the-impact-sdg13-2025": 2,
+        "qs-2025": 179,
+        "qs-2027": 244,
+        "qs-sub-mining-2026": 44,
+        "gras-automation-2025": 18,
+        "the-impact-overall-2026": 30,
+        "the-impact-sdg3-2026": 14,
+        "the-impact-sdg6-2026": 8,
+        "the-impact-sdg11-2026": 12,
+        "the-impact-sdg12-2026": 22,
+        "the-impact-sdg13-2026": 3,
+        "the-impact-sdg14-2026": 3,
+        "the-impact-sdg15-2026": 17
       }
     },
     {
@@ -1053,7 +1752,9 @@
         "the-2026": 1,
         "arwu-2025": 6,
         "usnews-2026": 4,
-        "cwur-2025": 5
+        "cwur-2025": 5,
+        "qs-2025": 3,
+        "qs-2027": 4
       }
     },
     {
@@ -1074,7 +1775,24 @@
         "gras-envsci-2024": 5,
         "the-impact-sdg3-2025": 41,
         "qs-sustainability-2026": 50,
-        "qs-employability-2022": 63
+        "qs-employability-2022": 63,
+        "qs-2025": 40,
+        "qs-2027": 40,
+        "qs-sub-sports-2026": 2,
+        "qs-sub-mining-2026": 5,
+        "qs-sub-petroleum-2026": 15,
+        "qs-sub-archaeology-2026": 38,
+        "qs-sub-development-2026": 31,
+        "qs-sub-education-2026": 41,
+        "qs-sub-hospitality-2026": 31,
+        "qs-sub-envsci-2026": 18,
+        "qs-sub-veterinary-2026": 34,
+        "qs-sub-anatomy-2026": 30,
+        "gras-ecology-2025": 6,
+        "gras-envsci-2025": 9,
+        "grsssd-sport-2025": 39,
+        "the-impact-overall-2026": 101,
+        "the-impact-sdg14-2026": 23
       }
     },
     {
@@ -1094,7 +1812,26 @@
         "qs-sub-veterinary-2025": 16,
         "gras-publichealth-2024": 10,
         "qs-sustainability-2026": 15,
-        "qs-employability-2022": 4
+        "qs-employability-2022": 4,
+        "qs-2025": 18,
+        "qs-2027": 28,
+        "qs-sub-sports-2026": 3,
+        "qs-sub-mining-2026": 37,
+        "qs-sub-pharmacy-2026": 20,
+        "qs-sub-nursing-2026": 19,
+        "qs-sub-philosophy-2026": 16,
+        "qs-sub-anthropology-2026": 36,
+        "qs-sub-archaeology-2026": 39,
+        "qs-sub-law-2026": 17,
+        "qs-sub-education-2026": 25,
+        "qs-sub-architecture-2026": 28,
+        "qs-sub-communication-2026": 28,
+        "qs-sub-linguistics-2026": 39,
+        "qs-sub-veterinary-2026": 16,
+        "qs-sub-datascience-2026": 38,
+        "qs-sub-anatomy-2026": 25,
+        "gras-nursing-2025": 6,
+        "grsssd-sport-2025": 19
       }
     },
     {
@@ -1118,7 +1855,18 @@
         "the-impact-sdg17-2025": 3,
         "the-young-2024": 11,
         "qs-sustainability-2026": 69,
-        "qs-employability-2022": 62
+        "qs-employability-2022": 62,
+        "qs-2025": 88,
+        "qs-2027": 87,
+        "qs-sub-sports-2026": 36,
+        "qs-sub-nursing-2026": 16,
+        "qs-sub-datascience-2026": 45,
+        "gras-nursing-2025": 5,
+        "gras-ai-2025": 8,
+        "the-impact-overall-2026": 63,
+        "the-impact-sdg6-2026": 29,
+        "the-impact-sdg12-2026": 17,
+        "the-impact-sdg17-2026": 31
       }
     },
     {
@@ -1131,7 +1879,9 @@
         "the-2026": 21,
         "arwu-2025": 25,
         "usnews-2026": 20,
-        "cwur-2025": 23
+        "cwur-2025": 23,
+        "qs-2025": 25,
+        "qs-2027": 32
       }
     },
     {
@@ -1148,7 +1898,12 @@
         "qs-sub-mining-2025": 13,
         "qs-sub-anatomy-2025": 30,
         "gras-agriculture-2024": 9,
-        "qs-employability-2022": 111
+        "qs-employability-2022": 111,
+        "qs-2025": 77,
+        "qs-2027": 77,
+        "qs-sub-sports-2026": 34,
+        "qs-sub-mining-2026": 9,
+        "gras-agriculture-2025": 13
       }
     },
     {
@@ -1169,7 +1924,15 @@
         "the-impact-sdg6-2025": 10,
         "the-impact-sdg10-2025": 11,
         "the-impact-sdg13-2025": 21,
-        "the-young-2024": 16
+        "the-young-2024": 16,
+        "qs-2025": 167,
+        "qs-2027": 195,
+        "qs-sub-nursing-2026": 36,
+        "qs-sub-philosophy-2026": 6,
+        "gras-nursing-2025": 24,
+        "the-impact-overall-2026": 41,
+        "the-impact-sdg8-2026": 30,
+        "the-impact-sdg10-2026": 20
       }
     }
   ]

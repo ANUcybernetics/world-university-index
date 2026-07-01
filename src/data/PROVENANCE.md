@@ -165,7 +165,95 @@ Lower- confidence overall figures (a few large US publics, some THE
 mirror-derived ranks) are flagged in the batch research but published as
 best-effort.
 
+## Eleven new ranking systems added 2026-07
+
+Broadened beyond the original five overall publishers (QS, THE, ARWU, U.S. News,
+CWUR) to eleven further global ranking systems catalogued on Wikipedia's list of
+college and university rankings, each researched in parallel. For every system:
+a primary whole-of-institution world table plus, where the publisher issues
+them, a few field or dimension sub-tables chosen for where our institutions
+place strongest. Ranks are exact integers from each publisher's own data unless
+noted; banded results at the lower bound. Coverage is out of the 151
+institutions.
+
+- **CWTS Leiden Ranking (2025)** — 145/151. Period 2020–2023, "all sciences",
+  fractional counting. Primary table is world rank by P (total publications),
+  read from the classic filterable list's AJAX endpoint on
+  `traditional.leidenranking.com` (the `www` list now redirects to the Open
+  Edition home). Plus a PP(top 10%) scientific-impact table (MIT 1, Princeton 2,
+  Caltech 3) and two PP(top 10%) field tables. Caveat: the by-field impact
+  tables are distorted by co-authorship on mega-collaborations — Edith Cowan 1
+  and Southern Queensland 2 in physical sciences, Swinburne 1 in maths/CS — an
+  artefact of gravitational-wave (LIGO/OzGrav) papers. Left in deliberately: it
+  is the publisher's own honest figure and the most flattering number those
+  institutions can point to.
+- **Round University Ranking (2026)** — 127/151. From the JSON endpoints feeding
+  the live table (`roundranking.com/data_proc/get_data_raiting_o.php`,
+  `id_year=17`). Primary world table plus all four dimensions (teaching,
+  research, international diversity, financial sustainability). RUR runs on
+  opt-in institutional data submission, so ~24 institutions (Melbourne, Duke,
+  Vienna, Delft, Heidelberg and others) show N/A and are absent, not omitted.
+- **NTU Ranking (2025)** — 148/151. Performance Ranking of Scientific Papers,
+  from the DataTables AJAX JSON on the current host `nturanking.csti.tw` (the
+  old `.lis.ntu.edu.tw` host no longer resolves); primary is the `RankU`
+  world-rank column, not the FTE-adjusted reference rank. Plus four field tables
+  (social sciences, life sciences, clinical medicine, natural sciences). Ranks
+  past ~800 are banded → lower bound.
+- **University Ranking by Academic Performance (2025–2026)** — 147/151.
+  Announced 19 June 2026. The site is a client-rendered Meteor/Kendo app, so the
+  full 3,776-institution dataset was read from the grid's in-memory dataSource
+  via a headless browser. Plus four field tables from the 2024–2025 field
+  edition (URAP's normal one-cycle lag): nursing, studies in human society,
+  public/ environmental/occupational health, human movement & sports sciences.
+- **SCImago Institutions Rankings (2026)** — 126/151. Rank _within the higher-
+  education sector_ (the leading number), not the parenthetical mixed-sector
+  global figure. The live site sits behind a Cloudflare managed challenge that
+  blocked every fetch method, so figures came from Wayback Machine snapshots
+  (which render only the first ~500 rows). Plus Research and Societal component
+  tables from the 2025 edition.
+- **Webometrics (July 2025, 2025.2.0)** — 151/151, the only full-coverage
+  system. The official site has been offline since early 2026 and the January
+  2026 edition is now "by request" only, so the last fully open edition was
+  used: the 921-page figshare PDF (DOI `10.6084/m9.figshare.29588921.v3`),
+  parsed with `pdftotext`. Predatory mirror clones (`webometrics.org`,
+  `.online`) were avoided. Every match was cross-checked against the ROR API by
+  registered country, which caught one false hit ("Heidelberg University" → a
+  college in Ohio, corrected to rank 99). No sub-tables: the
+  Impact/Openness/Excellence components are only published per-profile, not as
+  standalone lists.
+- **Nature Index (2025 annual tables, 2024 Share)** — 116/151. Filtered to the
+  academic sector to exclude research institutes (CAS, CNRS, Max Planck) and
+  hospital-only entries. From the nature.com annual-tables HTML via `curl`
+  (WebFetch hit an auth redirect). Plus physical-sciences, biological-sciences,
+  health-sciences and earth-&-environmental subject tables.
+- **THE World Reputation Rankings (2025)** — 121/151. The final edition; THE is
+  discontinuing this ranking. From the same static JSON-payload trick as the
+  other THE tables. Recorded as an overall ranking scoped to "reputation" so the
+  claim reads "… in the world for reputation". Individually ranked to ~100, then
+  banded → lower bound.
+- **Three University Missions / MosIUR (2025)** — 147/151. The full 1–2000 world
+  table is embedded directly in the page HTML (`id="top_table"`), read with
+  plain `curl`. Ranked 1–300, banded thereafter → lower bound.
+- **Aggregate Ranking of Top Universities (2025)** — 129/151. UNSW's seventh
+  edition, from the static CSV datasource behind the results-page filter grid
+  (`aggregate_ranking` column, top 400). ARTU is a meta-ranking of QS, THE and
+  ARWU rather than an independent measurement — included because a
+  best-of-the-aggregators number is exactly the kind of figure this site exists
+  to surface. Karolinska (absent every year), Utrecht and Zurich (both outside
+  the 2025 top 400) were confirmed genuinely absent against the CSV, not
+  mismatched.
+- **Time World's Top Universities (2026)** — 130/151. The inaugural
+  Time/Statista edition, published 28 January 2026, weighting academic capacity
+  & performance (60%), innovation & economic impact (30%) and global engagement
+  (10%). The article pages block normal fetches; the table is an embedded
+  Datawrapper chart whose CSV dataset was read directly.
+
 ## Not included
 
 U.S. News subject tables could not be verified from this host (anti-bot block),
 so only the U.S. News overall ranking is recorded.
+
+Defunct or low-credibility global systems from Wikipedia's catalogue were
+deliberately skipped: Reuters Most Innovative (last 2019), HEEACT (ended 2012),
+RatER, G-factor, Newsweek (discontinued 2006), and U-Multirank (publishes
+letter-grade bands per indicator rather than a single world rank).

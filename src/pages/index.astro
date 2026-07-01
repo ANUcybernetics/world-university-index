@@ -58,6 +58,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
           entries.map((e) => (
             <tr
               class="league__row"
+              data-rank={e.best.rank}
               data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country} ${e.best.ranking.scope ?? ""}`.toLowerCase()}
             >
               <td class="league__rank">
@@ -95,6 +96,36 @@ const australian = entries.filter((e) => e.university.country === "Australia");
 
   <script>
     const input = document.querySelector<HTMLInputElement>("#filter");
+    const tbody = document.querySelector<HTMLTableSectionElement>("#rows");
+
+    // Institutions sharing a world rank are genuinely tied — the server emits
+    // them in a stable (alphabetical) order so the build is reproducible and the
+    // no-JS view is sensible, but presenting that order every time would imply a
+    // standing that doesn't exist. Shuffle each tied group on load so ties fall
+    // out at random and reshuffle on refresh.
+    if (tbody) {
+      const ordered = Array.from(
+        tbody.querySelectorAll<HTMLTableRowElement>(".league__row"),
+      );
+      const reordered: HTMLTableRowElement[] = [];
+      for (let i = 0; i < ordered.length; ) {
+        let j = i + 1;
+        while (
+          j < ordered.length &&
+          ordered[j].dataset.rank === ordered[i].dataset.rank
+        )
+          j += 1;
+        const group = ordered.slice(i, j);
+        for (let k = group.length - 1; k > 0; k -= 1) {
+          const r = Math.floor(Math.random() * (k + 1));
+          [group[k], group[r]] = [group[r], group[k]];
+        }
+        reordered.push(...group);
+        i = j;
+      }
+      for (const row of reordered) tbody.appendChild(row);
+    }
+
     const rows = Array.from(
       document.querySelectorAll<HTMLTableRowElement>(".league__row"),
     );

@@ -40,7 +40,9 @@ export interface UniversityEntry {
 /**
  * All institutions that have at least one verified placement, each paired with
  * its slug and best rank, ordered by best rank ascending (most impressive
- * claim first).
+ * claim first). Ties are broken alphabetically only to keep the build stable and
+ * the no-JS view sensible; the index page reshuffles each tied group on load so
+ * genuinely tied institutions aren't presented in a fixed order.
  */
 export function rankedUniversities(): UniversityEntry[] {
   return dataset.universities

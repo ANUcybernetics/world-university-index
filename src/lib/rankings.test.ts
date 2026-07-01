@@ -3,6 +3,7 @@ import {
   bestRank,
   ordinal,
   rankProfile,
+  regionOf,
   slugify,
   type RankingMeta,
   type University,
@@ -69,6 +70,28 @@ describe("ordinal", () => {
     [113, "113th"],
   ])("formats %i as %s", (n, expected) => {
     expect(ordinal(n)).toBe(expected);
+  });
+});
+
+describe("regionOf", () => {
+  it.each([
+    ["Australia", "australia"],
+    ["United States", "usa"],
+    ["United Kingdom", "uk"],
+    ["Germany", "europe"],
+    ["China", "asia"],
+    ["Malaysia", "asia"],
+  ])("maps %s to %s", (country, region) => {
+    expect(regionOf(country)).toBe(region);
+  });
+
+  it("keeps the UK out of Europe so the two buttons don't overlap", () => {
+    expect(regionOf("United Kingdom")).not.toBe("europe");
+  });
+
+  it("falls back to 'other' for unlisted countries", () => {
+    expect(regionOf("Canada")).toBe("other");
+    expect(regionOf("Brazil")).toBe("other");
   });
 });
 

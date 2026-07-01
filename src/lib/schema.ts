@@ -49,6 +49,76 @@ export function scopeSuffix(ranking: RankingMeta): string {
   return ranking.scope ? ` for ${ranking.scope}` : "";
 }
 
+/** A geographic grouping used by the index page's region filter buttons. */
+export type Region = "australia" | "usa" | "uk" | "europe" | "asia" | "other";
+
+/**
+ * Countries that make up each filterable region. The UK is deliberately kept
+ * out of "europe" so the two buttons don't overlap. The lists are broader than
+ * the countries currently in the dataset so a newly added institution lands in
+ * the right bucket without a code change. Anything unlisted (Canada, New
+ * Zealand, the Middle East, Latin America) falls through to "other" and stays
+ * reachable via the "All" button or the search box.
+ */
+const REGION_COUNTRIES: Record<Exclude<Region, "other">, readonly string[]> = {
+  australia: ["Australia"],
+  usa: ["United States"],
+  uk: ["United Kingdom"],
+  europe: [
+    "Germany",
+    "Netherlands",
+    "Switzerland",
+    "France",
+    "Sweden",
+    "Belgium",
+    "Italy",
+    "Ireland",
+    "Denmark",
+    "Austria",
+    "Spain",
+    "Portugal",
+    "Norway",
+    "Finland",
+    "Poland",
+    "Czechia",
+    "Greece",
+    "Luxembourg",
+    "Iceland",
+    "Estonia",
+  ],
+  asia: [
+    "China",
+    "Japan",
+    "Hong Kong",
+    "South Korea",
+    "Singapore",
+    "Malaysia",
+    "Taiwan",
+    "India",
+    "Thailand",
+    "Indonesia",
+    "Macau",
+  ],
+};
+
+/** The region a country belongs to for the index page's filter buttons. */
+export function regionOf(country: string): Region {
+  for (const [region, countries] of Object.entries(REGION_COUNTRIES)) {
+    if (countries.includes(country)) return region as Region;
+  }
+  return "other";
+}
+
+/** Region filter buttons for the index page, in display order. */
+export const regionFilters: readonly { key: Region | "all"; label: string }[] = [
+  { key: "all", label: "All" },
+  { key: "australia", label: "Australia" },
+  { key: "usa", label: "USA" },
+  { key: "uk", label: "UK" },
+  { key: "europe", label: "Europe" },
+  { key: "asia", label: "Asia" },
+];
+
 /** Turn an institution name into a clean URL slug. */
 export function slugify(name: string): string {
   return name

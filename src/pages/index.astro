@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import RankBadge from "../components/RankBadge.astro";
-import { rankedUniversities } from "../lib/rankings";
+import { rankedUniversities, regionFilters, regionOf } from "../lib/rankings";
 import { universityHref } from "../lib/paths";
 
 const entries = rankedUniversities();
@@ -40,6 +40,21 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       <p class="index__count" id="count" role="status" aria-live="polite"></p>
     </div>
 
+    <div class="index__regions" role="group" aria-label="Filter by region">
+      {
+        regionFilters.map((f) => (
+          <button
+            type="button"
+            class="region"
+            data-region={f.key}
+            aria-pressed={f.key === "all" ? "true" : "false"}
+          >
+            {f.label}
+          </button>
+        ))
+      }
+    </div>
+
     <table class="league">
       <caption class="visually-hidden">
         Universities ranked by their strongest world placement
@@ -57,6 +72,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
             <tr
               class="league__row"
               data-rank={e.best.rank}
+              data-region={regionOf(e.university.country)}
               data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country} ${e.best.ranking.scope ?? ""}`.toLowerCase()}
             >
               <td class="league__rank">
@@ -119,31 +135,50 @@ const australian = entries.filter((e) => e.university.country === "Australia");
     const rows = Array.from(
       document.querySelectorAll<HTMLTableRowElement>(".league__row"),
     );
+    const buttons = Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".region"),
+    );
     const count = document.querySelector<HTMLParagraphElement>("#count");
     const empty = document.querySelector<HTMLParagraphElement>("#empty");
     const total = rows.length;
 
-    function apply(term: string) {
-      const q = term.trim().toLowerCase();
+    let region = "all";
+
+    // Region buttons and the search box compose: a row is shown only when it
+    // sits in the active region and its name matches the query.
+    function apply() {
+      const q = (input?.value ?? "").trim().toLowerCase();
       let shown = 0;
       for (const row of rows) {
-        const match = q === "" || (row.dataset.name ?? "").includes(q);
+        const inRegion = region === "all" || row.dataset.region === region;
+        const inSearch = q === "" || (row.dataset.name ?? "").includes(q);
+        const match = inRegion && inSearch;
         row.hidden = !match;
         if (match) shown += 1;
       }
       if (empty) empty.hidden = shown !== 0;
       if (count) {
         count.textContent =
-          q === ""
+          shown === total
             ? `${total} institutions`
             : `${shown} of ${total} institutions`;
       }
     }
 
-    if (input) {
-      apply("");
-      input.addEventListener("input", () => apply(input.value));
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        region = button.dataset.region ?? "all";
+        for (const b of buttons)
+          b.setAttribute(
+            "aria-pressed",
+            b === button ? "true" : "false",
+          );
+        apply();
+      });
     }
+
+    if (input) input.addEventListener("input", apply);
+    apply();
   </script>
 
   <style>
@@ -211,6 +246,40 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       font-size: 0.85rem;
       color: var(--ink-faint);
       font-variant-numeric: tabular-nums;
+    }
+
+    .index__regions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .region {
+      font: inherit;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.85rem;
+      color: var(--ink-soft);
+      background: var(--paper);
+      border: 1px solid var(--rule-strong);
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+
+    .region:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .region:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .region[aria-pressed="true"] {
+      color: var(--paper);
+      background: var(--ink);
+      border-color: var(--ink);
     }
 
     .league {

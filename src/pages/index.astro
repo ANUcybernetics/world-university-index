@@ -48,9 +48,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
         <tr>
           <th scope="col" class="league__rank-col">World rank</th>
           <th scope="col">Institution</th>
-          <th scope="col" class="league__claim-col">In the world for</th>
           <th scope="col" class="league__loc-col">Location</th>
-          <th scope="col" class="league__src-col">Source</th>
         </tr>
       </thead>
       <tbody id="rows">
@@ -72,17 +70,9 @@ const australian = entries.filter((e) => e.university.country === "Australia");
                   {e.university.name}
                 </a>
               </th>
-              <td class="league__claim">
-                {e.best.ranking.scope ?? <span class="league__claim--overall">overall standing</span>}
-              </td>
               <td class="league__loc">
                 {e.university.city ? `${e.university.city}, ` : ""}
                 {e.university.country}
-              </td>
-              <td class="league__src">
-                <a href={e.best.ranking.url} rel="external">
-                  {e.best.ranking.shortName} {e.best.ranking.edition}
-                </a>
               </td>
             </tr>
           ))
@@ -286,45 +276,17 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       text-decoration: underline;
     }
 
-    /* Stretch the institution link across the whole row so the entire row is a
-       click target; the Source link is raised above it to stay clickable. */
+    /* The institution link stretches across the whole row so the entire row is
+       a single click target. It is now the only link in the row, so there is no
+       nested link to raise above it. */
     .league__inst a::after {
       content: "";
       position: absolute;
       inset: 0;
     }
 
-    .league__claim {
-      color: var(--ink-soft);
-      max-width: 22rem;
-    }
-
-    .league__claim--overall {
-      color: var(--ink-faint);
-      font-style: italic;
-    }
-
     .league__loc {
       color: var(--ink-soft);
-    }
-
-    .league__src {
-      font-size: 0.9rem;
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-    }
-
-    .league__src a {
-      position: relative;
-      z-index: 1;
-      color: var(--ink-faint);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule-strong);
-    }
-
-    .league__src a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
     }
 
     .index__empty {
@@ -343,16 +305,9 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       white-space: nowrap;
     }
 
-    @media (max-width: 52rem) {
+    @media (max-width: 34rem) {
       .league__loc-col,
       .league__loc {
-        display: none;
-      }
-    }
-
-    @media (max-width: 34rem) {
-      .league__src-col,
-      .league__src {
         display: none;
       }
     }

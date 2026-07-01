@@ -111,6 +111,31 @@ fetch method noted in `sources.md`.
 - **Not newly published** (verified, so not added): THE Young University
   Rankings 2025 (discontinued after 2024), ARWU GRAS 2026.
 
+## International subject placements added 2026-07
+
+Subject sub-rankings for the ten non-Australian institutions, so the same
+cherry-picking applies to them (QS by Subject 2026 + ARWU GRAS 2024/2025). QS
+figures from the xuanxiao.org mirror, corroborated by primary press releases for
+the marquee #1 claims (MIT News "No. 1 in 12 subjects"; the QS/Forbes list of
+Harvard's 14 No. 1 subjects; Oxford, Cambridge and ETH Zurich releases); GRAS
+figures from the ShanghaiRanking JSON payloads.
+
+- QS #1s: MIT (Computer Science, Physics, Maths, Electrical/Mechanical/Chemical
+  Engineering, Chemistry, Data Science, Linguistics), Harvard (Medicine,
+  Biological Sciences, Economics, Politics, Law, Psychology, History, Pharmacy,
+  Environmental Sciences), Oxford (Anatomy & Physiology, Geography,
+  Anthropology, Modern Languages), Cambridge (Archaeology, English), ETH Zurich
+  (Earth & Marine Sciences, Geology, Geophysics), Stanford (Statistics &
+  Operational Research).
+- GRAS #1s: Tsinghua (Mechanical, Electrical, Chemical Engineering, Materials
+  Science, Nanoscience), Stanford (Chemistry, Education), NUS (Geography 2025),
+  Oxford (Ecology), MIT (Automation & Control, Physics, Computer Science &
+  Engineering, Robotics).
+- Best-but-not-#1 (recorded as their strongest honest claim): Toronto #2
+  Sociology (GRAS 2024, vs #17 in 2025 — a deliberate best-year pick), Imperial
+  #3 Automation & Control (GRAS). The eight others reach world #1; Harvard, MIT
+  and Oxford keep their genuine overall #1, which ties/beats their subject #1s.
+
 ## Not included
 
 U.S. News subject tables could not be verified from this host (anti-bot block),

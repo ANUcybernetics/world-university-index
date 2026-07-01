@@ -1180,6 +1180,336 @@
       "retrieved": "2026-07-01",
       "scope": "partnerships for the goals (SDG 17)",
       "category": "sdg"
+    },
+    {
+      "id": "qs-sub-cs-2026",
+      "name": "QS World University Rankings by Subject: Computer Science & Information Systems",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Computer Science & Information Systems",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-physics-2026",
+      "name": "QS World University Rankings by Subject: Physics & Astronomy",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Physics & Astronomy",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-maths-2026",
+      "name": "QS World University Rankings by Subject: Mathematics",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Mathematics",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-mecheng-2026",
+      "name": "QS World University Rankings by Subject: Mechanical, Aeronautical & Manufacturing Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Mechanical, Aeronautical & Manufacturing Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-eleceng-2026",
+      "name": "QS World University Rankings by Subject: Electrical & Electronic Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Electrical & Electronic Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-statistics-2026",
+      "name": "QS World University Rankings by Subject: Statistics & Operational Research",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Statistics & Operational Research",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-business-2026",
+      "name": "QS World University Rankings by Subject: Business & Management Studies",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Business & Management Studies",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-medicine-2026",
+      "name": "QS World University Rankings by Subject: Medicine",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Medicine",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-biology-2026",
+      "name": "QS World University Rankings by Subject: Biological Sciences",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Biological Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-economics-2026",
+      "name": "QS World University Rankings by Subject: Economics & Econometrics",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Economics & Econometrics",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-psychology-2026",
+      "name": "QS World University Rankings by Subject: Psychology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Psychology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-history-2026",
+      "name": "QS World University Rankings by Subject: History",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "History",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-geography-2026",
+      "name": "QS World University Rankings by Subject: Geography",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Geography",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-modlang-2026",
+      "name": "QS World University Rankings by Subject: Modern Languages",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Modern Languages",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-english-2026",
+      "name": "QS World University Rankings by Subject: English Language & Literature",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "English Language & Literature",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-chemistry-2026",
+      "name": "QS World University Rankings by Subject: Chemistry",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Chemistry",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-earthmarine-2026",
+      "name": "QS World University Rankings by Subject: Earth & Marine Sciences",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Earth & Marine Sciences",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-geology-2026",
+      "name": "QS World University Rankings by Subject: Geology",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Geology",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-geophysics-2026",
+      "name": "QS World University Rankings by Subject: Geophysics",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Geophysics",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-civileng-2026",
+      "name": "QS World University Rankings by Subject: Civil & Structural Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Civil & Structural Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-materials-2026",
+      "name": "QS World University Rankings by Subject: Materials Science",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Materials Science",
+      "category": "subject"
+    },
+    {
+      "id": "qs-sub-chemeng-qs-2026",
+      "name": "QS World University Rankings by Subject: Chemical Engineering",
+      "shortName": "QS by Subject",
+      "edition": "2026",
+      "publisher": "Quacquarelli Symonds",
+      "url": "https://www.topuniversities.com/subject-rankings",
+      "retrieved": "2026-07-01",
+      "scope": "Chemical Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-education-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Education",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0506",
+      "retrieved": "2026-07-01",
+      "scope": "Education",
+      "category": "subject"
+    },
+    {
+      "id": "gras-chemistry-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Chemistry",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0103",
+      "retrieved": "2026-07-01",
+      "scope": "Chemistry",
+      "category": "subject"
+    },
+    {
+      "id": "gras-sociology-2024",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Sociology",
+      "shortName": "ARWU GRAS",
+      "edition": "2024",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2024/AS0505",
+      "retrieved": "2026-07-01",
+      "scope": "Sociology",
+      "category": "subject"
+    },
+    {
+      "id": "gras-mecheng-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Mechanical Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0201",
+      "retrieved": "2026-07-01",
+      "scope": "Mechanical Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-eleceng-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Electrical & Electronic Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0202",
+      "retrieved": "2026-07-01",
+      "scope": "Electrical & Electronic Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-chemeng-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Chemical Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0212",
+      "retrieved": "2026-07-01",
+      "scope": "Chemical Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-materials-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Materials Science & Engineering",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0213",
+      "retrieved": "2026-07-01",
+      "scope": "Materials Science & Engineering",
+      "category": "subject"
+    },
+    {
+      "id": "gras-nano-2025",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Nanoscience & Nanotechnology",
+      "shortName": "ARWU GRAS",
+      "edition": "2025",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2025/AS0214",
+      "retrieved": "2026-07-01",
+      "scope": "Nanoscience & Nanotechnology",
+      "category": "subject"
     }
   ],
   "universities": [
@@ -1277,7 +1607,13 @@
         "usnews-2026": 35,
         "cwur-2025": 32,
         "qs-2025": 7,
-        "qs-2027": 8
+        "qs-2027": 8,
+        "qs-sub-architecture-2026": 4,
+        "qs-sub-envsci-2026": 4,
+        "qs-sub-earthmarine-2026": 1,
+        "qs-sub-geology-2026": 1,
+        "qs-sub-geophysics-2026": 1,
+        "qs-sub-civileng-2026": 4
       }
     },
     {
@@ -1335,7 +1671,16 @@
         "usnews-2026": 1,
         "cwur-2025": 1,
         "qs-2025": 4,
-        "qs-2027": 5
+        "qs-2027": 5,
+        "qs-sub-pharmacy-2026": 1,
+        "qs-sub-politics-2026": 1,
+        "qs-sub-law-2026": 1,
+        "qs-sub-envsci-2026": 1,
+        "qs-sub-medicine-2026": 1,
+        "qs-sub-biology-2026": 1,
+        "qs-sub-economics-2026": 1,
+        "qs-sub-psychology-2026": 1,
+        "qs-sub-history-2026": 1
       }
     },
     {
@@ -1350,7 +1695,16 @@
         "usnews-2026": 14,
         "cwur-2025": 28,
         "qs-2025": 2,
-        "qs-2027": 2
+        "qs-2027": 2,
+        "qs-sub-mining-2026": 8,
+        "gras-energy-2025": 5,
+        "gras-automation-2025": 3,
+        "qs-sub-mecheng-2026": 9,
+        "qs-sub-medicine-2026": 7,
+        "qs-sub-biology-2026": 7,
+        "qs-sub-civileng-2026": 7,
+        "qs-sub-chemeng-qs-2026": 4,
+        "gras-mecheng-2025": 10
       }
     },
     {
@@ -1420,7 +1774,19 @@
         "usnews-2026": 2,
         "cwur-2025": 2,
         "qs-2025": 1,
-        "qs-2027": 1
+        "qs-2027": 1,
+        "qs-sub-linguistics-2026": 1,
+        "qs-sub-datascience-2026": 1,
+        "gras-automation-2025": 1,
+        "qs-sub-cs-2026": 1,
+        "qs-sub-physics-2026": 1,
+        "qs-sub-maths-2026": 1,
+        "qs-sub-mecheng-2026": 1,
+        "qs-sub-eleceng-2026": 1,
+        "qs-sub-economics-2026": 2,
+        "qs-sub-chemistry-2026": 1,
+        "qs-sub-chemeng-qs-2026": 1,
+        "gras-eleceng-2025": 3
       }
     },
     {
@@ -1470,7 +1836,17 @@
         "usnews-2026": 16,
         "cwur-2025": 80,
         "qs-2025": 8,
-        "qs-2027": 10
+        "qs-2027": 10,
+        "qs-sub-datascience-2026": 3,
+        "gras-geography-2025": 1,
+        "qs-sub-cs-2026": 3,
+        "qs-sub-mecheng-2026": 3,
+        "qs-sub-eleceng-2026": 3,
+        "qs-sub-geography-2026": 4,
+        "qs-sub-civileng-2026": 2,
+        "qs-sub-materials-2026": 2,
+        "qs-sub-chemeng-qs-2026": 3,
+        "gras-nano-2025": 6
       }
     },
     {
@@ -1542,7 +1918,15 @@
         "usnews-2026": 3,
         "cwur-2025": 3,
         "qs-2025": 6,
-        "qs-2027": 2
+        "qs-2027": 2,
+        "qs-sub-anatomy-2026": 3,
+        "qs-sub-cs-2026": 2,
+        "qs-sub-mecheng-2026": 2,
+        "qs-sub-eleceng-2026": 2,
+        "qs-sub-statistics-2026": 1,
+        "qs-sub-business-2026": 2,
+        "gras-education-2025": 1,
+        "gras-chemistry-2025": 1
       }
     },
     {
@@ -1576,7 +1960,16 @@
         "usnews-2026": 6,
         "cwur-2025": 37,
         "qs-2025": 20,
-        "qs-2027": 14
+        "qs-2027": 14,
+        "qs-sub-architecture-2026": 9,
+        "qs-sub-civileng-2026": 8,
+        "qs-sub-materials-2026": 9,
+        "qs-sub-chemeng-qs-2026": 10,
+        "gras-mecheng-2025": 1,
+        "gras-eleceng-2025": 1,
+        "gras-chemeng-2025": 1,
+        "gras-materials-2025": 1,
+        "gras-nano-2025": 1
       }
     },
     {
@@ -1615,7 +2008,16 @@
         "usnews-2026": 5,
         "cwur-2025": 4,
         "qs-2025": 5,
-        "qs-2027": 6
+        "qs-2027": 6,
+        "qs-sub-archaeology-2026": 1,
+        "qs-sub-anatomy-2026": 2,
+        "gras-geography-2025": 6,
+        "qs-sub-maths-2026": 3,
+        "qs-sub-psychology-2026": 2,
+        "qs-sub-modlang-2026": 2,
+        "qs-sub-english-2026": 1,
+        "qs-sub-chemistry-2026": 2,
+        "gras-mecheng-2025": 9
       }
     },
     {
@@ -1754,7 +2156,16 @@
         "usnews-2026": 4,
         "cwur-2025": 5,
         "qs-2025": 3,
-        "qs-2027": 4
+        "qs-2027": 4,
+        "qs-sub-anthropology-2026": 1,
+        "qs-sub-anatomy-2026": 1,
+        "gras-geography-2025": 3,
+        "gras-ecology-2025": 1,
+        "qs-sub-maths-2026": 2,
+        "qs-sub-medicine-2026": 2,
+        "qs-sub-geography-2026": 1,
+        "qs-sub-modlang-2026": 1,
+        "qs-sub-english-2026": 2
       }
     },
     {
@@ -1880,8 +2291,15 @@
         "arwu-2025": 25,
         "usnews-2026": 20,
         "cwur-2025": 23,
+        "gras-publichealth-2024": 7,
         "qs-2025": 25,
-        "qs-2027": 32
+        "qs-2027": 32,
+        "qs-sub-nursing-2026": 4,
+        "qs-sub-education-2026": 10,
+        "qs-sub-anatomy-2026": 14,
+        "gras-ai-2025": 3,
+        "qs-sub-psychology-2026": 8,
+        "gras-sociology-2024": 2
       }
     },
     {

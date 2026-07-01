@@ -1,6 +1,36 @@
 ---
 import Base from "../layouts/Base.astro";
-import { dataset } from "../lib/rankings";
+import { dataset, type RankingCategory } from "../lib/rankings";
+
+const groups: { key: RankingCategory; label: string; blurb: string }[] = [
+  {
+    key: "overall",
+    label: "Overall world rankings",
+    blurb: "Whole-of-institution tables ranking every discipline together.",
+  },
+  {
+    key: "subject",
+    label: "Subject rankings",
+    blurb: "Individual disciplines, where a specialist institution may place far higher than its overall standing.",
+  },
+  {
+    key: "sdg",
+    label: "Sustainable Development Goal rankings",
+    blurb: "The Times Higher Education Impact tables, assessing contribution to each UN Sustainable Development Goal.",
+  },
+  {
+    key: "thematic",
+    label: "Thematic rankings",
+    blurb: "Cross-cutting tables measuring a single dimension such as sustainability, employability or institutional youth.",
+  },
+];
+
+const sourceGroups = groups
+  .map((g) => ({
+    ...g,
+    rankings: dataset.rankings.filter((r) => (r.category ?? "overall") === g.key),
+  }))
+  .filter((g) => g.rankings.length > 0);
 ---
 
 <Base
@@ -21,11 +51,14 @@ import { dataset } from "../lib/rankings";
     <h2>Selecting the headline ranking</h2>
     <p>
       Universities are assessed by many bodies, each with its own methodology,
-      weighting and emphasis. An institution may place differently from one
-      system to the next. Rather than impose a further layer of judgement, the
-      Index reports, for each institution, its <strong
-        >best verified world placement</strong
-      > — the lowest number it can legitimately claim across the rankings we track.
+      weighting and emphasis — and each publishes not only an overall table but
+      rankings by individual subject, by Sustainable Development Goal, and by
+      theme. An institution may place differently from one system to the next,
+      and dramatically higher in a specialist table than in the overall one.
+      Rather than impose a further layer of judgement, the Index reports, for
+      each institution, its <strong>best verified world placement</strong> — the
+      lowest number it can legitimately claim across every ranking we track,
+      whatever its scope.
     </p>
     <p>
       We consider this the most charitable and, we would argue, the most
@@ -35,21 +68,34 @@ import { dataset } from "../lib/rankings";
     </p>
 
     <h2>Sources</h2>
-    <p>The {dataset.rankings.length} ranking systems currently recorded:</p>
-    <ul class="sources">
-      {
-        dataset.rankings.map((r) => (
-          <li>
-            <a href={r.url} rel="external">
-              {r.name}
-            </a>{" "}
-            <span class="sources__meta">
-              {r.edition} &middot; {r.publisher}
-            </span>
-          </li>
-        ))
-      }
-    </ul>
+    <p>
+      The {dataset.rankings.length} ranking tables currently recorded, grouped by
+      scope. Where a publisher serves its tables behind access controls, the link
+      points to the relevant ranking portal; granular figures and their sources
+      are documented in the project repository.
+    </p>
+    {
+      sourceGroups.map((g) => (
+        <section class="source-group">
+          <h3 class="source-group__heading">
+            {g.label} <span class="source-group__count">{g.rankings.length}</span>
+          </h3>
+          <p class="source-group__blurb">{g.blurb}</p>
+          <ul class="sources">
+            {g.rankings.map((r) => (
+              <li>
+                <a href={r.url} rel="external">
+                  {r.scope ?? r.name}
+                </a>{" "}
+                <span class="sources__meta">
+                  {r.shortName} {r.edition} &middot; {r.publisher}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
 
     <h2>Banded results</h2>
     <p>
@@ -95,13 +141,41 @@ import { dataset } from "../lib/rankings";
     margin: 0.9rem 0 0;
   }
 
+  .source-group {
+    margin-top: 1.75rem;
+  }
+
+  .source-group__heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0 0 0.2rem;
+    font-size: 1.15rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .source-group__count {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .source-group__blurb {
+    margin: 0.4rem 0 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+  }
+
   .sources {
-    margin: 0.75rem 0 0;
+    margin: 0.6rem 0 0;
     padding-left: 1.1rem;
   }
 
   .sources li {
-    margin: 0.4rem 0;
+    margin: 0.35rem 0;
   }
 
   .sources__meta {

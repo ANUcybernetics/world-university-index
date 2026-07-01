@@ -6,6 +6,7 @@ import {
   rankedUniversities,
   rankProfile,
   ordinal,
+  scopeSuffix,
   type University,
   type BestRank,
 } from "../lib/rankings";
@@ -30,11 +31,12 @@ const place = university.city
   ? `${university.city}, ${university.country}`
   : university.country;
 const claim = ordinal(best.rank);
+const claimScope = scopeSuffix(best.ranking);
 ---
 
 <Base
   title={`${university.name} — World ranking | The World University Index`}
-  description={`${university.name} is ranked ${claim} in the world. Source: ${best.ranking.name} ${best.ranking.edition}.`}
+  description={`${university.name} is ranked ${claim} in the world${claimScope}. Source: ${best.ranking.name} ${best.ranking.edition}.`}
 >
   <article class="profile">
     <div class="container">
@@ -57,7 +59,7 @@ const claim = ordinal(best.rank);
           <RankBadge rank={best.rank} large />
         </p>
         <p class="headline__claim" id="headline-claim">
-          {university.name} is ranked <strong>{claim} in the world</strong>.
+          {university.name} is ranked <strong>{claim} in the world{claimScope}</strong>.
         </p>
         <p class="headline__source">
           Source:{" "}
@@ -89,8 +91,9 @@ const claim = ordinal(best.rank);
                     <a href={p.ranking.url} rel="external">
                       {p.ranking.shortName} {p.ranking.edition}
                     </a>
-                    {p.ranking.id === best.ranking.id && (
-                      <span class="tag">Headline</span>
+                    {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
+                    {p.ranking.scope && (
+                      <span class="profile-table__scope">in the world for {p.ranking.scope}</span>
                     )}
                   </th>
                   <td>{p.ranking.publisher}</td>
@@ -240,6 +243,15 @@ const claim = ordinal(best.rank);
     .profile-table__name a:hover {
       color: var(--accent);
       text-decoration: underline;
+    }
+
+    .profile-table__scope {
+      display: block;
+      margin-top: 0.2rem;
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-faint);
     }
 
     .profile-table .num {

@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+/** Broad family a ranking belongs to, used only to group the source list. */
+export const rankingCategorySchema = z.enum(["overall", "subject", "sdg", "thematic"]);
+
 /** Metadata describing one ranking publication (e.g. QS 2026). */
 export const rankingMetaSchema = z.object({
   id: z.string().min(1),
@@ -9,6 +12,14 @@ export const rankingMetaSchema = z.object({
   publisher: z.string().min(1),
   url: z.url(),
   retrieved: z.string().min(1),
+  /**
+   * What the placement is *for*, phrased to follow "in the world" — e.g.
+   * "Philosophy", "climate action (SDG 13)", "universities under 50 years old".
+   * Absent for an overall, whole-of-institution world ranking.
+   */
+  scope: z.string().min(1).optional(),
+  /** Ranking family, for grouping the source list. Defaults to "overall". */
+  category: rankingCategorySchema.optional(),
 });
 
 /** One institution and its placement in each ranking. */
@@ -25,9 +36,18 @@ export const datasetSchema = z.object({
   universities: z.array(universitySchema).min(1),
 });
 
+export type RankingCategory = z.infer<typeof rankingCategorySchema>;
 export type RankingMeta = z.infer<typeof rankingMetaSchema>;
 export type University = z.infer<typeof universitySchema>;
 export type Dataset = z.infer<typeof datasetSchema>;
+
+/**
+ * The qualifier appended to "in the world" for a ranking, e.g. " for Philosophy".
+ * Empty for an overall ranking, so the claim reads simply "in the world".
+ */
+export function scopeSuffix(ranking: RankingMeta): string {
+  return ranking.scope ? ` for ${ranking.scope}` : "";
+}
 
 /** Turn an institution name into a clean URL slug. */
 export function slugify(name: string): string {

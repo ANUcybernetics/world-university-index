@@ -214,7 +214,17 @@ const australian = entries.filter((e) => e.university.country === "Australia");
     }
 
     .league__row {
+      position: relative;
       border-bottom: 1px solid var(--rule);
+    }
+
+    .league__row:hover {
+      background: color-mix(in oklab, var(--accent) 5%, transparent);
+    }
+
+    .league__row:hover .league__inst a {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
     .league__row td,
@@ -245,6 +255,14 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       text-decoration: underline;
     }
 
+    /* Stretch the institution link across the whole row so the entire row is a
+       click target; the Source link is raised above it to stay clickable. */
+    .league__inst a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
     .league__claim {
       color: var(--ink-soft);
       max-width: 22rem;
@@ -266,6 +284,8 @@ const australian = entries.filter((e) => e.university.country === "Australia");
     }
 
     .league__src a {
+      position: relative;
+      z-index: 1;
       color: var(--ink-faint);
       text-decoration: none;
       border-bottom: 1px solid var(--rule-strong);

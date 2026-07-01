@@ -79,10 +79,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
                 <RankBadge rank={e.best.rank} />
               </td>
               <th scope="row" class="league__inst">
-                <a
-                  href={universityHref(e.slug)}
-                  style={`view-transition-name: inst-${e.slug}`}
-                >
+                <a href={universityHref(e.slug)} data-vt-name={`inst-${e.slug}`}>
                   {e.university.name}
                 </a>
               </th>
@@ -179,6 +176,25 @@ const australian = entries.filter((e) => e.university.country === "Australia");
 
     if (input) input.addEventListener("input", apply);
     apply();
+
+    // The index → institution morph is a cross-document view transition. Tagging
+    // all rows with a view-transition-name up front makes Safari re-do transition
+    // bookkeeping for every named element on each filter toggle, which beachballs
+    // the tab. Instead, tag only the row being navigated away from, at the last
+    // moment before the outgoing snapshot is taken.
+    window.addEventListener("pageswap", (event) => {
+      const swap = event as PageSwapEvent;
+      const to = swap.activation?.entry.url;
+      if (!swap.viewTransition || !to) return;
+      for (const link of document.querySelectorAll<HTMLAnchorElement>(
+        ".league__inst a",
+      )) {
+        if (link.href === to && link.dataset.vtName) {
+          link.style.viewTransitionName = link.dataset.vtName;
+          break;
+        }
+      }
+    });
   </script>
 
   <style>

@@ -286,14 +286,15 @@ headline like any other table; fetch methods are the ones recorded in
 ## National league tables added 2026-07 (home-market numbers)
 
 National rankings rank universities against others in their own country, not the
-world, so a new optional `universe` field on a ranking (e.g. "the United
-Kingdom") marks these: on an institution's profile they read "… in the United
-Kingdom" rather than "… in the world", and they are deliberately excluded from
-the world-scoped headline figure and the front-page league table. They give the
-non-Australian institutions a home-market number without ever letting a national
-rank masquerade as a world rank. Sourced from the relevant Wikipedia "Rankings
-of universities in <country>" aggregators cross-checked against the primary
-tables and university press releases.
+world. An optional `universe` field on a ranking (e.g. "the United Kingdom")
+records that honestly here, but the site does not surface it: a national
+placement is reported deadpan as "Nth in the world" like every other figure and
+can supply the headline, with only the source line (e.g. "CUG 2027") to give the
+game away — which is squarely the point of the site. This is the one place the
+figures are cherry-picked _and_ a little dishonest rather than merely
+cherry-picked; the `universe` field keeps the record straight even so. Sourced
+from the relevant Wikipedia "Rankings of universities in <country>" aggregators
+cross-checked against the primary tables and university press releases.
 
 - **United Kingdom** — Complete University Guide 2027 (via a Wayback capture of
   the CloudFront-blocked live page's embedded rank attributes) and the Guardian

@@ -88,8 +88,9 @@ institution counts and the current headline leaders.
 
 National league tables (CUG, Guardian, U.S. News National, WSJ, Forbes,
 Maclean's, THE Japan) carry a `universe` field naming the country they rank
-within. The site renders them as "… in <country>" and keeps them out of the
-world-scoped headline, so a national rank never poses as a world rank.
+within. It is recorded for provenance only: the site reports these placements
+deadpan as "Nth in the world" like any other, so a national #1 can headline as a
+world #1 — the source line is the only tell. That is the joke.
 
 ## Products tracked
 

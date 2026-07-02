@@ -375,7 +375,6 @@ const australian = entries.filter((e) => e.university.country === "Australia");
     }
 
     .league__row {
-      position: relative;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -400,6 +399,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
     }
 
     .league__inst {
+      position: relative;
       font-weight: 400;
       text-align: left;
     }
@@ -416,9 +416,10 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       text-decoration: underline;
     }
 
-    /* The institution link stretches across the whole row so the entire row is
-       a single click target. It is now the only link in the row, so there is no
-       nested link to raise above it. */
+    /* The institution link stretches across its cell to widen the click
+       target. The cell, not the row, is the containing block: Safari ignores
+       position: relative on a <tr>, which would let this overlay escape to the
+       viewport and swallow clicks meant for the search input. */
     .league__inst a::after {
       content: "";
       position: absolute;

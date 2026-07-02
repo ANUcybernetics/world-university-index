@@ -7,6 +7,7 @@ import {
   rankProfile,
   ordinal,
   scopeSuffix,
+  placementPhrase,
   type University,
   type BestRank,
 } from "../lib/rankings";
@@ -80,7 +81,7 @@ const claimScope = scopeSuffix(best.ranking);
             <tr>
               <th scope="col">Ranking</th>
               <th scope="col">Publisher</th>
-              <th scope="col" class="num">World rank</th>
+              <th scope="col" class="num">Rank</th>
             </tr>
           </thead>
           <tbody>
@@ -92,8 +93,8 @@ const claimScope = scopeSuffix(best.ranking);
                       {p.ranking.shortName} {p.ranking.edition}
                     </a>
                     {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
-                    {p.ranking.scope && (
-                      <span class="profile-table__scope">in the world for {p.ranking.scope}</span>
+                    {(p.ranking.scope || p.ranking.universe) && (
+                      <span class="profile-table__scope">{placementPhrase(p.ranking)}</span>
                     )}
                   </th>
                   <td>{p.ranking.publisher}</td>

@@ -18,6 +18,14 @@ export const rankingMetaSchema = z.object({
    * Absent for an overall, whole-of-institution world ranking.
    */
   scope: z.string().min(1).optional(),
+  /**
+   * The population a placement is measured against, phrased to follow "in " —
+   * e.g. "the United Kingdom", "Canada". Absent for a world ranking, whose
+   * placement is measured against every institution and reads "in the world".
+   * A ranking with a `universe` is a national/regional table: it is shown on an
+   * institution's profile but never feeds the world-scoped headline figure.
+   */
+  universe: z.string().min(1).optional(),
   /** Ranking family, for grouping the source list. Defaults to "overall". */
   category: rankingCategorySchema.optional(),
 });
@@ -55,6 +63,25 @@ export function scopeSuffix(ranking: RankingMeta): string {
  */
 export function isOverall(ranking: RankingMeta): boolean {
   return (ranking.category ?? "overall") === "overall";
+}
+
+/**
+ * Whether a ranking measures against the whole world, as opposed to a single
+ * country. Only world rankings feed the "in the world" headline figure; a
+ * national table (with a `universe`) shows on the profile but never in the
+ * headline or the front-page league table.
+ */
+export function isWorldRanking(ranking: RankingMeta): boolean {
+  return ranking.universe === undefined;
+}
+
+/**
+ * The phrase describing where a placement holds, following "ranked Nth ": a
+ * world ranking reads "in the world" plus any subject scope, a national one
+ * reads "in {universe}", e.g. "in the United Kingdom".
+ */
+export function placementPhrase(ranking: RankingMeta): string {
+  return ranking.universe ? `in ${ranking.universe}` : `in the world${scopeSuffix(ranking)}`;
 }
 
 /** A geographic grouping used by the index page's region filter buttons. */

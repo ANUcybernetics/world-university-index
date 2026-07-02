@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   bestRank,
+  isWorldRanking,
   ordinal,
+  placementPhrase,
   rankProfile,
   regionOf,
   slugify,
@@ -145,11 +147,43 @@ describe("rankProfile", () => {
   });
 });
 
+describe("placementPhrase", () => {
+  const base: RankingMeta = {
+    id: "x",
+    name: "X",
+    shortName: "X",
+    edition: "1",
+    publisher: "p",
+    url: "https://x.test",
+    retrieved: "x",
+  };
+
+  it("reads 'in the world' for an overall world ranking", () => {
+    expect(placementPhrase(base)).toBe("in the world");
+    expect(isWorldRanking(base)).toBe(true);
+  });
+
+  it("appends the subject scope for a world subject ranking", () => {
+    expect(placementPhrase({ ...base, scope: "Philosophy" })).toBe("in the world for Philosophy");
+  });
+
+  it("reads 'in {universe}' for a national ranking and marks it non-world", () => {
+    const national = { ...base, universe: "the United Kingdom" };
+    expect(placementPhrase(national)).toBe("in the United Kingdom");
+    expect(isWorldRanking(national)).toBe(false);
+  });
+});
+
 describe("rankedUniversities", () => {
   const entries = rankedUniversities();
 
-  it("includes every dataset institution that has at least one rank", () => {
-    const expected = dataset.universities.filter((u) => Object.keys(u.ranks).length > 0).length;
+  it("includes every dataset institution that has at least one world rank", () => {
+    // The headline is a world placement, so an institution ranked only in
+    // national tables would (correctly) not appear.
+    const worldIds = new Set(dataset.rankings.filter(isWorldRanking).map((r) => r.id));
+    const expected = dataset.universities.filter((u) =>
+      Object.keys(u.ranks).some((id) => worldIds.has(id)),
+    ).length;
     expect(entries).toHaveLength(expected);
   });
 

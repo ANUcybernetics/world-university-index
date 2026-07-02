@@ -3,6 +3,7 @@ import {
   bestRank as bestRankOf,
   datasetSchema,
   isOverall,
+  isWorldRanking,
   rankProfile as rankProfileOf,
   slugify,
   type BestRank,
@@ -17,14 +18,19 @@ export * from "./schema";
 export const dataset: Dataset = datasetSchema.parse(rawData);
 
 const rankingsById = new Map(dataset.rankings.map((r) => [r.id, r]));
-const overallRankings = dataset.rankings.filter(isOverall);
+// The headline claim is always "in the world", so only world rankings can
+// produce it — national tables (with a `universe`) are excluded here and surface
+// only in the full profile. "Overall" further narrows that to
+// whole-of-institution world rankings.
+const worldRankings = dataset.rankings.filter(isWorldRanking);
+const overallRankings = worldRankings.filter(isOverall);
 
-/** An institution's strongest placement across the loaded dataset. */
+/** An institution's strongest world placement across the loaded dataset. */
 export function bestRank(uni: University): BestRank | null {
-  return bestRankOf(uni, dataset.rankings);
+  return bestRankOf(uni, worldRankings);
 }
 
-/** An institution's strongest placement among the overall rankings only. */
+/** An institution's strongest placement among the overall world rankings only. */
 export function bestOverallRank(uni: University): BestRank | null {
   return bestRankOf(uni, overallRankings);
 }

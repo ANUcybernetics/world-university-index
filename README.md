@@ -44,12 +44,15 @@ it with confidence.
 All ranking figures live in [`src/data/rankings.json`](src/data/rankings.json):
 a list of ranking tables --- overall, by subject, by Sustainable Development
 Goal, and thematic, across multiple editions --- and a list of institutions,
-each with its world position in the tables it appears in. A table may be scoped
-(e.g. "Philosophy", "climate action (SDG 13)"), and the site reports each
-institution's single best position across all of them, whatever the scope or
-year. Banded results (e.g. "201--250") are recorded at the lower bound. The
-schema and best-rank logic are in [`src/lib/`](src/lib); where each figure comes
-from and how to refresh it are in [`PROVENANCE.md`](src/data/PROVENANCE.md) and
+each with its position in the tables it appears in. A table may be scoped to a
+subject or theme (e.g. "Philosophy", "climate action (SDG 13)") or ranked within
+a single country, and the site reports each institution's single best world
+position across all of them, whatever the scope or year. National tables show on
+an institution's page but never as its headline figure, so a home-market rank
+can't pose as a world one. Banded results (e.g. "201--250") are recorded at the
+lower bound. The schema and best-rank logic are in [`src/lib/`](src/lib); where
+each figure comes from and how to refresh it are in
+[`PROVENANCE.md`](src/data/PROVENANCE.md) and
 [`sources.md`](src/data/sources.md).
 
 ```sh

@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths } from "astro";
 import Base from "../layouts/Base.astro";
+import EmbedCode from "../components/EmbedCode.astro";
 import RankBadge from "../components/RankBadge.astro";
 import {
   rankedUniversities,
@@ -113,6 +114,8 @@ const claimScope = scopeSuffix(best.ranking);
           >.
         </p>
       </section>
+
+      <EmbedCode university={university} slug={slug} />
     </div>
   </article>
 

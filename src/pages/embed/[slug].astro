@@ -1,0 +1,157 @@
+---
+import type { GetStaticPaths } from "astro";
+import RankBadge from "../../components/RankBadge.astro";
+import {
+  ordinal,
+  rankedUniversities,
+  scopeSuffix,
+  type BestRank,
+  type University,
+} from "../../lib/rankings";
+import { universityHref } from "../../lib/paths";
+
+export const getStaticPaths = (() => {
+  return rankedUniversities().map((e) => ({
+    params: { slug: e.slug },
+    props: { university: e.university, slug: e.slug, best: e.best },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  university: University;
+  slug: string;
+  best: BestRank;
+}
+
+const { university, slug, best } = Astro.props;
+const name = university.shortName ?? university.name;
+const claim = ordinal(best.rank);
+const claimScope = scopeSuffix(best.ranking);
+const profileUrl = new URL(universityHref(slug), Astro.site);
+---
+
+<!-- Standalone document: this page is loaded inside an iframe on third-party
+     sites, so it carries its own tokens and no site chrome. -->
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{university.name} — The World University Index</title>
+  </head>
+  <body>
+    <a class="widget" href={profileUrl} target="_blank" rel="noopener">
+      <p class="widget__brand">
+        <span class="widget__mark" aria-hidden="true">WUI</span>
+        The World University Index
+      </p>
+      <p class="widget__row">
+        <span class="widget__figure"><RankBadge rank={best.rank} /></span>
+        <span class="widget__claim">
+          {name} is ranked <strong>{claim} in the world{claimScope}</strong>.
+        </span>
+      </p>
+      <p class="widget__source">{best.ranking.shortName} {best.ranking.edition}</p>
+    </a>
+
+    <style is:global>
+      :root {
+        --ink: #18243a;
+        --ink-soft: #43506a;
+        --ink-faint: #6b7790;
+        --paper: #fffdf8;
+        --rule-strong: #b9af99;
+        --accent: #7c1f2e;
+        --accent-soft: #9a4150;
+        --serif:
+          "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia,
+          "Times New Roman", serif;
+        --sans:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
+        --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: transparent;
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .widget {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 0.5rem;
+        height: 100dvh;
+        padding: 0.8rem 1rem;
+        background: var(--paper);
+        border: 1px solid var(--rule-strong);
+        border-radius: 2px;
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .widget:hover,
+      .widget:focus-visible {
+        border-color: var(--accent);
+      }
+
+      .widget:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: -4px;
+      }
+
+      .widget__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 0.8rem;
+        color: var(--ink-soft);
+      }
+
+      .widget__mark {
+        padding: 0.12rem 0.3rem;
+        font-family: var(--mono);
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: var(--paper);
+        background: var(--accent);
+        border-radius: 2px;
+      }
+
+      .widget__row {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin: 0;
+      }
+
+      .widget__figure {
+        font-size: 2.8rem;
+        letter-spacing: -0.02em;
+      }
+
+      .widget__claim {
+        font-family: var(--serif);
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .widget__source {
+        margin: 0;
+        font-size: 0.72rem;
+        color: var(--ink-faint);
+      }
+    </style>
+  </body>
+</html>

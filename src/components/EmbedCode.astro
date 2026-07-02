@@ -1,0 +1,109 @@
+---
+import { type University } from "../lib/rankings";
+import { embedHref } from "../lib/paths";
+
+interface Props {
+  university: University;
+  slug: string;
+}
+
+const { university, slug } = Astro.props;
+const name = university.shortName ?? university.name;
+const embedUrl = new URL(embedHref(slug), Astro.site);
+const iframeTitle = `${university.name} — The World University Index`;
+const snippet = `<iframe src="${embedUrl}" width="360" height="160" style="border:0" title="${iframeTitle}" loading="lazy"></iframe>`;
+---
+
+<section class="embed" aria-labelledby="embed-heading">
+  <h2 id="embed-heading" class="embed__heading">Embed this figure</h2>
+  <p class="embed__intro">
+    Show {name}'s headline figure on your own site: copy this snippet into any web page.
+    The widget carries its source attribution, stays current as new editions are
+    published, and links back to this profile.
+  </p>
+  <div class="embed__preview">
+    <iframe
+      src={embedHref(slug)}
+      width="360"
+      height="160"
+      style="border:0"
+      title={iframeTitle}
+      loading="lazy"></iframe>
+  </div>
+  <div class="embed__code">
+    <pre class="embed__snippet"><code>{snippet}</code></pre>
+    <button type="button" class="embed__copy" data-snippet={snippet}>Copy</button>
+  </div>
+</section>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>(".embed__copy");
+  button?.addEventListener("click", async () => {
+    await navigator.clipboard.writeText(button.dataset.snippet ?? "");
+    button.textContent = "Copied";
+    setTimeout(() => {
+      button.textContent = "Copy";
+    }, 2000);
+  });
+</script>
+
+<style>
+  .embed {
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .embed__heading {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+
+  .embed__intro {
+    margin: 0.5rem 0 1.5rem;
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+
+  .embed__preview {
+    margin-bottom: 1rem;
+  }
+
+  .embed__code {
+    display: flex;
+    align-items: stretch;
+    max-width: 44rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius);
+    background: var(--paper);
+  }
+
+  .embed__snippet {
+    flex: 1;
+    margin: 0;
+    padding: 0.85rem 1rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .embed__copy {
+    flex-shrink: 0;
+    padding: 0 1.1rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--paper);
+    background: var(--ink);
+    border: none;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    cursor: pointer;
+  }
+
+  .embed__copy:hover {
+    background: var(--accent);
+  }
+</style>

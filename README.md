@@ -32,13 +32,12 @@ universities --- which reports, for every institution, its single best
 [each](https://www.swinburne.edu.au/news/2025/03/swinburne-shines-in-2025-qs-world-university-rankings-by-subject/)
 year --- and with over a hundred ranking tables now in circulation (overall, by
 subject, by Sustainable Development Goal, and across several editions of each),
-there is almost always one in which any given institution can call itself
-world-leading. This site does that selection for them, with a clean editorial
-design and a deadpan
-[methodology](https://anucybernetics.github.io/world-university-index/methodology/)
-that never breaks character.
+there is almost always one in your institution can call itself world-leading.
 
-So grab the number and use it with confidence.
+You could look at the
+[methodology](https://anucybernetics.github.io/world-university-index/methodology/)
+if you like. But who's got time for that? Honestly, just grab the number and use
+it with confidence.
 
 ## Data
 

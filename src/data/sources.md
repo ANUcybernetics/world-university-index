@@ -67,34 +67,64 @@ institution counts and the current headline leaders.
 - **Time / time.com** — article pages block normal UAs (403/406, a Googlebot UA
   works); the table is an embedded Datawrapper chart with a CSV at
   `datawrapper.dwcdn.net/<id>/dataset.csv`.
+- **Complete University Guide / thecompleteuniversityguide.co.uk** — the live
+  league table is CloudFront-blocked (403); read a Wayback Machine capture,
+  whose rows carry `data-<N>-uni-ranking` attributes with exact positions (ties
+  included).
+- **Guardian University Guide / theguardian.com** — the interactive isn't
+  directly fetchable; read the ordered table from the Wikipedia "Rankings of
+  universities in the United Kingdom" wikitext via the MediaWiki raw API.
+- **U.S. News National Universities / usnews.com** — same HTTP/2 anti-bot block
+  as the overall table; read the order from a reproduction and cross-check
+  against university press releases. Ties share an ordinal.
+- **WSJ / Forbes US college rankings** — wsj.com and forbes.com are
+  paywalled/JS-heavy; read positions from published reproductions (e.g.
+  poetsandquants.com) and cross-check press releases. The stored `url` is the
+  canonical publisher page, not the reproduction.
+- **Maclean's / macleans.ca** — capture the category table (Medical Doctoral for
+  the research universities); cross-check against each university's own page.
+- **THE Japan University Rankings** — same JSON-payload trick as the other THE
+  tables (`timeshighereducation.com/rankings/japan`).
+
+National league tables (CUG, Guardian, U.S. News National, WSJ, Forbes,
+Maclean's, THE Japan) carry a `universe` field naming the country they rank
+within. The site renders them as "… in <country>" and keeps them out of the
+world-scoped headline, so a national rank never poses as a world rank.
 
 ## Products tracked
 
-| Product                                                   | Publisher                            | Next edition ~due        | Latest held | Notes                                                                                                            |
-| --------------------------------------------------------- | ------------------------------------ | ------------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------- |
-| QS World University Rankings (overall)                    | QS                                   | June (annual)            | 2027        | Hold 2025, 2026, 2027. Adelaide 2027 = merged "Adelaide University".                                             |
-| QS World University Rankings by Subject                   | QS                                   | March (annual)           | 2026        | Hold 2025, 2026. ~55 disciplines; we track the ones where our institutions place well.                           |
-| QS World University Rankings: Sustainability              | QS                                   | Nov (annual)             | 2026        | One overall table.                                                                                               |
-| QS Graduate Employability Rankings                        | QS                                   | discontinued             | 2022        | Last standalone edition was 2022; folded into main methodology since.                                            |
-| THE World University Rankings (overall)                   | THE                                  | Oct (annual)             | 2026        | 2027 due Oct 2026.                                                                                               |
-| THE Sustainability Impact Ratings (was "Impact Rankings") | THE                                  | June (annual)            | 2026        | Hold 2024, 2025, 2026. Rebranded at the 2026 edition. Overall + 17 SDG tables. Most Go8 don't participate.       |
-| THE Young University Rankings                             | THE                                  | discontinued             | 2024        | Discontinued after the 2024 edition — do not look for a 2025.                                                    |
-| ARWU Academic Ranking of World Universities (overall)     | ShanghaiRanking                      | Aug (annual)             | 2025        | 2026 due ~Aug 2026.                                                                                              |
-| ARWU Global Ranking of Academic Subjects (GRAS)           | ShanghaiRanking                      | Nov (annual)             | 2025        | Hold 2024, 2025. 57 subjects, each at `/rankings/gras/<year>/<AScode>`.                                          |
-| ARWU Global Ranking of Sport Science (GRSSSD)             | ShanghaiRanking                      | annual                   | 2025        | Hold 2024, 2025.                                                                                                 |
-| U.S. News Best Global Universities (overall)              | U.S. News                            | Oct (annual)             | 2026-2027   | Subject tables blocked here (see above).                                                                         |
-| CWUR Global 2000                                          | Center for World University Rankings | mid-year (annual)        | 2025        | 2026 due ~mid-2026.                                                                                              |
-| CWTS Leiden Ranking                                       | CWTS, Leiden University              | mid-year (annual)        | 2025        | Overall (P) + PP(top 10%) impact + field tables. Field impact tables skewed by mega-collaboration co-authorship. |
-| Round University Ranking (RUR)                            | RUR Rankings Agency                  | annual                   | 2026        | Overall + 4 dimensions. Opt-in data model, so many institutions are N/A.                                         |
-| NTU Ranking                                               | National Taiwan University           | annual                   | 2025        | Overall + 6 field tables. Banded past ~800 → lower bound.                                                        |
-| University Ranking by Academic Performance (URAP)         | METU (URAP Lab)                      | mid-year (annual)        | 2025-2026   | Overall + field tables (field edition lags the world edition by one cycle).                                      |
-| SCImago Institutions Rankings (SIR)                       | SCImago Research Group               | annual (Mar)             | 2026        | Use higher-education-sector rank. Cloudflare-blocked; via Wayback.                                               |
-| Webometrics                                               | Cybermetrics Lab, CSIC               | Jan & Jul (twice yearly) | 2025.2      | Site offline since early 2026; last open edition is Jul 2025 on figshare.                                        |
-| Nature Index                                              | Nature / Springer Nature             | annual tables (rolling)  | 2025        | Academic-sector filter. Overall + subject tables.                                                                |
-| THE World Reputation Rankings                             | THE                                  | discontinued             | 2025        | Final edition — THE is retiring this ranking. Recorded as overall scoped "reputation".                           |
-| Three University Missions (MosIUR)                        | Association of Rating Makers         | annual                   | 2025        | Single overall table, banded past 300.                                                                           |
-| Aggregate Ranking of Top Universities (ARTU)              | UNSW Sydney                          | annual                   | 2025        | Meta-ranking of QS/THE/ARWU; top 400 only.                                                                       |
-| Time World's Top Universities                             | Time / Statista                      | annual (Jan)             | 2026        | Inaugural 2026 edition. Single overall table.                                                                    |
+| Product                                                   | Publisher                            | Next edition ~due        | Latest held | Notes                                                                                                                        |
+| --------------------------------------------------------- | ------------------------------------ | ------------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| QS World University Rankings (overall)                    | QS                                   | June (annual)            | 2027        | Hold 2025, 2026, 2027. Adelaide 2027 = merged "Adelaide University".                                                         |
+| QS World University Rankings by Subject                   | QS                                   | March (annual)           | 2026        | Hold 2025, 2026. ~55 disciplines; we track the ones where our institutions place well.                                       |
+| QS World University Rankings: Sustainability              | QS                                   | Nov (annual)             | 2026        | One overall table.                                                                                                           |
+| QS Graduate Employability Rankings                        | QS                                   | discontinued             | 2022        | Last standalone edition was 2022; folded into main methodology since.                                                        |
+| THE World University Rankings (overall)                   | THE                                  | Oct (annual)             | 2026        | 2027 due Oct 2026.                                                                                                           |
+| THE Sustainability Impact Ratings (was "Impact Rankings") | THE                                  | June (annual)            | 2026        | Hold 2024, 2025, 2026. Rebranded at the 2026 edition. Overall + 17 SDG tables. Most Go8 don't participate.                   |
+| THE Young University Rankings                             | THE                                  | discontinued             | 2024        | Discontinued after the 2024 edition — do not look for a 2025.                                                                |
+| ARWU Academic Ranking of World Universities (overall)     | ShanghaiRanking                      | Aug (annual)             | 2025        | 2026 due ~Aug 2026.                                                                                                          |
+| ARWU Global Ranking of Academic Subjects (GRAS)           | ShanghaiRanking                      | Nov (annual)             | 2025        | Hold 2024, 2025. 57 subjects, each at `/rankings/gras/<year>/<AScode>`.                                                      |
+| ARWU Global Ranking of Sport Science (GRSSSD)             | ShanghaiRanking                      | annual                   | 2025        | Hold 2024, 2025.                                                                                                             |
+| U.S. News Best Global Universities (overall)              | U.S. News                            | Oct (annual)             | 2026-2027   | Subject tables blocked here (see above).                                                                                     |
+| CWUR Global 2000                                          | Center for World University Rankings | mid-year (annual)        | 2025        | 2026 due ~mid-2026.                                                                                                          |
+| CWTS Leiden Ranking                                       | CWTS, Leiden University              | mid-year (annual)        | 2025        | Overall (P) + PP(top 10%) impact + all 5 broad-field tables. Field impact tables skewed by mega-collaboration co-authorship. |
+| Round University Ranking (RUR)                            | RUR Rankings Agency                  | annual                   | 2026        | Overall + 4 dimensions. Opt-in data model, so many institutions are N/A.                                                     |
+| NTU Ranking                                               | National Taiwan University           | annual                   | 2025        | Overall + 8 field tables + 26 subject tables. Banded past ~800 → lower bound.                                                |
+| University Ranking by Academic Performance (URAP)         | METU (URAP Lab)                      | mid-year (annual)        | 2025-2026   | Overall + 19 field tables (field edition lags the world edition by one cycle).                                               |
+| SCImago Institutions Rankings (SIR)                       | SCImago Research Group               | annual (Mar)             | 2026        | Overall + Research/Societal + 18 subject-area tables. Higher-ed-sector rank. Cloudflare-blocked; via Wayback.                |
+| Webometrics                                               | Cybermetrics Lab, CSIC               | Jan & Jul (twice yearly) | 2025.2      | Site offline since early 2026; last open edition is Jul 2025 on figshare.                                                    |
+| Nature Index                                              | Nature / Springer Nature             | annual tables (rolling)  | 2025        | Academic-sector filter. Overall + subject tables.                                                                            |
+| THE World Reputation Rankings                             | THE                                  | discontinued             | 2025        | Final edition — THE is retiring this ranking. Recorded as overall scoped "reputation".                                       |
+| Three University Missions (MosIUR)                        | Association of Rating Makers         | annual                   | 2025        | Single overall table, banded past 300.                                                                                       |
+| Aggregate Ranking of Top Universities (ARTU)              | UNSW Sydney                          | annual                   | 2025        | Meta-ranking of QS/THE/ARWU; top 400 only.                                                                                   |
+| Time World's Top Universities                             | Time / Statista                      | annual (Jan)             | 2026        | Inaugural 2026 edition. Single overall table.                                                                                |
+| Complete University Guide (UK, national)                  | Complete University Guide            | annual (June)            | 2027        | National (UK); `universe`. Live page Wayback-only.                                                                           |
+| Guardian University Guide (UK, national)                  | Guardian News & Media                | annual (Sept)            | 2026        | National (UK); via the Wikipedia aggregator.                                                                                 |
+| U.S. News National Universities (US, national)            | U.S. News                            | Sep (annual)             | 2026        | National (US); usnews.com blocked, via reproductions.                                                                        |
+| WSJ / College Pulse Best Colleges (US, national)          | Wall Street Journal                  | annual                   | 2026        | National (US); paywalled, via reproductions.                                                                                 |
+| Forbes America's Top Colleges (US, national)              | Forbes                               | annual                   | 2025-2026   | National (US); paywalled, via reproductions.                                                                                 |
+| Maclean's University Rankings (Canada, national)          | Maclean's                            | annual                   | 2026        | National (Canada); Medical Doctoral category.                                                                                |
+| THE Japan University Rankings (Japan, national)           | THE                                  | annual                   | 2025        | National (Japan); THE JSON payload.                                                                                          |
 
 ## When refreshing
 

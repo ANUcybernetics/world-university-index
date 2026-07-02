@@ -248,10 +248,86 @@ institutions.
   (10%). The article pages block normal fetches; the table is an embedded
   Datawrapper chart whose CSV dataset was read directly.
 
+## Sub-table deepening added 2026-07 (65 further world tables)
+
+More field and subject sub-tables for four systems already held, chosen for
+where our institutions place strongest. All are world-scoped, so they feed the
+headline like any other table; fetch methods are the ones recorded in
+`sources.md`. Ranks are exact integers from each publisher's own data.
+
+- **CWTS Leiden Ranking (2025)** — the three remaining broad fields on the
+  PP(top 10%) impact indicator (biomedical & health sciences, life & earth
+  sciences, social sciences & humanities), fractional counting, from the
+  `traditional.leidenranking.com` AJAX endpoint. 142–144/151 each, matching the
+  coverage of the physical-sciences and maths/CS field tables already held.
+  Leiden's own institution strings were folded onto our exact key names (e.g.
+  "ETH Zürich" → ETH Zurich, "Katholieke Universiteit Leuven" → KU Leuven,
+  "University of Michigan" → University of Michigan-Ann Arbor); the merger case
+  Institute of Science Tokyo is genuinely below Leiden's per-field threshold and
+  left absent.
+- **NTU Ranking (2025)** — the two remaining broad fields (engineering,
+  agriculture) plus all 26 subject tables from the `SubjectRanking_AJAX/<code>`
+  endpoints, restricted to `RankU` ≤ 50. Two subject codes that share a display
+  name with a held broad field are disambiguated by id
+  (`ntu-clinicalmedicinesubject-2025`, `ntu-socialsciencesgeneral-2025`).
+- **University Ranking by Academic Performance (2024–2025)** — fifteen further
+  field tables (engineering, the physical/chemical/biological/earth/
+  environmental sciences, agriculture, veterinary, education, psychology,
+  economics, law, computing, mathematics, medical & health), each top-50, read
+  from the client-rendered grid via `agent-browser`.
+- **SCImago Institutions Rankings** — eighteen subject-area tables (medicine,
+  engineering, computer science, physics, chemistry, the social sciences and
+  humanities, and more), higher-education-sector rank, from Wayback snapshots of
+  the Cloudflare-blocked live site. Editions vary by subject (2025 or 2026)
+  because the usable snapshot date differs per area; each `url` is the snapshot
+  actually read. Six areas had no country-unfiltered snapshot and were skipped
+  rather than guessed.
+
+## National league tables added 2026-07 (home-market numbers)
+
+National rankings rank universities against others in their own country, not the
+world, so a new optional `universe` field on a ranking (e.g. "the United
+Kingdom") marks these: on an institution's profile they read "… in the United
+Kingdom" rather than "… in the world", and they are deliberately excluded from
+the world-scoped headline figure and the front-page league table. They give the
+non-Australian institutions a home-market number without ever letting a national
+rank masquerade as a world rank. Sourced from the relevant Wikipedia "Rankings
+of universities in <country>" aggregators cross-checked against the primary
+tables and university press releases.
+
+- **United Kingdom** — Complete University Guide 2027 (via a Wayback capture of
+  the CloudFront-blocked live page's embedded rank attributes) and the Guardian
+  University Guide 2026 (from the Wikipedia aggregator, the Guardian site not
+  being directly fetchable). All 19 UK institutions in each. The Times / Sunday
+  Times Good University Guide was skipped: paywalled, and the only open
+  reproduction exposed just ranks 1–10 with an internal inconsistency.
+- **United States** — U.S. News Best Colleges 2026 National Universities (36),
+  the Wall Street Journal / College Pulse 2026 list (28) and Forbes America's
+  Top Colleges 2025–2026 (34). U.S. News is anti-bot-blocked here and WSJ/Forbes
+  are paywalled, so ranks were read from published reproductions and
+  cross-checked against university press releases; the `url` on the WSJ and
+  Forbes tables points to the canonical publisher page. Washington Monthly was
+  skipped — its 2025 guide no longer publishes a single National Universities
+  table.
+- **Canada** — Maclean's University Rankings 2026, Medical Doctoral category,
+  all five Canadian institutions (McGill 1, Toronto 2, UBC 3, Alberta 4,
+  Montreal 11).
+- **Japan** — THE Japan University Rankings 2025 (from the underlying datatable
+  JSON): Tohoku 1, Tokyo 3, Kyoto 4, Osaka 6. Institute of Science Tokyo is left
+  absent because THE's 2025 table still lists its two 2024 merger predecessors
+  (Tokyo Institute of Technology, Tokyo Medical & Dental) separately, with no
+  combined entry.
+
 ## Not included
 
-U.S. News subject tables could not be verified from this host (anti-bot block),
-so only the U.S. News overall ranking is recorded.
+U.S. News global subject tables could not be verified from this host (anti-bot
+block), so only the U.S. News overall world ranking is recorded (the U.S. News
+_National Universities_ table is held separately as a national ranking, above).
+
+Excellence in Research for Australia (ERA), cited on Wikipedia's Group of Eight
+page, was deliberately excluded: it rates each research field on a 1–5 "world
+standard" scale rather than producing a rank-ordered position, so it has no
+world (or national) place number to record.
 
 Defunct or low-credibility global systems from Wikipedia's catalogue were
 deliberately skipped: Reuters Most Innovative (last 2019), HEEACT (ended 2012),

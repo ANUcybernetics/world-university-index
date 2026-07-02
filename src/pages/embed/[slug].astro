@@ -4,7 +4,6 @@ import RankBadge from "../../components/RankBadge.astro";
 import {
   ordinal,
   rankedUniversities,
-  scopeSuffix,
   type BestRank,
   type University,
 } from "../../lib/rankings";
@@ -26,7 +25,13 @@ interface Props {
 const { university, slug, best } = Astro.props;
 const name = university.shortName ?? university.name;
 const claim = ordinal(best.rank);
-const claimScope = scopeSuffix(best.ranking);
+// The claim is deliberately unqualified — the scope hides in the small print.
+const source = [
+  `${best.ranking.shortName} ${best.ranking.edition}`,
+  best.ranking.scope,
+]
+  .filter(Boolean)
+  .join(" · ");
 const profileUrl = new URL(universityHref(slug), Astro.site);
 ---
 
@@ -49,10 +54,10 @@ const profileUrl = new URL(universityHref(slug), Astro.site);
       <p class="widget__row">
         <span class="widget__figure"><RankBadge rank={best.rank} /></span>
         <span class="widget__claim">
-          {name} is ranked <strong>{claim} in the world{claimScope}</strong>.
+          {name} is ranked <strong>{claim} in the world</strong>.
         </span>
       </p>
-      <p class="widget__source">{best.ranking.shortName} {best.ranking.edition}</p>
+      <p class="widget__source">{source}</p>
     </a>
 
     <style is:global>

@@ -126,6 +126,7 @@ world #1 — the source line is the only tell. That is the joke.
 | Forbes America's Top Colleges (US, national)              | Forbes                               | annual                   | 2025-2026   | National (US); paywalled, via reproductions.                                                                                 |
 | Maclean's University Rankings (Canada, national)          | Maclean's                            | annual                   | 2026        | National (Canada); Medical Doctoral category.                                                                                |
 | THE Japan University Rankings (Japan, national)           | THE                                  | annual                   | 2025        | National (Japan); THE JSON payload.                                                                                          |
+| Global Index of Research Throughput (GIRT)                | Slop University                      | annual                   | 2026        | Self-published, opt-in submission; sole participant places 1st. `universe`.                                                  |
 
 ## When refreshing
 

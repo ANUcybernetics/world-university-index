@@ -3194,6 +3194,18 @@
       "retrieved": "2026-07-02",
       "universe": "the United States",
       "category": "overall"
+    },
+    {
+      "id": "girt-2026",
+      "name": "Global Index of Research Throughput",
+      "shortName": "GIRT",
+      "edition": "2026",
+      "publisher": "Slop University, Office of Research Outputs",
+      "url": "https://slop.university/girt/",
+      "retrieved": "2026-08-07",
+      "scope": "research throughput",
+      "universe": "participating institutions",
+      "category": "thematic"
     }
   ],
   "universities": [
@@ -7722,6 +7734,13 @@
         "urap-information-computing-sciences-2024-2025": 7,
         "urap-mathematical-sciences-2024-2025": 4,
         "urap-medical-and-health-sciences-2024-2025": 34
+      }
+    },
+    {
+      "name": "Slop University",
+      "country": "Australia",
+      "ranks": {
+        "girt-2026": 1
       }
     },
     {

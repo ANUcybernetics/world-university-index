@@ -319,6 +319,25 @@ cross-checked against the primary tables and university press releases.
   (Tokyo Institute of Technology, Tokyo Medical & Dental) separately, with no
   combined entry.
 
+## Self-published index added 2026-08
+
+The Global Index of Research Throughput (GIRT, 2026 edition) is published by
+Slop University's Office of Research Outputs and was verified directly from the
+publisher's own table (linked from `rankings.json`). The index runs on voluntary
+institutional data submission; Slop University is currently the sole
+participating institution, and places 1st. Recorded with
+`universe: "participating institutions"` — the same honest-provenance treatment
+as the national league tables above, taken to its logical conclusion: the site
+reports the placement deadpan as "1st in the world for research throughput",
+with only the source line (GIRT 2026, publisher: Slop University) to give the
+game away. This is the one entry where the publisher, the sole participant and
+the winner are the same institution — the ranking industry's limiting case, and
+squarely the point of the site.
+
+For the record's sake: Slop University is itself a fiction (an autonomous
+publishing art project at slop.university). The Index records its figure without
+comment, exactly as it records every other institution's most flattering number.
+
 ## Not included
 
 U.S. News global subject tables could not be verified from this host (anti-bot

@@ -3283,6 +3283,28 @@
       "retrieved": "2026-09-06",
       "scope": "Ecology",
       "category": "subject"
+    },
+    {
+      "id": "the-impact-sdg4-2024",
+      "name": "THE Sustainability Impact Ratings: quality education (SDG 4)",
+      "shortName": "THE Impact",
+      "edition": "2024",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/quality-education/2024",
+      "retrieved": "2026-09-06",
+      "scope": "quality education (SDG 4)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg5-2024",
+      "name": "THE Sustainability Impact Ratings: gender equality (SDG 5)",
+      "shortName": "THE Impact",
+      "edition": "2024",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/gender-equality/2024",
+      "retrieved": "2026-09-06",
+      "scope": "gender equality (SDG 5)",
+      "category": "sdg"
     }
   ],
   "universities": [
@@ -3721,6 +3743,7 @@
       "ranks": {
         "qs-2026": 584,
         "the-2026": 401,
+        "the-impact-sdg5-2026": 8,
         "the-impact-sdg8-2023": 36,
         "the-impact-sdg11-2023": 92,
         "leiden-2025": 1493,
@@ -3739,7 +3762,8 @@
         "leiden-life-earth-sciences-2025": 592,
         "leiden-social-sciences-humanities-2025": 736,
         "scimago-computer-science-2025": 296,
-        "scimago-engineering-2025": 186
+        "scimago-engineering-2025": 186,
+        "the-impact-sdg5-2024": 42
       }
     },
     {
@@ -3751,6 +3775,7 @@
         "qs-2026": 951,
         "the-2026": 601,
         "the-impact-sdg13-2025": 12,
+        "the-impact-sdg5-2026": 24,
         "leiden-2025": 1372,
         "leiden-impact-2025": 821,
         "leiden-mathematics-computer-science-2025": 484,
@@ -3761,7 +3786,8 @@
         "leiden-biomedical-health-sciences-2025": 945,
         "leiden-life-earth-sciences-2025": 451,
         "leiden-social-sciences-humanities-2025": 722,
-        "scimago-veterinary-2026": 315
+        "scimago-veterinary-2026": 315,
+        "the-impact-sdg5-2024": 33
       }
     },
     {
@@ -3826,7 +3852,8 @@
         "scimago-veterinary-2026": 171,
         "scimago-dentistry-2026": 379,
         "the-impact-sdg8-2025": 33,
-        "the-impact-sdg16-2023": 23
+        "the-impact-sdg16-2023": 23,
+        "the-impact-sdg4-2024": 34
       }
     },
     {
@@ -4086,6 +4113,7 @@
         "the-2026": 401,
         "the-impact-sdg6-2025": 7,
         "the-impact-sdg10-2025": 3,
+        "the-impact-sdg5-2026": 41,
         "the-impact-sdg17-2026": 9,
         "leiden-2025": 1359,
         "leiden-impact-2025": 208,
@@ -4095,7 +4123,8 @@
         "urap-nursing-2024-2025": 61,
         "urap-public-environmental-occupational-health-2024-2025": 357,
         "webometrics-2025": 944,
-        "mosiur-2025": 801
+        "mosiur-2025": 801,
+        "the-impact-sdg5-2024": 33
       }
     },
     {
@@ -4638,7 +4667,8 @@
         "leiden-social-sciences-humanities-2025": 282,
         "scimago-arts-and-humanities-2026": 306,
         "scimago-psychology-2025": 236,
-        "scimago-social-sciences-2025": 378
+        "scimago-social-sciences-2025": 378,
+        "the-impact-sdg5-2024": 8
       }
     },
     {
@@ -4885,7 +4915,19 @@
         "scimago-dentistry-2026": 150,
         "urap-law-and-legal-studies-2024-2025": 34,
         "the-impact-sdg8-2025": 10,
-        "the-impact-sdg16-2023": 19
+        "the-impact-sdg16-2023": 19,
+        "the-impact-sdg5-2024": 6
+      }
+    },
+    {
+      "name": "Hacettepe University",
+      "country": "Turkey",
+      "city": "Ankara",
+      "ror": "https://ror.org/04kwvgz42",
+      "ranks": {
+        "the-impact-sdg5-2026": 11,
+        "the-impact-sdg4-2024": 29,
+        "the-impact-sdg5-2024": 40
       }
     },
     {
@@ -5368,7 +5410,8 @@
         "scimago-social-sciences-2025": 463,
         "scimago-veterinary-2026": 407,
         "urap-veterinary-sciences-2024-2025": 25,
-        "gras-ecology-2024": 5
+        "gras-ecology-2024": 5,
+        "the-impact-sdg5-2024": 19
       }
     },
     {
@@ -5684,7 +5727,8 @@
         "guardian-2026": 21,
         "urap-psychology-and-cognitive-sciences-2024-2025": 4,
         "urap-law-and-legal-studies-2024-2025": 16,
-        "urap-medical-and-health-sciences-2024-2025": 15
+        "urap-medical-and-health-sciences-2024-2025": 15,
+        "the-impact-sdg5-2024": 21
       }
     },
     {
@@ -5973,7 +6017,8 @@
         "scimago-social-sciences-2025": 204,
         "scimago-veterinary-2026": 487,
         "scimago-dentistry-2026": 397,
-        "the-impact-sdg2-2026": 30
+        "the-impact-sdg2-2026": 30,
+        "the-impact-sdg5-2024": 10
       }
     },
     {
@@ -7598,7 +7643,8 @@
         "scimago-medicine-2025": 397,
         "scimago-physics-and-astronomy-2026": 190,
         "scimago-psychology-2025": 219,
-        "scimago-social-sciences-2025": 96
+        "scimago-social-sciences-2025": 96,
+        "the-impact-sdg5-2024": 47
       }
     },
     {
@@ -8997,7 +9043,8 @@
         "urap-education-2024-2025": 37,
         "urap-psychology-and-cognitive-sciences-2024-2025": 35,
         "the-impact-sdg10-2023": 21,
-        "the-impact-sdg16-2023": 22
+        "the-impact-sdg16-2023": 22,
+        "the-impact-sdg5-2024": 24
       }
     },
     {
@@ -9738,7 +9785,8 @@
         "leiden-biomedical-health-sciences-2025": 544,
         "leiden-life-earth-sciences-2025": 799,
         "leiden-social-sciences-humanities-2025": 740,
-        "the-impact-sdg10-2023": 4
+        "the-impact-sdg10-2023": 4,
+        "the-impact-sdg5-2024": 28
       }
     },
     {
@@ -10911,6 +10959,7 @@
         "gras-automation-2025": 18,
         "the-impact-overall-2026": 30,
         "the-impact-sdg3-2026": 14,
+        "the-impact-sdg5-2026": 41,
         "the-impact-sdg6-2026": 8,
         "the-impact-sdg11-2026": 12,
         "the-impact-sdg12-2026": 22,
@@ -10952,7 +11001,8 @@
         "scimago-economics-econometrics-and-finance-2025": 354,
         "scimago-medicine-2025": 395,
         "scimago-psychology-2025": 346,
-        "scimago-social-sciences-2025": 302
+        "scimago-social-sciences-2025": 302,
+        "the-impact-sdg5-2024": 23
       }
     },
     {
@@ -13114,6 +13164,7 @@
         "the-2026": 301,
         "the-impact-overall-2025": 1,
         "the-impact-sdg17-2025": 9,
+        "the-impact-sdg5-2026": 13,
         "the-impact-sdg13-2024": 4,
         "leiden-2025": 644,
         "leiden-impact-2025": 369,
@@ -13142,7 +13193,8 @@
         "ntu-engineering-2025": 501,
         "ntu-agriculture-2025": 121,
         "the-impact-sdg8-2025": 43,
-        "the-impact-sdg10-2023": 3
+        "the-impact-sdg10-2023": 3,
+        "the-impact-sdg5-2024": 1
       }
     },
     {

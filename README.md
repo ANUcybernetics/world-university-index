@@ -68,11 +68,37 @@ the dataset is curated by hand from the published tables, and
 [`scripts/update-rankings.ts`](scripts/update-rankings.ts) keeps it honest
 rather than scraping live.
 
+## Citations
+
+Every ranking table in the Index is a table somebody has boasted about.
+[`src/data/citations.json`](src/data/citations.json) records those boasts: for
+each one, the institution, the table it cites (where the claim names one), the
+page it appeared on, and a verbatim pull quote of what was actually said. An
+archive URL is stored where the original is likely to be restructured away.
+
+This is the Index's inclusion test, and it is deliberately generous. A ranking
+counts once one institution has quoted it — not because the ranking is rigorous
+or well known, but because being quoted by an interested party is, in practice,
+what a ranking's authority consists of. The obscure ones are the most eloquent:
+a university citing a table almost nobody has heard of tells you something about
+the currency of that table which a household name never could.
+
+Quotes are recorded verbatim and never tidied, capped at 300 characters, and
+always shown with a link to the source. `pnpm update-rankings` checks that every
+citation resolves to an institution and a table that exist, and warns about
+claims that cite a publisher in general without naming a table --- those still
+appear on the institution's own page, but they can't vouch for an index.
+
 ## Adding an institution
 
 Add an entry to `universities` in `rankings.json` with a `name`, `country` and a
 `ranks` map keyed by ranking `id`. The slug, page and league-table position are
 all derived. Run `pnpm update-rankings` to validate, then `pnpm build`.
+
+To add a citation, append to `citations` in `citations.json` with the
+institution's `name` exactly as it appears in `rankings.json`, the `url`, a
+verbatim `quote`, the date `retrieved`, and the `ranking` id where the claim
+names a specific table.
 
 ## Author
 

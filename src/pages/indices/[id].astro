@@ -1,0 +1,340 @@
+---
+import type { GetStaticPaths } from "astro";
+import Base from "../../layouts/Base.astro";
+import RankBadge from "../../components/RankBadge.astro";
+import {
+  citationsOf,
+  dataset,
+  ordinal,
+  rankedUniversities,
+  scopeSuffix,
+  type Citation,
+  type RankingMeta,
+  type University,
+} from "../../lib/rankings";
+import { href, universityHref } from "../../lib/paths";
+import { slugify } from "../../lib/schema";
+
+export const getStaticPaths = (() => {
+  return dataset.rankings.map((ranking) => ({
+    params: { id: ranking.id },
+    props: { ranking },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  ranking: RankingMeta;
+}
+
+const { ranking } = Astro.props;
+const cited: Citation[] = [...citationsOf(ranking.id)];
+
+const placements = rankedUniversities()
+  .map((e) => ({ entry: e, rank: e.university.ranks[ranking.id] }))
+  .filter((p): p is { entry: (typeof p)["entry"]; rank: number } => p.rank !== undefined)
+  .toSorted((a, b) => a.rank - b.rank);
+
+const scoped = scopeSuffix(ranking);
+const quoteFor = (uni: University): Citation | undefined =>
+  cited.find((c) => c.university === uni.name);
+---
+
+<Base
+  title={`${ranking.name}, ${ranking.edition} — The World University Index`}
+  description={`${ranking.name} ${ranking.edition}: ${placements.length} institutions recorded by the Index, and ${cited.length} published claims citing it.`}
+>
+  <article class="index-page">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={href("/")}>The Index</a>
+        <span aria-hidden="true">/</span>
+        <a href={href("/indices")}>Indices</a>
+        <span aria-hidden="true">/</span>
+        <span>{ranking.shortName} {ranking.edition}</span>
+      </nav>
+
+      <header class="masthead-index">
+        <p class="eyebrow">{ranking.publisher}</p>
+        <h1 class="masthead-index__name">{ranking.name}</h1>
+        <p class="masthead-index__scope">
+          {ranking.edition} edition{ranking.scope ? ` · ${ranking.scope}` : ""}
+        </p>
+      </header>
+
+      <section class="standing" aria-labelledby="standing-heading">
+        <h2 id="standing-heading" class="sr-only">Standing</h2>
+        {
+          cited.length > 0 ? (
+            <p class="standing__verdict standing__verdict--cited">
+              Cited by <strong>{cited.length}</strong>{" "}
+              {cited.length === 1 ? "institution" : "institutions"}.
+            </p>
+          ) : (
+            <p class="standing__verdict">No citations recorded yet.</p>
+          )
+        }
+        <p class="standing__note">
+          An index earns its place here when an institution quotes it. Whether the
+          wider world has heard of the publisher is beside the point: a table
+          somebody has advertised a placement in is a table that counts.
+        </p>
+        <p class="standing__source">
+          Published at{" "}
+          <a href={ranking.url} rel="external">{ranking.url}</a>
+        </p>
+      </section>
+
+      {
+        cited.length > 0 && (
+          <section class="quotes" aria-labelledby="quotes-heading">
+            <h2 id="quotes-heading" class="section-heading">In their own words</h2>
+            <ul class="quotes__list">
+              {cited.map((c) => (
+                <li class="quote">
+                  <blockquote class="quote__text" cite={c.url}>
+                    {c.quote}
+                  </blockquote>
+                  <p class="quote__attrib">
+                    <a href={universityHref(slugify(c.university))}>{c.university}</a>
+                    <span class="quote__links">
+                      <a href={c.url} rel="external nofollow">source</a>
+                      {c.archive && (
+                        <>
+                          {" · "}
+                          <a href={c.archive} rel="external nofollow">
+                            archived
+                          </a>
+                        </>
+                      )}
+                      {" · "}
+                      <span class="quote__retrieved">retrieved {c.retrieved}</span>
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <section class="table" aria-labelledby="table-heading">
+        <h2 id="table-heading" class="section-heading">
+          Recorded placements <span class="section-heading__count">{placements.length}</span>
+        </h2>
+        <p class="table__intro">
+          Institutions the Index records in this table. A placement here is a
+          placement anywhere: the Index reports each institution's best, whatever
+          its scope.
+        </p>
+        <ol class="placements">
+          {
+            placements.map(({ entry, rank }) => (
+              <li class="placement">
+                <span class="placement__rank">
+                  <RankBadge rank={rank} />
+                </span>
+                <span class="placement__name">
+                  <a href={universityHref(entry.slug)}>{entry.university.name}</a>
+                  {quoteFor(entry.university) && (
+                    <span class="placement__flag" title="has cited this index">
+                      cites this
+                    </span>
+                  )}
+                </span>
+                <span class="placement__claim">
+                  {ordinal(rank)} in the world{scoped}
+                </span>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .index-page {
+    padding-block: clamp(1.5rem, 1rem + 2vw, 3rem);
+  }
+
+  .crumbs {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .masthead-index {
+    margin-top: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .masthead-index__name {
+    margin: 0.3rem 0 0;
+    font-size: clamp(1.8rem, 1.2rem + 2.4vw, 2.6rem);
+    line-height: 1.1;
+  }
+
+  .masthead-index__scope {
+    margin: 0.4rem 0 0;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .standing {
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.25rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    max-width: 44rem;
+  }
+
+  .standing__verdict {
+    margin: 0;
+    font-size: 1.15rem;
+  }
+
+  .standing__verdict--cited strong {
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .standing__note,
+  .standing__source {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .standing__source {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    overflow-wrap: anywhere;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 2.25rem 0 0.2rem;
+    font-size: 1.35rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-heading__count {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .quotes__list {
+    list-style: none;
+    margin: 0.9rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .quote {
+    max-width: 46rem;
+  }
+
+  .quote__text {
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .quote__attrib {
+    margin: 0.4rem 0 0 1rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .quote__links,
+  .quote__retrieved {
+    color: var(--ink-faint);
+  }
+
+  .table__intro {
+    margin: 0.6rem 0 0;
+    max-width: 44rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .placements {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+
+  .placement {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    gap: 0.3rem 0.9rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .placement__name {
+    font-size: 1.02rem;
+  }
+
+  .placement__claim {
+    grid-column: 2;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+
+  .placement__flag {
+    margin-left: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid currentcolor;
+    border-radius: var(--radius);
+    padding: 0.05rem 0.3rem;
+    white-space: nowrap;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

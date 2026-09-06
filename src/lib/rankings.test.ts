@@ -8,7 +8,16 @@ import {
   type RankingMeta,
   type University,
 } from "./schema";
-import { dataset, rankedUniversities, universityBySlug } from "./rankings";
+import {
+  citations,
+  citationsBy,
+  citationsOf,
+  citingInstitutions,
+  dataset,
+  isCited,
+  rankedUniversities,
+  universityBySlug,
+} from "./rankings";
 
 const TEST_RANKINGS: RankingMeta[] = [
   {
@@ -186,5 +195,48 @@ describe("dataset integrity", () => {
 
   it("records at least one Australian institution", () => {
     expect(dataset.universities.some((u) => u.country === "Australia")).toBe(true);
+  });
+});
+
+describe("citations", () => {
+  it("names an institution that exists in the dataset", () => {
+    const names = new Set(dataset.universities.map((u) => u.name));
+    for (const c of citations) {
+      expect(names).toContain(c.university);
+    }
+  });
+
+  it("names a ranking that exists, where it names one at all", () => {
+    const ids = new Set(dataset.rankings.map((r) => r.id));
+    for (const c of citations) {
+      if (c.ranking !== undefined) expect(ids).toContain(c.ranking);
+    }
+  });
+
+  it("quotes rather than summarises: every claim carries verbatim text and a source", () => {
+    for (const c of citations) {
+      expect(c.quote.trim().length).toBeGreaterThan(0);
+      expect(c.quote.length).toBeLessThanOrEqual(300);
+      expect(c.url).toMatch(/^https?:\/\//);
+    }
+  });
+
+  it("indexes each citation under both the institution and the table", () => {
+    for (const c of citations) {
+      const uni = dataset.universities.find((u) => u.name === c.university)!;
+      expect(citationsBy(uni)).toContain(c);
+      if (c.ranking !== undefined) {
+        expect(citationsOf(c.ranking)).toContain(c);
+        expect(isCited(c.ranking)).toBe(true);
+        expect(citingInstitutions(c.ranking).map((u) => u.name)).toContain(c.university);
+      }
+    }
+  });
+
+  it("treats an uncited table as uncited", () => {
+    const uncited = dataset.rankings.find((r) => citationsOf(r.id).length === 0);
+    expect(uncited).toBeDefined();
+    expect(isCited(uncited!.id)).toBe(false);
+    expect(citingInstitutions(uncited!.id)).toEqual([]);
   });
 });

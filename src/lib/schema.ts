@@ -40,12 +40,48 @@ export const universitySchema = z.object({
   ranks: z.record(z.string(), z.number().int().positive()),
 });
 
+/**
+ * One published instance of an institution citing a ranking: the backlink that
+ * makes a ranking count. An index nobody has ever quoted is a spreadsheet; one
+ * a university has put on its own website is, by that fact alone, an index that
+ * matters to somebody. Obscurity is not a disqualification — a citation of a
+ * ranking almost nobody has heard of is the most eloquent kind.
+ */
+export const citationSchema = z.object({
+  /** Must match a `name` in `universities`. */
+  university: z.string().min(1),
+  /**
+   * The ranking table cited, where the claim names one. Left unset when the
+   * institution cites a product ("the QS subject rankings") without a table an
+   * edition can be pinned to — still evidence, just not attributable evidence.
+   */
+  ranking: z.string().min(1).optional(),
+  /** The page carrying the claim, on the institution's own domain where possible. */
+  url: z.url(),
+  /**
+   * The claim as published, verbatim. Quoted, never paraphrased and never
+   * tidied: the institution's own words are the whole point, and a short
+   * attributed quotation is what keeps this fair. Capped to keep it a pull
+   * quote rather than a reproduction.
+   */
+  quote: z.string().min(1).max(300),
+  retrieved: z.string().min(1),
+  /** Archive capture, for when the institution restructures the claim away. */
+  archive: z.url().optional(),
+});
+
+export const citationsFileSchema = z.object({
+  citations: z.array(citationSchema),
+});
+
 export const datasetSchema = z.object({
   rankings: z.array(rankingMetaSchema).min(1),
   universities: z.array(universitySchema).min(1),
 });
 
 export type RankingCategory = z.infer<typeof rankingCategorySchema>;
+export type Citation = z.infer<typeof citationSchema>;
+export type CitationsFile = z.infer<typeof citationsFileSchema>;
 export type RankingMeta = z.infer<typeof rankingMetaSchema>;
 export type University = z.infer<typeof universitySchema>;
 export type Dataset = z.infer<typeof datasetSchema>;

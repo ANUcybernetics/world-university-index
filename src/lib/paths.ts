@@ -19,3 +19,8 @@ export function universityHref(slug: string): string {
 export function embedHref(slug: string): string {
   return href(`/embed/${slug}/`);
 }
+
+/** Permalink for a ranking's own page. */
+export function indexHref(id: string): string {
+  return href(`/indices/${id}`);
+}

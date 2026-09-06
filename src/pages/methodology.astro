@@ -1,6 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
-import { dataset, type RankingCategory } from "../lib/rankings";
+import { citations, citationsOf, dataset, type RankingCategory } from "../lib/rankings";
+import { href, indexHref } from "../lib/paths";
+
+const citedTables = dataset.rankings.filter((r) => citationsOf(r.id).length > 0).length;
 
 const groups: { key: RankingCategory; label: string; blurb: string }[] = [
   {
@@ -94,11 +97,12 @@ const sourceGroups = groups
           <ul class="sources">
             {g.rankings.map((r) => (
               <li>
-                <a href={r.url} rel="external">
-                  {r.scope ?? r.name}
-                </a>{" "}
+                <a href={indexHref(r.id)}>{r.scope ?? r.name}</a>{" "}
                 <span class="sources__meta">
-                  {r.shortName} {r.edition} &middot; {r.publisher}
+                  {r.shortName} {r.edition} &middot;{" "}
+                  <a href={r.url} rel="external">
+                    {r.publisher}
+                  </a>
                 </span>
               </li>
             ))}
@@ -106,6 +110,25 @@ const sourceGroups = groups
         </section>
       ))
     }
+
+    <h2>Which indices count</h2>
+    <p>
+      A ranking table is included once an institution has been recorded citing
+      it. This is a deliberately generous test, and an honest one: the Index does
+      not adjudicate whether a ranking is rigorous, well-known or even
+      methodologically coherent. It asks only whether the table has been quoted
+      by somebody with an interest in the result — which, in practice, is what
+      any ranking's authority consists of.
+    </p>
+    <p>
+      Obscurity is therefore not a defect. An institution that cites a ranking
+      almost nobody has heard of has demonstrated something about the currency of
+      that ranking which a household name never could. Each claim is recorded
+      verbatim, with a link to the page it appeared on, so the reader may judge
+      it directly. Of the {dataset.rankings.length} tables recorded, {citedTables}
+      {" "}are so far attested by {citations.length} published claims; the full
+      list is on <a href={href("/indices")}>the indices page</a>.
+    </p>
 
     <h2>Banded results</h2>
     <p>

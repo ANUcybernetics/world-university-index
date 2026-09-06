@@ -4,14 +4,16 @@ import Base from "../layouts/Base.astro";
 import EmbedCode from "../components/EmbedCode.astro";
 import RankBadge from "../components/RankBadge.astro";
 import {
+  citationsBy,
   rankedUniversities,
+  rankingById,
   rankProfile,
   ordinal,
   scopeSuffix,
   type University,
   type BestRank,
 } from "../lib/rankings";
-import { href } from "../lib/paths";
+import { href, indexHref } from "../lib/paths";
 
 export const getStaticPaths = (() => {
   return rankedUniversities().map((e) => ({
@@ -33,6 +35,15 @@ const place = university.city
   : university.country;
 const claim = ordinal(best.rank);
 const claimScope = scopeSuffix(best.ranking);
+
+// What the institution says about itself, next to what the Index says about it.
+// The two rarely match: a university tends to quote the table it happens to
+// have won, which is seldom the most flattering one available to it.
+const claims = citationsBy(university).map((citation) => {
+  const cited = citation.ranking === undefined ? undefined : rankingById(citation.ranking);
+  const rank = cited === undefined ? undefined : university.ranks[cited.id];
+  return { citation, cited, rank };
+});
 ---
 
 <Base
@@ -91,7 +102,7 @@ const claimScope = scopeSuffix(best.ranking);
               profile.map((p) => (
                 <tr class:list={[{ "is-best": p.ranking.id === best.ranking.id }]}>
                   <th scope="row" class="profile-table__name">
-                    <a href={p.ranking.url} rel="external">
+                    <a href={indexHref(p.ranking.id)}>
                       {p.ranking.shortName} {p.ranking.edition}
                     </a>
                     {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
@@ -115,12 +126,103 @@ const claimScope = scopeSuffix(best.ranking);
           >.
         </p>
       </section>
+
+      {
+        claims.length > 0 && (
+          <section class="claims" aria-labelledby="claims-heading">
+            <h2 id="claims-heading" class="claims__heading">In their own words</h2>
+            <p class="claims__intro">
+              {university.shortName ?? university.name} on the subject of its own
+              standing, quoted from its published material.
+            </p>
+            <ul class="claims__list">
+              {claims.map(({ citation, cited, rank }) => (
+                <li class="claim">
+                  <blockquote class="claim__text" cite={citation.url}>
+                    {citation.quote}
+                  </blockquote>
+                  <p class="claim__attrib">
+                    <a href={citation.url} rel="external nofollow">source</a>
+                    {citation.archive && (
+                      <>
+                        {" · "}
+                        <a href={citation.archive} rel="external nofollow">
+                          archived
+                        </a>
+                      </>
+                    )}
+                    {" · retrieved "}
+                    {citation.retrieved}
+                  </p>
+                  {cited && rank !== undefined && (
+                    <p class="claim__index">
+                      The Index records{" "}
+                      <a href={indexHref(cited.id)}>
+                        {cited.shortName} {cited.edition}
+                      </a>{" "}
+                      at {ordinal(rank)} in the world{scopeSuffix(cited)}.
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
     </div>
   </article>
 
   <style>
     .profile {
       padding-block: 2rem;
+    }
+
+    .claims {
+      margin-top: 2.5rem;
+      max-width: 46rem;
+    }
+
+    .claims__heading {
+      margin: 0 0 0.2rem;
+      font-size: 1.35rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .claims__intro {
+      margin: 0.6rem 0 0;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+
+    .claims__list {
+      list-style: none;
+      margin: 1rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .claim__text {
+      margin: 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .claim__attrib {
+      margin: 0.35rem 0 0 1rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--ink-faint);
+    }
+
+    .claim__index {
+      margin: 0.35rem 0 0 1rem;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--ink-soft);
     }
 
     .crumbs {

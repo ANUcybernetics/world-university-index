@@ -27,7 +27,7 @@ export function indexHref(id: string): string {
 
 /**
  * The absolute origin the site is served from, including its base path — e.g.
- * "https://anucybernetics.github.io/world-university-index". Astro supplies
+ * "https://worlduniversityindex.org". Astro supplies
  * `site` to pages and endpoints; the fallback keeps URLs relative if it is ever
  * unset rather than emitting a wrong absolute one.
  */

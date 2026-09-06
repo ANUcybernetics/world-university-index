@@ -35,7 +35,7 @@ subject, by Sustainable Development Goal, and across several editions of each),
 there is almost always one in your institution can call itself world-leading.
 
 You could look at the
-[methodology](https://anucybernetics.github.io/world-university-index/methodology/)
+[methodology](https://worlduniversityindex.org/methodology/)
 if you like. But who's got time for that? Honestly, just grab the number and use
 it with confidence.
 

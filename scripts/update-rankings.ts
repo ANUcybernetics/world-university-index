@@ -13,6 +13,7 @@
  *   pnpm update-rankings            validate + report (read-only)
  *   pnpm update-rankings --write    also rewrite the file, normalised & sorted
  *   pnpm update-rankings --sources  print where each ranking is published
+ *   pnpm update-rankings --links    check that every citation URL still resolves
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -205,6 +206,44 @@ function printSources(data: Dataset): void {
   }
 }
 
+/**
+ * Citations are the one part of the dataset that rots on its own: university
+ * news sites are restructured constantly, and a claim whose link 404s is a
+ * claim nobody can check. Opt-in, since it hits the network.
+ */
+async function checkLinks(citations: Citation[]): Promise<void> {
+  console.log(`\n  Checking ${citations.length} citation URLs...\n`);
+  let dead = 0;
+  for (const c of citations) {
+    let status: string;
+    try {
+      // Sequential on purpose: this walks a list of university press sites, and
+      // firing the whole set at once is how you get rate-limited by all of them.
+      // eslint-disable-next-line no-await-in-loop
+      const res = await fetch(c.url, {
+        method: "GET",
+        redirect: "follow",
+        headers: { "user-agent": "Mozilla/5.0 (compatible; world-university-index link check)" },
+      });
+      status = String(res.status);
+      // A bot-blocked page is not a dead page: the archive copy is what matters.
+      if (!res.ok && res.status !== 403 && res.status !== 406) dead += 1;
+    } catch {
+      status = "unreachable";
+      dead += 1;
+    }
+    const flag = status === "200" ? " " : "!";
+    console.log(
+      `  ${flag} ${status.padEnd(11)} ${c.university}${c.archive ? " (archived)" : ""}\n      ${c.url}`,
+    );
+  }
+  console.log(
+    dead === 0
+      ? "\n  ✓ every citation URL resolves\n"
+      : `\n  ! ${dead} citation URL(s) need an archive link or a replacement\n`,
+  );
+}
+
 function main(argv: string[]): void {
   const rawCitations: unknown = JSON.parse(readFileSync(CITATIONS_PATH, "utf8"));
   const parsedCitations = citationsFileSchema.safeParse(rawCitations);
@@ -228,6 +267,11 @@ function main(argv: string[]): void {
 
   if (argv.includes("--sources")) {
     printSources(data);
+    return;
+  }
+
+  if (argv.includes("--links")) {
+    void checkLinks(citations);
     return;
   }
 

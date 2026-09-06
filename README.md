@@ -60,6 +60,7 @@ comes from and how to refresh it are in
 pnpm update-rankings            # validate + integrity-check + report
 pnpm update-rankings --write    # also rewrite the file, normalised and sorted
 pnpm update-rankings --sources  # where each ranking is published
+pnpm update-rankings --links    # check every citation URL still resolves
 ```
 
 The major rankings don't publish a clean, openly-licensed machine-readable feed

@@ -4168,6 +4168,7 @@
         "qs-sub-mining-2025": 5,
         "gras-mining-2024": 20,
         "gras-business-2024": 18,
+        "grsssd-sport-2024": 13,
         "the-young-2024": 33,
         "qs-2025": 174,
         "qs-2027": 189,
@@ -4216,6 +4217,10 @@
         "scimago-psychology-2025": 110,
         "scimago-social-sciences-2025": 151,
         "scimago-veterinary-2026": 359
+      },
+      "units": {
+        "grsssd-sport-2025": "Exercise and Sport Science Program",
+        "grsssd-sport-2024": "School of Physiotherapy and Exercise Science"
       }
     },
     {
@@ -4288,6 +4293,10 @@
         "scimago-psychology-2025": 77,
         "scimago-social-sciences-2025": 67,
         "urap-education-2024-2025": 18
+      },
+      "units": {
+        "grsssd-sport-2025": "School of Exercise and Nutrition Sciences",
+        "grsssd-sport-2024": "School of Exercise and Nutrition Sciences"
       }
     },
     {
@@ -4870,6 +4879,7 @@
         "qs-sub-nursing-2025": 33,
         "qs-sub-hospitality-2025": 25,
         "gras-nursing-2024": 5,
+        "grsssd-sport-2024": 23,
         "the-impact-overall-2025": 4,
         "the-impact-sdg3-2025": 13,
         "the-impact-sdg5-2025": 9,
@@ -4948,6 +4958,10 @@
         "the-impact-sdg16-2023": 19,
         "the-impact-sdg5-2024": 6,
         "the-impact-sdg7-2026": 12
+      },
+      "units": {
+        "grsssd-sport-2025": "Department of Tourism, Sport and Hotel Management",
+        "grsssd-sport-2024": "Department of Tourism, Sport and Hotel Management"
       }
     },
     {
@@ -6052,6 +6066,10 @@
         "scimago-dentistry-2026": 397,
         "the-impact-sdg2-2026": 30,
         "the-impact-sdg5-2024": 10
+      },
+      "units": {
+        "grsssd-sport-2025": "Department of Dietetics, Nutrition and Sport",
+        "grsssd-sport-2024": "Department of Dietetics, Nutrition and Sport"
       }
     },
     {
@@ -7621,6 +7639,7 @@
         "qs-sub-nursing-2025": 42,
         "qs-sub-communication-2025": 33,
         "gras-biomedeng-2024": 16,
+        "grsssd-sport-2024": 20,
         "the-impact-overall-2025": 101,
         "the-young-2024": 17,
         "qs-2025": 213,
@@ -7678,6 +7697,10 @@
         "scimago-psychology-2025": 219,
         "scimago-social-sciences-2025": 96,
         "the-impact-sdg5-2024": 47
+      },
+      "units": {
+        "grsssd-sport-2025": "School of Exercise and Nutrition Science",
+        "grsssd-sport-2024": "School of Exercise and Nutrition Science"
       }
     },
     {
@@ -8300,7 +8323,9 @@
       "ranks": {
         "qs-2026": 22,
         "the-2026": 27,
+        "grsssd-sport-2024": 16,
         "qs-sub-datascience-2026": 20,
+        "grsssd-sport-2025": 26,
         "qs-sub-engineering-and-technology-2026": 19,
         "qs-sub-natural-sciences-2026": 18,
         "leiden-2025": 110,
@@ -8341,6 +8366,10 @@
         "ntu-biologybiochemistry-2025": 45,
         "ntu-electricalengineering-2025": 47,
         "urap-mathematical-sciences-2024-2025": 37
+      },
+      "units": {
+        "grsssd-sport-2025": "Department Health and Sport Sciences",
+        "grsssd-sport-2024": "Department of Orthopaedic and Sports Medicine"
       }
     },
     {
@@ -9092,6 +9121,7 @@
       "ranks": {
         "qs-2026": 76,
         "the-2026": 98,
+        "grsssd-sport-2024": 27,
         "qs-sub-sports-2026": 9,
         "qs-sub-linguistics-2026": 19,
         "qs-sub-dentistry-2026": 19,
@@ -9149,6 +9179,9 @@
         "scimago-dentistry-2026": 109,
         "cug-2027": 12,
         "guardian-2026": 28
+      },
+      "units": {
+        "grsssd-sport-2024": "School of Sport, Exercise and Rehabilitation Sciences"
       }
     },
     {
@@ -9159,6 +9192,8 @@
       "ranks": {
         "qs-2026": 51,
         "the-2026": 80,
+        "grsssd-sport-2024": 29,
+        "grsssd-sport-2025": 23,
         "qs-sub-geography-2026": 15,
         "qs-sub-earthmarine-2026": 18,
         "qs-sub-geology-2026": 17,
@@ -9219,6 +9254,10 @@
         "cug-2027": 17,
         "guardian-2026": 15,
         "urap-earth-sciences-2024-2025": 30
+      },
+      "units": {
+        "grsssd-sport-2025": "Centre for Exercise, Nutrition and Health Sciences",
+        "grsssd-sport-2024": "Centre for Exercise, Nutrition and Health Sciences"
       }
     },
     {
@@ -9229,6 +9268,7 @@
       "ranks": {
         "qs-2026": 40,
         "the-2026": 45,
+        "grsssd-sport-2024": 19,
         "qs-sub-sports-2026": 4,
         "gras-geography-2025": 7,
         "gras-ecology-2025": 5,
@@ -9303,6 +9343,9 @@
         "urap-medical-and-health-sciences-2024-2025": 36,
         "the-impact-sdg10-2023": 12,
         "gras-ecology-2024": 8
+      },
+      "units": {
+        "grsssd-sport-2024": "Allan Mcgavin Sports Medical Center"
       }
     },
     {
@@ -9913,9 +9956,11 @@
       "ranks": {
         "qs-2026": 101,
         "the-2026": 90,
+        "grsssd-sport-2024": 3,
         "qs-sub-sports-2026": 19,
         "qs-sub-pharmacy-2026": 21,
         "qs-sub-anatomy-2026": 8,
+        "grsssd-sport-2025": 5,
         "leiden-2025": 40,
         "leiden-impact-2025": 279,
         "leiden-physical-sciences-2025": 196,
@@ -9982,6 +10027,10 @@
         "urap-veterinary-sciences-2024-2025": 18,
         "urap-psychology-and-cognitive-sciences-2024-2025": 34,
         "urap-medical-and-health-sciences-2024-2025": 23
+      },
+      "units": {
+        "grsssd-sport-2025": "Department of Nutrition, Exercise and Sports",
+        "grsssd-sport-2024": "Department of Nutrition, Exercise and Sports"
       }
     },
     {
@@ -12167,6 +12216,9 @@
         "urap-law-and-legal-studies-2024-2025": 38,
         "urap-information-computing-sciences-2024-2025": 27,
         "urap-medical-and-health-sciences-2024-2025": 17
+      },
+      "units": {
+        "grsssd-sport-2025": "Exercise and Sport Science Major"
       }
     },
     {
@@ -13188,6 +13240,7 @@
         "qs-2026": 741,
         "the-2026": 501,
         "qs-sub-sports-2025": 43,
+        "grsssd-sport-2024": 7,
         "grsssd-sport-2025": 6,
         "the-impact-sdg6-2024": 19,
         "leiden-2025": 1441,
@@ -13213,6 +13266,10 @@
         "ntu-engineering-2025": 501,
         "scimago-earth-and-planetary-sciences-2025": 409,
         "scimago-pharmacology-toxicology-and-pharmaceutics-2025": 340
+      },
+      "units": {
+        "grsssd-sport-2025": "College of Sport, Health & Engineering",
+        "grsssd-sport-2024": "College of Sport and Exercise Science"
       }
     },
     {

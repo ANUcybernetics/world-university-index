@@ -5,6 +5,7 @@ import EmbedCode from "../components/EmbedCode.astro";
 import RankBadge from "../components/RankBadge.astro";
 import {
   citationsBy,
+  unitFor,
   rankedUniversities,
   rankingById,
   rankProfile,
@@ -37,6 +38,7 @@ const place = university.city
 const claim = ordinal(best.rank);
 const claimScope = scopeSuffix(best.ranking);
 const jsonLd = institutionJsonLd(university, siteOrigin(Astro.site));
+const headlineUnit = unitFor(university, best.ranking.id);
 
 // What the institution says about itself, next to what the Index says about it.
 // The two rarely match: a university tends to quote the table it happens to
@@ -86,6 +88,7 @@ const claims = citationsBy(university).map((citation) => {
           <a href={best.ranking.url} rel="external">
             {best.ranking.name}, {best.ranking.edition}
           </a>
+          {headlineUnit && <span class="headline__unit">via its {headlineUnit}</span>}
         </p>
       </section>
 
@@ -116,6 +119,11 @@ const claims = citationsBy(university).map((citation) => {
                     {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
                     {p.ranking.scope && (
                       <span class="profile-table__scope">in the world for {p.ranking.scope}</span>
+                    )}
+                    {unitFor(university, p.ranking.id) && (
+                      <span class="profile-table__unit">
+                        {unitFor(university, p.ranking.id)}
+                      </span>
                     )}
                   </th>
                   <td>{p.ranking.publisher}</td>
@@ -183,6 +191,21 @@ const claims = citationsBy(university).map((citation) => {
   <style>
     .profile {
       padding-block: 2rem;
+    }
+
+    .headline__unit {
+      display: block;
+      margin-top: 0.15rem;
+      font-family: var(--sans);
+      font-size: 0.78rem;
+      color: var(--ink-faint);
+    }
+
+    .profile-table__unit {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.76rem;
+      color: var(--ink-faint);
     }
 
     .claims {

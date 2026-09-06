@@ -35,6 +35,23 @@ name-matching fails in both directions, missing "UNSW Sydney" against
 to "Lyceum-Northwestern University". Attach ids with `pnpm ror-backfill`;
 `--check` re-resolves every stored id against ROR.
 
+## Tables that rank departments
+
+A few products rank faculties, schools or departments rather than whole
+institutions --- ShanghaiRanking's sport science ranking is titled "Global
+Ranking of Sport Science Schools and Departments", and its first row is Deakin
+University's School of Exercise and Nutrition Sciences, not Deakin. The Index
+reports those placements under the parent institution's name and records the
+unit in `units`, keyed by ranking id. Same principle as `universe`: the truth is
+kept, the claim stays deadpan, and the small print is the only tell.
+
+The unit needs no matching. ShanghaiRanking prints it in its own `sub-name`
+element and the institution as a `/universities/<slug>` link, so
+`pnpm ingest-grsssd <year> <ranking-id>` reads both out of the markup
+structurally. Any future department-level product should clear the same bar
+before being added: if the unit can't be extracted without hand-matching, the
+table isn't worth the maintenance.
+
 ## How the data is curated
 
 Extraction is scripted, verification is not. The fetch methods below get a whole

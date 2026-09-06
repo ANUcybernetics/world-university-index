@@ -78,6 +78,16 @@ one carries a [ROR](https://ror.org) identifier so a row in one publisher's
 table can be matched to the same institution in another's --- attach them with
 `pnpm ror-backfill`, verify with `pnpm ror-backfill --check`.
 
+## Departments
+
+Some tables rank units, not institutions: ShanghaiRanking's is explicitly of
+"Schools and Departments", so Deakin's world #1 in sport science belongs to its
+School of Exercise and Nutrition Sciences. The rank is recorded against the
+institution and the unit alongside it in `units`, then shown only in the small
+print --- the same treatment `universe` gives a national league table. Ingest
+with `pnpm ingest-grsssd <year> <ranking-id>`; the unit is read out of the
+markup, never matched by hand.
+
 ## Citations
 
 Every ranking in the Index is one somebody has boasted about.

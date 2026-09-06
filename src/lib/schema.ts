@@ -48,6 +48,15 @@ export const universitySchema = z.object({
    */
   ror: z.url().regex(/^https:\/\/ror\.org\/0[a-z0-9]{8}$/).optional(),
   ranks: z.record(z.string(), z.number().int().positive()),
+  /**
+   * The faculty, school or department a placement was actually won by, keyed by
+   * ranking id. Some tables rank units rather than institutions — ShanghaiRanking's
+   * sport science ranking is literally titled "Schools and Departments" — and the
+   * Index reports those placements under the institution's name regardless. This
+   * records which unit earned it, on the same principle as `universe`: the truth
+   * is kept, the claim stays deadpan, and the small print is the only tell.
+   */
+  units: z.record(z.string(), z.string().min(1)).optional(),
 });
 
 /**

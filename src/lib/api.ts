@@ -29,7 +29,7 @@ export interface InstitutionPayload {
   url: string;
   /** The single most flattering placement, which is what the site reports. */
   best: { ranking: string; name: string; edition: string; scope?: string; rank: number };
-  placements: { ranking: string; rank: number }[];
+  placements: { ranking: string; rank: number; unit?: string }[];
 }
 
 export interface IndexPayload {
@@ -79,7 +79,13 @@ function institutionOf(uni: University, origin: string): InstitutionPayload | nu
       ...(best.ranking.scope === undefined ? {} : { scope: best.ranking.scope }),
       rank: best.rank,
     },
-    placements: rankProfile(uni).map((p) => ({ ranking: p.ranking.id, rank: p.rank })),
+    placements: rankProfile(uni).map((p) => ({
+      ranking: p.ranking.id,
+      rank: p.rank,
+      // Present only where the table ranks units: the placement was won by this
+      // faculty or department, not by the institution as a whole.
+      ...(uni.units?.[p.ranking.id] === undefined ? {} : { unit: uni.units[p.ranking.id] }),
+    })),
   };
 }
 

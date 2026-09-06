@@ -15,7 +15,8 @@
     "test:watch": "vitest",
     "update-rankings": "tsx scripts/update-rankings.ts",
     "ror-backfill": "tsx scripts/ror-backfill.ts",
-    "ingest-the": "tsx scripts/ingest-the.ts"
+    "ingest-the": "tsx scripts/ingest-the.ts",
+    "ingest-grsssd": "tsx scripts/ingest-grsssd.ts"
   },
   "dependencies": {
     "astro": "^7.0.4"

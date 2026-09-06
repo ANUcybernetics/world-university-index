@@ -9,6 +9,7 @@ import {
   isIndexed,
   ordinal,
   rankedUniversities,
+  unitFor,
   scopeSuffix,
   type Citation,
   type RankingMeta,
@@ -192,6 +193,11 @@ const quoteFor = (uni: University): Citation | undefined =>
                 </span>
                 <span class="placement__claim">
                   {ordinal(rank)} in the world{scoped}
+                  {unitFor(entry.university, ranking.id) && (
+                    <span class="placement__unit">
+                      {unitFor(entry.university, ranking.id)}
+                    </span>
+                  )}
                 </span>
               </li>
             ))
@@ -374,6 +380,11 @@ const quoteFor = (uni: University): Citation | undefined =>
     font-family: var(--sans);
     font-size: 0.82rem;
     color: var(--ink-faint);
+  }
+
+  .placement__unit {
+    display: block;
+    color: var(--ink-soft);
   }
 
   .placement__flag {

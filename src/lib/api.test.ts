@@ -52,8 +52,22 @@ describe("institutions payload", () => {
 
   it("reports a best placement that appears in its own placement list", () => {
     for (const i of payload.institutions) {
-      expect(i.placements).toContainEqual({ ranking: i.best.ranking, rank: i.best.rank });
+      const best = i.placements.find((p) => p.ranking === i.best.ranking);
+      expect(best?.rank).toBe(i.best.rank);
       expect(Math.min(...i.placements.map((p) => p.rank))).toBe(i.best.rank);
+    }
+  });
+
+  it("carries the ranked unit where the table ranks units rather than institutions", () => {
+    const withUnit = payload.institutions.flatMap((i) =>
+      i.placements.filter((p) => p.unit !== undefined),
+    );
+    expect(withUnit.length).toBeGreaterThan(0);
+    for (const i of payload.institutions) {
+      for (const p of i.placements) {
+        const uni = dataset.universities.find((u) => u.name === i.name)!;
+        expect(p.unit).toBe(uni.units?.[p.ranking]);
+      }
     }
   });
 

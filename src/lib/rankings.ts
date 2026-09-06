@@ -100,6 +100,15 @@ export function citationsOfProduct(shortName: string): readonly Citation[] {
   return citationsByProduct.get(shortName) ?? [];
 }
 
+/**
+ * The faculty, school or department that actually earned an institution's
+ * placement in a table, where the table ranks units rather than institutions.
+ * Absent for the great majority of tables, which rank whole institutions.
+ */
+export function unitFor(uni: University, rankingId: string): string | undefined {
+  return uni.units?.[rankingId];
+}
+
 /** Published claims citing a particular ranking table. */
 export function citationsOf(rankingId: string): readonly Citation[] {
   return citationsByRanking.get(rankingId) ?? [];

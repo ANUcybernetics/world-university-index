@@ -18,6 +18,7 @@ import {
   dataset,
   isCited,
   rankedUniversities,
+  unitFor,
   universityBySlug,
 } from "./rankings";
 
@@ -257,5 +258,35 @@ describe("citations", () => {
     expect(uncited).toBeDefined();
     expect(isCited(uncited!.id)).toBe(false);
     expect(citingInstitutions(uncited!.id)).toEqual([]);
+  });
+});
+
+describe("ranked units", () => {
+  it("names a unit only for a table the institution actually places in", () => {
+    const ids = new Set(dataset.rankings.map((r) => r.id));
+    for (const uni of dataset.universities) {
+      for (const [rankingId, unit] of Object.entries(uni.units ?? {})) {
+        expect(ids).toContain(rankingId);
+        expect(uni.ranks[rankingId]).toBeDefined();
+        expect(unit.trim().length).toBeGreaterThan(0);
+        expect(unitFor(uni, rankingId)).toBe(unit);
+      }
+    }
+  });
+
+  it("leaves whole-institution tables without a unit", () => {
+    const overall = dataset.rankings.find((r) => r.shortName === "QS" && r.scope === undefined)!;
+    for (const uni of dataset.universities) {
+      expect(unitFor(uni, overall.id)).toBeUndefined();
+    }
+  });
+
+  it("records a unit for the ranking that is explicitly of schools and departments", () => {
+    const grsssd = dataset.rankings.filter((r) => r.shortName === "ARWU GRSSSD");
+    expect(grsssd.length).toBeGreaterThan(0);
+    const withUnits = dataset.universities.filter((u) =>
+      grsssd.some((r) => unitFor(u, r.id) !== undefined),
+    );
+    expect(withUnits.length).toBeGreaterThan(0);
   });
 });

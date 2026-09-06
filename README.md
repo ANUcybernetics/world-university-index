@@ -65,9 +65,18 @@ pnpm update-rankings --links    # check every citation URL still resolves
 
 The major rankings don't publish a clean, openly-licensed machine-readable feed
 --- their tables render client-side and their terms restrict bulk reuse --- so
-the dataset is curated by hand from the published tables, and
-[`scripts/update-rankings.ts`](scripts/update-rankings.ts) keeps it honest
-rather than scraping live.
+each table is fetched by the host-specific method recorded in
+[`sources.md`](src/data/sources.md), and every figure is then checked
+individually against the publisher's own table before it lands.
+[`scripts/update-rankings.ts`](scripts/update-rankings.ts) keeps the result
+honest: schema-valid, internally consistent and stably ordered.
+
+An institution is listed once some tracked ranking places it in the world top 50
+of any table. That bar is what keeps every headline flattering; admit any
+placement at all and institutions start headlining at 3000th in the world. Each
+one carries a [ROR](https://ror.org) identifier so a row in one publisher's
+table can be matched to the same institution in another's --- attach them with
+`pnpm ror-backfill`, verify with `pnpm ror-backfill --check`.
 
 ## Citations
 

@@ -14,6 +14,42 @@ top ~50); banded results at the lower bound.
 To check coverage against this manifest: `pnpm update-rankings` prints per-table
 institution counts and the current headline leaders.
 
+## Which institutions are in the Index
+
+An institution is in the Index when a ranking we track places it in the world
+top 50 of any table --- overall, subject, SDG, thematic or national. The rule is
+derived rather than borrowed: there is no canonical roster of the world's
+universities to adopt, and membership here is a consequence of the tables we
+track, not a list chosen in advance. It mirrors the rule for indices themselves
+(an index counts once an institution has cited it).
+
+The top-50 bar is what keeps every headline flattering, which is the whole
+premise. Admit any placement at all and institutions start headlining at 3000th
+in the world, which is not a claim anyone puts on a media release.
+
+Every institution carries a `ror` identifier ([Research Organization
+Registry](https://ror.org), CC0). It is never displayed. It exists so a row in
+one publisher's table can be matched to the same institution in another's:
+name-matching fails in both directions, missing "UNSW Sydney" against
+"University of New South Wales" and wrongly matching "Northwestern University"
+to "Lyceum-Northwestern University". Attach ids with `pnpm ror-backfill`;
+`--check` re-resolves every stored id against ROR.
+
+## How the data is curated
+
+Extraction is scripted, verification is not. The fetch methods below get a whole
+table in one request wherever possible, which is what makes expansion tractable
+at all. But a scraped figure attached to the wrong institution is worse than a
+missing one, so each candidate is then checked individually --- a fleet of small
+agents, one per institution or per figure, each confirming the number against
+the publisher's own table and reporting what it actually saw.
+
+Agent output is never trusted on its face. Anything an agent proposes is
+re-verified mechanically before it lands: ROR ids are re-resolved through the
+API, and citation quotes are matched character-for-character against the live
+page (of 42 proposed quotes, six failed that check and were dropped). Propose
+and trust are separate steps, and only the second one is authoritative.
+
 ## Fetch methods (host-specific, learned the hard way)
 
 - **QS / topuniversities.com** — Cloudflare + Turnstile blocked here, for both

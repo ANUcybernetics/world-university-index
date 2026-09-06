@@ -12953,6 +12953,15 @@
       }
     },
     {
+      "name": "University of Wurzburg",
+      "country": "Germany",
+      "city": "Wurzburg",
+      "ror": "https://ror.org/00fbnyb24",
+      "ranks": {
+        "gras-pharmacy-2025": 42
+      }
+    },
+    {
       "name": "University of Zurich",
       "country": "Switzerland",
       "city": "Zurich",

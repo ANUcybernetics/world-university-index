@@ -64,7 +64,13 @@ and trust are separate steps, and only the second one is authoritative.
 - **ARWU / shanghairanking.com** — static Nuxt/JSON payload readable with a
   plain `curl` (`/rankings/gras/<year>/<AScode>`, `/rankings/grsssd/<year>`,
   `/institution/<slug>`). agent-browser gets redirect-hijacked on this host —
-  use curl.
+  use curl. Subject tables server-render only the top ~30 rows; for placements
+  below that, `/api/pub/v1/inst/<slug>` returns one institution's full ranked
+  subject list as JSON, but only for the current edition — an earlier edition
+  has to come from that year's subject table. The name cell prints the
+  institution twice followed by the country, so match on that doubled prefix:
+  a substring match will put "Columbia University" at the rank belonging to the
+  "University of British Columbia".
 - **U.S. News** — HTTP/2 anti-bot block on this host; subject tables could not
   be verified. Only the overall table is recorded.
 - **Leiden / leidenranking.com** — the `www` list now redirects to the Open

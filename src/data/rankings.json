@@ -3701,6 +3701,19 @@
       }
     },
     {
+      "name": "Case Western Reserve University",
+      "shortName": "Case Western",
+      "country": "United States",
+      "city": "Cleveland",
+      "ror": "https://ror.org/051fd9666",
+      "ranks": {
+        "gras-nursing-2024": 12,
+        "gras-nursing-2025": 28,
+        "rur-2026": 23,
+        "rur-teaching-2026": 15
+      }
+    },
+    {
       "name": "Charles Darwin University",
       "country": "Australia",
       "city": "Darwin",

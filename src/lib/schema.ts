@@ -48,14 +48,26 @@ export const universitySchema = z.object({
  * ranking almost nobody has heard of is the most eloquent kind.
  */
 export const citationSchema = z.object({
-  /** Must match a `name` in `universities`. */
+  /**
+   * The citing institution. Matched to `universities` by name where possible,
+   * but deliberately not restricted to it: a ranking is vouched for by whoever
+   * quotes it, and most of the world's universities are not in this dataset.
+   * An institution we don't hold still supplies evidence about the index.
+   */
   university: z.string().min(1),
   /**
-   * The ranking table cited, where the claim names one. Left unset when the
-   * institution cites a product ("the QS subject rankings") without a table an
-   * edition can be pinned to — still evidence, just not attributable evidence.
+   * The exact ranking table cited, where the claim names one we hold. Often
+   * unset: institutions cite editions going back years, and the Index holds
+   * only some of them.
    */
   ranking: z.string().min(1).optional(),
+  /**
+   * The ranking product cited, by `shortName` (e.g. "RUR"). Carries the claim
+   * when the specific edition isn't one we hold, which is the common case —
+   * evidence about an index rarely arrives conveniently attached to the
+   * edition in front of us.
+   */
+  product: z.string().min(1).optional(),
   /** The page carrying the claim, on the institution's own domain where possible. */
   url: z.url(),
   /**

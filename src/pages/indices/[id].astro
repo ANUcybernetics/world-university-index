@@ -4,7 +4,9 @@ import Base from "../../layouts/Base.astro";
 import RankBadge from "../../components/RankBadge.astro";
 import {
   citationsOf,
+  citationsOfProduct,
   dataset,
+  isIndexed,
   ordinal,
   rankedUniversities,
   scopeSuffix,
@@ -28,6 +30,12 @@ interface Props {
 
 const { ranking } = Astro.props;
 const cited: Citation[] = [...citationsOf(ranking.id)];
+// Claims about other editions still vouch for the index — an institution
+// quoting the 2020 table is evidence about the ranking, not about the year.
+const otherEditions: Citation[] = citationsOfProduct(ranking.shortName).filter(
+  (c) => !cited.includes(c),
+);
+const total = cited.length + otherEditions.length;
 
 const placements = rankedUniversities()
   .map((e) => ({ entry: e, rank: e.university.ranks[ranking.id] }))
@@ -41,7 +49,7 @@ const quoteFor = (uni: University): Citation | undefined =>
 
 <Base
   title={`${ranking.name}, ${ranking.edition} — The World University Index`}
-  description={`${ranking.name} ${ranking.edition}: ${placements.length} institutions recorded by the Index, and ${cited.length} published claims citing it.`}
+  description={`${ranking.name} ${ranking.edition}: ${placements.length} institutions recorded by the Index, and ${total} published claims citing it.`}
 >
   <article class="index-page">
     <div class="container">
@@ -64,10 +72,11 @@ const quoteFor = (uni: University): Citation | undefined =>
       <section class="standing" aria-labelledby="standing-heading">
         <h2 id="standing-heading" class="sr-only">Standing</h2>
         {
-          cited.length > 0 ? (
+          total > 0 ? (
             <p class="standing__verdict standing__verdict--cited">
-              Cited by <strong>{cited.length}</strong>{" "}
-              {cited.length === 1 ? "institution" : "institutions"}.
+              Cited by <strong>{total}</strong>{" "}
+              {total === 1 ? "institution" : "institutions"}
+              {cited.length === 0 && ", though none for this edition"}.
             </p>
           ) : (
             <p class="standing__verdict">No citations recorded yet.</p>
@@ -85,34 +94,74 @@ const quoteFor = (uni: University): Citation | undefined =>
       </section>
 
       {
-        cited.length > 0 && (
+        total > 0 && (
           <section class="quotes" aria-labelledby="quotes-heading">
             <h2 id="quotes-heading" class="section-heading">In their own words</h2>
-            <ul class="quotes__list">
-              {cited.map((c) => (
-                <li class="quote">
-                  <blockquote class="quote__text" cite={c.url}>
-                    {c.quote}
-                  </blockquote>
-                  <p class="quote__attrib">
-                    <a href={universityHref(slugify(c.university))}>{c.university}</a>
-                    <span class="quote__links">
-                      <a href={c.url} rel="external nofollow">source</a>
-                      {c.archive && (
-                        <>
-                          {" · "}
-                          <a href={c.archive} rel="external nofollow">
-                            archived
-                          </a>
-                        </>
+            {cited.length > 0 && (
+              <ul class="quotes__list">
+                {cited.map((c) => (
+                  <li class="quote">
+                    <blockquote class="quote__text" cite={c.url}>
+                      {c.quote}
+                    </blockquote>
+                    <p class="quote__attrib">
+                      {isIndexed(c.university) ? (
+                        <a href={universityHref(slugify(c.university))}>{c.university}</a>
+                      ) : (
+                        <span class="quote__outsider">{c.university}</span>
                       )}
-                      {" · "}
-                      <span class="quote__retrieved">retrieved {c.retrieved}</span>
-                    </span>
-                  </p>
-                </li>
-              ))}
-            </ul>
+                      <span class="quote__links">
+                        <a href={c.url} rel="external nofollow">source</a>
+                        {c.archive && (
+                          <>
+                            {" · "}
+                            <a href={c.archive} rel="external nofollow">
+                              archived
+                            </a>
+                          </>
+                        )}
+                        {" · "}
+                        <span class="quote__retrieved">retrieved {c.retrieved}</span>
+                      </span>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {otherEditions.length > 0 && (
+              <>
+                <h3 class="quotes__subhead">Citing other editions of this index</h3>
+                <ul class="quotes__list">
+                  {otherEditions.map((c) => (
+                    <li class="quote">
+                      <blockquote class="quote__text" cite={c.url}>
+                        {c.quote}
+                      </blockquote>
+                      <p class="quote__attrib">
+                        {isIndexed(c.university) ? (
+                          <a href={universityHref(slugify(c.university))}>{c.university}</a>
+                        ) : (
+                          <span class="quote__outsider">{c.university}</span>
+                        )}
+                        <span class="quote__links">
+                          <a href={c.url} rel="external nofollow">source</a>
+                          {c.archive && (
+                            <>
+                              {" · "}
+                              <a href={c.archive} rel="external nofollow">
+                                archived
+                              </a>
+                            </>
+                          )}
+                          {" · "}
+                          <span class="quote__retrieved">retrieved {c.retrieved}</span>
+                        </span>
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </section>
         )
       }
@@ -278,6 +327,19 @@ const quoteFor = (uni: University): Citation | undefined =>
 
   .quote__links,
   .quote__retrieved {
+    color: var(--ink-faint);
+  }
+
+  .quote__outsider {
+    color: var(--ink-soft);
+  }
+
+  .quotes__subhead {
+    margin: 1.6rem 0 0;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--ink-faint);
   }
 

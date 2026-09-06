@@ -1,6 +1,12 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { citations, citationsOf, dataset, type RankingCategory } from "../../lib/rankings";
+import {
+  citations,
+  citationsOf,
+  citationsOfProduct,
+  dataset,
+  type RankingCategory,
+} from "../../lib/rankings";
 import { indexHref } from "../../lib/paths";
 
 const groups: { key: RankingCategory; label: string }[] = [
@@ -12,18 +18,26 @@ const groups: { key: RankingCategory; label: string }[] = [
 
 const rows = dataset.rankings.map((r) => ({
   ranking: r,
+  // Edition-level, then the index as a whole: a claim about the 2020 table is
+  // evidence about the ranking even when we hold only the 2026 one.
   citations: citationsOf(r.id).length,
+  product: citationsOfProduct(r.shortName).length,
 }));
 
-const citedCount = rows.filter((r) => r.citations > 0).length;
-const attributed = citations.filter((c) => c.ranking !== undefined).length;
+const products = new Set(dataset.rankings.map((r) => r.shortName));
+const citedProducts = new Set(
+  [...products].filter((p) => citationsOfProduct(p).length > 0),
+).size;
+const outside = citations.filter(
+  (c) => !dataset.universities.some((u) => u.name === c.university),
+).length;
 
 const sections = groups
   .map((g) => ({
     ...g,
     rows: rows
       .filter((row) => (row.ranking.category ?? "overall") === g.key)
-      .toSorted((a, b) => b.citations - a.citations),
+      .toSorted((a, b) => b.citations - a.citations || b.product - a.product),
   }))
   .filter((g) => g.rows.length > 0);
 ---
@@ -38,9 +52,10 @@ const sections = groups
       <h1>The indices</h1>
 
       <p class="lead">
-        The {dataset.rankings.length} ranking tables the Index draws on. Alongside
-        each, the institutions recorded citing it — the backlink that turns a
-        table into an index somebody cares about.
+        The {dataset.rankings.length} ranking tables the Index draws on, across {
+          products.size
+        } distinct indices. Alongside each, the institutions recorded citing it —
+        the backlink that turns a table into an index somebody cares about.
       </p>
 
       <dl class="tally">
@@ -49,8 +64,8 @@ const sections = groups
           <dd>{dataset.rankings.length}</dd>
         </div>
         <div class="tally__item">
-          <dt>Cited by an institution</dt>
-          <dd>{citedCount}</dd>
+          <dt>Indices with a citation</dt>
+          <dd>{citedProducts} / {products.size}</dd>
         </div>
         <div class="tally__item">
           <dt>Claims on the record</dt>
@@ -63,10 +78,10 @@ const sections = groups
         its own website is an index that matters to at least somebody, and the
         Index treats it accordingly — the obscure ones most of all, since an
         institution that cites a ranking almost nobody has heard of has told you
-        something a well-known ranking never could. {attributed} of the {
-          citations.length
-        } claims on record name a specific table; the rest cite a publisher's
-        rankings in general and are shown on the institution's own page.
+        something a well-known ranking never could. The citing institution need
+        not appear in the Index itself: {outside} of the {citations.length} claims
+        on record come from universities we do not otherwise track, and they
+        vouch for the index just as well.
       </p>
 
       {
@@ -76,7 +91,7 @@ const sections = groups
               {g.label} <span class="group__count">{g.rows.length}</span>
             </h2>
             <ul class="list">
-              {g.rows.map(({ ranking, citations: n }) => (
+              {g.rows.map(({ ranking, citations: n, product: p }) => (
                 <li class="row">
                   <a class="row__link" href={indexHref(ranking.id)}>
                     {ranking.scope ?? ranking.name}
@@ -85,9 +100,9 @@ const sections = groups
                     {ranking.shortName} {ranking.edition}
                   </span>
                   {n > 0 ? (
-                    <span class="row__cites">
-                      cited &times;{n}
-                    </span>
+                    <span class="row__cites">cited &times;{n}</span>
+                  ) : p > 0 ? (
+                    <span class="row__index-cited">index cited &times;{p}</span>
                   ) : (
                     <span class="row__uncited">uncited</span>
                   )}
@@ -216,6 +231,7 @@ const sections = groups
   }
 
   .row__cites,
+  .row__index-cited,
   .row__uncited {
     font-family: var(--sans);
     font-size: 0.72rem;
@@ -229,6 +245,10 @@ const sections = groups
     border: 1px solid currentcolor;
     border-radius: var(--radius);
     padding: 0.05rem 0.35rem;
+  }
+
+  .row__index-cited {
+    color: var(--ink-soft);
   }
 
   .row__uncited {

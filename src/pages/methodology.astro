@@ -1,9 +1,10 @@
 ---
 import Base from "../layouts/Base.astro";
-import { citations, citationsOf, dataset, type RankingCategory } from "../lib/rankings";
+import { citations, citationsOfProduct, dataset, type RankingCategory } from "../lib/rankings";
 import { href, indexHref } from "../lib/paths";
 
-const citedTables = dataset.rankings.filter((r) => citationsOf(r.id).length > 0).length;
+const products = new Set(dataset.rankings.map((r) => r.shortName));
+const citedProducts = [...products].filter((p) => citationsOfProduct(p).length > 0).length;
 
 const groups: { key: RankingCategory; label: string; blurb: string }[] = [
   {
@@ -125,9 +126,12 @@ const sourceGroups = groups
       almost nobody has heard of has demonstrated something about the currency of
       that ranking which a household name never could. Each claim is recorded
       verbatim, with a link to the page it appeared on, so the reader may judge
-      it directly. Of the {dataset.rankings.length} tables recorded, {citedTables}
-      {" "}are so far attested by {citations.length} published claims; the full
-      list is on <a href={href("/indices")}>the indices page</a>.
+      it directly. Of the {products.size} indices recorded, {citedProducts} are so
+      far attested by {citations.length} published claims — many of them from
+      institutions the Index does not otherwise track, since a ranking is
+      vouched for by whoever quotes it. The full list is on <a
+        href={href("/indices")}>the indices page</a
+      >.
     </p>
 
     <h2>Banded results</h2>

@@ -71,11 +71,17 @@ rather than scraping live.
 
 ## Citations
 
-Every ranking table in the Index is a table somebody has boasted about.
+Every ranking in the Index is one somebody has boasted about.
 [`src/data/citations.json`](src/data/citations.json) records those boasts: for
-each one, the institution, the table it cites (where the claim names one), the
-page it appeared on, and a verbatim pull quote of what was actually said. An
-archive URL is stored where the original is likely to be restructured away.
+each one, the institution, the index cited (as a `ranking` id where the claim
+names an edition we hold, otherwise as a `product` short name), the page it
+appeared on, and a verbatim pull quote of what was actually said. An archive URL
+is stored where the original is likely to be restructured away.
+
+The citing institution need not appear in the Index. Most do not, and that is
+the point: a ranking is vouched for by whoever quotes it, so a Turkish, Filipino
+or Palestinian university boasting about a table is evidence about the table
+regardless of whether we hold a figure for them.
 
 This is the Index's inclusion test, and it is deliberately generous. A ranking
 counts once one institution has quoted it — not because the ranking is rigorous
@@ -85,10 +91,10 @@ a university citing a table almost nobody has heard of tells you something about
 the currency of that table which a household name never could.
 
 Quotes are recorded verbatim and never tidied, capped at 300 characters, and
-always shown with a link to the source. `pnpm update-rankings` checks that every
-citation resolves to an institution and a table that exist, and warns about
-claims that cite a publisher in general without naming a table --- those still
-appear on the institution's own page, but they can't vouch for an index.
+always shown with a link to the source. Every quote in the file was verified
+against the live page rather than transcribed. `pnpm update-rankings` checks
+that each citation resolves to a ranking and product that exist, and warns about
+claims that vouch for no index at all.
 
 ## Adding an institution
 
@@ -97,9 +103,10 @@ Add an entry to `universities` in `rankings.json` with a `name`, `country` and a
 all derived. Run `pnpm update-rankings` to validate, then `pnpm build`.
 
 To add a citation, append to `citations` in `citations.json` with the
-institution's `name` exactly as it appears in `rankings.json`, the `url`, a
-verbatim `quote`, the date `retrieved`, and the `ranking` id where the claim
-names a specific table.
+institution's name, the `url`, a verbatim `quote`, the date `retrieved`, and
+either a `ranking` id (when the claim names an edition we hold) or a `product`
+short name such as `RUR`. Where the institution is one of ours, spell its name
+exactly as it appears in `rankings.json` so the quote reaches its profile page.
 
 ## Author
 

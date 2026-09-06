@@ -12,6 +12,8 @@ import {
   citations,
   citationsBy,
   citationsOf,
+  citationsOfProduct,
+  isIndexed,
   citingInstitutions,
   dataset,
   isCited,
@@ -199,17 +201,32 @@ describe("dataset integrity", () => {
 });
 
 describe("citations", () => {
-  it("names an institution that exists in the dataset", () => {
+  it("accepts institutions from outside the dataset, and flags which are inside", () => {
     const names = new Set(dataset.universities.map((u) => u.name));
     for (const c of citations) {
-      expect(names).toContain(c.university);
+      expect(isIndexed(c.university)).toBe(names.has(c.university));
+    }
+    // The point of the widened model: outside institutions vouch for an index
+    // just as well, and most of the world's universities are outside.
+    expect(citations.some((c) => !isIndexed(c.university))).toBe(true);
+  });
+
+  it("names a ranking and a product that exist, where it names them at all", () => {
+    const ids = new Set(dataset.rankings.map((r) => r.id));
+    const products = new Set(dataset.rankings.map((r) => r.shortName));
+    for (const c of citations) {
+      if (c.ranking !== undefined) expect(ids).toContain(c.ranking);
+      if (c.product !== undefined) expect(products).toContain(c.product);
     }
   });
 
-  it("names a ranking that exists, where it names one at all", () => {
-    const ids = new Set(dataset.rankings.map((r) => r.id));
-    for (const c of citations) {
-      if (c.ranking !== undefined) expect(ids).toContain(c.ranking);
+  it("counts a claim about any edition as vouching for the index", () => {
+    const withProduct = citations.filter((c) => c.product !== undefined && c.ranking === undefined);
+    expect(withProduct.length).toBeGreaterThan(0);
+    for (const c of withProduct) {
+      expect(citationsOfProduct(c.product!)).toContain(c);
+      const table = dataset.rankings.find((r) => r.shortName === c.product)!;
+      expect(isCited(table.id)).toBe(true);
     }
   });
 
@@ -223,18 +240,20 @@ describe("citations", () => {
 
   it("indexes each citation under both the institution and the table", () => {
     for (const c of citations) {
-      const uni = dataset.universities.find((u) => u.name === c.university)!;
-      expect(citationsBy(uni)).toContain(c);
+      const uni = dataset.universities.find((u) => u.name === c.university);
+      if (uni !== undefined) expect(citationsBy(uni)).toContain(c);
       if (c.ranking !== undefined) {
         expect(citationsOf(c.ranking)).toContain(c);
         expect(isCited(c.ranking)).toBe(true);
-        expect(citingInstitutions(c.ranking).map((u) => u.name)).toContain(c.university);
+        expect(citingInstitutions(c.ranking)).toContain(c.university);
       }
     }
   });
 
-  it("treats an uncited table as uncited", () => {
-    const uncited = dataset.rankings.find((r) => citationsOf(r.id).length === 0);
+  it("treats an index nobody has quoted as uncited", () => {
+    const uncited = dataset.rankings.find(
+      (r) => citationsOf(r.id).length === 0 && citationsOfProduct(r.shortName).length === 0,
+    );
     expect(uncited).toBeDefined();
     expect(isCited(uncited!.id)).toBe(false);
     expect(citingInstitutions(uncited!.id)).toEqual([]);

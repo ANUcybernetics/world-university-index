@@ -67,15 +67,17 @@ interface Issue {
  */
 export function auditCitations(data: Dataset, citations: Citation[]): Issue[] {
   const issues: Issue[] = [];
-  const names = new Set(data.universities.map((u) => u.name));
   const ids = new Set(data.rankings.map((r) => r.id));
+  const products = new Set(data.rankings.map((r) => r.shortName));
   const seen = new Set<string>();
 
+  // An institution outside the dataset is expected, not an error: a ranking is
+  // vouched for by whoever quotes it, and most of the world isn't in here.
   for (const c of citations) {
-    if (!names.has(c.university)) {
+    if (c.product !== undefined && !products.has(c.product)) {
       issues.push({
         level: "error",
-        message: `citation names unknown institution "${c.university}" (${c.url})`,
+        message: `citation names unknown ranking product "${c.product}" (${c.url})`,
       });
     }
     if (c.ranking !== undefined && !ids.has(c.ranking)) {
@@ -90,12 +92,11 @@ export function auditCitations(data: Dataset, citations: Citation[]): Issue[] {
     }
     seen.add(key);
 
-    // A claim that names no table still counts as evidence for the institution,
-    // but it can't vouch for an index, so flag it as work left to do.
-    if (c.ranking === undefined) {
+    // A claim tied to neither a table nor a product can't vouch for any index.
+    if (c.ranking === undefined && c.product === undefined) {
       issues.push({
         level: "warning",
-        message: `citation not attributed to a table: ${c.university} (${c.url})`,
+        message: `citation vouches for no index: ${c.university} (${c.url})`,
       });
     }
   }
@@ -146,20 +147,26 @@ export function audit(data: Dataset): Issue[] {
 }
 
 function reportCitations(data: Dataset, citations: Citation[]): void {
-  const cited = new Map<string, number>();
+  const byId = new Map(data.rankings.map((r) => [r.id, r]));
+  const known = new Set(data.universities.map((u) => u.name));
+  const perProduct = new Map<string, number>();
   for (const c of citations) {
-    if (c.ranking === undefined) continue;
-    cited.set(c.ranking, (cited.get(c.ranking) ?? 0) + 1);
+    const product = c.product ?? (c.ranking === undefined ? undefined : byId.get(c.ranking)?.shortName);
+    if (product === undefined) continue;
+    perProduct.set(product, (perProduct.get(product) ?? 0) + 1);
   }
+  const outside = citations.filter((c) => !known.has(c.university)).length;
+  const products = new Set(data.rankings.map((r) => r.shortName));
   console.log(
-    `\n  ${citations.length} published claims citing ${cited.size} of ${data.rankings.length} tables` +
-      ` (${new Set(citations.map((c) => c.university)).size} institutions on the record)\n`,
+    `\n  ${citations.length} published claims vouching for ${perProduct.size} of ${products.size} indices` +
+      ` (${new Set(citations.map((c) => c.university)).size} institutions, ${outside} of them outside the Index)\n`,
   );
-  const byCount = [...cited.entries()].toSorted((a, b) => b[1] - a[1]).slice(0, 8);
-  for (const [id, n] of byCount) {
-    const r = data.rankings.find((x) => x.id === id);
-    const scope = r?.scope ? ` — ${r.scope}` : "";
-    console.log(`    ${String(n).padStart(2)}x  ${r?.shortName ?? id} ${r?.edition ?? ""}${scope}`);
+  for (const [product, n] of [...perProduct.entries()].toSorted((a, b) => b[1] - a[1])) {
+    console.log(`    ${String(n).padStart(2)}x  ${product}`);
+  }
+  const uncited = [...products].filter((p) => !perProduct.has(p));
+  if (uncited.length > 0) {
+    console.log(`\n  Indices with no citation on record: ${uncited.join(", ")}`);
   }
 }
 

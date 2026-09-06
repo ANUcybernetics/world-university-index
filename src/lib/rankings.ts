@@ -53,19 +53,22 @@ export function rankingById(id: string): RankingMeta | undefined {
 }
 
 const universityNames = new Set(dataset.universities.map((u) => u.name));
+const productNames = new Set(dataset.rankings.map((r) => r.shortName));
 
-// Citations point across files, which no single schema can check. Fail at load
-// rather than rendering a page that quietly drops a quote.
+// Citations point across files, which no single schema can check. An unknown
+// ranking or product is a typo and fails the build; an unknown institution is
+// not, since most citing institutions are outside this dataset by design.
 for (const c of citations) {
-  if (!universityNames.has(c.university)) {
-    throw new Error(`citation cites unknown institution "${c.university}" (${c.url})`);
-  }
   if (c.ranking !== undefined && !rankingsById.has(c.ranking)) {
     throw new Error(`citation cites unknown ranking "${c.ranking}" (${c.url})`);
+  }
+  if (c.product !== undefined && !productNames.has(c.product)) {
+    throw new Error(`citation cites unknown ranking product "${c.product}" (${c.url})`);
   }
 }
 
 const citationsByRanking = new Map<string, Citation[]>();
+const citationsByProduct = new Map<string, Citation[]>();
 const citationsByUniversity = new Map<string, Citation[]>();
 for (const c of citations) {
   if (c.ranking !== undefined) {
@@ -73,9 +76,28 @@ for (const c of citations) {
     list.push(c);
     citationsByRanking.set(c.ranking, list);
   }
+  const product = c.product ?? (c.ranking === undefined ? undefined : rankingsById.get(c.ranking)?.shortName);
+  if (product !== undefined) {
+    const list = citationsByProduct.get(product) ?? [];
+    list.push(c);
+    citationsByProduct.set(product, list);
+  }
   const byUni = citationsByUniversity.get(c.university) ?? [];
   byUni.push(c);
   citationsByUniversity.set(c.university, byUni);
+}
+
+/** Whether a citing institution has a profile page here. Most do not. */
+export function isIndexed(institution: string): boolean {
+  return universityNames.has(institution);
+}
+
+/**
+ * Every claim citing this ranking's product, whatever the edition — the test of
+ * whether the index has currency, as opposed to this particular year's table.
+ */
+export function citationsOfProduct(shortName: string): readonly Citation[] {
+  return citationsByProduct.get(shortName) ?? [];
 }
 
 /** Published claims citing a particular ranking table. */
@@ -89,17 +111,21 @@ export function citationsBy(uni: University): readonly Citation[] {
 }
 
 /**
- * Whether any institution has been recorded citing this ranking — the test of
- * whether a table has entered the world, as distinct from merely existing.
+ * Whether any institution has been recorded citing this ranking's product — the
+ * test of whether an index has entered the world, as distinct from existing.
+ * Product-level rather than edition-level: an institution quoting the 2020
+ * edition is evidence about the index, not about the year.
  */
 export function isCited(rankingId: string): boolean {
-  return citationsByRanking.has(rankingId);
+  const product = rankingsById.get(rankingId)?.shortName;
+  return citationsByRanking.has(rankingId) || (product !== undefined && citationsByProduct.has(product));
 }
 
-/** Institutions that have cited a ranking, deduplicated, in dataset order. */
-export function citingInstitutions(rankingId: string): University[] {
-  const names = new Set(citationsOf(rankingId).map((c) => c.university));
-  return dataset.universities.filter((u) => names.has(u.name));
+/** Every institution recorded citing this index, deduplicated, in first-seen order. */
+export function citingInstitutions(rankingId: string): string[] {
+  const product = rankingsById.get(rankingId)?.shortName;
+  const all = [...citationsOf(rankingId), ...(product ? citationsOfProduct(product) : [])];
+  return [...new Set(all.map((c) => c.university))];
 }
 
 export interface UniversityEntry {

@@ -13,7 +13,8 @@ import {
   type University,
   type BestRank,
 } from "../lib/rankings";
-import { href, indexHref } from "../lib/paths";
+import { institutionJsonLd } from "../lib/api";
+import { href, indexHref, siteOrigin } from "../lib/paths";
 
 export const getStaticPaths = (() => {
   return rankedUniversities().map((e) => ({
@@ -35,6 +36,7 @@ const place = university.city
   : university.country;
 const claim = ordinal(best.rank);
 const claimScope = scopeSuffix(best.ranking);
+const jsonLd = institutionJsonLd(university, siteOrigin(Astro.site));
 
 // What the institution says about itself, next to what the Index says about it.
 // The two rarely match: a university tends to quote the table it happens to
@@ -50,6 +52,12 @@ const claims = citationsBy(university).map((citation) => {
   title={`${university.name} — World ranking | The World University Index`}
   description={`${university.name} is ranked ${claim} in the world${claimScope}. Source: ${best.ranking.name} ${best.ranking.edition}.`}
 >
+  <script
+    type="application/ld+json"
+    slot="head"
+    is:inline
+    set:html={JSON.stringify(jsonLd)}
+  />
   <article class="profile">
     <div class="container">
       <nav class="crumbs" aria-label="Breadcrumb">

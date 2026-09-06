@@ -105,6 +105,26 @@ against the live page rather than transcribed. `pnpm update-rankings` checks
 that each citation resolves to a ranking and product that exist, and warns about
 claims that vouch for no index at all.
 
+## Machine-readable output
+
+The built site publishes the dataset as JSON alongside the pages:
+
+| Endpoint | Contents |
+| --- | --- |
+| `/api/institutions.json` | every institution, with `ror`, slug, headline placement and full placement profile |
+| `/api/indices.json` | every ranking table, with placement and citation counts |
+| `/api/citations.json` | every published claim, verbatim, with its source URL |
+
+Each profile page also embeds `schema.org/CollegeOrUniversity` JSON-LD carrying
+the same ROR identifier as both `identifier` and `sameAs`. The point of both is
+the identifier: assembling this dataset meant reconciling institution names
+across publishers who disagree about them, and the endpoints exist so nobody
+consuming it has to do that again.
+
+The payloads are built by pure functions in [`src/lib/api.ts`](src/lib/api.ts)
+that take the site origin as an argument, so they are tested directly rather
+than over HTTP.
+
 ## Adding an institution
 
 Add an entry to `universities` in `rankings.json` with a `name`, `country` and a

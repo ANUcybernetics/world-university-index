@@ -3206,6 +3206,50 @@
       "scope": "research throughput",
       "universe": "participating institutions",
       "category": "thematic"
+    },
+    {
+      "id": "the-impact-sdg1-2025",
+      "name": "THE Sustainability Impact Ratings: no poverty (SDG 1)",
+      "shortName": "THE Impact",
+      "edition": "2025",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/no-poverty/2025",
+      "retrieved": "2026-09-06",
+      "scope": "no poverty (SDG 1)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg2-2026",
+      "name": "THE Sustainability Impact Ratings: zero hunger (SDG 2)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/zero-hunger/2026",
+      "retrieved": "2026-09-06",
+      "scope": "zero hunger (SDG 2)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg8-2025",
+      "name": "THE Sustainability Impact Ratings: decent work and economic growth (SDG 8)",
+      "shortName": "THE Impact",
+      "edition": "2025",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/decent-work-and-economic-growth/2025",
+      "retrieved": "2026-09-06",
+      "scope": "decent work and economic growth (SDG 8)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg9-2026",
+      "name": "THE Sustainability Impact Ratings: industry, innovation and infrastructure (SDG 9)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/industry-innovation-and-infrastructure/2026",
+      "retrieved": "2026-09-06",
+      "scope": "industry, innovation and infrastructure (SDG 9)",
+      "category": "sdg"
     }
   ],
   "universities": [
@@ -3213,6 +3257,7 @@
       "name": "Australian Catholic University",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/04cxm4j25",
       "ranks": {
         "qs-2026": 851,
         "the-2026": 401,
@@ -3243,14 +3288,14 @@
         "scimago-psychology-2025": 256,
         "scimago-social-sciences-2025": 439,
         "urap-education-2024-2025": 16
-      },
-      "ror": "https://ror.org/04cxm4j25"
+      }
     },
     {
       "name": "Australian National University",
       "shortName": "ANU",
       "country": "Australia",
       "city": "Canberra",
+      "ror": "https://ror.org/019wvm592",
       "ranks": {
         "qs-2026": 32,
         "the-2026": 73,
@@ -3330,13 +3375,13 @@
         "scimago-social-sciences-2025": 80,
         "urap-economics-2024-2025": 47,
         "urap-law-and-legal-studies-2024-2025": 45
-      },
-      "ror": "https://ror.org/019wvm592"
+      }
     },
     {
       "name": "Bond University",
       "country": "Australia",
       "city": "Gold Coast",
+      "ror": "https://ror.org/006jxzx88",
       "ranks": {
         "qs-2026": 591,
         "the-2026": 401,
@@ -3349,13 +3394,13 @@
         "webometrics-2025": 1146,
         "mosiur-2025": 701,
         "time-2026": 400
-      },
-      "ror": "https://ror.org/006jxzx88"
+      }
     },
     {
       "name": "Boston University",
       "country": "United States",
       "city": "Boston",
+      "ror": "https://ror.org/05qwgg493",
       "ranks": {
         "qs-2026": 88,
         "the-2026": 76,
@@ -3418,13 +3463,13 @@
         "scimago-dentistry-2026": 159,
         "usnews-national-universities-2026": 42,
         "forbes-top-colleges-2025-2026": 45
-      },
-      "ror": "https://ror.org/05qwgg493"
+      }
     },
     {
       "name": "Brown University",
       "country": "United States",
       "city": "Providence",
+      "ror": "https://ror.org/05gq02987",
       "ranks": {
         "qs-2026": 69,
         "the-2026": 65,
@@ -3479,13 +3524,13 @@
         "usnews-national-universities-2026": 13,
         "wsj-us-colleges-2026": 27,
         "forbes-top-colleges-2025-2026": 18
-      },
-      "ror": "https://ror.org/05gq02987"
+      }
     },
     {
       "name": "California Institute of Technology",
       "country": "United States",
       "city": "Pasadena",
+      "ror": "https://ror.org/05dxps055",
       "ranks": {
         "qs-2026": 10,
         "the-2026": 7,
@@ -3544,13 +3589,13 @@
         "usnews-national-universities-2026": 11,
         "wsj-us-colleges-2026": 23,
         "forbes-top-colleges-2025-2026": 24
-      },
-      "ror": "https://ror.org/05dxps055"
+      }
     },
     {
       "name": "Carnegie Mellon University",
       "country": "United States",
       "city": "Pittsburgh",
+      "ror": "https://ror.org/05x2bcf33",
       "ranks": {
         "qs-2026": 52,
         "the-2026": 24,
@@ -3608,13 +3653,13 @@
         "usnews-national-universities-2026": 20,
         "wsj-us-colleges-2026": 46,
         "forbes-top-colleges-2025-2026": 43
-      },
-      "ror": "https://ror.org/05x2bcf33"
+      }
     },
     {
       "name": "Charles Darwin University",
       "country": "Australia",
       "city": "Darwin",
+      "ror": "https://ror.org/048zcaj52",
       "ranks": {
         "qs-2026": 584,
         "the-2026": 401,
@@ -3637,13 +3682,13 @@
         "leiden-social-sciences-humanities-2025": 736,
         "scimago-computer-science-2025": 296,
         "scimago-engineering-2025": 186
-      },
-      "ror": "https://ror.org/048zcaj52"
+      }
     },
     {
       "name": "Charles Sturt University",
       "country": "Australia",
       "city": "Bathurst",
+      "ror": "https://ror.org/00wfvh315",
       "ranks": {
         "qs-2026": 951,
         "the-2026": 601,
@@ -3659,13 +3704,13 @@
         "leiden-life-earth-sciences-2025": 451,
         "leiden-social-sciences-humanities-2025": 722,
         "scimago-veterinary-2026": 315
-      },
-      "ror": "https://ror.org/00wfvh315"
+      }
     },
     {
       "name": "Chinese University of Hong Kong",
       "country": "Hong Kong",
       "city": "Hong Kong",
+      "ror": "https://ror.org/00t33hh48",
       "ranks": {
         "qs-2026": 32,
         "the-2026": 41,
@@ -3721,14 +3766,15 @@
         "scimago-psychology-2025": 99,
         "scimago-social-sciences-2025": 63,
         "scimago-veterinary-2026": 171,
-        "scimago-dentistry-2026": 379
-      },
-      "ror": "https://ror.org/00t33hh48"
+        "scimago-dentistry-2026": 379,
+        "the-impact-sdg8-2025": 33
+      }
     },
     {
       "name": "City University of Hong Kong",
       "country": "Hong Kong",
       "city": "Hong Kong",
+      "ror": "https://ror.org/03q8dnn23",
       "ranks": {
         "qs-2026": 63,
         "the-2026": 73,
@@ -3792,14 +3838,15 @@
         "scimago-veterinary-2026": 164,
         "urap-engineering-2024-2025": 41,
         "urap-information-computing-sciences-2024-2025": 19,
-        "urap-mathematical-sciences-2024-2025": 47
-      },
-      "ror": "https://ror.org/03q8dnn23"
+        "urap-mathematical-sciences-2024-2025": 47,
+        "the-impact-sdg9-2026": 1
+      }
     },
     {
       "name": "Columbia University",
       "country": "United States",
       "city": "New York",
+      "ror": "https://ror.org/00hj8s172",
       "ranks": {
         "qs-2026": 38,
         "the-2026": 20,
@@ -3886,13 +3933,13 @@
         "usnews-national-universities-2026": 15,
         "wsj-us-colleges-2026": 8,
         "forbes-top-colleges-2025-2026": 2
-      },
-      "ror": "https://ror.org/00hj8s172"
+      }
     },
     {
       "name": "Cornell University",
       "country": "United States",
       "city": "Ithaca",
+      "ror": "https://ror.org/05bnh6r87",
       "ranks": {
         "qs-2026": 16,
         "the-2026": 18,
@@ -3967,13 +4014,13 @@
         "usnews-national-universities-2026": 12,
         "wsj-us-colleges-2026": 18,
         "forbes-top-colleges-2025-2026": 14
-      },
-      "ror": "https://ror.org/05bnh6r87"
+      }
     },
     {
       "name": "CQUniversity",
       "country": "Australia",
       "city": "Rockhampton",
+      "ror": "https://ror.org/023q4bk22",
       "ranks": {
         "qs-2026": 499,
         "the-2026": 401,
@@ -3989,14 +4036,14 @@
         "urap-public-environmental-occupational-health-2024-2025": 357,
         "webometrics-2025": 944,
         "mosiur-2025": 801
-      },
-      "ror": "https://ror.org/023q4bk22"
+      }
     },
     {
       "name": "Curtin University",
       "shortName": "Curtin",
       "country": "Australia",
       "city": "Perth",
+      "ror": "https://ror.org/02n415q13",
       "ranks": {
         "qs-2026": 183,
         "the-2026": 251,
@@ -4054,14 +4101,14 @@
         "scimago-psychology-2025": 110,
         "scimago-social-sciences-2025": 151,
         "scimago-veterinary-2026": 359
-      },
-      "ror": "https://ror.org/02n415q13"
+      }
     },
     {
       "name": "Deakin University",
       "shortName": "Deakin",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/02czsnj07",
       "ranks": {
         "qs-2026": 207,
         "the-2026": 201,
@@ -4126,13 +4173,13 @@
         "scimago-psychology-2025": 77,
         "scimago-social-sciences-2025": 67,
         "urap-education-2024-2025": 18
-      },
-      "ror": "https://ror.org/02czsnj07"
+      }
     },
     {
       "name": "Delft University of Technology",
       "country": "Netherlands",
       "city": "Delft",
+      "ror": "https://ror.org/02e2c7k09",
       "ranks": {
         "qs-2026": 47,
         "the-2026": 57,
@@ -4182,13 +4229,13 @@
         "scimago-social-sciences-2025": 78,
         "urap-engineering-2024-2025": 37,
         "urap-earth-sciences-2024-2025": 50
-      },
-      "ror": "https://ror.org/02e2c7k09"
+      }
     },
     {
       "name": "Duke University",
       "country": "United States",
       "city": "Durham",
+      "ror": "https://ror.org/00py81415",
       "ranks": {
         "qs-2026": 62,
         "the-2026": 28,
@@ -4258,13 +4305,13 @@
         "usnews-national-universities-2026": 7,
         "wsj-us-colleges-2026": 68,
         "forbes-top-colleges-2025-2026": 22
-      },
-      "ror": "https://ror.org/00py81415"
+      }
     },
     {
       "name": "Durham University",
       "country": "United Kingdom",
       "city": "Durham",
+      "ror": "https://ror.org/01v29qb04",
       "ranks": {
         "qs-2026": 85,
         "the-2026": 174,
@@ -4301,13 +4348,13 @@
         "ntu-spacescience-2025": 43,
         "cug-2027": 6,
         "guardian-2026": 5
-      },
-      "ror": "https://ror.org/01v29qb04"
+      }
     },
     {
       "name": "Edith Cowan University",
       "country": "Australia",
       "city": "Perth",
+      "ror": "https://ror.org/05jhnwe22",
       "ranks": {
         "qs-2026": 487,
         "the-2026": 351,
@@ -4339,8 +4386,7 @@
         "scimago-physics-and-astronomy-2026": 274,
         "scimago-psychology-2025": 461,
         "scimago-social-sciences-2025": 397
-      },
-      "ror": "https://ror.org/05jhnwe22"
+      }
     },
     {
       "name": "EPFL",
@@ -4406,6 +4452,7 @@
       "shortName": "ETH Zurich",
       "country": "Switzerland",
       "city": "Zurich",
+      "ror": "https://ror.org/05a28rw58",
       "ranks": {
         "qs-2026": 7,
         "the-2026": 11,
@@ -4476,13 +4523,13 @@
         "urap-agriculture-2024-2025": 6,
         "urap-information-computing-sciences-2024-2025": 44,
         "urap-mathematical-sciences-2024-2025": 18
-      },
-      "ror": "https://ror.org/05a28rw58"
+      }
     },
     {
       "name": "Federation University Australia",
       "country": "Australia",
       "city": "Ballarat",
+      "ror": "https://ror.org/05qbzwv83",
       "ranks": {
         "the-2026": 501,
         "the-impact-sdg5-2025": 24,
@@ -4497,13 +4544,13 @@
         "urap-nursing-2024-2025": 81,
         "webometrics-2025": 1385,
         "mosiur-2025": 801
-      },
-      "ror": "https://ror.org/05qbzwv83"
+      }
     },
     {
       "name": "Flinders University",
       "country": "Australia",
       "city": "Adelaide",
+      "ror": "https://ror.org/01kpzv902",
       "ranks": {
         "qs-2026": 387,
         "the-2026": 301,
@@ -4531,13 +4578,13 @@
         "scimago-arts-and-humanities-2026": 306,
         "scimago-psychology-2025": 236,
         "scimago-social-sciences-2025": 378
-      },
-      "ror": "https://ror.org/01kpzv902"
+      }
     },
     {
       "name": "Fudan University",
       "country": "China",
       "city": "Shanghai",
+      "ror": "https://ror.org/013q1eq08",
       "ranks": {
         "qs-2026": 30,
         "the-2026": 36,
@@ -4613,13 +4660,13 @@
         "urap-biological-sciences-2024-2025": 25,
         "urap-mathematical-sciences-2024-2025": 40,
         "urap-medical-and-health-sciences-2024-2025": 43
-      },
-      "ror": "https://ror.org/013q1eq08"
+      }
     },
     {
       "name": "Georgia Institute of Technology",
       "country": "United States",
       "city": "Atlanta",
+      "ror": "https://ror.org/01zkghx44",
       "ranks": {
         "qs-2026": 123,
         "the-2026": 41,
@@ -4686,14 +4733,14 @@
         "usnews-national-universities-2026": 32,
         "wsj-us-colleges-2026": 16,
         "forbes-top-colleges-2025-2026": 32
-      },
-      "ror": "https://ror.org/01zkghx44"
+      }
     },
     {
       "name": "Griffith University",
       "shortName": "Griffith",
       "country": "Australia",
       "city": "Brisbane",
+      "ror": "https://ror.org/02sc3r913",
       "ranks": {
         "qs-2026": 268,
         "the-2026": 251,
@@ -4775,15 +4822,16 @@
         "scimago-social-sciences-2025": 72,
         "scimago-veterinary-2026": 227,
         "scimago-dentistry-2026": 150,
-        "urap-law-and-legal-studies-2024-2025": 34
-      },
-      "ror": "https://ror.org/02sc3r913"
+        "urap-law-and-legal-studies-2024-2025": 34,
+        "the-impact-sdg8-2025": 10
+      }
     },
     {
       "name": "Harvard University",
       "shortName": "Harvard",
       "country": "United States",
       "city": "Cambridge",
+      "ror": "https://ror.org/03vek6s52",
       "ranks": {
         "qs-2026": 5,
         "the-2026": 5,
@@ -4894,13 +4942,13 @@
         "usnews-national-universities-2026": 3,
         "wsj-us-colleges-2026": 5,
         "forbes-top-colleges-2025-2026": 6
-      },
-      "ror": "https://ror.org/03vek6s52"
+      }
     },
     {
       "name": "Hebrew University of Jerusalem",
       "country": "Israel",
       "city": "Jerusalem",
+      "ror": "https://ror.org/03qxff017",
       "ranks": {
         "qs-2026": 240,
         "the-2026": 251,
@@ -4950,13 +4998,13 @@
         "scimago-social-sciences-2025": 214,
         "scimago-veterinary-2026": 289,
         "scimago-dentistry-2026": 218
-      },
-      "ror": "https://ror.org/03qxff017"
+      }
     },
     {
       "name": "Heidelberg University",
       "country": "Germany",
       "city": "Heidelberg",
+      "ror": "https://ror.org/038t36y30",
       "ranks": {
         "qs-2026": 80,
         "the-2026": 49,
@@ -4994,13 +5042,13 @@
         "ntu-molecularbiologygenetics-2025": 44,
         "ntu-neurosciencebehavior-2025": 36,
         "ntu-spacescience-2025": 32
-      },
-      "ror": "https://ror.org/038t36y30"
+      }
     },
     {
       "name": "Hong Kong University of Science and Technology",
       "country": "Hong Kong",
       "city": "Hong Kong",
+      "ror": "https://ror.org/00q4vv597",
       "ranks": {
         "qs-2026": 44,
         "the-2026": 58,
@@ -5049,15 +5097,17 @@
         "scimago-environmental-science-2026": 314,
         "scimago-mathematics-2025": 108,
         "scimago-physics-and-astronomy-2026": 191,
-        "scimago-social-sciences-2025": 301
-      },
-      "ror": "https://ror.org/00q4vv597"
+        "scimago-social-sciences-2025": 301,
+        "the-impact-sdg8-2025": 11,
+        "the-impact-sdg9-2026": 9
+      }
     },
     {
       "name": "Imperial College London",
       "shortName": "Imperial",
       "country": "United Kingdom",
       "city": "London",
+      "ror": "https://ror.org/041kmwe10",
       "ranks": {
         "qs-2026": 2,
         "the-2026": 8,
@@ -5152,13 +5202,13 @@
         "urap-information-computing-sciences-2024-2025": 28,
         "urap-mathematical-sciences-2024-2025": 28,
         "urap-medical-and-health-sciences-2024-2025": 10
-      },
-      "ror": "https://ror.org/041kmwe10"
+      }
     },
     {
       "name": "Institut Polytechnique de Paris",
       "country": "France",
       "city": "Palaiseau",
+      "ror": "https://ror.org/042tfbd02",
       "ranks": {
         "qs-2026": 41,
         "the-2026": 68,
@@ -5177,14 +5227,15 @@
         "leiden-biomedical-health-sciences-2025": 641,
         "leiden-life-earth-sciences-2025": 466,
         "leiden-social-sciences-humanities-2025": 236,
-        "ntu-engineering-2025": 651
-      },
-      "ror": "https://ror.org/042tfbd02"
+        "ntu-engineering-2025": 651,
+        "the-impact-sdg9-2026": 9
+      }
     },
     {
       "name": "Institute of Science Tokyo",
       "country": "Japan",
       "city": "Tokyo",
+      "ror": "https://ror.org/05dqf9946",
       "ranks": {
         "qs-2026": 85,
         "the-2026": 166,
@@ -5211,13 +5262,13 @@
         "scimago-pharmacology-toxicology-and-pharmaceutics-2025": 368,
         "scimago-physics-and-astronomy-2026": 383,
         "scimago-dentistry-2026": 24
-      },
-      "ror": "https://ror.org/05dqf9946"
+      }
     },
     {
       "name": "James Cook University",
       "country": "Australia",
       "city": "Townsville",
+      "ror": "https://ror.org/04gsp2c11",
       "ranks": {
         "qs-2026": 440,
         "the-2026": 351,
@@ -5253,13 +5304,13 @@
         "scimago-social-sciences-2025": 463,
         "scimago-veterinary-2026": 407,
         "urap-veterinary-sciences-2024-2025": 25
-      },
-      "ror": "https://ror.org/04gsp2c11"
+      }
     },
     {
       "name": "Johns Hopkins University",
       "country": "United States",
       "city": "Baltimore",
+      "ror": "https://ror.org/00za53h95",
       "ranks": {
         "qs-2026": 20,
         "the-2026": 16,
@@ -5339,8 +5390,7 @@
         "usnews-national-universities-2026": 7,
         "wsj-us-colleges-2026": 92,
         "forbes-top-colleges-2025-2026": 8
-      },
-      "ror": "https://ror.org/00za53h95"
+      }
     },
     {
       "name": "KAIST",
@@ -5399,6 +5449,7 @@
       "name": "Karolinska Institute",
       "country": "Sweden",
       "city": "Stockholm",
+      "ror": "https://ror.org/056d84691",
       "ranks": {
         "the-2026": 49,
         "qs-sub-nursing-2026": 16,
@@ -5455,13 +5506,13 @@
         "urap-biological-sciences-2024-2025": 35,
         "urap-psychology-and-cognitive-sciences-2024-2025": 12,
         "urap-medical-and-health-sciences-2024-2025": 12
-      },
-      "ror": "https://ror.org/056d84691"
+      }
     },
     {
       "name": "King Abdullah University of Science and Technology",
       "country": "Saudi Arabia",
       "city": "Thuwal",
+      "ror": "https://ror.org/01q3tbs38",
       "ranks": {
         "qs-sub-petroleum-2026": 11,
         "qs-sub-materials-2026": 36,
@@ -5497,13 +5548,13 @@
         "scimago-mathematics-2025": 176,
         "scimago-medicine-2025": 354,
         "scimago-physics-and-astronomy-2026": 109
-      },
-      "ror": "https://ror.org/01q3tbs38"
+      }
     },
     {
       "name": "King's College London",
       "country": "United Kingdom",
       "city": "London",
+      "ror": "https://ror.org/0220mzb33",
       "ranks": {
         "qs-2026": 31,
         "the-2026": 38,
@@ -5569,13 +5620,13 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 4,
         "urap-law-and-legal-studies-2024-2025": 16,
         "urap-medical-and-health-sciences-2024-2025": 15
-      },
-      "ror": "https://ror.org/0220mzb33"
+      }
     },
     {
       "name": "Korea University",
       "country": "South Korea",
       "city": "Seoul",
+      "ror": "https://ror.org/047dqcg40",
       "ranks": {
         "qs-2026": 61,
         "the-2026": 156,
@@ -5626,14 +5677,16 @@
         "scimago-psychology-2025": 319,
         "scimago-social-sciences-2025": 355,
         "scimago-veterinary-2026": 423,
-        "scimago-dentistry-2026": 178
-      },
-      "ror": "https://ror.org/047dqcg40"
+        "scimago-dentistry-2026": 178,
+        "the-impact-sdg8-2025": 1,
+        "the-impact-sdg9-2026": 19
+      }
     },
     {
       "name": "KTH Royal Institute of Technology",
       "country": "Sweden",
       "city": "Stockholm",
+      "ror": "https://ror.org/026vcq606",
       "ranks": {
         "qs-2026": 78,
         "the-2026": 98,
@@ -5670,13 +5723,13 @@
         "leiden-social-sciences-humanities-2025": 706,
         "ntu-engineering-2025": 158,
         "ntu-agriculture-2025": 401
-      },
-      "ror": "https://ror.org/026vcq606"
+      }
     },
     {
       "name": "KU Leuven",
       "country": "Belgium",
       "city": "Leuven",
+      "ror": "https://ror.org/05f950310",
       "ranks": {
         "qs-2026": 59,
         "the-2026": 46,
@@ -5727,13 +5780,13 @@
         "urap-economics-2024-2025": 46,
         "urap-law-and-legal-studies-2024-2025": 30,
         "urap-medical-and-health-sciences-2024-2025": 40
-      },
-      "ror": "https://ror.org/05f950310"
+      }
     },
     {
       "name": "Kyoto University",
       "country": "Japan",
       "city": "Kyoto",
+      "ror": "https://ror.org/02kpeqv85",
       "ranks": {
         "qs-2026": 57,
         "the-2026": 61,
@@ -5788,14 +5841,14 @@
         "scimago-physics-and-astronomy-2026": 161,
         "scimago-psychology-2025": 316,
         "scimago-social-sciences-2025": 349
-      },
-      "ror": "https://ror.org/02kpeqv85"
+      }
     },
     {
       "name": "La Trobe University",
       "shortName": "La Trobe",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/01rxfrp27",
       "ranks": {
         "qs-2026": 233,
         "the-2026": 251,
@@ -5854,14 +5907,15 @@
         "scimago-psychology-2025": 201,
         "scimago-social-sciences-2025": 204,
         "scimago-veterinary-2026": 487,
-        "scimago-dentistry-2026": 397
-      },
-      "ror": "https://ror.org/01rxfrp27"
+        "scimago-dentistry-2026": 397,
+        "the-impact-sdg2-2026": 30
+      }
     },
     {
       "name": "London School of Economics and Political Science",
       "country": "United Kingdom",
       "city": "London",
+      "ror": "https://ror.org/0090zs177",
       "ranks": {
         "qs-2026": 56,
         "the-2026": 52,
@@ -5899,13 +5953,13 @@
         "scimago-social-sciences-2025": 54,
         "cug-2027": 3,
         "guardian-2026": 4
-      },
-      "ror": "https://ror.org/0090zs177"
+      }
     },
     {
       "name": "Ludwig Maximilian University of Munich",
       "country": "Germany",
       "city": "Munich",
+      "ror": "https://ror.org/05591te55",
       "ranks": {
         "qs-2026": 58,
         "the-2026": 34,
@@ -5963,13 +6017,13 @@
         "scimago-veterinary-2026": 70,
         "scimago-dentistry-2026": 90,
         "urap-psychology-and-cognitive-sciences-2024-2025": 33
-      },
-      "ror": "https://ror.org/05591te55"
+      }
     },
     {
       "name": "Lund University",
       "country": "Sweden",
       "city": "Lund",
+      "ror": "https://ror.org/012a77v79",
       "ranks": {
         "qs-2026": 72,
         "the-2026": 106,
@@ -6025,14 +6079,14 @@
         "scimago-psychology-2025": 165,
         "scimago-social-sciences-2025": 77,
         "urap-environmental-sciences-2024-2025": 34
-      },
-      "ror": "https://ror.org/012a77v79"
+      }
     },
     {
       "name": "Macquarie University",
       "shortName": "Macquarie",
       "country": "Australia",
       "city": "Sydney",
+      "ror": "https://ror.org/01sf06y89",
       "ranks": {
         "qs-2026": 138,
         "the-2026": 166,
@@ -6093,14 +6147,14 @@
         "scimago-psychology-2025": 66,
         "scimago-social-sciences-2025": 141,
         "urap-economics-2024-2025": 28
-      },
-      "ror": "https://ror.org/01sf06y89"
+      }
     },
     {
       "name": "Massachusetts Institute of Technology",
       "shortName": "MIT",
       "country": "United States",
       "city": "Cambridge",
+      "ror": "https://ror.org/042nb2s44",
       "ranks": {
         "qs-2026": 1,
         "the-2026": 2,
@@ -6201,13 +6255,13 @@
         "usnews-national-universities-2026": 2,
         "wsj-us-colleges-2026": 11,
         "forbes-top-colleges-2025-2026": 1
-      },
-      "ror": "https://ror.org/042nb2s44"
+      }
     },
     {
       "name": "McGill University",
       "country": "Canada",
       "city": "Montreal",
+      "ror": "https://ror.org/01pxwe438",
       "ranks": {
         "qs-2026": 27,
         "the-2026": 41,
@@ -6275,14 +6329,14 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 16,
         "urap-law-and-legal-studies-2024-2025": 47,
         "urap-medical-and-health-sciences-2024-2025": 42
-      },
-      "ror": "https://ror.org/01pxwe438"
+      }
     },
     {
       "name": "Monash University",
       "shortName": "Monash",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/02bfwt286",
       "ranks": {
         "qs-2026": 36,
         "the-2026": 58,
@@ -6361,13 +6415,13 @@
         "urap-law-and-legal-studies-2024-2025": 7,
         "urap-information-computing-sciences-2024-2025": 41,
         "urap-medical-and-health-sciences-2024-2025": 24
-      },
-      "ror": "https://ror.org/02bfwt286"
+      }
     },
     {
       "name": "Murdoch University",
       "country": "Australia",
       "city": "Perth",
+      "ror": "https://ror.org/00r4sry34",
       "ranks": {
         "qs-2026": 423,
         "the-2026": 401,
@@ -6394,13 +6448,13 @@
         "ntu-agriculture-2025": 214,
         "scimago-agricultural-and-biological-sciences-2025": 405,
         "scimago-veterinary-2026": 157
-      },
-      "ror": "https://ror.org/00r4sry34"
+      }
     },
     {
       "name": "Nanyang Technological University",
       "country": "Singapore",
       "city": "Singapore",
+      "ror": "https://ror.org/02e7b5302",
       "ranks": {
         "qs-2026": 12,
         "the-2026": 31,
@@ -6474,13 +6528,13 @@
         "urap-education-2024-2025": 34,
         "urap-information-computing-sciences-2024-2025": 5,
         "urap-mathematical-sciences-2024-2025": 30
-      },
-      "ror": "https://ror.org/02e7b5302"
+      }
     },
     {
       "name": "National Autonomous University of Mexico",
       "country": "Mexico",
       "city": "Mexico City",
+      "ror": "https://ror.org/01tmp8f25",
       "ranks": {
         "qs-2026": 136,
         "the-2026": 801,
@@ -6517,14 +6571,14 @@
         "leiden-social-sciences-humanities-2025": 925,
         "ntu-agriculture-2025": 76,
         "ntu-plantanimalscience-2025": 28
-      },
-      "ror": "https://ror.org/01tmp8f25"
+      }
     },
     {
       "name": "National University of Singapore",
       "shortName": "NUS",
       "country": "Singapore",
       "city": "Singapore",
+      "ror": "https://ror.org/01tgyzw49",
       "ranks": {
         "qs-2026": 8,
         "the-2026": 17,
@@ -6623,13 +6677,13 @@
         "urap-information-computing-sciences-2024-2025": 9,
         "urap-mathematical-sciences-2024-2025": 20,
         "urap-medical-and-health-sciences-2024-2025": 49
-      },
-      "ror": "https://ror.org/01tgyzw49"
+      }
     },
     {
       "name": "New York University",
       "country": "United States",
       "city": "New York",
+      "ror": "https://ror.org/0190ak572",
       "ranks": {
         "qs-2026": 55,
         "the-2026": 31,
@@ -6703,8 +6757,7 @@
         "urap-law-and-legal-studies-2024-2025": 15,
         "usnews-national-universities-2026": 32,
         "forbes-top-colleges-2025-2026": 49
-      },
-      "ror": "https://ror.org/0190ak572"
+      }
     },
     {
       "name": "Northwestern University",
@@ -6829,6 +6882,7 @@
       "name": "Osaka University",
       "country": "Japan",
       "city": "Osaka",
+      "ror": "https://ror.org/035t8zc32",
       "ranks": {
         "qs-2026": 91,
         "the-2026": 151,
@@ -6875,13 +6929,13 @@
         "scimago-psychology-2025": 396,
         "scimago-veterinary-2026": 202,
         "scimago-dentistry-2026": 64
-      },
-      "ror": "https://ror.org/035t8zc32"
+      }
     },
     {
       "name": "Peking University",
       "country": "China",
       "city": "Beijing",
+      "ror": "https://ror.org/02v51f717",
       "ranks": {
         "qs-2026": 14,
         "the-2026": 13,
@@ -6969,13 +7023,13 @@
         "urap-economics-2024-2025": 15,
         "urap-information-computing-sciences-2024-2025": 20,
         "urap-mathematical-sciences-2024-2025": 15
-      },
-      "ror": "https://ror.org/02v51f717"
+      }
     },
     {
       "name": "Pennsylvania State University",
       "country": "United States",
       "city": "University Park",
+      "ror": "https://ror.org/04p491231",
       "ranks": {
         "qs-2026": 82,
         "the-2026": 108,
@@ -7041,14 +7095,15 @@
         "urap-education-2024-2025": 10,
         "urap-economics-2024-2025": 45,
         "urap-law-and-legal-studies-2024-2025": 12,
-        "usnews-national-universities-2026": 59
-      },
-      "ror": "https://ror.org/04p491231"
+        "usnews-national-universities-2026": 59,
+        "the-impact-sdg2-2026": 50
+      }
     },
     {
       "name": "Politecnico di Milano",
       "country": "Italy",
       "city": "Milan",
+      "ror": "https://ror.org/01nffqt88",
       "ranks": {
         "qs-2026": 98,
         "the-2026": 201,
@@ -7088,14 +7143,15 @@
         "scimago-environmental-science-2026": 279,
         "scimago-mathematics-2025": 49,
         "scimago-physics-and-astronomy-2026": 165,
-        "scimago-social-sciences-2025": 187
-      },
-      "ror": "https://ror.org/01nffqt88"
+        "scimago-social-sciences-2025": 187,
+        "the-impact-sdg9-2026": 15
+      }
     },
     {
       "name": "Pontificia Universidad Catolica de Chile",
       "country": "Chile",
       "city": "Santiago",
+      "ror": "https://ror.org/04teye511",
       "ranks": {
         "qs-2026": 116,
         "the-2026": 401,
@@ -7132,14 +7188,15 @@
         "scimago-medicine-2025": 485,
         "scimago-psychology-2025": 279,
         "scimago-social-sciences-2025": 154,
-        "scimago-veterinary-2026": 474
-      },
-      "ror": "https://ror.org/04teye511"
+        "scimago-veterinary-2026": 474,
+        "the-impact-sdg8-2025": 48
+      }
     },
     {
       "name": "Princeton University",
       "country": "United States",
       "city": "Princeton",
+      "ror": "https://ror.org/00hx57361",
       "ranks": {
         "qs-2026": 25,
         "the-2026": 3,
@@ -7204,8 +7261,7 @@
         "usnews-national-universities-2026": 1,
         "wsj-us-colleges-2026": 4,
         "forbes-top-colleges-2025-2026": 3
-      },
-      "ror": "https://ror.org/00hx57361"
+      }
     },
     {
       "name": "PSL University",
@@ -7347,6 +7403,7 @@
       "name": "Queen Mary University of London",
       "country": "United Kingdom",
       "city": "London",
+      "ror": "https://ror.org/026zzn846",
       "ranks": {
         "qs-2026": 110,
         "the-2026": 141,
@@ -7399,14 +7456,14 @@
         "scimago-dentistry-2026": 44,
         "cug-2027": 40,
         "guardian-2026": 72
-      },
-      "ror": "https://ror.org/026zzn846"
+      }
     },
     {
       "name": "Queensland University of Technology",
       "shortName": "QUT",
       "country": "Australia",
       "city": "Brisbane",
+      "ror": "https://ror.org/03pnv4752",
       "ranks": {
         "qs-2026": 226,
         "the-2026": 201,
@@ -7472,13 +7529,13 @@
         "scimago-physics-and-astronomy-2026": 190,
         "scimago-psychology-2025": 219,
         "scimago-social-sciences-2025": 96
-      },
-      "ror": "https://ror.org/03pnv4752"
+      }
     },
     {
       "name": "Rice University",
       "country": "United States",
       "city": "Houston",
+      "ror": "https://ror.org/008zs3103",
       "ranks": {
         "qs-2026": 119,
         "the-2026": 103,
@@ -7526,14 +7583,14 @@
         "usnews-national-universities-2026": 17,
         "wsj-us-colleges-2026": 26,
         "forbes-top-colleges-2025-2026": 12
-      },
-      "ror": "https://ror.org/008zs3103"
+      }
     },
     {
       "name": "RMIT University",
       "shortName": "RMIT",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/04ttjf776",
       "ranks": {
         "qs-2026": 125,
         "the-2026": 251,
@@ -7589,14 +7646,15 @@
         "ntu-engineering-2025": 139,
         "ntu-agriculture-2025": 276,
         "ntu-civilengineering-2025": 39,
-        "ntu-mechanicalengineering-2025": 41
-      },
-      "ror": "https://ror.org/04ttjf776"
+        "ntu-mechanicalengineering-2025": 41,
+        "the-impact-sdg8-2025": 30
+      }
     },
     {
       "name": "RWTH Aachen University",
       "country": "Germany",
       "city": "Aachen",
+      "ror": "https://ror.org/04xfq0f34",
       "ranks": {
         "qs-2026": 104,
         "the-2026": 92,
@@ -7648,13 +7706,13 @@
         "scimago-physics-and-astronomy-2026": 231,
         "scimago-social-sciences-2025": 410,
         "scimago-dentistry-2026": 376
-      },
-      "ror": "https://ror.org/04xfq0f34"
+      }
     },
     {
       "name": "Seoul National University",
       "country": "South Korea",
       "city": "Seoul",
+      "ror": "https://ror.org/04h9pn542",
       "ranks": {
         "qs-2026": 38,
         "the-2026": 58,
@@ -7714,13 +7772,13 @@
         "scimago-veterinary-2026": 37,
         "scimago-dentistry-2026": 19,
         "urap-chemical-sciences-2024-2025": 50
-      },
-      "ror": "https://ror.org/04h9pn542"
+      }
     },
     {
       "name": "Shanghai Jiao Tong University",
       "country": "China",
       "city": "Shanghai",
+      "ror": "https://ror.org/0220qvk04",
       "ranks": {
         "qs-2026": 47,
         "the-2026": 40,
@@ -7807,8 +7865,7 @@
         "urap-information-computing-sciences-2024-2025": 7,
         "urap-mathematical-sciences-2024-2025": 4,
         "urap-medical-and-health-sciences-2024-2025": 34
-      },
-      "ror": "https://ror.org/0220qvk04"
+      }
     },
     {
       "name": "Slop University",
@@ -7821,6 +7878,7 @@
       "name": "Sorbonne University",
       "country": "France",
       "city": "Paris",
+      "ror": "https://ror.org/02en5vm52",
       "ranks": {
         "qs-2026": 72,
         "qs-sub-physics-2026": 32,
@@ -7885,13 +7943,13 @@
         "scimago-social-sciences-2025": 292,
         "scimago-veterinary-2026": 372,
         "scimago-dentistry-2026": 289
-      },
-      "ror": "https://ror.org/02en5vm52"
+      }
     },
     {
       "name": "Southern Cross University",
       "country": "Australia",
       "city": "Lismore",
+      "ror": "https://ror.org/001xkv632",
       "ranks": {
         "qs-2026": 638,
         "the-2026": 401,
@@ -7907,14 +7965,14 @@
         "webometrics-2025": 996,
         "nature-earth-environmental-2025": 405,
         "mosiur-2025": 1201
-      },
-      "ror": "https://ror.org/001xkv632"
+      }
     },
     {
       "name": "Stanford University",
       "shortName": "Stanford",
       "country": "United States",
       "city": "Stanford",
+      "ror": "https://ror.org/00f54p054",
       "ranks": {
         "qs-2026": 3,
         "the-2026": 5,
@@ -8025,14 +8083,14 @@
         "usnews-national-universities-2026": 4,
         "wsj-us-colleges-2026": 1,
         "forbes-top-colleges-2025-2026": 4
-      },
-      "ror": "https://ror.org/00f54p054"
+      }
     },
     {
       "name": "Swinburne University of Technology",
       "shortName": "Swinburne",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/031rekg67",
       "ranks": {
         "qs-2026": 294,
         "the-2026": 251,
@@ -8081,13 +8139,13 @@
         "scimago-physics-and-astronomy-2026": 365,
         "scimago-psychology-2025": 324,
         "scimago-social-sciences-2025": 277
-      },
-      "ror": "https://ror.org/031rekg67"
+      }
     },
     {
       "name": "Technical University of Munich",
       "country": "Germany",
       "city": "Munich",
+      "ror": "https://ror.org/02kkvpp62",
       "ranks": {
         "qs-2026": 22,
         "the-2026": 27,
@@ -8132,13 +8190,13 @@
         "ntu-biologybiochemistry-2025": 45,
         "ntu-electricalengineering-2025": 47,
         "urap-mathematical-sciences-2024-2025": 37
-      },
-      "ror": "https://ror.org/02kkvpp62"
+      }
     },
     {
       "name": "Tel Aviv University",
       "country": "Israel",
       "city": "Tel Aviv",
+      "ror": "https://ror.org/04mhzgx49",
       "ranks": {
         "qs-2026": 223,
         "the-2026": 201,
@@ -8187,13 +8245,13 @@
         "scimago-psychology-2025": 74,
         "scimago-social-sciences-2025": 195,
         "scimago-dentistry-2026": 197
-      },
-      "ror": "https://ror.org/04mhzgx49"
+      }
     },
     {
       "name": "Tohoku University",
       "country": "Japan",
       "city": "Sendai",
+      "ror": "https://ror.org/01dq60k83",
       "ranks": {
         "qs-2026": 109,
         "the-2026": 103,
@@ -8240,27 +8298,28 @@
         "scimago-medicine-2025": 245,
         "scimago-physics-and-astronomy-2026": 169,
         "scimago-veterinary-2026": 248,
-        "scimago-dentistry-2026": 95
-      },
-      "ror": "https://ror.org/01dq60k83"
+        "scimago-dentistry-2026": 95,
+        "the-impact-sdg9-2026": 15
+      }
     },
     {
       "name": "Torrens University Australia",
       "country": "Australia",
       "city": "Adelaide",
+      "ror": "https://ror.org/0351xae06",
       "ranks": {
         "qs-sub-hospitality-2026": 21,
         "urap-2025-2026": 1662,
         "webometrics-2025": 1890,
         "scimago-engineering-2025": 484,
         "scimago-mathematics-2025": 303
-      },
-      "ror": "https://ror.org/0351xae06"
+      }
     },
     {
       "name": "Trinity College Dublin",
       "country": "Ireland",
       "city": "Dublin",
+      "ror": "https://ror.org/02tyrky19",
       "ranks": {
         "qs-2026": 75,
         "the-2026": 173,
@@ -8306,14 +8365,14 @@
         "scimago-psychology-2025": 226,
         "scimago-social-sciences-2025": 234,
         "scimago-dentistry-2026": 75
-      },
-      "ror": "https://ror.org/02tyrky19"
+      }
     },
     {
       "name": "Tsinghua University",
       "shortName": "Tsinghua",
       "country": "China",
       "city": "Beijing",
+      "ror": "https://ror.org/03cve4549",
       "ranks": {
         "qs-2026": 17,
         "the-2026": 12,
@@ -8408,13 +8467,25 @@
         "urap-economics-2024-2025": 23,
         "urap-information-computing-sciences-2024-2025": 1,
         "urap-mathematical-sciences-2024-2025": 2
-      },
-      "ror": "https://ror.org/03cve4549"
+      }
+    },
+    {
+      "name": "Universitas Gadjah Mada",
+      "country": "Indonesia",
+      "city": "Yogyakarta",
+      "ror": "https://ror.org/03ke6d638",
+      "ranks": {
+        "the-impact-sdg1-2025": 6,
+        "the-impact-sdg2-2026": 16,
+        "the-impact-sdg8-2025": 31,
+        "the-impact-sdg9-2026": 47
+      }
     },
     {
       "name": "Universiti Malaya",
       "country": "Malaysia",
       "city": "Kuala Lumpur",
+      "ror": "https://ror.org/00rzspn62",
       "ranks": {
         "qs-2026": 58,
         "the-2026": 201,
@@ -8459,13 +8530,13 @@
         "scimago-social-sciences-2025": 222,
         "scimago-veterinary-2026": 496,
         "scimago-dentistry-2026": 127
-      },
-      "ror": "https://ror.org/00rzspn62"
+      }
     },
     {
       "name": "University College London",
       "country": "United Kingdom",
       "city": "London",
+      "ror": "https://ror.org/02jx3x895",
       "ranks": {
         "qs-2026": 9,
         "the-2026": 22,
@@ -8557,8 +8628,7 @@
         "urap-information-computing-sciences-2024-2025": 39,
         "urap-mathematical-sciences-2024-2025": 38,
         "urap-medical-and-health-sciences-2024-2025": 3
-      },
-      "ror": "https://ror.org/02jx3x895"
+      }
     },
     {
       "name": "University of Adelaide",
@@ -8639,6 +8709,7 @@
       "name": "University of Alberta",
       "country": "Canada",
       "city": "Edmonton",
+      "ror": "https://ror.org/0160cpw27",
       "ranks": {
         "qs-2026": 94,
         "the-2026": 119,
@@ -8700,14 +8771,16 @@
         "scimago-psychology-2025": 147,
         "scimago-social-sciences-2025": 124,
         "scimago-veterinary-2026": 269,
-        "scimago-dentistry-2026": 68
-      },
-      "ror": "https://ror.org/0160cpw27"
+        "scimago-dentistry-2026": 68,
+        "the-impact-sdg2-2026": 15,
+        "the-impact-sdg9-2026": 1
+      }
     },
     {
       "name": "University of Amsterdam",
       "country": "Netherlands",
       "city": "Amsterdam",
+      "ror": "https://ror.org/04dkp9463",
       "ranks": {
         "qs-2026": 53,
         "the-2026": 62,
@@ -8771,13 +8844,13 @@
         "urap-economics-2024-2025": 40,
         "urap-law-and-legal-studies-2024-2025": 13,
         "urap-medical-and-health-sciences-2024-2025": 18
-      },
-      "ror": "https://ror.org/04dkp9463"
+      }
     },
     {
       "name": "University of Auckland",
       "country": "New Zealand",
       "city": "Auckland",
+      "ror": "https://ror.org/03b94tp07",
       "ranks": {
         "qs-2026": 65,
         "the-2026": 156,
@@ -8831,13 +8904,13 @@
         "scimago-veterinary-2026": 311,
         "urap-education-2024-2025": 37,
         "urap-psychology-and-cognitive-sciences-2024-2025": 35
-      },
-      "ror": "https://ror.org/03b94tp07"
+      }
     },
     {
       "name": "University of Birmingham",
       "country": "United Kingdom",
       "city": "Birmingham",
+      "ror": "https://ror.org/03angcq70",
       "ranks": {
         "qs-2026": 76,
         "the-2026": 98,
@@ -8898,13 +8971,13 @@
         "scimago-dentistry-2026": 109,
         "cug-2027": 12,
         "guardian-2026": 28
-      },
-      "ror": "https://ror.org/03angcq70"
+      }
     },
     {
       "name": "University of Bristol",
       "country": "United Kingdom",
       "city": "Bristol",
+      "ror": "https://ror.org/0524sp257",
       "ranks": {
         "qs-2026": 51,
         "the-2026": 80,
@@ -8967,13 +9040,13 @@
         "cug-2027": 17,
         "guardian-2026": 15,
         "urap-earth-sciences-2024-2025": 30
-      },
-      "ror": "https://ror.org/0524sp257"
+      }
     },
     {
       "name": "University of British Columbia",
       "country": "Canada",
       "city": "Vancouver",
+      "ror": "https://ror.org/03rmrcq20",
       "ranks": {
         "qs-2026": 40,
         "the-2026": 45,
@@ -9049,13 +9122,13 @@
         "urap-education-2024-2025": 26,
         "urap-psychology-and-cognitive-sciences-2024-2025": 26,
         "urap-medical-and-health-sciences-2024-2025": 36
-      },
-      "ror": "https://ror.org/03rmrcq20"
+      }
     },
     {
       "name": "University of Buenos Aires",
       "country": "Argentina",
       "city": "Buenos Aires",
+      "ror": "https://ror.org/0081fs513",
       "ranks": {
         "qs-2026": 84,
         "qs-sub-law-2026": 34,
@@ -9082,13 +9155,13 @@
         "scimago-psychology-2025": 363,
         "scimago-social-sciences-2025": 287,
         "scimago-veterinary-2026": 231
-      },
-      "ror": "https://ror.org/0081fs513"
+      }
     },
     {
       "name": "University of California, Berkeley",
       "country": "United States",
       "city": "Berkeley",
+      "ror": "https://ror.org/01an7q238",
       "ranks": {
         "qs-2026": 17,
         "the-2026": 9,
@@ -9175,13 +9248,13 @@
         "usnews-national-universities-2026": 15,
         "wsj-us-colleges-2026": 7,
         "forbes-top-colleges-2025-2026": 5
-      },
-      "ror": "https://ror.org/01an7q238"
+      }
     },
     {
       "name": "University of California, Los Angeles",
       "country": "United States",
       "city": "Los Angeles",
+      "ror": "https://ror.org/046rm7j60",
       "ranks": {
         "qs-2026": 46,
         "the-2026": 18,
@@ -9269,13 +9342,13 @@
         "usnews-national-universities-2026": 17,
         "wsj-us-colleges-2026": 80,
         "forbes-top-colleges-2025-2026": 15
-      },
-      "ror": "https://ror.org/046rm7j60"
+      }
     },
     {
       "name": "University of California, San Diego",
       "country": "United States",
       "city": "San Diego",
+      "ror": "https://ror.org/0168r3w48",
       "ranks": {
         "qs-2026": 66,
         "the-2026": 47,
@@ -9355,13 +9428,13 @@
         "usnews-national-universities-2026": 29,
         "wsj-us-colleges-2026": 41,
         "forbes-top-colleges-2025-2026": 20
-      },
-      "ror": "https://ror.org/0168r3w48"
+      }
     },
     {
       "name": "University of California, San Francisco",
       "country": "United States",
       "city": "San Francisco",
+      "ror": "https://ror.org/043mz5j54",
       "ranks": {
         "gras-clinical-medicine-2025": 3,
         "gras-medical-technology-2025": 3,
@@ -9417,14 +9490,14 @@
         "urap-biological-sciences-2024-2025": 22,
         "urap-psychology-and-cognitive-sciences-2024-2025": 18,
         "urap-medical-and-health-sciences-2024-2025": 7
-      },
-      "ror": "https://ror.org/043mz5j54"
+      }
     },
     {
       "name": "University of Cambridge",
       "shortName": "Cambridge",
       "country": "United Kingdom",
       "city": "Cambridge",
+      "ror": "https://ror.org/013meh722",
       "ranks": {
         "qs-2026": 6,
         "the-2026": 3,
@@ -9525,14 +9598,14 @@
         "urap-law-and-legal-studies-2024-2025": 3,
         "urap-mathematical-sciences-2024-2025": 21,
         "urap-medical-and-health-sciences-2024-2025": 35
-      },
-      "ror": "https://ror.org/013meh722"
+      }
     },
     {
       "name": "University of Canberra",
       "shortName": "Canberra",
       "country": "Australia",
       "city": "Canberra",
+      "ror": "https://ror.org/04s1nv328",
       "ranks": {
         "qs-2026": 494,
         "the-2026": 401,
@@ -9567,13 +9640,13 @@
         "leiden-biomedical-health-sciences-2025": 544,
         "leiden-life-earth-sciences-2025": 799,
         "leiden-social-sciences-humanities-2025": 740
-      },
-      "ror": "https://ror.org/04s1nv328"
+      }
     },
     {
       "name": "University of Chicago",
       "country": "United States",
       "city": "Chicago",
+      "ror": "https://ror.org/024mw5h28",
       "ranks": {
         "qs-2026": 13,
         "the-2026": 15,
@@ -9645,13 +9718,13 @@
         "usnews-national-universities-2026": 6,
         "wsj-us-colleges-2026": 30,
         "forbes-top-colleges-2025-2026": 13
-      },
-      "ror": "https://ror.org/024mw5h28"
+      }
     },
     {
       "name": "University of Copenhagen",
       "country": "Denmark",
       "city": "Copenhagen",
+      "ror": "https://ror.org/035b05819",
       "ranks": {
         "qs-2026": 101,
         "the-2026": 90,
@@ -9724,13 +9797,13 @@
         "urap-veterinary-sciences-2024-2025": 18,
         "urap-psychology-and-cognitive-sciences-2024-2025": 34,
         "urap-medical-and-health-sciences-2024-2025": 23
-      },
-      "ror": "https://ror.org/035b05819"
+      }
     },
     {
       "name": "University of Edinburgh",
       "country": "United Kingdom",
       "city": "Edinburgh",
+      "ror": "https://ror.org/01nrxwf90",
       "ranks": {
         "qs-2026": 34,
         "the-2026": 29,
@@ -9798,14 +9871,15 @@
         "urap-biological-sciences-2024-2025": 41,
         "urap-veterinary-sciences-2024-2025": 22,
         "urap-education-2024-2025": 42,
-        "urap-law-and-legal-studies-2024-2025": 36
-      },
-      "ror": "https://ror.org/01nrxwf90"
+        "urap-law-and-legal-studies-2024-2025": 36,
+        "the-impact-sdg9-2026": 1
+      }
     },
     {
       "name": "University of Glasgow",
       "country": "United Kingdom",
       "city": "Glasgow",
+      "ror": "https://ror.org/00vtgdb53",
       "ranks": {
         "qs-2026": 79,
         "the-2026": 84,
@@ -9860,14 +9934,26 @@
         "scimago-veterinary-2026": 134,
         "scimago-dentistry-2026": 166,
         "cug-2027": 29,
-        "guardian-2026": 24
-      },
-      "ror": "https://ror.org/00vtgdb53"
+        "guardian-2026": 24,
+        "the-impact-sdg1-2025": 31
+      }
+    },
+    {
+      "name": "University of Hawaii at Manoa",
+      "shortName": "Hawaii",
+      "country": "United States",
+      "city": "Honolulu",
+      "ror": "https://ror.org/01wspgy28",
+      "ranks": {
+        "gras-atmospheric-science-2025": 11,
+        "gras-oceanography-2025": 7
+      }
     },
     {
       "name": "University of Hong Kong",
       "country": "Hong Kong",
       "city": "Hong Kong",
+      "ror": "https://ror.org/02zhqgq86",
       "ranks": {
         "qs-2026": 11,
         "the-2026": 33,
@@ -9930,13 +10016,13 @@
         "scimago-veterinary-2026": 366,
         "scimago-dentistry-2026": 11,
         "urap-education-2024-2025": 4
-      },
-      "ror": "https://ror.org/02zhqgq86"
+      }
     },
     {
       "name": "University of Illinois at Urbana-Champaign",
       "country": "United States",
       "city": "Urbana",
+      "ror": "https://ror.org/047426m28",
       "ranks": {
         "qs-2026": 70,
         "the-2026": 41,
@@ -10003,13 +10089,13 @@
         "usnews-national-universities-2026": 36,
         "wsj-us-colleges-2026": 55,
         "forbes-top-colleges-2025-2026": 38
-      },
-      "ror": "https://ror.org/047426m28"
+      }
     },
     {
       "name": "University of Leeds",
       "country": "United Kingdom",
       "city": "Leeds",
+      "ror": "https://ror.org/024mrxd33",
       "ranks": {
         "qs-2026": 86,
         "the-2026": 118,
@@ -10067,13 +10153,13 @@
         "guardian-2026": 28,
         "urap-earth-sciences-2024-2025": 22,
         "urap-economics-2024-2025": 37
-      },
-      "ror": "https://ror.org/024mrxd33"
+      }
     },
     {
       "name": "University of Manchester",
       "country": "United Kingdom",
       "city": "Manchester",
+      "ror": "https://ror.org/027m9bs27",
       "ranks": {
         "qs-2026": 35,
         "the-2026": 56,
@@ -10136,14 +10222,17 @@
         "cug-2027": 24,
         "guardian-2026": 35,
         "urap-economics-2024-2025": 21,
-        "urap-law-and-legal-studies-2024-2025": 48
-      },
-      "ror": "https://ror.org/027m9bs27"
+        "urap-law-and-legal-studies-2024-2025": 48,
+        "the-impact-sdg1-2025": 28,
+        "the-impact-sdg2-2026": 33,
+        "the-impact-sdg9-2026": 1
+      }
     },
     {
       "name": "University of Maryland, College Park",
       "country": "United States",
       "city": "College Park",
+      "ror": "https://ror.org/047s2c258",
       "ranks": {
         "qs-2026": 207,
         "the-2026": 116,
@@ -10217,14 +10306,14 @@
         "urap-mathematical-sciences-2024-2025": 35,
         "usnews-national-universities-2026": 42,
         "forbes-top-colleges-2025-2026": 37
-      },
-      "ror": "https://ror.org/047s2c258"
+      }
     },
     {
       "name": "University of Melbourne",
       "shortName": "Melbourne",
       "country": "Australia",
       "city": "Melbourne",
+      "ror": "https://ror.org/01ej9dk98",
       "ranks": {
         "qs-2026": 19,
         "the-2026": 37,
@@ -10327,13 +10416,13 @@
         "urap-economics-2024-2025": 26,
         "urap-law-and-legal-studies-2024-2025": 6,
         "urap-medical-and-health-sciences-2024-2025": 16
-      },
-      "ror": "https://ror.org/01ej9dk98"
+      }
     },
     {
       "name": "University of Michigan-Ann Arbor",
       "country": "United States",
       "city": "Ann Arbor",
+      "ror": "https://ror.org/00jmfr291",
       "ranks": {
         "qs-2026": 45,
         "the-2026": 23,
@@ -10427,13 +10516,13 @@
         "usnews-national-universities-2026": 20,
         "wsj-us-colleges-2026": 25,
         "forbes-top-colleges-2025-2026": 21
-      },
-      "ror": "https://ror.org/00jmfr291"
+      }
     },
     {
       "name": "University of Minnesota",
       "country": "United States",
       "city": "Minneapolis",
+      "ror": "https://ror.org/017zqws13",
       "ranks": {
         "qs-2026": 210,
         "the-2026": 88,
@@ -10488,13 +10577,13 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 46,
         "usnews-national-universities-2026": 59,
         "forbes-top-colleges-2025-2026": 78
-      },
-      "ror": "https://ror.org/017zqws13"
+      }
     },
     {
       "name": "University of Montreal",
       "country": "Canada",
       "city": "Montreal",
+      "ror": "https://ror.org/0161xgx34",
       "ranks": {
         "qs-2026": 168,
         "the-2026": 150,
@@ -10539,9 +10628,10 @@
         "scimago-psychology-2025": 78,
         "scimago-social-sciences-2025": 161,
         "scimago-veterinary-2026": 155,
-        "scimago-dentistry-2026": 413
-      },
-      "ror": "https://ror.org/0161xgx34"
+        "scimago-dentistry-2026": 413,
+        "the-impact-sdg1-2025": 33,
+        "the-impact-sdg8-2025": 27
+      }
     },
     {
       "name": "University of New England",
@@ -10569,6 +10659,7 @@
       "shortName": "UNSW",
       "country": "Australia",
       "city": "Sydney",
+      "ror": "https://ror.org/03r8z3t63",
       "ranks": {
         "qs-2026": 20,
         "the-2026": 79,
@@ -10671,8 +10762,7 @@
         "urap-economics-2024-2025": 39,
         "urap-law-and-legal-studies-2024-2025": 24,
         "urap-information-computing-sciences-2024-2025": 21
-      },
-      "ror": "https://ror.org/03r8z3t63"
+      }
     },
     {
       "name": "University of Newcastle",
@@ -10745,6 +10835,7 @@
       "name": "University of North Carolina at Chapel Hill",
       "country": "United States",
       "city": "Chapel Hill",
+      "ror": "https://ror.org/0130frc33",
       "ranks": {
         "qs-2026": 140,
         "the-2026": 78,
@@ -10814,8 +10905,7 @@
         "usnews-national-universities-2026": 26,
         "wsj-us-colleges-2026": 77,
         "forbes-top-colleges-2025-2026": 35
-      },
-      "ror": "https://ror.org/0130frc33"
+      }
     },
     {
       "name": "University of Notre Dame Australia",
@@ -10835,6 +10925,7 @@
       "name": "University of Nottingham",
       "country": "United Kingdom",
       "city": "Nottingham",
+      "ror": "https://ror.org/01ee9ar58",
       "ranks": {
         "qs-2026": 97,
         "the-2026": 136,
@@ -10892,13 +10983,13 @@
         "scimago-veterinary-2026": 94,
         "cug-2027": 26,
         "guardian-2026": 51
-      },
-      "ror": "https://ror.org/01ee9ar58"
+      }
     },
     {
       "name": "University of Otago",
       "country": "New Zealand",
       "city": "Dunedin",
+      "ror": "https://ror.org/01jmxt844",
       "ranks": {
         "qs-2026": 197,
         "the-2026": 351,
@@ -10939,14 +11030,14 @@
         "scimago-psychology-2025": 225,
         "scimago-social-sciences-2025": 267,
         "scimago-dentistry-2026": 59
-      },
-      "ror": "https://ror.org/01jmxt844"
+      }
     },
     {
       "name": "University of Oxford",
       "shortName": "Oxford",
       "country": "United Kingdom",
       "city": "Oxford",
+      "ror": "https://ror.org/052gg0110",
       "ranks": {
         "qs-2026": 4,
         "the-2026": 1,
@@ -11051,13 +11142,13 @@
         "urap-information-computing-sciences-2024-2025": 40,
         "urap-mathematical-sciences-2024-2025": 5,
         "urap-medical-and-health-sciences-2024-2025": 8
-      },
-      "ror": "https://ror.org/052gg0110"
+      }
     },
     {
       "name": "University of Pennsylvania",
       "country": "United States",
       "city": "Philadelphia",
+      "ror": "https://ror.org/00b30xv10",
       "ranks": {
         "qs-2026": 15,
         "the-2026": 14,
@@ -11139,13 +11230,13 @@
         "usnews-national-universities-2026": 7,
         "wsj-us-colleges-2026": 9,
         "forbes-top-colleges-2025-2026": 10
-      },
-      "ror": "https://ror.org/00b30xv10"
+      }
     },
     {
       "name": "University of Pittsburgh",
       "country": "United States",
       "city": "Pittsburgh",
+      "ror": "https://ror.org/01an3r305",
       "ranks": {
         "qs-2026": 281,
         "the-2026": 156,
@@ -11212,14 +11303,14 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 22,
         "urap-medical-and-health-sciences-2024-2025": 21,
         "usnews-national-universities-2026": 69
-      },
-      "ror": "https://ror.org/01an3r305"
+      }
     },
     {
       "name": "University of Queensland",
       "shortName": "UQ",
       "country": "Australia",
       "city": "Brisbane",
+      "ror": "https://ror.org/00rqy9422",
       "ranks": {
         "qs-2026": 42,
         "the-2026": 80,
@@ -11325,13 +11416,13 @@
         "urap-education-2024-2025": 31,
         "urap-psychology-and-cognitive-sciences-2024-2025": 31,
         "urap-economics-2024-2025": 35
-      },
-      "ror": "https://ror.org/00rqy9422"
+      }
     },
     {
       "name": "University of Sao Paulo",
       "country": "Brazil",
       "city": "Sao Paulo",
+      "ror": "https://ror.org/036rp1748",
       "ranks": {
         "qs-2026": 108,
         "the-2026": 201,
@@ -11399,13 +11490,13 @@
         "scimago-social-sciences-2025": 42,
         "scimago-veterinary-2026": 2,
         "scimago-dentistry-2026": 1
-      },
-      "ror": "https://ror.org/036rp1748"
+      }
     },
     {
       "name": "University of Science and Technology of China",
       "country": "China",
       "city": "Hefei",
+      "ror": "https://ror.org/04c4dkn09",
       "ranks": {
         "qs-2026": 132,
         "the-2026": 51,
@@ -11464,13 +11555,13 @@
         "scimago-pharmacology-toxicology-and-pharmaceutics-2025": 173,
         "scimago-physics-and-astronomy-2026": 9,
         "scimago-social-sciences-2025": 262
-      },
-      "ror": "https://ror.org/04c4dkn09"
+      }
     },
     {
       "name": "University of Sheffield",
       "country": "United Kingdom",
       "city": "Sheffield",
+      "ror": "https://ror.org/05krs5044",
       "ranks": {
         "qs-2026": 92,
         "the-2026": 108,
@@ -11526,13 +11617,13 @@
         "scimago-dentistry-2026": 57,
         "cug-2027": 13,
         "guardian-2026": 16
-      },
-      "ror": "https://ror.org/05krs5044"
+      }
     },
     {
       "name": "University of Southampton",
       "country": "United Kingdom",
       "city": "Southampton",
+      "ror": "https://ror.org/01ryk1543",
       "ranks": {
         "qs-2026": 87,
         "the-2026": 129,
@@ -11590,13 +11681,13 @@
         "cug-2027": 15,
         "guardian-2026": 20,
         "urap-economics-2024-2025": 50
-      },
-      "ror": "https://ror.org/01ryk1543"
+      }
     },
     {
       "name": "University of Southern California",
       "country": "United States",
       "city": "Los Angeles",
+      "ror": "https://ror.org/03taz7m60",
       "ranks": {
         "qs-2026": 146,
         "the-2026": 73,
@@ -11660,13 +11751,13 @@
         "usnews-national-universities-2026": 28,
         "wsj-us-colleges-2026": 37,
         "forbes-top-colleges-2025-2026": 28
-      },
-      "ror": "https://ror.org/03taz7m60"
+      }
     },
     {
       "name": "University of Southern Queensland",
       "country": "Australia",
       "city": "Toowoomba",
+      "ror": "https://ror.org/04sjbnx57",
       "ranks": {
         "gras-education-2025": 151,
         "leiden-2025": 1231,
@@ -11692,13 +11783,13 @@
         "ntu-agriculture-2025": 451,
         "scimago-chemistry-2026": 362,
         "scimago-environmental-science-2026": 404
-      },
-      "ror": "https://ror.org/04sjbnx57"
+      }
     },
     {
       "name": "University of St Andrews",
       "country": "United Kingdom",
       "city": "St Andrews",
+      "ror": "https://ror.org/02wn5qz54",
       "ranks": {
         "qs-2026": 113,
         "the-2026": 162,
@@ -11737,14 +11828,14 @@
         "scimago-social-sciences-2025": 444,
         "cug-2027": 4,
         "guardian-2026": 2
-      },
-      "ror": "https://ror.org/02wn5qz54"
+      }
     },
     {
       "name": "University of Sydney",
       "shortName": "Sydney",
       "country": "Australia",
       "city": "Sydney",
+      "ror": "https://ror.org/0384j8v12",
       "ranks": {
         "qs-2026": 25,
         "the-2026": 53,
@@ -11848,14 +11939,14 @@
         "urap-law-and-legal-studies-2024-2025": 38,
         "urap-information-computing-sciences-2024-2025": 27,
         "urap-medical-and-health-sciences-2024-2025": 17
-      },
-      "ror": "https://ror.org/0384j8v12"
+      }
     },
     {
       "name": "University of Technology Sydney",
       "shortName": "UTS",
       "country": "Australia",
       "city": "Sydney",
+      "ror": "https://ror.org/03f0f6041",
       "ranks": {
         "qs-2026": 96,
         "the-2026": 145,
@@ -11927,14 +12018,15 @@
         "scimago-psychology-2025": 417,
         "scimago-social-sciences-2025": 123,
         "urap-engineering-2024-2025": 38,
-        "urap-information-computing-sciences-2024-2025": 13
-      },
-      "ror": "https://ror.org/03f0f6041"
+        "urap-information-computing-sciences-2024-2025": 13,
+        "the-impact-sdg8-2025": 39
+      }
     },
     {
       "name": "University of Texas at Austin",
       "country": "United States",
       "city": "Austin",
+      "ror": "https://ror.org/00hj54h04",
       "ranks": {
         "qs-2026": 68,
         "the-2026": 50,
@@ -12002,13 +12094,13 @@
         "usnews-national-universities-2026": 30,
         "wsj-us-colleges-2026": 49,
         "forbes-top-colleges-2025-2026": 46
-      },
-      "ror": "https://ror.org/00hj54h04"
+      }
     },
     {
       "name": "University of the Sunshine Coast",
       "country": "Australia",
       "city": "Sippy Downs",
+      "ror": "https://ror.org/016gb9e15",
       "ranks": {
         "qs-2026": 1001,
         "the-2026": 501,
@@ -12031,9 +12123,9 @@
         "leiden-biomedical-health-sciences-2025": 790,
         "leiden-life-earth-sciences-2025": 766,
         "leiden-social-sciences-humanities-2025": 520,
-        "scimago-mathematics-2025": 394
-      },
-      "ror": "https://ror.org/016gb9e15"
+        "scimago-mathematics-2025": 394,
+        "the-impact-sdg2-2026": 29
+      }
     },
     {
       "name": "University of Tokyo",
@@ -12116,6 +12208,7 @@
       "shortName": "Toronto",
       "country": "Canada",
       "city": "Toronto",
+      "ror": "https://ror.org/03dbr7087",
       "ranks": {
         "qs-2026": 29,
         "the-2026": 21,
@@ -12209,13 +12302,13 @@
         "urap-law-and-legal-studies-2024-2025": 8,
         "urap-information-computing-sciences-2024-2025": 42,
         "urap-medical-and-health-sciences-2024-2025": 2
-      },
-      "ror": "https://ror.org/03dbr7087"
+      }
     },
     {
       "name": "University of Vienna",
       "country": "Austria",
       "city": "Vienna",
+      "ror": "https://ror.org/03prydq77",
       "ranks": {
         "qs-2026": 140,
         "the-2026": 95,
@@ -12246,13 +12339,13 @@
         "leiden-life-earth-sciences-2025": 238,
         "leiden-social-sciences-humanities-2025": 226,
         "ntu-agriculture-2025": 139
-      },
-      "ror": "https://ror.org/03prydq77"
+      }
     },
     {
       "name": "University of Warwick",
       "country": "United Kingdom",
       "city": "Coventry",
+      "ror": "https://ror.org/01a77tt86",
       "ranks": {
         "qs-2026": 74,
         "the-2026": 122,
@@ -12309,13 +12402,13 @@
         "cug-2027": 7,
         "guardian-2026": 7,
         "urap-economics-2024-2025": 38
-      },
-      "ror": "https://ror.org/01a77tt86"
+      }
     },
     {
       "name": "University of Washington",
       "country": "United States",
       "city": "Seattle",
+      "ror": "https://ror.org/00cvxb145",
       "ranks": {
         "qs-2026": 81,
         "the-2026": 25,
@@ -12402,14 +12495,14 @@
         "usnews-national-universities-2026": 42,
         "wsj-us-colleges-2026": 97,
         "forbes-top-colleges-2025-2026": 50
-      },
-      "ror": "https://ror.org/00cvxb145"
+      }
     },
     {
       "name": "University of Western Australia",
       "shortName": "UWA",
       "country": "Australia",
       "city": "Perth",
+      "ror": "https://ror.org/047272k79",
       "ranks": {
         "qs-2026": 77,
         "the-2026": 153,
@@ -12478,13 +12571,13 @@
         "scimago-veterinary-2026": 388,
         "scimago-dentistry-2026": 60,
         "urap-environmental-sciences-2024-2025": 36
-      },
-      "ror": "https://ror.org/047272k79"
+      }
     },
     {
       "name": "University of Wisconsin-Madison",
       "country": "United States",
       "city": "Madison",
+      "ror": "https://ror.org/01y2jtd41",
       "ranks": {
         "qs-2026": 110,
         "the-2026": 53,
@@ -12555,14 +12648,14 @@
         "usnews-national-universities-2026": 36,
         "wsj-us-colleges-2026": 94,
         "forbes-top-colleges-2025-2026": 53
-      },
-      "ror": "https://ror.org/01y2jtd41"
+      }
     },
     {
       "name": "University of Wollongong",
       "shortName": "Wollongong",
       "country": "Australia",
       "city": "Wollongong",
+      "ror": "https://ror.org/00jtmb277",
       "ranks": {
         "qs-2026": 184,
         "the-2026": 201,
@@ -12620,14 +12713,16 @@
         "scimago-engineering-2025": 254,
         "scimago-physics-and-astronomy-2026": 464,
         "scimago-psychology-2025": 353,
-        "scimago-social-sciences-2025": 256
-      },
-      "ror": "https://ror.org/00jtmb277"
+        "scimago-social-sciences-2025": 256,
+        "the-impact-sdg8-2025": 27,
+        "the-impact-sdg9-2026": 45
+      }
     },
     {
       "name": "University of Zurich",
       "country": "Switzerland",
       "city": "Zurich",
+      "ror": "https://ror.org/02crff812",
       "ranks": {
         "qs-2026": 100,
         "qs-sub-communication-2026": 27,
@@ -12689,13 +12784,13 @@
         "urap-biological-sciences-2024-2025": 39,
         "urap-psychology-and-cognitive-sciences-2024-2025": 37,
         "urap-law-and-legal-studies-2024-2025": 44
-      },
-      "ror": "https://ror.org/02crff812"
+      }
     },
     {
       "name": "Utrecht University",
       "country": "Netherlands",
       "city": "Utrecht",
+      "ror": "https://ror.org/04pp8hn57",
       "ranks": {
         "qs-2026": 103,
         "qs-sub-veterinary-2026": 9,
@@ -12771,13 +12866,13 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 38,
         "urap-law-and-legal-studies-2024-2025": 26,
         "urap-medical-and-health-sciences-2024-2025": 45
-      },
-      "ror": "https://ror.org/04pp8hn57"
+      }
     },
     {
       "name": "Vanderbilt University",
       "country": "United States",
       "city": "Nashville",
+      "ror": "https://ror.org/02vm5rt34",
       "ranks": {
         "qs-2026": 250,
         "the-2026": 92,
@@ -12839,8 +12934,7 @@
         "usnews-national-universities-2026": 17,
         "wsj-us-colleges-2026": 34,
         "forbes-top-colleges-2025-2026": 11
-      },
-      "ror": "https://ror.org/02vm5rt34"
+      }
     },
     {
       "name": "Victoria University",
@@ -12882,6 +12976,7 @@
       "name": "Western Sydney University",
       "country": "Australia",
       "city": "Sydney",
+      "ror": "https://ror.org/03t52dk35",
       "ranks": {
         "qs-2026": 400,
         "the-2026": 301,
@@ -12913,14 +13008,15 @@
         "leiden-life-earth-sciences-2025": 405,
         "leiden-social-sciences-humanities-2025": 531,
         "ntu-engineering-2025": 501,
-        "ntu-agriculture-2025": 121
-      },
-      "ror": "https://ror.org/03t52dk35"
+        "ntu-agriculture-2025": 121,
+        "the-impact-sdg8-2025": 43
+      }
     },
     {
       "name": "Yale University",
       "country": "United States",
       "city": "New Haven",
+      "ror": "https://ror.org/03v76x132",
       "ranks": {
         "qs-2026": 21,
         "the-2026": 10,
@@ -13000,13 +13096,13 @@
         "usnews-national-universities-2026": 4,
         "wsj-us-colleges-2026": 3,
         "forbes-top-colleges-2025-2026": 9
-      },
-      "ror": "https://ror.org/03v76x132"
+      }
     },
     {
       "name": "Yonsei University",
       "country": "South Korea",
       "city": "Seoul",
+      "ror": "https://ror.org/01wjejq96",
       "ranks": {
         "qs-2026": 50,
         "the-2026": 86,
@@ -13061,14 +13157,16 @@
         "scimago-physics-and-astronomy-2026": 145,
         "scimago-psychology-2025": 302,
         "scimago-social-sciences-2025": 318,
-        "scimago-dentistry-2026": 27
-      },
-      "ror": "https://ror.org/01wjejq96"
+        "scimago-dentistry-2026": 27,
+        "the-impact-sdg8-2025": 5,
+        "the-impact-sdg9-2026": 1
+      }
     },
     {
       "name": "Zhejiang University",
       "country": "China",
       "city": "Hangzhou",
+      "ror": "https://ror.org/00a2xv884",
       "ranks": {
         "qs-2026": 49,
         "the-2026": 39,
@@ -13158,8 +13256,7 @@
         "urap-economics-2024-2025": 27,
         "urap-information-computing-sciences-2024-2025": 6,
         "urap-mathematical-sciences-2024-2025": 10
-      },
-      "ror": "https://ror.org/00a2xv884"
+      }
     }
   ]
 }

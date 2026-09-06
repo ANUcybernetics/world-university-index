@@ -72,7 +72,10 @@ and trust are separate steps, and only the second one is authoritative.
   a substring match will put "Columbia University" at the rank belonging to the
   "University of British Columbia".
 - **U.S. News** — HTTP/2 anti-bot block on this host; subject tables could not
-  be verified. Only the overall table is recorded.
+  be verified. Only the overall table is recorded. Don't go looking for a way
+  round it: curl, WebFetch, headless Chromium, Wayback, Common Crawl and reader
+  proxies have all been tried and all fail, and the universities themselves
+  rarely cite this ranking. Take the figure from a press release or leave it.
 - **Leiden / leidenranking.com** — the `www` list now redirects to the Open
   Edition home; the classic filterable list lives on
   `traditional.leidenranking.com`, whose form posts to

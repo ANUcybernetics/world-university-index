@@ -3250,6 +3250,28 @@
       "retrieved": "2026-09-06",
       "scope": "industry, innovation and infrastructure (SDG 9)",
       "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg10-2023",
+      "name": "THE Sustainability Impact Ratings: reduced inequalities (SDG 10)",
+      "shortName": "THE Impact",
+      "edition": "2023",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/reduced-inequalities/2023",
+      "retrieved": "2026-09-06",
+      "scope": "reduced inequalities (SDG 10)",
+      "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg16-2023",
+      "name": "THE Sustainability Impact Ratings: peace, justice and strong institutions (SDG 16)",
+      "shortName": "THE Impact",
+      "edition": "2023",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/peace-justice-and-strong-institutions/2023",
+      "retrieved": "2026-09-06",
+      "scope": "peace, justice and strong institutions (SDG 16)",
+      "category": "sdg"
     }
   ],
   "universities": [
@@ -3374,7 +3396,8 @@
         "scimago-psychology-2025": 209,
         "scimago-social-sciences-2025": 80,
         "urap-economics-2024-2025": 47,
-        "urap-law-and-legal-studies-2024-2025": 45
+        "urap-law-and-legal-studies-2024-2025": 45,
+        "the-impact-sdg16-2023": 3
       }
     },
     {
@@ -3524,6 +3547,17 @@
         "usnews-national-universities-2026": 13,
         "wsj-us-colleges-2026": 27,
         "forbes-top-colleges-2025-2026": 18
+      }
+    },
+    {
+      "name": "Brunel University of London",
+      "shortName": "Brunel",
+      "country": "United Kingdom",
+      "city": "Uxbridge",
+      "ror": "https://ror.org/00dn4t376",
+      "ranks": {
+        "the-impact-sdg10-2023": 13,
+        "the-impact-sdg16-2023": 30
       }
     },
     {
@@ -3767,7 +3801,8 @@
         "scimago-social-sciences-2025": 63,
         "scimago-veterinary-2026": 171,
         "scimago-dentistry-2026": 379,
-        "the-impact-sdg8-2025": 33
+        "the-impact-sdg8-2025": 33,
+        "the-impact-sdg16-2023": 23
       }
     },
     {
@@ -4823,7 +4858,8 @@
         "scimago-veterinary-2026": 227,
         "scimago-dentistry-2026": 150,
         "urap-law-and-legal-studies-2024-2025": 34,
-        "the-impact-sdg8-2025": 10
+        "the-impact-sdg8-2025": 10,
+        "the-impact-sdg16-2023": 19
       }
     },
     {
@@ -6254,7 +6290,8 @@
         "urap-mathematical-sciences-2024-2025": 1,
         "usnews-national-universities-2026": 2,
         "wsj-us-colleges-2026": 11,
-        "forbes-top-colleges-2025-2026": 1
+        "forbes-top-colleges-2025-2026": 1,
+        "the-impact-sdg10-2023": 32
       }
     },
     {
@@ -6414,7 +6451,9 @@
         "urap-economics-2024-2025": 4,
         "urap-law-and-legal-studies-2024-2025": 7,
         "urap-information-computing-sciences-2024-2025": 41,
-        "urap-medical-and-health-sciences-2024-2025": 24
+        "urap-medical-and-health-sciences-2024-2025": 24,
+        "the-impact-sdg10-2023": 38,
+        "the-impact-sdg16-2023": 44
       }
     },
     {
@@ -7144,7 +7183,8 @@
         "scimago-mathematics-2025": 49,
         "scimago-physics-and-astronomy-2026": 165,
         "scimago-social-sciences-2025": 187,
-        "the-impact-sdg9-2026": 15
+        "the-impact-sdg9-2026": 15,
+        "the-impact-sdg10-2023": 28
       }
     },
     {
@@ -7647,7 +7687,8 @@
         "ntu-agriculture-2025": 276,
         "ntu-civilengineering-2025": 39,
         "ntu-mechanicalengineering-2025": 41,
-        "the-impact-sdg8-2025": 30
+        "the-impact-sdg8-2025": 30,
+        "the-impact-sdg10-2023": 1
       }
     },
     {
@@ -8913,7 +8954,9 @@
         "scimago-social-sciences-2025": 94,
         "scimago-veterinary-2026": 311,
         "urap-education-2024-2025": 37,
-        "urap-psychology-and-cognitive-sciences-2024-2025": 35
+        "urap-psychology-and-cognitive-sciences-2024-2025": 35,
+        "the-impact-sdg10-2023": 21,
+        "the-impact-sdg16-2023": 22
       }
     },
     {
@@ -9131,7 +9174,8 @@
         "urap-veterinary-sciences-2024-2025": 32,
         "urap-education-2024-2025": 26,
         "urap-psychology-and-cognitive-sciences-2024-2025": 26,
-        "urap-medical-and-health-sciences-2024-2025": 36
+        "urap-medical-and-health-sciences-2024-2025": 36,
+        "the-impact-sdg10-2023": 12
       }
     },
     {
@@ -9649,7 +9693,8 @@
         "mosiur-2025": 801,
         "leiden-biomedical-health-sciences-2025": 544,
         "leiden-life-earth-sciences-2025": 799,
-        "leiden-social-sciences-humanities-2025": 740
+        "leiden-social-sciences-humanities-2025": 740,
+        "the-impact-sdg10-2023": 4
       }
     },
     {
@@ -9945,7 +9990,9 @@
         "scimago-dentistry-2026": 166,
         "cug-2027": 29,
         "guardian-2026": 24,
-        "the-impact-sdg1-2025": 31
+        "the-impact-sdg1-2025": 31,
+        "the-impact-sdg10-2023": 33,
+        "the-impact-sdg16-2023": 6
       }
     },
     {
@@ -10102,6 +10149,16 @@
       }
     },
     {
+      "name": "University of Konstanz",
+      "country": "Germany",
+      "city": "Konstanz",
+      "ror": "https://ror.org/0546hnb39",
+      "ranks": {
+        "gras-political-2025": 15,
+        "the-impact-sdg16-2023": 27
+      }
+    },
+    {
       "name": "University of Leeds",
       "country": "United Kingdom",
       "city": "Leeds",
@@ -10235,7 +10292,8 @@
         "urap-law-and-legal-studies-2024-2025": 48,
         "the-impact-sdg1-2025": 28,
         "the-impact-sdg2-2026": 33,
-        "the-impact-sdg9-2026": 1
+        "the-impact-sdg9-2026": 1,
+        "the-impact-sdg16-2023": 15
       }
     },
     {
@@ -10640,7 +10698,8 @@
         "scimago-veterinary-2026": 155,
         "scimago-dentistry-2026": 413,
         "the-impact-sdg1-2025": 33,
-        "the-impact-sdg8-2025": 27
+        "the-impact-sdg8-2025": 27,
+        "the-impact-sdg16-2023": 12
       }
     },
     {
@@ -11626,7 +11685,8 @@
         "scimago-social-sciences-2025": 64,
         "scimago-dentistry-2026": 57,
         "cug-2027": 13,
-        "guardian-2026": 16
+        "guardian-2026": 16,
+        "the-impact-sdg16-2023": 12
       }
     },
     {
@@ -12029,7 +12089,8 @@
         "scimago-social-sciences-2025": 123,
         "urap-engineering-2024-2025": 38,
         "urap-information-computing-sciences-2024-2025": 13,
-        "the-impact-sdg8-2025": 39
+        "the-impact-sdg8-2025": 39,
+        "the-impact-sdg10-2023": 31
       }
     },
     {
@@ -12311,7 +12372,8 @@
         "urap-economics-2024-2025": 22,
         "urap-law-and-legal-studies-2024-2025": 8,
         "urap-information-computing-sciences-2024-2025": 42,
-        "urap-medical-and-health-sciences-2024-2025": 2
+        "urap-medical-and-health-sciences-2024-2025": 2,
+        "the-impact-sdg10-2023": 45
       }
     },
     {
@@ -12411,7 +12473,8 @@
         "scimago-social-sciences-2025": 122,
         "cug-2027": 7,
         "guardian-2026": 7,
-        "urap-economics-2024-2025": 38
+        "urap-economics-2024-2025": 38,
+        "the-impact-sdg16-2023": 20
       }
     },
     {
@@ -13019,7 +13082,8 @@
         "leiden-social-sciences-humanities-2025": 531,
         "ntu-engineering-2025": 501,
         "ntu-agriculture-2025": 121,
-        "the-impact-sdg8-2025": 43
+        "the-impact-sdg8-2025": 43,
+        "the-impact-sdg10-2023": 3
       }
     },
     {

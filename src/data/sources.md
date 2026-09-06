@@ -71,7 +71,11 @@ and trust are separate steps, and only the second one is authoritative.
   Edition home; the classic filterable list lives on
   `traditional.leidenranking.com`, whose form posts to
   `/Ranking2025/Ranking2025ListResult` and returns the full non-paged HTML
-  table.
+  table. The form fields are `field`, `period_id`, `performance-dimension`,
+  `ranking-indicator`, `sort-indicator`, `number-of-publications` and
+  `fractional_counting`, but posting them directly answered 400 in September
+  2026 — the working parameter set needs rediscovery, so treat any Leiden
+  figure that has not been read off the rendered table as unverified.
 - **RUR / roundranking.com** — the documented `.html` URL 404s; the live table
   is fed by
   `data_proc/get_data_raiting_o.php?id_year=<code>&rank=<O|T|R|I|F>&srt=rf`,

@@ -8564,6 +8564,16 @@
       }
     },
     {
+      "name": "Universitat Politecnica de Valencia",
+      "shortName": "UPV",
+      "country": "Spain",
+      "city": "Valencia",
+      "ror": "https://ror.org/01460j859",
+      "ranks": {
+        "qs-sub-agriculture-and-forestry-2026": 36
+      }
+    },
+    {
       "name": "Universiti Malaya",
       "country": "Malaysia",
       "city": "Kuala Lumpur",

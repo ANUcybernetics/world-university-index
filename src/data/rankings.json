@@ -3272,6 +3272,17 @@
       "retrieved": "2026-09-06",
       "scope": "peace, justice and strong institutions (SDG 16)",
       "category": "sdg"
+    },
+    {
+      "id": "gras-ecology-2024",
+      "name": "ShanghaiRanking Global Ranking of Academic Subjects: Ecology",
+      "shortName": "ARWU GRAS",
+      "edition": "2024",
+      "publisher": "ShanghaiRanking Consultancy",
+      "url": "https://www.shanghairanking.com/rankings/gras/2024/AS0106",
+      "retrieved": "2026-09-06",
+      "scope": "Ecology",
+      "category": "subject"
     }
   ],
   "universities": [
@@ -4048,7 +4059,8 @@
         "urap-medical-and-health-sciences-2024-2025": 30,
         "usnews-national-universities-2026": 12,
         "wsj-us-colleges-2026": 18,
-        "forbes-top-colleges-2025-2026": 14
+        "forbes-top-colleges-2025-2026": 14,
+        "gras-ecology-2024": 13
       }
     },
     {
@@ -4557,7 +4569,8 @@
         "urap-earth-sciences-2024-2025": 3,
         "urap-agriculture-2024-2025": 6,
         "urap-information-computing-sciences-2024-2025": 44,
-        "urap-mathematical-sciences-2024-2025": 18
+        "urap-mathematical-sciences-2024-2025": 18,
+        "gras-ecology-2024": 24
       }
     },
     {
@@ -4977,7 +4990,8 @@
         "urap-medical-and-health-sciences-2024-2025": 1,
         "usnews-national-universities-2026": 3,
         "wsj-us-colleges-2026": 5,
-        "forbes-top-colleges-2025-2026": 6
+        "forbes-top-colleges-2025-2026": 6,
+        "gras-ecology-2024": 30
       }
     },
     {
@@ -5237,7 +5251,8 @@
         "urap-earth-sciences-2024-2025": 44,
         "urap-information-computing-sciences-2024-2025": 28,
         "urap-mathematical-sciences-2024-2025": 28,
-        "urap-medical-and-health-sciences-2024-2025": 10
+        "urap-medical-and-health-sciences-2024-2025": 10,
+        "gras-ecology-2024": 28
       }
     },
     {
@@ -5339,7 +5354,8 @@
         "scimago-arts-and-humanities-2026": 434,
         "scimago-social-sciences-2025": 463,
         "scimago-veterinary-2026": 407,
-        "urap-veterinary-sciences-2024-2025": 25
+        "urap-veterinary-sciences-2024-2025": 25,
+        "gras-ecology-2024": 5
       }
     },
     {
@@ -7363,7 +7379,8 @@
         "scimago-pharmacology-toxicology-and-pharmaceutics-2025": 439,
         "scimago-physics-and-astronomy-2026": 114,
         "scimago-social-sciences-2025": 368,
-        "scimago-dentistry-2026": 246
+        "scimago-dentistry-2026": 246,
+        "gras-ecology-2024": 15
       }
     },
     {
@@ -7983,7 +8000,8 @@
         "scimago-psychology-2025": 191,
         "scimago-social-sciences-2025": 292,
         "scimago-veterinary-2026": 372,
-        "scimago-dentistry-2026": 289
+        "scimago-dentistry-2026": 289,
+        "gras-ecology-2024": 20
       }
     },
     {
@@ -9175,7 +9193,8 @@
         "urap-education-2024-2025": 26,
         "urap-psychology-and-cognitive-sciences-2024-2025": 26,
         "urap-medical-and-health-sciences-2024-2025": 36,
-        "the-impact-sdg10-2023": 12
+        "the-impact-sdg10-2023": 12,
+        "gras-ecology-2024": 8
       }
     },
     {
@@ -9301,7 +9320,8 @@
         "urap-mathematical-sciences-2024-2025": 13,
         "usnews-national-universities-2026": 15,
         "wsj-us-colleges-2026": 7,
-        "forbes-top-colleges-2025-2026": 5
+        "forbes-top-colleges-2025-2026": 5,
+        "gras-ecology-2024": 9
       }
     },
     {
@@ -9651,7 +9671,8 @@
         "urap-economics-2024-2025": 14,
         "urap-law-and-legal-studies-2024-2025": 3,
         "urap-mathematical-sciences-2024-2025": 21,
-        "urap-medical-and-health-sciences-2024-2025": 35
+        "urap-medical-and-health-sciences-2024-2025": 35,
+        "gras-ecology-2024": 21
       }
     },
     {
@@ -10145,7 +10166,8 @@
         "scimago-veterinary-2026": 55,
         "usnews-national-universities-2026": 36,
         "wsj-us-colleges-2026": 55,
-        "forbes-top-colleges-2025-2026": 38
+        "forbes-top-colleges-2025-2026": 38,
+        "gras-ecology-2024": 28
       }
     },
     {
@@ -10645,6 +10667,16 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 46,
         "usnews-national-universities-2026": 59,
         "forbes-top-colleges-2025-2026": 78
+      }
+    },
+    {
+      "name": "University of Montpellier",
+      "country": "France",
+      "city": "Montpellier",
+      "ror": "https://ror.org/051escj72",
+      "ranks": {
+        "gras-ecology-2025": 14,
+        "gras-ecology-2024": 7
       }
     },
     {
@@ -11210,7 +11242,8 @@
         "urap-law-and-legal-studies-2024-2025": 1,
         "urap-information-computing-sciences-2024-2025": 40,
         "urap-mathematical-sciences-2024-2025": 5,
-        "urap-medical-and-health-sciences-2024-2025": 8
+        "urap-medical-and-health-sciences-2024-2025": 8,
+        "gras-ecology-2024": 1
       }
     },
     {
@@ -11558,7 +11591,8 @@
         "scimago-psychology-2025": 47,
         "scimago-social-sciences-2025": 42,
         "scimago-veterinary-2026": 2,
-        "scimago-dentistry-2026": 1
+        "scimago-dentistry-2026": 1,
+        "gras-ecology-2024": 16
       }
     },
     {
@@ -12373,7 +12407,8 @@
         "urap-law-and-legal-studies-2024-2025": 8,
         "urap-information-computing-sciences-2024-2025": 42,
         "urap-medical-and-health-sciences-2024-2025": 2,
-        "the-impact-sdg10-2023": 45
+        "the-impact-sdg10-2023": 45,
+        "gras-ecology-2024": 23
       }
     },
     {
@@ -12720,7 +12755,8 @@
         "urap-education-2024-2025": 17,
         "usnews-national-universities-2026": 36,
         "wsj-us-colleges-2026": 94,
-        "forbes-top-colleges-2025-2026": 53
+        "forbes-top-colleges-2025-2026": 53,
+        "gras-ecology-2024": 14
       }
     },
     {

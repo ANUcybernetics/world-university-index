@@ -8482,6 +8482,16 @@
       }
     },
     {
+      "name": "Universitat Politecnica de Catalunya",
+      "shortName": "UPC",
+      "country": "Spain",
+      "city": "Barcelona",
+      "ror": "https://ror.org/03mb6wj31",
+      "ranks": {
+        "qs-sub-architecture-2026": 19
+      }
+    },
+    {
       "name": "Universiti Malaya",
       "country": "Malaysia",
       "city": "Kuala Lumpur",

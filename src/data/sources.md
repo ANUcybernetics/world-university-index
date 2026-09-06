@@ -37,11 +37,14 @@ institution counts and the current headline leaders.
   `/Ranking2025/Ranking2025ListResult` and returns the full non-paged HTML
   table.
 - **RUR / roundranking.com** — the documented `.html` URL 404s; the live table
-  is fed by `data_proc/get_data_raiting_o.php?id_year=<code>&rank=<O|T|R|I|F>`
-  (`id_year=17` = 2026), `curl` with a browser UA.
+  is fed by
+  `data_proc/get_data_raiting_o.php?id_year=<code>&rank=<O|T|R|I|F>&srt=rf`,
+  `curl` with a browser UA. `id_year` is the year minus 2009 (`17` = 2026), and
+  the `srt` parameter is required — without it the endpoint answers 500.
 - **NTU / nturanking.csti.tw** — the old `.lis.ntu.edu.tw` host is dead.
   DataTables AJAX endpoints return JSON: `/OverallRanking_AJAX/<year>` and
-  `/FieldRanking_AJAX/<FIELD>/<year>`. Use the `RankU` column, not `Ref_RankU`.
+  `/FieldRanking_AJAX/<FIELD>/<year>`, both behind a 301 — `curl -L`. Use the
+  `RankU` column, not `Ref_RankU`.
 - **URAP / urapcenter.org** — a client-rendered Meteor/Kendo app;
   `curl`/WebFetch get an empty shell. Render with agent-browser and read the
   grid's client-side dataSource (all institutions in one JS array).
@@ -55,8 +58,9 @@ institution counts and the current headline leaders.
   parsed with `pdftotext`. Avoid the predatory clones (`webometrics.org`,
   `.online`).
 - **Nature Index / nature.com** — WebFetch hits an auth redirect; `curl` the
-  `/nature-index/annual-tables/<year>/institution/academic/<subject>/global`
-  HTML and filter to the academic sector.
+  `/nature-index/research-leaders/<year>/institution/academic/<subject>/global`
+  HTML and filter to the academic sector. The path was `/annual-tables/<year>/`
+  before the 2026 edition.
 - **THE reputation** — same JSON-payload trick as the other THE tables: a static
   file under `/sites/default/files/the_data_rankings/`.
 - **MosIUR / mosiur.org** — the full 1–2000 table is embedded in the page HTML
@@ -68,9 +72,8 @@ institution counts and the current headline leaders.
   works); the table is an embedded Datawrapper chart with a CSV at
   `datawrapper.dwcdn.net/<id>/dataset.csv`.
 - **Complete University Guide / thecompleteuniversityguide.co.uk** — the live
-  league table is CloudFront-blocked (403); read a Wayback Machine capture,
-  whose rows carry `data-<N>-uni-ranking` attributes with exact positions (ties
-  included).
+  league table fetches directly with `curl` and a browser UA. Rows carry
+  `data-<N>-uni-ranking` attributes with exact positions (ties included).
 - **Guardian University Guide / theguardian.com** — the interactive isn't
   directly fetchable; read the ordered table from the Wikipedia "Rankings of
   universities in the United Kingdom" wikitext via the MediaWiki raw API.
@@ -84,7 +87,9 @@ institution counts and the current headline leaders.
 - **Maclean's / macleans.ca** — capture the category table (Medical Doctoral for
   the research universities); cross-check against each university's own page.
 - **THE Japan University Rankings** — same JSON-payload trick as the other THE
-  tables (`timeshighereducation.com/rankings/japan`).
+  tables (`timeshighereducation.com/rankings/japan`). Probably discontinued
+  after the 2025 edition: secondary sources report the Benesse partnership has
+  ended, with no primary THE statement either way.
 
 National league tables (CUG, Guardian, U.S. News National, WSJ, Forbes,
 Maclean's, THE Japan) carry a `universe` field naming the country they rank
@@ -125,7 +130,7 @@ world #1 — the source line is the only tell. That is the joke.
 | WSJ / College Pulse Best Colleges (US, national)          | Wall Street Journal                  | annual                   | 2026        | National (US); paywalled, via reproductions.                                                                                 |
 | Forbes America's Top Colleges (US, national)              | Forbes                               | annual                   | 2025-2026   | National (US); paywalled, via reproductions.                                                                                 |
 | Maclean's University Rankings (Canada, national)          | Maclean's                            | annual                   | 2026        | National (Canada); Medical Doctoral category.                                                                                |
-| THE Japan University Rankings (Japan, national)           | THE                                  | annual                   | 2025        | National (Japan); THE JSON payload.                                                                                          |
+| THE Japan University Rankings (Japan, national)           | THE                                  | probably discontinued    | 2025        | National (Japan); THE JSON payload. Benesse partnership reportedly ended — treat 2025 as final unless a 2026 appears.        |
 | Global Index of Research Throughput (GIRT)                | Slop University                      | annual                   | 2026        | Self-published, opt-in submission; sole participant places 1st. `universe`.                                                  |
 
 ## When refreshing

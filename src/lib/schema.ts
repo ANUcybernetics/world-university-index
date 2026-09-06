@@ -37,6 +37,16 @@ export const universitySchema = z.object({
   shortName: z.string().optional(),
   country: z.string().min(1),
   city: z.string().optional(),
+  /**
+   * Research Organization Registry identifier, e.g.
+   * "https://ror.org/019wvm592". Not used for display: it exists so that a name
+   * appearing in one publisher's table can be matched to the same institution
+   * in another's, which naive string matching gets wrong in both directions
+   * ("University of Wollongong" vs "University of Wollongong in Dubai";
+   * "Northwestern University" vs "Lyceum-Northwestern University"). Absent for
+   * institutions ROR does not list.
+   */
+  ror: z.url().regex(/^https:\/\/ror\.org\/0[a-z0-9]{8}$/).optional(),
   ranks: z.record(z.string(), z.number().int().positive()),
 });
 

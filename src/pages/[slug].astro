@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import Base from "../layouts/Base.astro";
 import EmbedCode from "../components/EmbedCode.astro";
 import RankBadge from "../components/RankBadge.astro";
+import Seal from "../components/Seal.astro";
 import {
   citationsBy,
   unitFor,
@@ -32,9 +33,7 @@ interface Props {
 
 const { university, slug, best } = Astro.props;
 const profile = rankProfile(university);
-const place = university.city
-  ? `${university.city}, ${university.country}`
-  : university.country;
+const place = university.city ? `${university.city}, ${university.country}` : university.country;
 const claim = ordinal(best.rank);
 const claimScope = scopeSuffix(best.ranking);
 const jsonLd = institutionJsonLd(university, siteOrigin(Astro.site));
@@ -53,58 +52,54 @@ const claims = citationsBy(university).map((citation) => {
 <Base
   title={`${university.name} — World ranking | The World University Index`}
   description={`${university.name} is ranked ${claim} in the world${claimScope}. Source: ${best.ranking.name} ${best.ranking.edition}.`}
+  expect="inst-name"
 >
-  <script
-    type="application/ld+json"
-    slot="head"
-    is:inline
-    set:html={JSON.stringify(jsonLd)}
-  />
+  <script type="application/ld+json" slot="head" is:inline set:html={JSON.stringify(jsonLd)} />
   <article class="profile">
-    <div class="container">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href={href("/")}>The Index</a>
-        <span aria-hidden="true">/</span>
-        <span>{university.shortName ?? university.name}</span>
-      </nav>
-
-      <header class="masthead-uni">
-        <p class="eyebrow">{place}</p>
-        <h1 class="masthead-uni__name" style={`view-transition-name: inst-${slug}`}>
+    <div class="titlebar">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href={href("/")}>Rankings</a></li>
+            <li aria-current="page">{university.shortName ?? university.name}</li>
+          </ol>
+        </nav>
+        <h1 id="inst-name" class="profile__name" style={`view-transition-name: inst-${slug}`}>
           {university.name}
         </h1>
-      </header>
+        <p class="profile__place">{place}</p>
+      </div>
+    </div>
 
+    <div class="container">
       <section class="headline" aria-labelledby="headline-claim">
-        <p class="headline__label">Ranked in the world</p>
-        <p class="headline__figure">
-          <RankBadge rank={best.rank} large />
-        </p>
-        <p class="headline__claim" id="headline-claim">
-          {university.name} is ranked <strong>{claim} in the world{claimScope}</strong>.
-        </p>
-        <p class="headline__source">
-          Source:{" "}
-          <a href={best.ranking.url} rel="external">
-            {best.ranking.name}, {best.ranking.edition}
-          </a>
-          {headlineUnit && <span class="headline__unit">via its {headlineUnit}</span>}
-        </p>
+        <Seal rank={best.rank} class="headline__seal" label="" />
+        <div class="headline__text">
+          <p class="headline__claim" id="headline-claim">
+            Ranked <strong>{claim} in the world</strong>{claimScope}
+          </p>
+          <p class="headline__source">
+            Source: <a href={best.ranking.url} rel="external">
+              {best.ranking.name}, {best.ranking.edition}
+            </a>
+            {headlineUnit && <span class="headline__unit">Placement won by its {headlineUnit}.</span>}
+          </p>
+        </div>
       </section>
 
-      <EmbedCode university={university} slug={slug} />
-
       <section class="full" aria-labelledby="full-heading">
-        <h2 id="full-heading" class="full__heading">Full ranking profile</h2>
-        <p class="full__intro">
-          {university.name}'s placement across the international ranking systems recorded
-          by the Index. The headline figure above is the strongest of these.
+        <h2 id="full-heading" class="section-heading">
+          Full ranking profile <span class="section-heading__count">{profile.length} placements</span>
+        </h2>
+        <p class="section-intro">
+          Every placement the Index records for {university.shortName ?? university.name}. The
+          headline figure is the strongest of these.
         </p>
         <table class="profile-table">
           <thead>
             <tr>
-              <th scope="col">Ranking</th>
-              <th scope="col">Publisher</th>
+              <th scope="col">Ranking table</th>
+              <th scope="col" class="profile-table__pub">Publisher</th>
               <th scope="col" class="num">World rank</th>
             </tr>
           </thead>
@@ -117,16 +112,12 @@ const claims = citationsBy(university).map((citation) => {
                       {p.ranking.shortName} {p.ranking.edition}
                     </a>
                     {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
-                    {p.ranking.scope && (
-                      <span class="profile-table__scope">in the world for {p.ranking.scope}</span>
-                    )}
+                    {p.ranking.scope && <span class="profile-table__scope">{p.ranking.scope}</span>}
                     {unitFor(university, p.ranking.id) && (
-                      <span class="profile-table__unit">
-                        {unitFor(university, p.ranking.id)}
-                      </span>
+                      <span class="profile-table__unit">{unitFor(university, p.ranking.id)}</span>
                     )}
                   </th>
-                  <td>{p.ranking.publisher}</td>
+                  <td class="profile-table__pub">{p.ranking.publisher}</td>
                   <td class="num">
                     <RankBadge rank={p.rank} />
                   </td>
@@ -135,48 +126,47 @@ const claims = citationsBy(university).map((citation) => {
             }
           </tbody>
         </table>
-        <p class="full__foot">
-          Banded results are recorded at the lower bound of the band. For how the
-          headline figure is selected, see the <a href={href("/methodology")}
-            >methodology</a
-          >.
+        <p class="section-foot">
+          Banded results are recorded at the lower bound of the band. For how the headline figure
+          is selected, see the <a href={href("/methodology")}>methodology</a>.
         </p>
       </section>
+
+      <EmbedCode university={university} slug={slug} />
 
       {
         claims.length > 0 && (
           <section class="claims" aria-labelledby="claims-heading">
-            <h2 id="claims-heading" class="claims__heading">In their own words</h2>
-            <p class="claims__intro">
-              {university.shortName ?? university.name} on the subject of its own
-              standing, quoted from its published material.
+            <h2 id="claims-heading" class="section-heading">In their own words</h2>
+            <p class="section-intro">
+              {university.shortName ?? university.name} on the subject of its own standing, quoted
+              from its published material.
             </p>
             <ul class="claims__list">
               {claims.map(({ citation, cited, rank }) => (
-                <li class="claim">
-                  <blockquote class="claim__text" cite={citation.url}>
-                    {citation.quote}
-                  </blockquote>
-                  <p class="claim__attrib">
-                    <a href={citation.url} rel="external nofollow">source</a>
-                    {citation.archive && (
-                      <>
-                        {" · "}
-                        <a href={citation.archive} rel="external nofollow">
-                          archived
-                        </a>
-                      </>
-                    )}
-                    {" · retrieved "}
-                    {citation.retrieved}
-                  </p>
+                <li>
+                  <figure class="claim">
+                    <blockquote class="claim__text" cite={citation.url}>
+                      <p>{citation.quote}</p>
+                    </blockquote>
+                    <figcaption class="claim__attrib">
+                      <a href={citation.url} rel="external nofollow">Source</a>
+                      {citation.archive && (
+                        <>
+                          {", "}
+                          <a href={citation.archive} rel="external nofollow">
+                            archived
+                          </a>
+                        </>
+                      )}
+                      {", retrieved "}
+                      <time datetime={citation.retrieved}>{citation.retrieved}</time>
+                    </figcaption>
+                  </figure>
                   {cited && rank !== undefined && (
                     <p class="claim__index">
-                      The Index records{" "}
-                      <a href={indexHref(cited.id)}>
-                        {cited.shortName} {cited.edition}
-                      </a>{" "}
-                      at {ordinal(rank)} in the world{scopeSuffix(cited)}.
+                      The Index records <a href={indexHref(cited.id)}>{cited.shortName} {cited.edition}</a> at{" "}
+                      {ordinal(rank)} in the world{scopeSuffix(cited)}.
                     </p>
                   )}
                 </li>
@@ -189,235 +179,233 @@ const claims = citationsBy(university).map((citation) => {
   </article>
 
   <style>
-    .profile {
-      padding-block: 2rem;
-    }
-
-    .headline__unit {
-      display: block;
-      margin-top: 0.15rem;
-      font-family: var(--sans);
-      font-size: 0.78rem;
-      color: var(--ink-faint);
-    }
-
-    .profile-table__unit {
-      display: block;
-      font-family: var(--sans);
-      font-size: 0.76rem;
-      color: var(--ink-faint);
-    }
-
-    .claims {
-      margin-top: 2.5rem;
-      max-width: 46rem;
-    }
-
-    .claims__heading {
-      margin: 0 0 0.2rem;
-      font-size: 1.35rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .claims__intro {
-      margin: 0.6rem 0 0;
-      font-size: 0.95rem;
-      color: var(--ink-soft);
-    }
-
-    .claims__list {
-      list-style: none;
-      margin: 1rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .claim__text {
-      margin: 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-      font-size: 1.05rem;
-      line-height: 1.5;
-    }
-
-    .claim__attrib {
-      margin: 0.35rem 0 0 1rem;
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      color: var(--ink-faint);
-    }
-
-    .claim__index {
-      margin: 0.35rem 0 0 1rem;
-      font-family: var(--sans);
-      font-size: 0.85rem;
-      color: var(--ink-soft);
-    }
-
-    .crumbs {
+    .crumbs ol {
       display: flex;
-      gap: 0.6rem;
-      align-items: center;
-      font-size: 0.85rem;
-      color: var(--ink-faint);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0;
+      list-style: none;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .crumbs li:not(:first-child)::before {
+      content: "/";
+      margin-inline-end: 0.5rem;
+      color: var(--rule-strong);
     }
 
     .crumbs a {
-      color: var(--ink-soft);
-      text-decoration: none;
+      color: var(--muted);
     }
 
-    .crumbs a:hover {
-      color: var(--accent);
+    .titlebar .container {
+      padding-block: 1.25rem 1.5rem;
     }
 
-    .masthead-uni {
-      padding-block: 1.5rem 0.5rem;
-      border-bottom: 2px solid var(--ink);
+    .profile__name {
+      margin-block-start: 0.5rem;
+      font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+      max-inline-size: 26ch;
     }
 
-    .masthead-uni__name {
-      margin: 0.3rem 0 0;
-      font-size: clamp(2.2rem, 1.2rem + 4.5vw, 3.6rem);
-      max-width: 22ch;
+    .profile__place {
+      margin-block-start: 0.25rem;
+      color: var(--muted);
     }
 
     .headline {
       display: grid;
-      justify-items: start;
-      gap: 0.4rem;
-      padding-block: clamp(1.5rem, 0.5rem + 3vw, 3rem);
-      border-bottom: 1px solid var(--rule);
+      grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+      align-items: center;
+      gap: 1.5rem clamp(1.5rem, 4vw, 3rem);
+      padding-block: 2rem;
+      border-block-end: 1px solid var(--rule);
     }
 
-    .headline__label {
-      margin: 0;
-      font-family: var(--sans);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-
-    .headline__figure {
-      margin: 0;
+    .headline__seal {
+      inline-size: 100%;
     }
 
     .headline__claim {
-      margin: 0.4rem 0 0;
-      font-family: var(--serif);
-      font-size: clamp(1.3rem, 1rem + 1.5vw, 1.9rem);
-      max-width: 28ch;
+      font-size: clamp(1.375rem, 1rem + 1.6vw, 2rem);
+      line-height: 1.2;
+      max-inline-size: 30ch;
+      text-wrap: balance;
+    }
+
+    .headline__claim strong {
+      color: var(--brand);
     }
 
     .headline__source {
-      margin: 0.5rem 0 0;
-      font-size: 0.9rem;
-      color: var(--ink-faint);
+      margin-block-start: 0.75rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
     }
 
-    .full {
+    .headline__unit {
+      display: block;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 0.75rem;
+      font-size: 1.375rem;
+    }
+
+    .section-heading__count {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+
+    .section-intro {
+      margin-block: 0.4rem 1.25rem;
+      max-inline-size: 60ch;
+      color: var(--muted);
+    }
+
+    .section-foot {
+      margin-block-start: 1rem;
+      max-inline-size: 60ch;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .full,
+    .claims {
       padding-block: 2.5rem;
     }
 
-    .full__heading {
-      margin: 0;
-      font-size: 1.6rem;
-    }
-
-    .full__intro {
-      margin: 0.5rem 0 1.5rem;
-      max-width: 52ch;
-      color: var(--ink-soft);
-    }
-
     .profile-table {
-      width: 100%;
-      border-collapse: collapse;
+      inline-size: 100%;
     }
 
     .profile-table thead th {
-      text-align: left;
-      padding: 0 0.75rem 0.6rem;
-      font-size: 0.72rem;
+      padding: 0.6rem 0.75rem;
+      text-align: start;
+      background: var(--panel);
+      color: var(--muted);
+      font-family: var(--condensed);
+      font-size: 0.9375rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      border-bottom: 1px solid var(--rule-strong);
+      border-block: 1px solid var(--rule-strong);
     }
 
     .profile-table .num {
-      text-align: right;
-    }
-
-    .profile-table tbody tr {
-      border-bottom: 1px solid var(--rule);
+      text-align: end;
     }
 
     .profile-table td,
     .profile-table th {
-      padding: 0.85rem 0.75rem;
-      vertical-align: baseline;
+      vertical-align: top;
+    }
+
+    .profile-table tbody td,
+    .profile-table tbody th {
+      padding: 0.7rem 0.75rem;
+      border-block-end: 1px solid var(--rule);
     }
 
     .profile-table__name {
-      text-align: left;
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      font-weight: 500;
+      text-align: start;
+      font-weight: 600;
     }
 
     .profile-table__name a {
-      color: var(--ink);
+      color: var(--brand);
       text-decoration: none;
     }
 
     .profile-table__name a:hover {
-      color: var(--accent);
       text-decoration: underline;
     }
 
-    .profile-table__scope {
+    .profile-table__scope,
+    .profile-table__unit {
       display: block;
-      margin-top: 0.2rem;
-      font-family: var(--sans);
-      font-size: 0.82rem;
       font-weight: 400;
-      color: var(--ink-faint);
+      font-size: 0.875rem;
+      color: var(--muted);
     }
 
-    .profile-table .num {
-      font-size: 1.05rem;
+    .profile-table tbody .num {
+      font-size: 1.25rem;
+      padding-block-start: 0.6rem;
     }
 
     .is-best {
-      background: color-mix(in oklab, var(--gold) 12%, transparent);
+      background: var(--highlight);
+    }
+
+    .is-best > :first-child {
+      box-shadow: inset 3px 0 0 var(--gold);
     }
 
     .tag {
       display: inline-block;
-      margin-left: 0.5rem;
-      padding: 0.1rem 0.4rem;
-      font-family: var(--sans);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--paper);
+      margin-inline-start: 0.5rem;
+      padding: 0.05rem 0.4rem;
+      font-family: var(--condensed);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--navy);
       background: var(--gold);
       border-radius: var(--radius);
-      vertical-align: 0.15em;
+      vertical-align: 0.1em;
     }
 
-    .full__foot {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--ink-faint);
-      max-width: 56ch;
+    .claims {
+      max-inline-size: 48rem;
+    }
+
+    .claims__list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .claim__text {
+      padding-inline-start: 1rem;
+      border-inline-start: 3px solid var(--gold);
+      font-size: 1.0625rem;
+    }
+
+    .claim__attrib,
+    .claim__index {
+      margin-block-start: 0.4rem;
+      margin-inline-start: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .claim__index {
+      color: var(--ink);
+    }
+
+    @media (max-width: 40rem) {
+      .headline {
+        grid-template-columns: 1fr;
+        justify-items: start;
+      }
+
+      .headline__seal {
+        inline-size: 9rem;
+      }
+
+      .profile-table__pub {
+        display: none;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .is-best > :first-child {
+        border-inline-start: 3px solid Highlight;
+      }
     }
   </style>
 </Base>

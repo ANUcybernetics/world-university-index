@@ -42,6 +42,8 @@ const placements = rankedUniversities()
   .map((e) => ({ entry: e, rank: e.university.ranks[ranking.id] }))
   .filter((p): p is { entry: (typeof p)["entry"]; rank: number } => p.rank !== undefined)
   .toSorted((a, b) => a.rank - b.rank);
+const tieCounts = new Map<number, number>();
+for (const { rank } of placements) tieCounts.set(rank, (tieCounts.get(rank) ?? 0) + 1);
 
 const scoped = scopeSuffix(ranking);
 const quoteFor = (uni: University): Citation | undefined =>
@@ -51,118 +53,99 @@ const quoteFor = (uni: University): Citation | undefined =>
 <Base
   title={`${ranking.name}, ${ranking.edition} — The World University Index`}
   description={`${ranking.name} ${ranking.edition}: ${placements.length} institutions recorded by the Index, and ${total} published claims citing it.`}
+  expect="index-name"
 >
   <article class="index-page">
+    <div class="titlebar">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href={href("/")}>Rankings</a></li>
+            <li><a href={href("/indices")}>Indices</a></li>
+            <li aria-current="page">{ranking.shortName} {ranking.edition}</li>
+          </ol>
+        </nav>
+        <h1 id="index-name" class="index-page__name">{ranking.name}</h1>
+        <p class="index-page__meta">
+          {ranking.edition} edition{ranking.scope ? `, ${ranking.scope}` : ""}. Published by {
+            ranking.publisher
+          }.
+        </p>
+      </div>
+    </div>
+
     <div class="container">
-      <nav class="crumbs" aria-label="Breadcrumb">
-        <a href={href("/")}>The Index</a>
-        <span aria-hidden="true">/</span>
-        <a href={href("/indices")}>Indices</a>
-        <span aria-hidden="true">/</span>
-        <span>{ranking.shortName} {ranking.edition}</span>
-      </nav>
-
-      <header class="masthead-index">
-        <p class="eyebrow">{ranking.publisher}</p>
-        <h1 class="masthead-index__name">{ranking.name}</h1>
-        <p class="masthead-index__scope">
-          {ranking.edition} edition{ranking.scope ? ` · ${ranking.scope}` : ""}
-        </p>
-      </header>
-
-      <section class="standing" aria-labelledby="standing-heading">
-        <h2 id="standing-heading" class="sr-only">Standing</h2>
-        {
-          total > 0 ? (
-            <p class="standing__verdict standing__verdict--cited">
-              Cited by <strong>{total}</strong>{" "}
-              {total === 1 ? "institution" : "institutions"}
-              {cited.length === 0 && ", though none for this edition"}.
-            </p>
-          ) : (
-            <p class="standing__verdict">No citations recorded yet.</p>
-          )
-        }
-        <p class="standing__note">
-          An index earns its place here when an institution quotes it. Whether the
-          wider world has heard of the publisher is beside the point: a table
-          somebody has advertised a placement in is a table that counts.
-        </p>
-        <p class="standing__source">
-          Published at{" "}
-          <a href={ranking.url} rel="external">{ranking.url}</a>
-        </p>
-      </section>
+      <dl class="standing">
+        <div class="standing__item">
+          <dt>Cited by</dt>
+          <dd>
+            {total} {total === 1 ? "institution" : "institutions"}
+            {total > 0 && cited.length === 0 && (
+              <span class="standing__note">none for this edition</span>
+            )}
+          </dd>
+        </div>
+        <div class="standing__item">
+          <dt>Listed here</dt>
+          <dd>{placements.length} {placements.length === 1 ? "institution" : "institutions"}</dd>
+        </div>
+        <div class="standing__item standing__item--wide">
+          <dt>Published at</dt>
+          <dd class="standing__url"><a href={ranking.url} rel="external">{ranking.url}</a></dd>
+        </div>
+      </dl>
+      <p class="standing__blurb">
+        An index earns its place here when an institution quotes it. Whether the wider world has
+        heard of the publisher is beside the point: a table somebody has advertised a placement in
+        is a table that counts.
+      </p>
 
       {
         total > 0 && (
           <section class="quotes" aria-labelledby="quotes-heading">
             <h2 id="quotes-heading" class="section-heading">In their own words</h2>
-            {cited.length > 0 && (
-              <ul class="quotes__list">
-                {cited.map((c) => (
-                  <li class="quote">
-                    <blockquote class="quote__text" cite={c.url}>
-                      {c.quote}
-                    </blockquote>
-                    <p class="quote__attrib">
-                      {isIndexed(c.university) ? (
-                        <a href={universityHref(slugify(c.university))}>{c.university}</a>
-                      ) : (
-                        <span class="quote__outsider">{c.university}</span>
-                      )}
-                      <span class="quote__links">
-                        <a href={c.url} rel="external nofollow">source</a>
-                        {c.archive && (
-                          <>
-                            {" · "}
-                            <a href={c.archive} rel="external nofollow">
-                              archived
+            {[
+              { list: cited, heading: undefined },
+              { list: otherEditions, heading: "Citing other editions of this index" },
+            ]
+              .filter((g) => g.list.length > 0)
+              .map((g) => (
+                <>
+                  {g.heading && <h3 class="quotes__subhead">{g.heading}</h3>}
+                  <ul class="quotes__list">
+                    {g.list.map((c) => (
+                      <li>
+                        <figure class="quote">
+                          <blockquote class="quote__text" cite={c.url}>
+                            <p>{c.quote}</p>
+                          </blockquote>
+                          <figcaption class="quote__attrib">
+                            {isIndexed(c.university) ? (
+                              <a href={universityHref(slugify(c.university))}>{c.university}</a>
+                            ) : (
+                              <span>{c.university}</span>
+                            )}
+                            {", "}
+                            <a href={c.url} rel="external nofollow">
+                              source
                             </a>
-                          </>
-                        )}
-                        {" · "}
-                        <span class="quote__retrieved">retrieved {c.retrieved}</span>
-                      </span>
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {otherEditions.length > 0 && (
-              <>
-                <h3 class="quotes__subhead">Citing other editions of this index</h3>
-                <ul class="quotes__list">
-                  {otherEditions.map((c) => (
-                    <li class="quote">
-                      <blockquote class="quote__text" cite={c.url}>
-                        {c.quote}
-                      </blockquote>
-                      <p class="quote__attrib">
-                        {isIndexed(c.university) ? (
-                          <a href={universityHref(slugify(c.university))}>{c.university}</a>
-                        ) : (
-                          <span class="quote__outsider">{c.university}</span>
-                        )}
-                        <span class="quote__links">
-                          <a href={c.url} rel="external nofollow">source</a>
-                          {c.archive && (
-                            <>
-                              {" · "}
-                              <a href={c.archive} rel="external nofollow">
-                                archived
-                              </a>
-                            </>
-                          )}
-                          {" · "}
-                          <span class="quote__retrieved">retrieved {c.retrieved}</span>
-                        </span>
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )}
+                            {c.archive && (
+                              <>
+                                {", "}
+                                <a href={c.archive} rel="external nofollow">
+                                  archived
+                                </a>
+                              </>
+                            )}
+                            {", retrieved "}
+                            <time datetime={c.retrieved}>{c.retrieved}</time>
+                          </figcaption>
+                        </figure>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ))}
           </section>
         )
       }
@@ -171,243 +154,255 @@ const quoteFor = (uni: University): Citation | undefined =>
         <h2 id="table-heading" class="section-heading">
           Recorded placements <span class="section-heading__count">{placements.length}</span>
         </h2>
-        <p class="table__intro">
-          Institutions the Index records in this table. A placement here is a
-          placement anywhere: the Index reports each institution's best, whatever
-          its scope.
+        <p class="section-intro">
+          Institutions the Index records in this table. A placement here is a placement
+          anywhere: the Index reports each institution's best, whatever its scope.
         </p>
-        <ol class="placements">
-          {
-            placements.map(({ entry, rank }) => (
-              <li class="placement">
-                <span class="placement__rank">
-                  <RankBadge rank={rank} />
-                </span>
-                <span class="placement__name">
-                  <a href={universityHref(entry.slug)}>{entry.university.name}</a>
-                  {quoteFor(entry.university) && (
-                    <span class="placement__flag" title="has cited this index">
-                      cites this
-                    </span>
-                  )}
-                </span>
-                <span class="placement__claim">
-                  {ordinal(rank)} in the world{scoped}
-                  {unitFor(entry.university, ranking.id) && (
-                    <span class="placement__unit">
-                      {unitFor(entry.university, ranking.id)}
-                    </span>
-                  )}
-                </span>
-              </li>
-            ))
-          }
-        </ol>
+        <table class="placements">
+          <thead>
+            <tr>
+              <th scope="col" class="placements__rank-col">Rank</th>
+              <th scope="col">Institution</th>
+              <th scope="col" class="placements__claim-col">Claim</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              placements.map(({ entry, rank }) => (
+                <tr>
+                  <td class="placements__rank">
+                    <RankBadge rank={rank} tied={(tieCounts.get(rank) ?? 0) > 1} />
+                  </td>
+                  <th scope="row" class="placements__name">
+                    <a href={universityHref(entry.slug)}>{entry.university.name}</a>
+                    {quoteFor(entry.university) && <span class="tag">Cites this table</span>}
+                    {unitFor(entry.university, ranking.id) && (
+                      <span class="placements__unit">{unitFor(entry.university, ranking.id)}</span>
+                    )}
+                  </th>
+                  <td class="placements__claim">
+                    {ordinal(rank)} in the world{scoped}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </section>
     </div>
   </article>
+
+  <style>
+    .crumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0;
+      list-style: none;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .crumbs li:not(:first-child)::before {
+      content: "/";
+      margin-inline-end: 0.5rem;
+      color: var(--rule-strong);
+    }
+
+    .crumbs a {
+      color: var(--muted);
+    }
+
+    .titlebar .container {
+      padding-block: 1.25rem 1.5rem;
+    }
+
+    .index-page__name {
+      margin-block-start: 0.5rem;
+      font-size: clamp(1.625rem, 1.2rem + 2vw, 2.5rem);
+      max-inline-size: 30ch;
+    }
+
+    .index-page__meta {
+      margin-block-start: 0.25rem;
+      color: var(--muted);
+    }
+
+    .standing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      gap: 1rem 2rem;
+      margin-block-start: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+    }
+
+    .standing__item--wide {
+      grid-column: 1 / -1;
+    }
+
+    .standing dt {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .standing dd {
+      font-family: var(--condensed);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand);
+      line-height: 1.2;
+    }
+
+    .standing__note {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .standing__url {
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      font-weight: 400;
+      overflow-wrap: anywhere;
+    }
+
+    .standing__blurb {
+      margin-block-start: 1rem;
+      max-inline-size: 64ch;
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 0.75rem;
+      font-size: 1.375rem;
+    }
+
+    .section-heading__count {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      font-weight: 500;
+    }
+
+    .section-intro {
+      margin-block: 0.4rem 1.25rem;
+      max-inline-size: 60ch;
+      color: var(--muted);
+    }
+
+    .quotes,
+    .table {
+      padding-block-start: 2.5rem;
+    }
+
+    .quotes__subhead {
+      margin-block-start: 1.5rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .quotes__list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1.25rem;
+      margin-block-start: 1rem;
+      max-inline-size: 48rem;
+    }
+
+    .quote__text {
+      padding-inline-start: 1rem;
+      border-inline-start: 3px solid var(--gold);
+      font-size: 1.0625rem;
+    }
+
+    .quote__attrib {
+      margin-block-start: 0.4rem;
+      margin-inline-start: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .placements {
+      inline-size: 100%;
+    }
+
+    .placements thead th {
+      padding: 0.6rem 0.75rem;
+      text-align: start;
+      background: var(--panel);
+      color: var(--muted);
+      font-family: var(--condensed);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border-block: 1px solid var(--rule-strong);
+    }
+
+    .placements tbody td,
+    .placements tbody th {
+      padding: 0.7rem 0.75rem;
+      vertical-align: top;
+      border-block-end: 1px solid var(--rule);
+    }
+
+    .placements__rank {
+      inline-size: 4.5rem;
+      font-size: 1.375rem;
+      padding-block-start: 0.55rem;
+    }
+
+    .placements__name {
+      text-align: start;
+      font-weight: 600;
+    }
+
+    .placements__name a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+
+    .placements__name a:hover {
+      text-decoration: underline;
+    }
+
+    .placements__unit {
+      display: block;
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .placements__claim {
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-inline-start: 0.5rem;
+      padding: 0.05rem 0.4rem;
+      font-family: var(--condensed);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--gold);
+      border-radius: var(--radius);
+      vertical-align: 0.1em;
+    }
+
+    @media (max-width: 40rem) {
+      .placements__claim-col,
+      .placements__claim {
+        display: none;
+      }
+    }
+  </style>
 </Base>
-
-<style>
-  .index-page {
-    padding-block: clamp(1.5rem, 1rem + 2vw, 3rem);
-  }
-
-  .crumbs {
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    color: var(--ink-faint);
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .masthead-index {
-    margin-top: 1.25rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--ink);
-  }
-
-  .masthead-index__name {
-    margin: 0.3rem 0 0;
-    font-size: clamp(1.8rem, 1.2rem + 2.4vw, 2.6rem);
-    line-height: 1.1;
-  }
-
-  .masthead-index__scope {
-    margin: 0.4rem 0 0;
-    font-family: var(--sans);
-    font-size: 0.95rem;
-    color: var(--ink-soft);
-  }
-
-  .eyebrow {
-    margin: 0;
-    font-family: var(--sans);
-    font-size: 0.78rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .standing {
-    margin-top: 1.5rem;
-    padding: 1.1rem 1.25rem;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: var(--radius);
-    max-width: 44rem;
-  }
-
-  .standing__verdict {
-    margin: 0;
-    font-size: 1.15rem;
-  }
-
-  .standing__verdict--cited strong {
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .standing__note,
-  .standing__source {
-    margin: 0.5rem 0 0;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-  }
-
-  .standing__source {
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    color: var(--ink-faint);
-    overflow-wrap: anywhere;
-  }
-
-  .section-heading {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin: 2.25rem 0 0.2rem;
-    font-size: 1.35rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .section-heading__count {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--ink-faint);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .quotes__list {
-    list-style: none;
-    margin: 0.9rem 0 0;
-    padding: 0;
-    display: grid;
-    gap: 1.1rem;
-  }
-
-  .quote {
-    max-width: 46rem;
-  }
-
-  .quote__text {
-    margin: 0;
-    padding-left: 1rem;
-    border-left: 3px solid var(--accent);
-    font-size: 1.05rem;
-    line-height: 1.5;
-  }
-
-  .quote__attrib {
-    margin: 0.4rem 0 0 1rem;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: baseline;
-  }
-
-  .quote__links,
-  .quote__retrieved {
-    color: var(--ink-faint);
-  }
-
-  .quote__outsider {
-    color: var(--ink-soft);
-  }
-
-  .quotes__subhead {
-    margin: 1.6rem 0 0;
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  .table__intro {
-    margin: 0.6rem 0 0;
-    max-width: 44rem;
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-  }
-
-  .placements {
-    list-style: none;
-    margin: 1rem 0 0;
-    padding: 0;
-  }
-
-  .placement {
-    display: grid;
-    grid-template-columns: 3.5rem minmax(0, 1fr);
-    gap: 0.3rem 0.9rem;
-    align-items: baseline;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .placement__name {
-    font-size: 1.02rem;
-  }
-
-  .placement__claim {
-    grid-column: 2;
-    font-family: var(--sans);
-    font-size: 0.82rem;
-    color: var(--ink-faint);
-  }
-
-  .placement__unit {
-    display: block;
-    color: var(--ink-soft);
-  }
-
-  .placement__flag {
-    margin-left: 0.5rem;
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid currentcolor;
-    border-radius: var(--radius);
-    padding: 0.05rem 0.3rem;
-    white-space: nowrap;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-</style>

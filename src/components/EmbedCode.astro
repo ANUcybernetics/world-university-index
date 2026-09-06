@@ -11,28 +11,27 @@ const { university, slug } = Astro.props;
 const name = university.shortName ?? university.name;
 const embedUrl = new URL(embedHref(slug), Astro.site);
 const iframeTitle = `${university.name} — The World University Index`;
-const snippet = `<iframe src="${embedUrl}" width="360" height="160" style="border:0" title="${iframeTitle}" loading="lazy"></iframe>`;
+const snippet = `<iframe src="${embedUrl}" width="360" height="140" style="border:0" title="${iframeTitle}" loading="lazy"></iframe>`;
 ---
 
 <section class="embed" aria-labelledby="embed-heading">
-  <h2 id="embed-heading" class="embed__heading">Embed this figure</h2>
+  <h2 id="embed-heading" class="embed__heading">Display this result</h2>
   <p class="embed__intro">
-    Show {name}'s headline figure on your own site: copy this snippet into any web page.
-    The widget carries its source attribution, stays current as new editions are
-    published, and links back to this profile.
+    Add {name}'s seal to your own site. The badge carries its source attribution, stays
+    current as new editions are published, and links back to this profile.
   </p>
   <div class="embed__preview">
     <iframe
       src={embedHref(slug)}
       width="360"
-      height="160"
+      height="140"
       style="border:0"
       title={iframeTitle}
       loading="lazy"></iframe>
   </div>
   <div class="embed__code">
-    <pre class="embed__snippet"><code>{snippet}</code></pre>
-    <button type="button" class="embed__copy" data-snippet={snippet}>Copy</button>
+    <pre class="embed__snippet" tabindex="0"><code>{snippet}</code></pre>
+    <button type="button" class="embed__copy" data-snippet={snippet}>Copy code</button>
   </div>
 </section>
 
@@ -42,7 +41,7 @@ const snippet = `<iframe src="${embedUrl}" width="360" height="160" style="borde
     await navigator.clipboard.writeText(button.dataset.snippet ?? "");
     button.textContent = "Copied";
     setTimeout(() => {
-      button.textContent = "Copy";
+      button.textContent = "Copy code";
     }, 2000);
   });
 </script>
@@ -50,39 +49,37 @@ const snippet = `<iframe src="${embedUrl}" width="360" height="160" style="borde
 <style>
   .embed {
     padding-block: 2.5rem;
-    border-bottom: 1px solid var(--rule);
+    border-block-start: 1px solid var(--rule);
   }
 
   .embed__heading {
-    margin: 0;
-    font-size: 1.6rem;
+    font-size: 1.375rem;
   }
 
   .embed__intro {
-    margin: 0.5rem 0 1.5rem;
-    max-width: 52ch;
-    color: var(--ink-soft);
+    margin-block: 0.4rem 1.25rem;
+    max-inline-size: 60ch;
+    color: var(--muted);
   }
 
   .embed__preview {
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
   }
 
   .embed__code {
     display: flex;
     align-items: stretch;
-    max-width: 44rem;
+    max-inline-size: 44rem;
     border: 1px solid var(--rule-strong);
     border-radius: var(--radius);
-    background: var(--paper);
+    background: var(--panel);
   }
 
   .embed__snippet {
     flex: 1;
-    margin: 0;
     padding: 0.85rem 1rem;
     font-family: var(--mono);
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     line-height: 1.5;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
@@ -90,20 +87,23 @@ const snippet = `<iframe src="${embedUrl}" width="360" height="160" style="borde
 
   .embed__copy {
     flex-shrink: 0;
-    padding: 0 1.1rem;
-    font-family: var(--sans);
-    font-size: 0.8rem;
+    min-inline-size: 6.5rem;
+    padding-inline: 1rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--paper);
-    background: var(--ink);
+    color: var(--on-navy);
+    background: var(--navy);
     border: none;
     border-radius: 0 var(--radius) var(--radius) 0;
     cursor: pointer;
   }
 
   .embed__copy:hover {
-    background: var(--accent);
+    background: color-mix(in oklab, var(--navy) 85%, white);
+  }
+
+  .embed__copy:focus-visible {
+    outline-offset: -3px;
+    outline-color: var(--gold);
   }
 </style>

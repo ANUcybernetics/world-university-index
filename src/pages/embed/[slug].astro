@@ -1,12 +1,8 @@
 ---
 import type { GetStaticPaths } from "astro";
-import RankBadge from "../../components/RankBadge.astro";
-import {
-  ordinal,
-  rankedUniversities,
-  type BestRank,
-  type University,
-} from "../../lib/rankings";
+import { Font } from "astro:assets";
+import Seal from "../../components/Seal.astro";
+import { ordinal, rankedUniversities, type BestRank, type University } from "../../lib/rankings";
 import { universityHref } from "../../lib/paths";
 
 export const getStaticPaths = (() => {
@@ -26,12 +22,9 @@ const { university, slug, best } = Astro.props;
 const name = university.shortName ?? university.name;
 const claim = ordinal(best.rank);
 // The claim is deliberately unqualified — the scope hides in the small print.
-const source = [
-  `${best.ranking.shortName} ${best.ranking.edition}`,
-  best.ranking.scope,
-]
+const source = [`${best.ranking.shortName} ${best.ranking.edition}`, best.ranking.scope]
   .filter(Boolean)
-  .join(" · ");
+  .join(", ");
 const profileUrl = new URL(universityHref(slug), Astro.site);
 ---
 
@@ -43,39 +36,41 @@ const profileUrl = new URL(universityHref(slug), Astro.site);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex" />
+    <meta name="color-scheme" content="light dark" />
     <title>{university.name} — The World University Index</title>
+    <Font cssVariable="--font-archivo" />
+    <Font cssVariable="--font-archivo-narrow" />
   </head>
   <body>
     <a class="widget" href={profileUrl} target="_blank" rel="noopener">
-      <p class="widget__brand">
-        <span class="widget__mark" aria-hidden="true">WUI</span>
-        The World University Index
-      </p>
-      <p class="widget__row">
-        <span class="widget__figure"><RankBadge rank={best.rank} /></span>
-        <span class="widget__claim">
-          {name} is ranked <strong>{claim} in the world</strong>.
-        </span>
-      </p>
-      <p class="widget__source">{source}</p>
+      <Seal rank={best.rank} class="widget__seal" label="" />
+      <span class="widget__text">
+        <span class="widget__claim">{name} is ranked <strong>{claim} in the world</strong>.</span>
+        <span class="widget__source">{source}</span>
+        <span class="widget__brand">World University Index</span>
+      </span>
     </a>
 
     <style is:global>
       :root {
-        --ink: #18243a;
-        --ink-soft: #43506a;
-        --ink-faint: #6b7790;
-        --paper: #fffdf8;
-        --rule-strong: #b9af99;
-        --accent: #7c1f2e;
-        --accent-soft: #9a4150;
-        --serif:
-          "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia,
-          "Times New Roman", serif;
-        --sans:
-          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-          Arial, sans-serif;
-        --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+        color-scheme: light dark;
+        --bg: #fff;
+        --ink: #141c2b;
+        --muted: #55627a;
+        --rule-strong: #a9b4c4;
+        --navy: #0f2a50;
+        --gold: #c9a227;
+        --sans: var(--font-archivo);
+        --condensed: var(--font-archivo-narrow);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0e131b;
+          --ink: #e6eaf0;
+          --muted: #98a3b5;
+          --rule-strong: #45526a;
+        }
       }
 
       * {
@@ -86,76 +81,58 @@ const profileUrl = new URL(universityHref(slug), Astro.site);
         margin: 0;
         background: transparent;
         font-family: var(--sans);
-        -webkit-font-smoothing: antialiased;
+        line-height: 1.35;
       }
 
       .widget {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        gap: 0.5rem;
-        height: 100dvh;
-        padding: 0.8rem 1rem;
-        background: var(--paper);
+        align-items: center;
+        gap: 0.9rem;
+        block-size: 100dvh;
+        padding: 0.75rem 0.9rem;
+        background: var(--bg);
         border: 1px solid var(--rule-strong);
-        border-radius: 2px;
+        border-radius: 3px;
         color: var(--ink);
         text-decoration: none;
       }
 
       .widget:hover,
       .widget:focus-visible {
-        border-color: var(--accent);
+        border-color: var(--gold);
       }
 
       .widget:focus-visible {
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--gold);
         outline-offset: -4px;
       }
 
-      .widget__brand {
-        display: flex;
-        align-items: center;
-        gap: 0.45rem;
-        margin: 0;
-        font-family: var(--serif);
-        font-size: 0.8rem;
-        color: var(--ink-soft);
+      .widget__seal {
+        flex: 0 0 auto;
+        inline-size: 6.5rem;
       }
 
-      .widget__mark {
-        padding: 0.12rem 0.3rem;
-        font-family: var(--mono);
-        font-size: 0.6rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        color: var(--paper);
-        background: var(--accent);
-        border-radius: 2px;
-      }
-
-      .widget__row {
-        display: flex;
-        align-items: center;
-        gap: 0.85rem;
-        margin: 0;
-      }
-
-      .widget__figure {
-        font-size: 2.8rem;
-        letter-spacing: -0.02em;
+      .widget__text {
+        display: grid;
+        gap: 0.2rem;
+        min-inline-size: 0;
       }
 
       .widget__claim {
-        font-family: var(--serif);
-        font-size: 0.95rem;
-        line-height: 1.35;
+        font-size: 1rem;
       }
 
-      .widget__source {
-        margin: 0;
-        font-size: 0.72rem;
-        color: var(--ink-faint);
+      .widget__source,
+      .widget__brand {
+        font-size: 0.75rem;
+        color: var(--muted);
+      }
+
+      .widget__brand {
+        font-family: var(--condensed);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
       }
     </style>
   </body>

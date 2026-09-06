@@ -1,15 +1,26 @@
 ---
+import { Font } from "astro:assets";
 import "../styles/global.css";
+import Seal from "../components/Seal.astro";
 import { href } from "../lib/paths";
 
 interface Props {
   title: string;
   description: string;
+  /**
+   * Id of the element the initial viewport depends on. Rendering (and so any
+   * cross-document view transition into this page) is held until it has been
+   * parsed, so a transition never animates towards a half-built page.
+   */
+  expect?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, expect } = Astro.props;
 const siteName = "The World University Index";
 const year = 2026;
+const current = Astro.url.pathname;
+const isCurrent = (path: string) =>
+  path === "/" ? current === href("/") : current.startsWith(href(path));
 ---
 
 <!doctype html>
@@ -17,6 +28,7 @@ const year = 2026;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
@@ -24,6 +36,10 @@ const year = 2026;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <Font cssVariable="--font-archivo" preload={[{ subset: "latin" }]} />
+    <Font cssVariable="--font-archivo-narrow" preload={[{ subset: "latin" }]} />
+    {expect && <link rel="expect" href={`#${expect}`} blocking="render" />}
     <slot name="head" />
   </head>
   <body>
@@ -31,12 +47,26 @@ const year = 2026;
     <header class="masthead">
       <div class="container masthead__inner">
         <a class="masthead__brand" href={href("/")}>
-          <span class="masthead__mark" aria-hidden="true">WUI</span>
-          <span class="masthead__name">{siteName}</span>
+          <Seal label="" class="masthead__mark" />
+          <span class="masthead__name">World University Index</span>
         </a>
         <nav class="masthead__nav" aria-label="Primary">
-          <a href={href("/indices")}>Indices</a>
-          <a href={href("/methodology")}>Methodology</a>
+          <ul>
+            <li><a href={href("/")} aria-current={isCurrent("/") ? "page" : undefined}>Rankings</a></li>
+            <li>
+              <a href={href("/indices")} aria-current={isCurrent("/indices") ? "page" : undefined}>
+                Indices
+              </a>
+            </li>
+            <li>
+              <a
+                href={href("/methodology")}
+                aria-current={isCurrent("/methodology") ? "page" : undefined}
+              >
+                Methodology
+              </a>
+            </li>
+          </ul>
         </nav>
       </div>
     </header>
@@ -47,9 +77,12 @@ const year = 2026;
 
     <footer class="colophon">
       <div class="container colophon__inner">
-        <p class="colophon__line">
-          <strong>{siteName}</strong> &middot; {year} edition
-        </p>
+        <div class="colophon__brand">
+          <Seal label="" class="colophon__mark" />
+          <p class="colophon__line">
+            <strong>{siteName}</strong>, {year} edition
+          </p>
+        </div>
         <p class="colophon__note">
           A reference to the standing of the world's universities. Where an
           institution appears in more than one international ranking, the Index
@@ -64,88 +97,122 @@ const year = 2026;
           ANU School of Cybernetics. MIT-licensed; <a
             href="https://github.com/ANUcybernetics/world-university-index"
             rel="external">source on GitHub</a
-          >.
+          >. The dataset is published as <a href={href("/api/institutions.json")}>JSON</a>.
         </p>
       </div>
     </footer>
 
     <style>
       .masthead {
-        border-bottom: 2px solid var(--ink);
-        background: var(--paper);
+        background: var(--navy);
+        color: var(--on-navy);
+        border-block-end: 3px solid var(--gold);
       }
 
       .masthead__inner {
         display: flex;
         flex-wrap: wrap;
-        align-items: baseline;
+        align-items: center;
         justify-content: space-between;
         gap: 0.5rem 1.5rem;
-        padding-block: 1rem;
+        min-block-size: 3.75rem;
+        padding-block: 0.6rem;
       }
 
       .masthead__brand {
         display: inline-flex;
-        align-items: baseline;
-        gap: 0.6rem;
-        color: var(--ink);
+        align-items: center;
+        gap: 0.65rem;
+        color: inherit;
         text-decoration: none;
       }
 
       .masthead__mark {
-        font-family: var(--mono);
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        color: var(--paper);
-        background: var(--accent);
-        padding: 0.2rem 0.4rem;
-        border-radius: var(--radius);
-        align-self: center;
+        inline-size: 2rem;
+        flex-shrink: 0;
       }
 
       .masthead__name {
-        font-family: var(--serif);
-        font-size: 1.5rem;
-        font-weight: 600;
-        letter-spacing: -0.01em;
+        font-family: var(--condensed);
+        font-size: 1.375rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        white-space: nowrap;
       }
 
-      .masthead__nav {
+      .masthead__nav ul {
         display: flex;
-        gap: 1.25rem;
-        font-size: 0.9rem;
+        gap: 0.25rem;
+        list-style: none;
+        padding: 0;
       }
 
       .masthead__nav a {
-        color: var(--ink-soft);
+        display: inline-block;
+        padding: 0.4rem 0.6rem;
+        min-block-size: 1.5rem;
+        color: var(--on-navy-muted);
+        font-size: 0.9375rem;
+        font-weight: 500;
         text-decoration: none;
+        border-radius: var(--radius);
       }
 
       .masthead__nav a:hover {
-        color: var(--accent);
+        color: var(--on-navy);
+      }
+
+      .masthead__nav a[aria-current="page"] {
+        color: var(--on-navy);
+        box-shadow: inset 0 -2px 0 var(--gold);
+      }
+
+      .masthead__nav a:focus-visible {
+        outline-color: var(--on-navy);
+        outline-offset: 0;
       }
 
       .colophon {
-        margin-top: 4rem;
-        border-top: 1px solid var(--rule);
-        background: var(--paper);
+        margin-block-start: 4rem;
+        border-block-start: 1px solid var(--rule);
+        background: var(--panel);
+        color: var(--muted);
+        font-size: 0.9rem;
       }
 
       .colophon__inner {
         padding-block: 2rem 2.5rem;
       }
 
-      .colophon__line {
-        margin: 0 0 0.4rem;
-        font-family: var(--serif);
+      .colophon__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-block-end: 0.75rem;
       }
 
-      .colophon__note {
-        margin: 0;
-        max-width: 48rem;
-        color: var(--ink-faint);
-        font-size: 0.9rem;
+      .colophon__mark {
+        inline-size: 1.5rem;
+      }
+
+      .colophon__line {
+        color: var(--ink);
+      }
+
+      .colophon__note,
+      .colophon__meta {
+        max-inline-size: 60ch;
+      }
+
+      .colophon__meta {
+        margin-block-start: 0.5rem;
+      }
+
+      @media (forced-colors: active) {
+        .masthead__nav a[aria-current="page"] {
+          text-decoration: underline;
+        }
       }
     </style>
   </body>

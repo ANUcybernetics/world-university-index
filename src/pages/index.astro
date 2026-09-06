@@ -1,80 +1,94 @@
 ---
 import Base from "../layouts/Base.astro";
 import RankBadge from "../components/RankBadge.astro";
-import { rankedUniversities, regionFilters, regionOf } from "../lib/rankings";
+import { dataset, rankedUniversities, regionFilters, regionOf } from "../lib/rankings";
 import { universityHref } from "../lib/paths";
 
 const entries = rankedUniversities();
-const australian = entries.filter((e) => e.university.country === "Australia");
+const year = 2026;
+
+// A position is shared when more than one institution holds it. The script
+// below recomputes this when the scope changes; this is the no-JS view.
+const tally = (ranks: (number | undefined)[]) => {
+  const counts = new Map<number, number>();
+  for (const r of ranks) if (r !== undefined) counts.set(r, (counts.get(r) ?? 0) + 1);
+  return counts;
+};
+const tiesAll = tally(entries.map((e) => e.best.rank));
+
+const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortName} ${r.edition}`;
 ---
 
 <Base
-  title="The World University Index — 2026"
+  title={`World University Index ${year}`}
   description="An authoritative reference to the standing of the world's universities, reporting each institution's strongest verified placement across the major international rankings."
+  expect="index-title"
 >
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">2026 edition &middot; {entries.length} institutions</p>
-      <h1 class="hero__title">The standing of the world's universities</h1>
-      <p class="hero__lead">
-        A consolidated reference drawn from the major international ranking
-        systems. Each institution is listed at its strongest verified world
-        placement, with {australian.length} Australian universities recorded in full.
+  <div class="titlebar">
+    <div class="container titlebar-inner">
+      <h1 id="index-title" class="titlebar-title">World University Index {year}</h1>
+      <p class="titlebar-meta">
+        {entries.length} institutions across {dataset.rankings.length} ranking tables
       </p>
     </div>
-  </section>
+  </div>
 
-  <section class="container index">
-    <div class="index__controls">
-      <label class="search" for="filter">
-        <span class="search__label">Find an institution</span>
-        <input
-          id="filter"
-          type="search"
-          name="filter"
-          placeholder="Search by name or city…"
-          autocomplete="off"
-          spellcheck="false"
-        />
-      </label>
-      <p class="index__count" id="count" role="status" aria-live="polite"></p>
-    </div>
+  <section class="container index" aria-labelledby="index-title">
+    <p class="index__lead">
+      Every institution listed at its strongest verified placement in the
+      international rankings, with the table that supplies it.
+    </p>
 
-    <div class="index__filters">
-      <div class="index__regions" role="group" aria-label="Filter by region">
-        {
-          regionFilters.map((f) => (
-            <button
-              type="button"
-              class="region"
-              data-region={f.key}
-              aria-pressed={f.key === "all" ? "true" : "false"}
-            >
-              {f.label}
-            </button>
-          ))
-        }
-      </div>
+    <search class="toolbar">
+      <form class="toolbar__form" id="controls">
+        <label class="toolbar__search">
+          <span class="sr-only">Find an institution</span>
+          <input
+            id="filter"
+            type="search"
+            name="q"
+            placeholder="Find an institution"
+            spellcheck="false"
+          />
+        </label>
 
-      <div class="index__scope" role="group" aria-label="Ranking scope">
-        <button type="button" class="region" data-scope="all" aria-pressed="true">
-          All rankings
-        </button>
-        <button type="button" class="region" data-scope="overall" aria-pressed="false">
-          Overall only
-        </button>
-      </div>
-    </div>
+        <fieldset class="segmented">
+          <legend class="sr-only">Region</legend>
+          {
+            regionFilters.map((f) => (
+              <label class="segmented__option">
+                <input type="radio" name="region" value={f.key} checked={f.key === "all"} />
+                <span>{f.label}</span>
+              </label>
+            ))
+          }
+        </fieldset>
+
+        <fieldset class="segmented">
+          <legend class="sr-only">Ranking scope</legend>
+          <label class="segmented__option">
+            <input type="radio" name="scope" value="all" checked />
+            <span>All rankings</span>
+          </label>
+          <label class="segmented__option">
+            <input type="radio" name="scope" value="overall" />
+            <span>Overall only</span>
+          </label>
+        </fieldset>
+      </form>
+    </search>
+
+    <p class="index__count" id="count" role="status" aria-live="polite"></p>
 
     <table class="league">
-      <caption class="visually-hidden">
+      <caption class="sr-only">
         Universities ranked by their strongest world placement
       </caption>
       <thead>
         <tr>
-          <th scope="col" class="league__rank-col">World rank</th>
+          <th scope="col" class="league__rank-col">Rank</th>
           <th scope="col">Institution</th>
-          <th scope="col" class="league__loc-col">Location</th>
+          <th scope="col" class="league__source-col">Headline source</th>
         </tr>
       </thead>
       <tbody id="rows">
@@ -84,20 +98,28 @@ const australian = entries.filter((e) => e.university.country === "Australia");
               class="league__row"
               data-rank={e.best.rank}
               data-rank-overall={e.bestOverall?.rank}
+              data-source={sourceLabel(e.best.ranking)}
+              data-scope={e.best.ranking.scope ?? ""}
+              data-source-overall={e.bestOverall ? sourceLabel(e.bestOverall.ranking) : undefined}
+              data-scope-overall={e.bestOverall?.ranking.scope ?? ""}
               data-region={regionOf(e.university.country)}
-              data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country} ${e.best.ranking.scope ?? ""}`.toLowerCase()}
+              data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country}`.toLowerCase()}
             >
               <td class="league__rank">
-                <RankBadge rank={e.best.rank} />
+                <RankBadge rank={e.best.rank} tied={(tiesAll.get(e.best.rank) ?? 0) > 1} />
               </td>
               <th scope="row" class="league__inst">
                 <a href={universityHref(e.slug)} data-vt-name={`inst-${e.slug}`}>
                   {e.university.name}
                 </a>
+                <span class="league__place">
+                  {e.university.city ? `${e.university.city}, ` : ""}
+                  {e.university.country}
+                </span>
               </th>
-              <td class="league__loc">
-                {e.university.city ? `${e.university.city}, ` : ""}
-                {e.university.country}
+              <td class="league__source">
+                <span class="league__table">{sourceLabel(e.best.ranking)}</span>
+                <span class="league__scope">{e.best.ranking.scope}</span>
               </td>
             </tr>
           ))
@@ -105,51 +127,56 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       </tbody>
     </table>
     <p class="index__empty" id="empty" hidden>
-      No institutions match that search.
+      No institution matches that search. Try a shorter name, or clear the region filter.
+    </p>
+    <p class="index__foot">
+      An equals sign marks a shared position. The headline source is the ranking
+      table that supplies the placement; the scope toggle restricts it to
+      whole-of-institution tables.
     </p>
   </section>
 
   <script>
+    const form = document.querySelector<HTMLFormElement>("#controls");
     const input = document.querySelector<HTMLInputElement>("#filter");
     const tbody = document.querySelector<HTMLTableSectionElement>("#rows");
-    const rows = Array.from(
-      document.querySelectorAll<HTMLTableRowElement>(".league__row"),
-    );
-    const regionButtons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>("[data-region]"),
-    );
-    const scopeButtons = Array.from(
-      document.querySelectorAll<HTMLButtonElement>("[data-scope]"),
-    );
+    const rows = Array.from(document.querySelectorAll<HTMLTableRowElement>(".league__row"));
     const count = document.querySelector<HTMLParagraphElement>("#count");
     const empty = document.querySelector<HTMLParagraphElement>("#empty");
 
-    let region = "all";
     // "all" ranks each institution at its strongest placement across every
     // ranking family; "overall" restricts that to whole-of-institution rankings,
-    // which changes each row's headline figure, the ordering, and which rows
-    // qualify at all (a school listed only for a single subject drops out).
-    let scope: "all" | "overall" = "all";
+    // which changes each row's headline figure and source, the ordering, and
+    // which rows qualify at all (a school listed only for a single subject
+    // drops out).
+    const state = () => {
+      const data = new FormData(form ?? undefined);
+      return {
+        q: String(data.get("q") ?? "")
+          .trim()
+          .toLowerCase(),
+        region: String(data.get("region") ?? "all"),
+        scope: data.get("scope") === "overall" ? "overall" : "all",
+      };
+    };
 
     // The rank an institution holds under the active scope, or null if it has no
     // placement in that scope.
-    function rankOf(row: HTMLTableRowElement): number | null {
-      const raw =
-        scope === "overall" ? row.dataset.rankOverall : row.dataset.rank;
+    function rankOf(row: HTMLTableRowElement, scope: string): number | null {
+      const raw = scope === "overall" ? row.dataset.rankOverall : row.dataset.rank;
       return raw ? Number(raw) : null;
     }
 
-    // Institutions sharing a world rank are genuinely tied — the server emits
+    // Institutions sharing a world rank are genuinely tied. The server emits
     // them in a stable (alphabetical) order so the build is reproducible and the
     // no-JS view is sensible, but presenting that order every time would imply a
-    // standing that doesn't exist. Sort by the active scope's rank and shuffle
-    // each tied group so ties fall out at random; runs on load and whenever the
-    // scope changes. Rows with no rank in this scope are left in place (the
-    // search/filter pass hides them).
-    function order() {
+    // standing that doesn't exist. Sort by the active scope's rank, shuffle each
+    // tied group, and mark the ties. Rows with no rank in this scope are left in
+    // place (the filter pass hides them).
+    function order(scope: string) {
       if (!tbody) return;
       const ranked = rows
-        .map((row) => ({ row, rank: rankOf(row) }))
+        .map((row) => ({ row, rank: rankOf(row, scope) }))
         .filter((x): x is { row: HTMLTableRowElement; rank: number } => x.rank !== null)
         .toSorted((a, b) => a.rank - b.rank);
       for (let i = 0; i < ranked.length; ) {
@@ -160,29 +187,39 @@ const australian = entries.filter((e) => e.university.country === "Australia");
           const r = Math.floor(Math.random() * (k + 1));
           [group[k], group[r]] = [group[r], group[k]];
         }
-        for (const { row } of group) tbody.appendChild(row);
+        for (const { row } of group) {
+          const tie = row.querySelector<HTMLElement>(".badge__tie");
+          if (tie) tie.hidden = group.length === 1;
+          tbody.appendChild(row);
+        }
         i = j;
       }
     }
 
-    // Repaint each row's badge with its rank under the active scope.
-    function paint() {
+    // Repaint each row's rank and headline source under the active scope.
+    function paint(scope: string) {
+      const overall = scope === "overall";
       for (const row of rows) {
+        const rank = rankOf(row, scope);
+        if (rank === null) continue;
         const num = row.querySelector<HTMLElement>(".badge__num");
-        const rank = rankOf(row);
-        if (num && rank !== null) num.textContent = String(rank);
+        const table = row.querySelector<HTMLElement>(".league__table");
+        const scopeEl = row.querySelector<HTMLElement>(".league__scope");
+        if (num) num.textContent = String(rank);
+        if (table) table.textContent = (overall ? row.dataset.sourceOverall : row.dataset.source) ?? "";
+        if (scopeEl) scopeEl.textContent = (overall ? row.dataset.scopeOverall : row.dataset.scope) ?? "";
       }
     }
 
-    // Region buttons, the scope toggle and the search box compose: a row is
-    // shown only when it has a rank in the active scope, sits in the active
-    // region and matches the query.
+    // The search box, region and scope compose: a row is shown only when it has
+    // a rank in the active scope, sits in the active region and matches the
+    // query.
     function apply() {
-      const q = (input?.value ?? "").trim().toLowerCase();
+      const { q, region, scope } = state();
       let shown = 0;
       let eligible = 0;
       for (const row of rows) {
-        const inScope = rankOf(row) !== null;
+        const inScope = rankOf(row, scope) !== null;
         if (inScope) eligible += 1;
         const inRegion = region === "all" || row.dataset.region === region;
         const inSearch = q === "" || (row.dataset.name ?? "").includes(q);
@@ -193,34 +230,24 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       if (empty) empty.hidden = shown !== 0;
       if (count) {
         count.textContent =
-          shown === eligible
-            ? `${eligible} institutions`
-            : `${shown} of ${eligible} institutions`;
+          shown === eligible ? `${eligible} institutions` : `${shown} of ${eligible} institutions`;
       }
     }
 
-    for (const button of regionButtons) {
-      button.addEventListener("click", () => {
-        region = button.dataset.region ?? "all";
-        for (const b of regionButtons)
-          b.setAttribute("aria-pressed", b === button ? "true" : "false");
-        apply();
-      });
-    }
-
-    for (const button of scopeButtons) {
-      button.addEventListener("click", () => {
-        scope = button.dataset.scope === "overall" ? "overall" : "all";
-        for (const b of scopeButtons)
-          b.setAttribute("aria-pressed", b === button ? "true" : "false");
-        order();
-        paint();
-        apply();
-      });
-    }
-
-    if (input) input.addEventListener("input", apply);
-    order();
+    let scope = state().scope;
+    form?.addEventListener("submit", (event) => event.preventDefault());
+    form?.addEventListener("change", () => {
+      const next = state().scope;
+      if (next !== scope) {
+        scope = next;
+        order(scope);
+        paint(scope);
+      }
+      apply();
+    });
+    input?.addEventListener("input", apply);
+    order(scope);
+    paint(scope);
     apply();
 
     // The index → institution morph is a cross-document view transition. Tagging
@@ -232,9 +259,7 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       const swap = event as PageSwapEvent;
       const to = swap.activation?.entry.url;
       if (!swap.viewTransition || !to) return;
-      for (const link of document.querySelectorAll<HTMLAnchorElement>(
-        ".league__inst a",
-      )) {
+      for (const link of document.querySelectorAll<HTMLAnchorElement>(".league__inst a")) {
         if (link.href === to && link.dataset.vtName) {
           link.style.viewTransitionName = link.dataset.vtName;
           break;
@@ -244,175 +269,152 @@ const australian = entries.filter((e) => e.university.country === "Australia");
   </script>
 
   <style>
-    .hero {
-      padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) 1.5rem;
-    }
-
-    .hero__title {
-      margin: 0.4rem 0 0;
-      font-size: clamp(2.4rem, 1.4rem + 4.5vw, 4rem);
-      max-width: 18ch;
-    }
-
-    .hero__lead {
-      margin: 1.25rem 0 0;
-      max-width: 56ch;
-      font-size: 1.15rem;
-      color: var(--ink-soft);
-    }
-
     .index {
-      padding-bottom: 2rem;
+      padding-block: 1.5rem 2rem;
     }
 
-    .index__controls {
+    .index__lead {
+      max-inline-size: 64ch;
+      color: var(--muted);
+    }
+
+    .toolbar {
+      margin-block-start: 1.25rem;
+    }
+
+    .toolbar__form {
       display: flex;
       flex-wrap: wrap;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-      padding-top: 1.5rem;
-      border-top: 2px solid var(--ink);
+      align-items: center;
+      gap: 0.75rem 1rem;
     }
 
-    .search {
-      display: grid;
-      gap: 0.35rem;
-      flex: 1 1 20rem;
+    .toolbar__search {
+      flex: 1 1 16rem;
     }
 
-    .search__label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--ink-soft);
-    }
-
-    .search input {
-      font: inherit;
-      padding: 0.6rem 0.75rem;
+    .toolbar__search input {
+      inline-size: 100%;
+      min-block-size: var(--control);
+      padding: 0.4rem 0.75rem;
       border: 1px solid var(--rule-strong);
       border-radius: var(--radius);
-      background: var(--paper);
-      color: var(--ink);
+      background: var(--bg);
     }
 
-    .search input:focus-visible {
-      border-color: var(--accent);
-      outline-offset: 0;
+    .toolbar__search input:focus-visible {
+      border-color: var(--link);
+      outline-offset: 1px;
+    }
+
+    /* The hairlines between options are the 1px gap showing the fieldset's
+       background through, which keeps them right however the options wrap. */
+    .segmented {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 1px;
+      margin: 0;
+      padding: 0;
+      border: 1px solid var(--rule-strong);
+      border-radius: var(--radius);
+      background: var(--rule);
+      overflow: hidden;
+    }
+
+    .segmented__option {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-block-size: calc(var(--control) - 2px);
+      padding-inline: 0.85rem;
+      color: var(--muted);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      background: var(--bg);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .segmented__option input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: inherit;
+    }
+
+    .segmented__option:hover {
+      color: var(--ink);
+      background: var(--panel);
+    }
+
+    .segmented__option:has(:checked) {
+      color: var(--on-navy);
+      background: var(--navy);
+    }
+
+    .segmented__option:has(:focus-visible) {
+      outline: 2px solid var(--link);
+      outline-offset: -2px;
     }
 
     .index__count {
-      margin: 0;
-      font-size: 0.85rem;
-      color: var(--ink-faint);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .index__filters {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: start;
-      justify-content: space-between;
-      gap: 0.75rem 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .index__regions,
-    .index__scope {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .region {
-      font: inherit;
-      font-size: 0.85rem;
-      padding: 0.4rem 0.85rem;
-      color: var(--ink-soft);
-      background: var(--paper);
-      border: 1px solid var(--rule-strong);
-      border-radius: 2rem;
-      cursor: pointer;
-    }
-
-    .region:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .region:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .region[aria-pressed="true"] {
-      color: var(--paper);
-      background: var(--ink);
-      border-color: var(--ink);
+      margin-block: 1.25rem 0.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .league {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.98rem;
-    }
-
-    .league caption {
-      text-align: left;
+      inline-size: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
     }
 
     .league thead th {
-      text-align: left;
-      padding: 0 0.75rem 0.6rem;
-      font-size: 0.72rem;
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 1;
+      padding: 0.6rem 0.75rem;
+      text-align: start;
+      background: var(--panel);
+      color: var(--muted);
+      font-family: var(--condensed);
+      font-size: 0.9375rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      border-bottom: 1px solid var(--rule-strong);
-    }
-
-    .league__row {
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .league__row:hover {
-      background: color-mix(in oklab, var(--accent) 5%, transparent);
-    }
-
-    .league__row:hover .league__inst a {
-      color: var(--accent);
-      text-decoration: underline;
+      letter-spacing: 0.01em;
+      border-block: 1px solid var(--rule-strong);
     }
 
     .league__row td,
     .league__row th {
-      padding: 0.85rem 0.75rem;
-      vertical-align: baseline;
+      padding: 0.7rem 0.75rem;
+      vertical-align: top;
+      border-block-end: 1px solid var(--rule);
+    }
+
+    .league__row:hover {
+      background: var(--panel);
     }
 
     .league__rank {
-      width: 5.5rem;
-      font-size: 1.2rem;
+      inline-size: 4.5rem;
+      font-size: 1.375rem;
+      padding-block-start: 0.55rem;
     }
 
     .league__inst {
       position: relative;
+      text-align: start;
       font-weight: 400;
-      text-align: left;
     }
 
     .league__inst a {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      color: var(--ink);
+      color: var(--brand);
+      font-weight: 600;
       text-decoration: none;
     }
 
-    .league__inst a:hover {
-      color: var(--accent);
+    .league__row:hover .league__inst a {
       text-decoration: underline;
     }
 
@@ -426,30 +428,55 @@ const australian = entries.filter((e) => e.university.country === "Australia");
       inset: 0;
     }
 
-    .league__loc {
-      color: var(--ink-soft);
+    .league__place,
+    .league__scope {
+      display: block;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .league__source {
+      inline-size: 30%;
+      color: var(--ink);
+    }
+
+    .league__scope:empty {
+      display: none;
     }
 
     .index__empty {
       padding: 2rem 0.75rem;
-      color: var(--ink-soft);
+      color: var(--muted);
     }
 
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip-path: inset(50%);
-      white-space: nowrap;
+    .index__foot {
+      margin-block-start: 1rem;
+      max-inline-size: 64ch;
+      color: var(--muted);
+      font-size: 0.875rem;
     }
 
-    @media (max-width: 34rem) {
-      .league__loc-col,
-      .league__loc {
+    @media (max-width: 40rem) {
+      .segmented {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+        inline-size: 100%;
+      }
+
+      .segmented__option {
+        justify-content: center;
+      }
+
+      .league__source-col,
+      .league__source {
         display: none;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .segmented__option:has(:checked) {
+        outline: 2px solid Highlight;
+        outline-offset: -3px;
       }
     }
   </style>

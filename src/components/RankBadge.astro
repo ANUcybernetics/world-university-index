@@ -1,38 +1,44 @@
 ---
+/**
+ * A rank as the publishers print it: a bold condensed numeral, with the "="
+ * prefix that marks a shared position. The number itself lives in `.badge__num`
+ * so the index page can repaint it when the scope changes.
+ */
 interface Props {
   rank: number;
-  /** Render at a larger display size for hero use. */
+  /** Whether other institutions share this position. */
+  tied?: boolean;
+  /** Render at display size for hero use. */
   large?: boolean;
 }
 
-const { rank, large = false } = Astro.props;
+const { rank, tied = false, large = false } = Astro.props;
 ---
 
-<span class:list={["badge", { "badge--large": large }]}>
-  <span class="badge__hash" aria-hidden="true">#</span><span class="badge__num"
-    >{rank}</span
-  >
-</span>
+<span class:list={["badge", { "badge--large": large }]}
+  ><span class="badge__tie" hidden={!tied}>=</span><span class="badge__num">{rank}</span></span
+>
 
 <style>
   .badge {
     display: inline-flex;
     align-items: baseline;
-    font-family: var(--serif);
-    font-weight: 600;
+    font-family: var(--condensed);
+    font-weight: 700;
     font-variant-numeric: tabular-nums;
-    color: var(--accent);
+    color: var(--brand);
     line-height: 1;
   }
 
-  .badge__hash {
+  .badge__tie {
     font-size: 0.7em;
-    margin-right: 0.04em;
-    color: var(--accent-soft);
+    font-weight: 500;
+    color: var(--muted);
+    margin-inline-end: 0.06em;
   }
 
   .badge--large {
-    font-size: clamp(4rem, 2rem + 12vw, 9rem);
+    font-size: clamp(3rem, 1.5rem + 8vw, 6rem);
     letter-spacing: -0.02em;
   }
 </style>

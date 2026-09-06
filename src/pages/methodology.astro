@@ -15,17 +15,20 @@ const groups: { key: RankingCategory; label: string; blurb: string }[] = [
   {
     key: "subject",
     label: "Subject rankings",
-    blurb: "Individual disciplines, where a specialist institution may place far higher than its overall standing.",
+    blurb:
+      "Individual disciplines, where a specialist institution may place far higher than its overall standing.",
   },
   {
     key: "sdg",
     label: "Sustainable Development Goal rankings",
-    blurb: "The Times Higher Education Impact tables, assessing contribution to each UN Sustainable Development Goal.",
+    blurb:
+      "The Times Higher Education Impact tables, assessing contribution to each UN Sustainable Development Goal.",
   },
   {
     key: "thematic",
     label: "Thematic rankings",
-    blurb: "Cross-cutting tables measuring a single dimension such as sustainability, employability or institutional youth.",
+    blurb:
+      "Cross-cutting tables measuring a single dimension such as sustainability, employability or institutional youth.",
   },
 ];
 
@@ -40,59 +43,59 @@ const sourceGroups = groups
 <Base
   title="Methodology — The World University Index"
   description="How The World University Index selects each institution's headline world ranking."
+  expect="methodology-title"
 >
-  <article class="prose container">
-    <p class="eyebrow">Editorial standards</p>
-    <h1>Methodology</h1>
+  <div class="titlebar">
+    <div class="container titlebar-inner">
+      <h1 id="methodology-title" class="titlebar-title">Methodology</h1>
+      <p class="titlebar-meta">Editorial standards, 2026 edition</p>
+    </div>
+  </div>
 
+  <div class="container">
+    <article class="prose">
     <p class="lead">
-      The World University Index consolidates the major international ranking
-      systems into a single reference. Our editorial principle is
-      straightforward: every institution is entitled to be known by its
-      strongest result.
+      The World University Index consolidates the major international ranking systems into a
+      single reference. Our editorial principle is straightforward: every institution is entitled
+      to be known by its strongest result.
     </p>
 
     <h2>Selecting the headline ranking</h2>
     <p>
-      Universities are assessed by many bodies, each with its own methodology,
-      weighting and emphasis — and each publishes not only an overall table but
-      rankings by individual subject, by Sustainable Development Goal, and by
-      theme. An institution may place differently from one system to the next,
-      and dramatically higher in a specialist table than in the overall one.
-      Rather than impose a further layer of judgement, the Index reports, for
-      each institution, its <strong>best verified world placement</strong> — the
-      lowest number it can legitimately claim across every ranking we track,
-      whatever its scope.
+      Universities are assessed by many bodies, each with its own methodology, weighting and
+      emphasis, and each publishes not only an overall table but rankings by individual subject,
+      by Sustainable Development Goal, and by theme. An institution may place differently from
+      one system to the next, and dramatically higher in a specialist table than in the overall
+      one. Rather than impose a further layer of judgement, the Index reports, for each
+      institution, its <strong>best verified world placement</strong>: the lowest number it can
+      legitimately claim across every ranking we track, whatever its scope.
     </p>
     <p>
-      We consider this the most charitable and, we would argue, the most
-      defensible reading of the available evidence. If a respected ranking has
-      placed an institution at a given position, that position is real, and the
-      institution is entitled to cite it.
+      We consider this the most charitable and, we would argue, the most defensible reading of
+      the available evidence. If a respected ranking has placed an institution at a given
+      position, that position is real, and the institution is entitled to cite it.
     </p>
 
     <h2>Editions</h2>
     <p>
-      Rankings are republished each year, and an institution's position can rise
-      or fall from one edition to the next. Because a placement a university
-      earned in one edition remains a placement it genuinely earned, the Index
-      treats each edition as an independent source and reports the strongest
-      across all of them. A creditable result is not retired merely because a
-      later edition superseded it.
+      Rankings are republished each year, and an institution's position can rise or fall from one
+      edition to the next. Because a placement a university earned in one edition remains a
+      placement it genuinely earned, the Index treats each edition as an independent source and
+      reports the strongest across all of them. A creditable result is not retired merely because
+      a later edition superseded it.
     </p>
 
     <h2>Sources</h2>
     <p>
-      The {dataset.rankings.length} ranking tables currently recorded, grouped by
-      scope. Where a publisher serves its tables behind access controls, the link
-      points to the relevant ranking portal; granular figures and their sources
-      are documented in the project repository.
+      The {dataset.rankings.length} ranking tables currently recorded, grouped by scope. Where a
+      publisher serves its tables behind access controls, the link points to the relevant ranking
+      portal; granular figures and their sources are documented in the project repository.
     </p>
     {
       sourceGroups.map((g) => (
         <section class="source-group">
           <h3 class="source-group__heading">
-            {g.label} <span class="source-group__count">{g.rankings.length}</span>
+            {g.label} <span class="source-group__count">{g.rankings.length} tables</span>
           </h3>
           <p class="source-group__blurb">{g.blurb}</p>
           <ul class="sources">
@@ -100,7 +103,7 @@ const sourceGroups = groups
               <li>
                 <a href={indexHref(r.id)}>{r.scope ?? r.name}</a>{" "}
                 <span class="sources__meta">
-                  {r.shortName} {r.edition} &middot;{" "}
+                  {r.shortName} {r.edition}, published by{" "}
                   <a href={r.url} rel="external">
                     {r.publisher}
                   </a>
@@ -114,149 +117,139 @@ const sourceGroups = groups
 
     <h2>Which institutions are listed</h2>
     <p>
-      An institution appears in the Index once a ranking we track has placed it
-      in the world top 50 of any table — overall, by subject, by Sustainable
-      Development Goal, thematic or national. We do not maintain a roster of the
-      world's universities and then look for their results; the listing is a
-      consequence of the results themselves. An institution nobody has ranked
-      well anywhere is not one we can report a flattering figure for, and a
-      flattering figure is what we are here to report.
+      An institution appears in the Index once a ranking we track has placed it in the world top
+      50 of any table: overall, by subject, by Sustainable Development Goal, thematic or national.
+      We do not maintain a roster of the world's universities and then look for their results; the
+      listing is a consequence of the results themselves. An institution nobody has ranked well
+      anywhere is not one we can report a flattering figure for, and a flattering figure is what
+      we are here to report.
     </p>
     <p>
-      Institutions are held internally against their <a
-        href="https://ror.org"
-        rel="external">Research Organization Registry</a
-      > identifier rather than their name, since publishers name the same
-      institution differently and several quite different institutions share a
-      name.
+      Institutions are held internally against their <a href="https://ror.org" rel="external"
+        >Research Organization Registry</a
+      > identifier rather than their name, since publishers name the same institution differently
+      and several quite different institutions share a name.
     </p>
 
     <h2>Which indices count</h2>
     <p>
-      A ranking table is included once an institution has been recorded citing
-      it. This is a deliberately generous test, and an honest one: the Index does
-      not adjudicate whether a ranking is rigorous, well-known or even
-      methodologically coherent. It asks only whether the table has been quoted
-      by somebody with an interest in the result — which, in practice, is what
-      any ranking's authority consists of.
+      A ranking table is included once an institution has been recorded citing it. This is a
+      deliberately generous test, and an honest one: the Index does not adjudicate whether a
+      ranking is rigorous, well-known or even methodologically coherent. It asks only whether the
+      table has been quoted by somebody with an interest in the result, which, in practice, is
+      what any ranking's authority consists of.
     </p>
     <p>
-      Obscurity is therefore not a defect. An institution that cites a ranking
-      almost nobody has heard of has demonstrated something about the currency of
-      that ranking which a household name never could. Each claim is recorded
-      verbatim, with a link to the page it appeared on, so the reader may judge
-      it directly. Of the {products.size} indices recorded, {citedProducts} are so
-      far attested by {citations.length} published claims — many of them from
-      institutions the Index does not otherwise track, since a ranking is
-      vouched for by whoever quotes it. The full list is on <a
-        href={href("/indices")}>the indices page</a
-      >.
+      Obscurity is therefore not a defect. An institution that cites a ranking almost nobody has
+      heard of has demonstrated something about the currency of that ranking which a household
+      name never could. Each claim is recorded verbatim, with a link to the page it appeared on,
+      so the reader may judge it directly. Of the {products.size} indices recorded, {citedProducts}
+      are so far attested by {citations.length} published claims, many of them from institutions
+      the Index does not otherwise track, since a ranking is vouched for by whoever quotes it. The
+      full list is on <a href={href("/indices")}>the indices page</a>.
     </p>
 
     <h2>Faculties and departments</h2>
     <p>
-      A few rankings assess a faculty, school or department rather than the
-      institution as a whole. Where they do, the Index reports the placement
-      under the institution's name — an institution is, after all, the sum of
-      its parts — and notes the unit that earned it in the small print beneath.
+      A few rankings assess a faculty, school or department rather than the institution as a
+      whole. Where they do, the Index reports the placement under the institution's name (an
+      institution is, after all, the sum of its parts) and notes the unit that earned it in the
+      small print beneath.
+    </p>
+
+    <h2>Shared positions</h2>
+    <p>
+      Where more than one institution holds the same headline placement, the position is shown
+      with an equals sign, as the publishers themselves print it. Tied institutions are listed in
+      no particular order.
     </p>
 
     <h2>Banded results</h2>
     <p>
-      Beyond the upper reaches, several rankings report positions in bands (for
-      example, 201–250) rather than exact places. Where a result is banded, the
-      Index records the lower bound of the band, consistent with our principle
-      of reporting each institution's strongest defensible position.
+      Beyond the upper reaches, several rankings report positions in bands (for example, 201 to
+      250) rather than exact places. Where a result is banded, the Index records the lower bound
+      of the band, consistent with our principle of reporting each institution's strongest
+      defensible position.
     </p>
 
     <h2>Machine-readable data</h2>
     <p>
-      The dataset is published as JSON: <a href={href("/api/institutions.json")}
-        >institutions</a
-      >, <a href={href("/api/indices.json")}>indices</a> and <a
-        href={href("/api/citations.json")}>citations</a
-      >. Each institution carries its <a href="https://ror.org" rel="external"
-        >ROR</a
-      > identifier, so this data can be joined to another dataset without repeating
-      the name-matching that assembling it required. Each profile page also carries
-      the same identity as schema.org markup.
+      The dataset is published as JSON: <a href={href("/api/institutions.json")}>institutions</a
+      >, <a href={href("/api/indices.json")}>indices</a> and <a href={href("/api/citations.json")}
+        >citations</a
+      >. Each institution carries its <a href="https://ror.org" rel="external">ROR</a> identifier,
+      so this data can be joined to another dataset without repeating the name-matching that
+      assembling it required. Each profile page also carries the same identity as schema.org
+      markup.
     </p>
 
     <h2>Corrections</h2>
     <p>
-      Figures are refreshed as new editions are published. The dataset is open;
-      the update process is documented in the project repository. We welcome
-      corrections, particularly from the institutions themselves, who are
-      reliably attentive to these matters.
+      Figures are refreshed as new editions are published. The dataset is open; the update process
+      is documented in the project repository. We welcome corrections, particularly from the
+      institutions themselves, who are reliably attentive to these matters.
     </p>
   </article>
+  </div>
 </Base>
 
 <style>
   .prose {
-    max-width: 44rem;
-    padding-block: clamp(2rem, 1rem + 4vw, 4rem);
-  }
-
-  .prose h1 {
-    margin: 0.3rem 0 0;
-    font-size: clamp(2.2rem, 1.4rem + 3vw, 3rem);
+    max-inline-size: 46rem;
+    padding-block: 2rem 1rem;
   }
 
   .prose h2 {
-    margin: 2.5rem 0 0.5rem;
-    font-size: 1.5rem;
+    margin-block: 2.5rem 0.5rem;
+    font-size: 1.375rem;
   }
 
   .prose .lead {
-    font-size: 1.2rem;
-    color: var(--ink-soft);
-    margin: 1.25rem 0 0;
+    font-size: 1.125rem;
+    color: var(--muted);
   }
 
-  .prose p {
-    margin: 0.9rem 0 0;
+  .prose p + p {
+    margin-block-start: 0.9rem;
   }
 
   .source-group {
-    margin-top: 1.75rem;
+    margin-block-start: 1.75rem;
   }
 
   .source-group__heading {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5rem;
-    margin: 0 0 0.2rem;
-    font-size: 1.15rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid var(--rule);
+    gap: 0.25rem 0.6rem;
+    padding-block-end: 0.35rem;
+    font-size: 1.125rem;
+    border-block-end: 1px solid var(--rule);
   }
 
   .source-group__count {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--ink-faint);
-    font-variant-numeric: tabular-nums;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted);
   }
 
   .source-group__blurb {
-    margin: 0.4rem 0 0;
-    font-size: 0.92rem;
-    color: var(--ink-soft);
+    margin-block-start: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--muted);
   }
 
   .sources {
-    margin: 0.6rem 0 0;
-    padding-left: 1.1rem;
+    margin-block-start: 0.6rem;
+    padding-inline-start: 1.1rem;
   }
 
   .sources li {
-    margin: 0.35rem 0;
+    margin-block: 0.35rem;
   }
 
   .sources__meta {
-    color: var(--ink-faint);
+    color: var(--muted);
     font-size: 0.9rem;
   }
 </style>

@@ -6,31 +6,37 @@ import { href } from "../lib/paths";
 <Base
   title="Not found — The World University Index"
   description="The page you requested is not in the Index."
+  expect="notfound-title"
 >
-  <section class="notfound container">
-    <p class="eyebrow">Unranked</p>
-    <h1>This page is not in the Index</h1>
+  <div class="titlebar">
+    <div class="container titlebar-inner">
+      <h1 id="notfound-title" class="titlebar-title">This page is not in the Index</h1>
+      <p class="titlebar-meta">Unranked</p>
+    </div>
+  </div>
+  <div class="container">
+    <section class="notfound">
     <p>
-      The institution or page you requested could not be found. It may have been
-      moved, or it may simply not place anywhere we are willing to print.
+      The institution or page you requested could not be found. It may have been moved, or it may
+      simply not place anywhere we are willing to print.
     </p>
-    <p><a href={href("/")}>Return to the Index</a></p>
+    <p><a href={href("/")}>Return to the rankings</a></p>
   </section>
+  </div>
 </Base>
 
 <style>
   .notfound {
-    max-width: 44rem;
-    padding-block: clamp(3rem, 2rem + 5vw, 6rem);
-  }
-
-  .notfound h1 {
-    margin: 0.3rem 0 1rem;
-    font-size: clamp(2rem, 1.4rem + 3vw, 3rem);
+    max-inline-size: 46rem;
+    padding-block: 2rem;
   }
 
   .notfound p {
-    color: var(--ink-soft);
-    max-width: 52ch;
+    color: var(--muted);
+    max-inline-size: 52ch;
+  }
+
+  .notfound p + p {
+    margin-block-start: 1rem;
   }
 </style>

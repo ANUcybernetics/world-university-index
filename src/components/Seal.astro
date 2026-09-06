@@ -1,0 +1,135 @@
+---
+/**
+ * The Index's seal: a navy roundel with a gold ring. At full size it carries an
+ * institution's rank in the centre and the Index's name around the ring, the
+ * kind of badge a university pastes into a footer. At mark size the ring text
+ * is dropped and the centre reads "WUI"; that form is the logo.
+ *
+ * The seal's colours are fixed rather than themed: it is an emblem, and should
+ * look the same on a dark page, in an iframe on someone else's site, and in
+ * print.
+ */
+interface Props {
+  /** Rank to display in the centre; omit for the plain mark. */
+  rank?: number;
+  /** Edition year shown on the ring alongside the Index's name. */
+  edition?: number;
+  /** Accessible name; omit (with `rank`) for a generated one, or pass "" to hide. */
+  label?: string;
+  /** Distinguishes the ring path's id when a page carries more than one seal. */
+  id?: string;
+  class?: string;
+}
+
+const { rank, edition = 2026, label, id = "seal", class: className, ...rest } = Astro.props;
+const isMark = rank === undefined;
+const digits = isMark ? 0 : String(rank).length;
+// Numerals get smaller as they get longer so that three-digit ranks still fit
+// inside the ring.
+const numeralSize = digits <= 1 ? 54 : digits === 2 ? 48 : digits === 3 ? 40 : 32;
+const ringId = `${id}-ring`;
+const accessibleName =
+  label ?? (isMark ? "The World University Index" : `Ranked ${rank} in the world, The World University Index ${edition}`);
+---
+
+<svg
+  class:list={["seal", { "seal--mark": isMark }, className]}
+  viewBox="0 0 120 120"
+  role={accessibleName === "" ? undefined : "img"}
+  aria-hidden={accessibleName === "" ? "true" : undefined}
+  aria-label={accessibleName === "" ? undefined : accessibleName}
+  {...rest}
+>
+  <circle class="seal__disc" cx="60" cy="60" r="58"></circle>
+  <circle class="seal__ring" cx="60" cy="60" r="52.5"></circle>
+  <circle class="seal__ring seal__ring--inner" cx="60" cy="60" r="41.5"></circle>
+  {
+    isMark ? (
+      <text class="seal__letters" x="60" y="60" text-anchor="middle" dominant-baseline="central">
+        WUI
+      </text>
+    ) : (
+      <>
+        <defs>
+          <path id={ringId} d="M 60 60 m -47 0 a 47 47 0 1 1 94 0 a 47 47 0 1 1 -94 0" />
+        </defs>
+        <text class="seal__band">
+          <textPath href={`#${ringId}`} startOffset="50%" text-anchor="middle">
+            World University Index · {edition} edition ·
+          </textPath>
+        </text>
+        <text
+          class="seal__rank"
+          x="60"
+          y="61"
+          text-anchor="middle"
+          dominant-baseline="central"
+          font-size={numeralSize}
+        >
+          {rank}
+        </text>
+      </>
+    )
+  }
+</svg>
+
+<style>
+  /* Sized by whoever places it: :where() keeps this rule's specificity low
+     enough for a parent's single class to override the width. */
+  :where(.seal) {
+    inline-size: 100%;
+    block-size: auto;
+  }
+
+  .seal {
+    --seal-navy: #0f2a50;
+    --seal-gold: #c9a227;
+    --seal-paper: #fff;
+
+    font-family: var(--condensed);
+  }
+
+  .seal__disc {
+    fill: var(--seal-navy);
+  }
+
+  .seal__ring {
+    fill: none;
+    stroke: var(--seal-gold);
+    stroke-width: 1.75;
+  }
+
+  .seal__ring--inner {
+    stroke-width: 0.75;
+  }
+
+  .seal__band {
+    fill: var(--seal-gold);
+    font-size: 8.4px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .seal__rank {
+    fill: var(--seal-paper);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  .seal__letters {
+    fill: var(--seal-paper);
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .seal--mark .seal__ring {
+    stroke-width: 3;
+  }
+
+  .seal--mark .seal__ring--inner {
+    display: none;
+  }
+</style>

@@ -22,12 +22,11 @@ const rows = dataset.rankings.map((r) => ({
   // evidence about the ranking even when we hold only the 2026 one.
   citations: citationsOf(r.id).length,
   product: citationsOfProduct(r.shortName).length,
+  placements: dataset.universities.filter((u) => u.ranks[r.id] !== undefined).length,
 }));
 
 const products = new Set(dataset.rankings.map((r) => r.shortName));
-const citedProducts = new Set(
-  [...products].filter((p) => citationsOfProduct(p).length > 0),
-).size;
+const citedProducts = new Set([...products].filter((p) => citationsOfProduct(p).length > 0)).size;
 const outside = citations.filter(
   (c) => !dataset.universities.some((u) => u.name === c.university),
 ).length;
@@ -45,213 +44,232 @@ const sections = groups
 <Base
   title="The indices — The World University Index"
   description={`The ${dataset.rankings.length} ranking tables the Index draws on, and which institutions have been recorded citing each one.`}
+  expect="indices-title"
 >
-  <article class="indices">
-    <div class="container">
-      <p class="eyebrow">The evidence base</p>
-      <h1>The indices</h1>
-
-      <p class="lead">
-        The {dataset.rankings.length} ranking tables the Index draws on, across {
-          products.size
-        } distinct indices. Alongside each, the institutions recorded citing it —
-        the backlink that turns a table into an index somebody cares about.
+  <div class="titlebar">
+    <div class="container titlebar-inner">
+      <h1 id="indices-title" class="titlebar-title">The indices</h1>
+      <p class="titlebar-meta">
+        {dataset.rankings.length} ranking tables from {products.size} indices
       </p>
-
-      <dl class="tally">
-        <div class="tally__item">
-          <dt>Tables recorded</dt>
-          <dd>{dataset.rankings.length}</dd>
-        </div>
-        <div class="tally__item">
-          <dt>Indices with a citation</dt>
-          <dd>{citedProducts} / {products.size}</dd>
-        </div>
-        <div class="tally__item">
-          <dt>Claims on the record</dt>
-          <dd>{citations.length}</dd>
-        </div>
-      </dl>
-
-      <p class="note">
-        A table nobody quotes is a spreadsheet. A table one university has put on
-        its own website is an index that matters to at least somebody, and the
-        Index treats it accordingly — the obscure ones most of all, since an
-        institution that cites a ranking almost nobody has heard of has told you
-        something a well-known ranking never could. The citing institution need
-        not appear in the Index itself: {outside} of the {citations.length} claims
-        on record come from universities we do not otherwise track, and they
-        vouch for the index just as well.
-      </p>
-
-      {
-        sections.map((g) => (
-          <section class="group">
-            <h2 class="group__heading">
-              {g.label} <span class="group__count">{g.rows.length}</span>
-            </h2>
-            <ul class="list">
-              {g.rows.map(({ ranking, citations: n, product: p }) => (
-                <li class="row">
-                  <a class="row__link" href={indexHref(ranking.id)}>
-                    {ranking.scope ?? ranking.name}
-                  </a>
-                  <span class="row__meta">
-                    {ranking.shortName} {ranking.edition}
-                  </span>
-                  {n > 0 ? (
-                    <span class="row__cites">cited &times;{n}</span>
-                  ) : p > 0 ? (
-                    <span class="row__index-cited">index cited &times;{p}</span>
-                  ) : (
-                    <span class="row__uncited">uncited</span>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
-      }
     </div>
+  </div>
+
+  <article class="container indices">
+    <p class="lead">
+      The ranking tables the Index draws on. Alongside each, the number of institutions recorded
+      citing it: the backlink that turns a table into an index somebody cares about.
+    </p>
+
+    <dl class="tally">
+      <div class="tally__item">
+        <dt>Tables recorded</dt>
+        <dd>{dataset.rankings.length}</dd>
+      </div>
+      <div class="tally__item">
+        <dt>Indices with a citation</dt>
+        <dd>{citedProducts} of {products.size}</dd>
+      </div>
+      <div class="tally__item">
+        <dt>Claims on the record</dt>
+        <dd>{citations.length}</dd>
+      </div>
+    </dl>
+
+    <p class="note">
+      A table nobody quotes is a spreadsheet. A table one university has put on its own website is
+      an index that matters to at least somebody, and the Index treats it accordingly; the obscure
+      ones most of all, since an institution that cites a ranking almost nobody has heard of has
+      told you something a well-known ranking never could. The citing institution need not appear
+      in the Index itself: {outside} of the {citations.length} claims on record come from
+      universities we do not otherwise track, and they vouch for the index just as well.
+    </p>
+
+    {
+      sections.map((g) => (
+        <section class="group">
+          <h2 class="group__heading">
+            {g.label} <span class="group__count">{g.rows.length} tables</span>
+          </h2>
+          <table class="list">
+            <thead>
+              <tr>
+                <th scope="col">Table</th>
+                <th scope="col" class="list__ed">Edition</th>
+                <th scope="col" class="num">Listed here</th>
+                <th scope="col" class="num">Cited by</th>
+              </tr>
+            </thead>
+            <tbody>
+              {g.rows.map(({ ranking, citations: n, product: p, placements }) => (
+                <tr>
+                  <th scope="row" class="list__name">
+                    <a href={indexHref(ranking.id)}>{ranking.scope ?? ranking.name}</a>
+                    {ranking.scope && <span class="list__index">{ranking.name}</span>}
+                  </th>
+                  <td class="list__ed">
+                    {ranking.shortName} {ranking.edition}
+                  </td>
+                  <td class="num">{placements}</td>
+                  <td class="num">
+                    {n > 0 ? (
+                      <span class="cited">{n}</span>
+                    ) : p > 0 ? (
+                      <span class="cited cited--product" title="cited in another edition">
+                        {p}
+                      </span>
+                    ) : (
+                      <span class="uncited">0</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ))
+    }
+    <p class="foot">
+      A count set in grey counts citations of another edition of the same index; a claim about
+      the 2020 table is still evidence about the ranking.
+    </p>
   </article>
 </Base>
 
 <style>
   .indices {
-    padding-block: clamp(1.5rem, 1rem + 2vw, 3rem);
-    max-width: 52rem;
-  }
-
-  .eyebrow {
-    margin: 0;
-    font-family: var(--sans);
-    font-size: 0.78rem;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  h1 {
-    margin: 0.3rem 0 0;
-    font-size: clamp(2.2rem, 1.4rem + 3vw, 3rem);
+    padding-block: 1.5rem 2rem;
   }
 
   .lead {
-    font-size: 1.15rem;
-    color: var(--ink-soft);
-    margin: 1rem 0 0;
-    max-width: 44rem;
+    max-inline-size: 64ch;
+    color: var(--muted);
   }
 
   .tally {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.75rem;
-    margin: 1.5rem 0 0;
+    gap: 1rem 2.5rem;
+    margin-block-start: 1.5rem;
     padding: 1rem 1.25rem;
-    background: var(--paper);
+    background: var(--panel);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
   }
 
-  .tally__item {
-    margin: 0;
-  }
-
   .tally dt {
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
+    color: var(--muted);
+    font-size: 0.875rem;
   }
 
   .tally dd {
-    margin: 0.15rem 0 0;
-    font-size: 1.9rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    color: var(--accent);
-    line-height: 1;
+    font-family: var(--condensed);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 1.1;
   }
 
   .note {
-    margin: 1.1rem 0 0;
-    max-width: 44rem;
-    font-size: 0.95rem;
-    color: var(--ink-soft);
+    margin-block-start: 1.25rem;
+    max-inline-size: 64ch;
+    color: var(--muted);
+    font-size: 0.9375rem;
   }
 
   .group {
-    margin-top: 2.25rem;
+    margin-block-start: 2.5rem;
   }
 
   .group__heading {
     display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5rem;
-    margin: 0 0 0.4rem;
-    font-size: 1.3rem;
-    padding-bottom: 0.35rem;
-    border-bottom: 1px solid var(--rule);
+    gap: 0.25rem 0.75rem;
+    margin-block-end: 0.75rem;
+    font-size: 1.375rem;
   }
 
   .group__count {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--ink-faint);
-    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
   }
 
   .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    inline-size: 100%;
   }
 
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.3rem 0.7rem;
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--rule);
+  .list thead th {
+    padding: 0.5rem 0.75rem;
+    text-align: start;
+    background: var(--panel);
+    color: var(--muted);
+    font-family: var(--condensed);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-block: 1px solid var(--rule-strong);
   }
 
-  .row__link {
-    font-size: 1rem;
+  .list tbody td,
+  .list tbody th {
+    padding: 0.55rem 0.75rem;
+    vertical-align: top;
+    border-block-end: 1px solid var(--rule);
   }
 
-  .row__meta {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--ink-faint);
-    margin-right: auto;
+  .list .num {
+    text-align: end;
+    inline-size: 6rem;
   }
 
-  .row__cites,
-  .row__index-cited,
-  .row__uncited {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  .list__name {
+    text-align: start;
+    font-weight: 600;
+  }
+
+  .list__name a {
+    color: var(--brand);
+    text-decoration: none;
+  }
+
+  .list__name a:hover {
+    text-decoration: underline;
+  }
+
+  .list__index {
+    display: block;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .list__ed {
     white-space: nowrap;
+    color: var(--muted);
   }
 
-  .row__cites {
-    color: var(--accent);
-    border: 1px solid currentcolor;
-    border-radius: var(--radius);
-    padding: 0.05rem 0.35rem;
+  .cited {
+    font-weight: 700;
+    color: var(--brand);
   }
 
-  .row__index-cited {
-    color: var(--ink-soft);
+  .cited--product,
+  .uncited {
+    font-weight: 400;
+    color: var(--muted);
   }
 
-  .row__uncited {
-    color: var(--ink-faint);
+  .foot {
+    margin-block-start: 1rem;
+    max-inline-size: 64ch;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 40rem) {
+    .list__ed {
+      display: none;
+    }
   }
 </style>

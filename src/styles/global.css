@@ -1,124 +1,200 @@
 /* Design tokens and base styles for The World University Index.
-   Editorial, institutional register: parchment ground, ink text, a single
-   restrained accent. Component-level styling lives in scoped <style> blocks. */
+
+   The register is that of the commercial ranking publishers the Index draws on:
+   white ground, navy structure, one signal colour, a grotesque sans in two
+   widths, and the table in front of everything. Component styling lives in
+   each component's scoped <style> block; those rules are unlayered and so win
+   over anything here. */
+
+@layer reset, base;
 
 :root {
-  /* palette */
-  --ink: #18243a;
-  --ink-soft: #43506a;
-  --ink-faint: #6b7790;
-  --ground: #f7f4ec;
-  --paper: #fffdf8;
-  --rule: #d9d2c2;
-  --rule-strong: #b9af99;
-  --accent: #7c1f2e;
-  --accent-soft: #9a4150;
-  --gold: #9a7a2e;
+  color-scheme: light dark;
 
-  /* typography */
-  --serif:
-    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, "Times New Roman",
-    serif;
-  --sans:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  /* palette (light) */
+  --bg: #fff;
+  --panel: #f2f5f9;
+  --panel-strong: #e4e9f1;
+  --ink: #141c2b;
+  --muted: #55627a;
+  --rule: #d6dce6;
+  --rule-strong: #a9b4c4;
+  --brand: #0f2a50;
+  --link: #1a4fc4;
+  --highlight: #fbf3d6;
+
+  /* fixed: the seal, the masthead band and the highlight ring do not theme */
+  --navy: #0f2a50;
+  --gold: #c9a227;
+  --on-navy: #fff;
+  --on-navy-muted: #b9c6dc;
+
+  /* typography: the font variables are emitted by Astro's <Font> component */
+  --sans: var(--font-archivo);
+  --condensed: var(--font-archivo-narrow);
+  --mono: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
 
   /* scale */
-  --measure: 64rem;
-  --gap: clamp(1rem, 0.6rem + 2vw, 2rem);
-  --radius: 2px;
+  --measure: 72rem;
+  --gap: clamp(1rem, 0.5rem + 2vw, 2rem);
+  --radius: 3px;
+  --control: 2.5rem;
+
+  accent-color: var(--link);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e131b;
+    --panel: #161d28;
+    --panel-strong: #1f2836;
+    --ink: #e6eaf0;
+    --muted: #98a3b5;
+    --rule: #2a3444;
+    --rule-strong: #45526a;
+    --brand: #dbe4f3;
+    --link: #8db0ff;
+    --highlight: #33301c;
+  }
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :where(h1, h2, h3, h4, p, ul, ol, dl, dd, figure, blockquote, pre) {
+    margin: 0;
+  }
 }
 
-body {
-  margin: 0;
-  background-color: var(--ground);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
-  line-height: 1.6;
-  text-rendering: optimizelegibility;
-  -webkit-font-smoothing: antialiased;
-}
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-color: var(--rule-strong) var(--panel);
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--serif);
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-}
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-rendering: optimizelegibility;
+  }
 
-a {
-  color: var(--accent);
-  text-underline-offset: 0.15em;
-  text-decoration-thickness: 1px;
-}
+  :where(h1, h2, h3, h4) {
+    color: var(--brand);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
 
-a:hover {
-  color: var(--accent-soft);
-}
+  :where(p, blockquote, dd, li) {
+    text-wrap: pretty;
+  }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-}
+  a {
+    color: var(--link);
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: 1px;
+  }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+  :focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+  }
 
-.container {
-  width: 100%;
-  max-width: var(--measure);
-  margin-inline: auto;
-  padding-inline: var(--gap);
-}
+  img,
+  svg {
+    max-inline-size: 100%;
+  }
 
-.eyebrow {
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-}
+  table {
+    border-collapse: collapse;
+  }
 
-.skip-link {
-  position: absolute;
-  left: 0.5rem;
-  top: -3rem;
-  z-index: 10;
-  padding: 0.5rem 0.75rem;
-  background: var(--ink);
-  color: var(--paper);
-  border-radius: var(--radius);
-  transition: top 0.15s ease;
-}
+  :where(button, input, select) {
+    font: inherit;
+    color: inherit;
+  }
 
-.skip-link:focus {
-  top: 0.5rem;
-  color: var(--paper);
-}
+  /* Numbers line up in columns everywhere they are compared. */
+  :where(td, th, time, .num) {
+    font-variant-numeric: tabular-nums;
+  }
 
-/* Cross-document view transitions: progressive enhancement, motion-safe only. */
-@media (prefers-reduced-motion: no-preference) {
-  @view-transition {
-    navigation: auto;
+  .container {
+    inline-size: 100%;
+    max-inline-size: var(--measure);
+    margin-inline: auto;
+    padding-inline: var(--gap);
+  }
+
+  .sr-only {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .skip-link {
+    position: absolute;
+    inset-inline-start: 0.5rem;
+    inset-block-start: -3rem;
+    z-index: 10;
+    padding: 0.5rem 0.75rem;
+    background: var(--navy);
+    color: var(--on-navy);
+    border-radius: var(--radius);
+  }
+
+  .skip-link:focus {
+    inset-block-start: 0.5rem;
+  }
+
+  /* The band an index page wears under the masthead: title, edition, count.
+     Shared by the home page and the section pages so they read as one product. */
+  .titlebar {
+    border-block-end: 1px solid var(--rule);
+    background: var(--panel);
+  }
+
+  .titlebar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1.5rem;
+    padding-block: 1.25rem;
+  }
+
+  .titlebar-title {
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  }
+
+  .titlebar-meta {
+    color: var(--muted);
+    font-size: 0.9375rem;
+  }
+
+  /* Cross-document view transitions: progressive enhancement, motion-safe only. */
+  @media (prefers-reduced-motion: no-preference) {
+    @view-transition {
+      navigation: auto;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .titlebar {
+      border-block-end-color: CanvasText;
+    }
   }
 }

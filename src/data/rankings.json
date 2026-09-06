@@ -3305,9 +3305,33 @@
       "retrieved": "2026-09-06",
       "scope": "gender equality (SDG 5)",
       "category": "sdg"
+    },
+    {
+      "id": "the-impact-sdg7-2026",
+      "name": "THE Sustainability Impact Ratings: affordable and clean energy (SDG 7)",
+      "shortName": "THE Impact",
+      "edition": "2026",
+      "publisher": "Times Higher Education",
+      "url": "https://www.timeshighereducation.com/rankings/impact/affordable-and-clean-energy/2026",
+      "retrieved": "2026-09-06",
+      "scope": "affordable and clean energy (SDG 7)",
+      "category": "sdg"
     }
   ],
   "universities": [
+    {
+      "name": "An-Najah National University",
+      "country": "Palestine",
+      "city": "Nablus",
+      "ror": "https://ror.org/0046mja08",
+      "ranks": {
+        "the-impact-sdg7-2025": 13,
+        "the-impact-sdg17-2026": 13,
+        "the-impact-sdg16-2026": 12,
+        "the-impact-sdg1-2025": 13,
+        "the-impact-sdg7-2026": 4
+      }
+    },
     {
       "name": "Australian Catholic University",
       "country": "Australia",
@@ -3801,6 +3825,7 @@
         "gras-communication-2025": 10,
         "qs-sub-nursing-2026": 6,
         "gras-nursing-2025": 10,
+        "the-impact-sdg16-2026": 40,
         "leiden-2025": 140,
         "leiden-impact-2025": 47,
         "leiden-physical-sciences-2025": 28,
@@ -4112,6 +4137,7 @@
         "qs-2026": 499,
         "the-2026": 401,
         "the-impact-sdg6-2025": 7,
+        "the-impact-sdg7-2025": 35,
         "the-impact-sdg10-2025": 3,
         "the-impact-sdg5-2026": 41,
         "the-impact-sdg17-2026": 9,
@@ -4272,6 +4298,7 @@
       "ranks": {
         "qs-2026": 47,
         "the-2026": 57,
+        "the-impact-sdg7-2025": 28,
         "qs-sub-architecture-2026": 3,
         "qs-sub-civileng-2026": 5,
         "leiden-2025": 205,
@@ -4406,6 +4433,7 @@
         "the-2026": 174,
         "qs-sub-archaeology-2026": 5,
         "qs-sub-geography-2026": 6,
+        "the-impact-sdg16-2026": 34,
         "qs-sub-theology-divinity-and-religious-studies-2026": 4,
         "leiden-2025": 555,
         "leiden-impact-2025": 129,
@@ -4647,6 +4675,7 @@
         "the-impact-sdg3-2026": 2,
         "the-impact-sdg5-2026": 6,
         "the-impact-sdg10-2026": 4,
+        "the-impact-sdg17-2026": 47,
         "leiden-2025": 604,
         "leiden-impact-2025": 400,
         "leiden-physical-sciences-2025": 837,
@@ -4868,6 +4897,7 @@
         "the-impact-sdg14-2026": 1,
         "the-impact-sdg15-2026": 9,
         "the-impact-sdg17-2026": 14,
+        "the-impact-sdg16-2026": 22,
         "leiden-2025": 351,
         "leiden-impact-2025": 299,
         "leiden-physical-sciences-2025": 113,
@@ -4916,7 +4946,8 @@
         "urap-law-and-legal-studies-2024-2025": 34,
         "the-impact-sdg8-2025": 10,
         "the-impact-sdg16-2023": 19,
-        "the-impact-sdg5-2024": 6
+        "the-impact-sdg5-2024": 6,
+        "the-impact-sdg7-2026": 12
       }
     },
     {
@@ -5157,6 +5188,7 @@
       "ranks": {
         "qs-2026": 44,
         "the-2026": 58,
+        "the-impact-sdg7-2025": 11,
         "qs-sub-business-2026": 30,
         "gras-computer-science-and-engineering-2025": 6,
         "gras-transportation-science-and-technology-2025": 15,
@@ -5204,7 +5236,8 @@
         "scimago-physics-and-astronomy-2026": 191,
         "scimago-social-sciences-2025": 301,
         "the-impact-sdg8-2025": 11,
-        "the-impact-sdg9-2026": 9
+        "the-impact-sdg9-2026": 9,
+        "the-impact-sdg7-2026": 28
       }
     },
     {
@@ -8854,6 +8887,7 @@
         "qs-sub-sports-2026": 7,
         "qs-sub-petroleum-2026": 3,
         "qs-sub-nursing-2026": 9,
+        "the-impact-sdg17-2026": 44,
         "leiden-2025": 73,
         "leiden-impact-2025": 553,
         "leiden-physical-sciences-2025": 580,
@@ -8992,7 +9026,9 @@
       "ranks": {
         "qs-2026": 65,
         "the-2026": 156,
+        "the-impact-sdg7-2025": 11,
         "qs-sub-education-2026": 29,
+        "the-impact-sdg16-2026": 12,
         "gras-food-science-and-technology-2025": 27,
         "leiden-2025": 232,
         "leiden-impact-2025": 496,
@@ -9044,7 +9080,8 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 35,
         "the-impact-sdg10-2023": 21,
         "the-impact-sdg16-2023": 22,
-        "the-impact-sdg5-2024": 24
+        "the-impact-sdg5-2024": 24,
+        "the-impact-sdg7-2026": 32
       }
     },
     {
@@ -9125,6 +9162,7 @@
         "qs-sub-geography-2026": 15,
         "qs-sub-earthmarine-2026": 18,
         "qs-sub-geology-2026": 17,
+        "the-impact-sdg16-2026": 38,
         "leiden-2025": 228,
         "leiden-impact-2025": 121,
         "leiden-physical-sciences-2025": 233,
@@ -9956,6 +9994,7 @@
         "the-2026": 29,
         "qs-sub-linguistics-2026": 11,
         "qs-sub-veterinary-2026": 6,
+        "the-impact-sdg17-2026": 36,
         "leiden-2025": 133,
         "leiden-impact-2025": 70,
         "leiden-physical-sciences-2025": 182,
@@ -10032,6 +10071,8 @@
         "the-2026": 84,
         "qs-sub-veterinary-2026": 31,
         "qs-sub-anatomy-2026": 16,
+        "the-impact-sdg17-2026": 22,
+        "the-impact-sdg16-2026": 25,
         "leiden-2025": 252,
         "leiden-impact-2025": 54,
         "leiden-physical-sciences-2025": 188,
@@ -10259,9 +10300,11 @@
       "ranks": {
         "qs-2026": 86,
         "the-2026": 118,
+        "the-impact-sdg17-2026": 27,
         "qs-sub-earthmarine-2026": 12,
         "qs-sub-geology-2026": 11,
         "qs-sub-geophysics-2026": 12,
+        "the-impact-sdg16-2026": 35,
         "leiden-2025": 229,
         "leiden-impact-2025": 120,
         "leiden-physical-sciences-2025": 343,
@@ -10323,9 +10366,12 @@
       "ranks": {
         "qs-2026": 35,
         "the-2026": 56,
+        "the-impact-sdg7-2025": 40,
         "qs-sub-development-2026": 5,
         "qs-sub-architecture-2026": 5,
+        "the-impact-sdg17-2026": 34,
         "qs-sub-geography-2026": 9,
+        "the-impact-sdg16-2026": 33,
         "leiden-2025": 94,
         "leiden-impact-2025": 118,
         "leiden-physical-sciences-2025": 130,
@@ -10386,7 +10432,8 @@
         "the-impact-sdg1-2025": 28,
         "the-impact-sdg2-2026": 33,
         "the-impact-sdg9-2026": 1,
-        "the-impact-sdg16-2023": 15
+        "the-impact-sdg16-2023": 15,
+        "the-impact-sdg7-2026": 37
       }
     },
     {
@@ -10843,6 +10890,7 @@
         "qs-sub-law-2025": 12,
         "gras-mining-2024": 8,
         "the-impact-overall-2025": 11,
+        "the-impact-sdg7-2025": 30,
         "the-impact-sdg12-2025": 7,
         "the-impact-sdg13-2025": 3,
         "the-impact-sdg15-2025": 11,
@@ -10933,7 +10981,8 @@
         "urap-psychology-and-cognitive-sciences-2024-2025": 28,
         "urap-economics-2024-2025": 39,
         "urap-law-and-legal-studies-2024-2025": 24,
-        "urap-information-computing-sciences-2024-2025": 21
+        "urap-information-computing-sciences-2024-2025": 21,
+        "the-impact-sdg7-2026": 30
       }
     },
     {
@@ -10966,6 +11015,7 @@
         "the-impact-sdg13-2026": 3,
         "the-impact-sdg14-2026": 3,
         "the-impact-sdg15-2026": 17,
+        "the-impact-sdg16-2026": 27,
         "leiden-2025": 450,
         "leiden-impact-2025": 395,
         "leiden-physical-sciences-2025": 381,
@@ -11002,7 +11052,8 @@
         "scimago-medicine-2025": 395,
         "scimago-psychology-2025": 346,
         "scimago-social-sciences-2025": 302,
-        "the-impact-sdg5-2024": 23
+        "the-impact-sdg5-2024": 23,
+        "the-impact-sdg7-2026": 15
       }
     },
     {
@@ -12197,7 +12248,8 @@
         "urap-engineering-2024-2025": 38,
         "urap-information-computing-sciences-2024-2025": 13,
         "the-impact-sdg8-2025": 39,
-        "the-impact-sdg10-2023": 31
+        "the-impact-sdg10-2023": 31,
+        "the-impact-sdg7-2026": 50
       }
     },
     {
@@ -13163,8 +13215,10 @@
         "qs-2026": 400,
         "the-2026": 301,
         "the-impact-overall-2025": 1,
+        "the-impact-sdg7-2025": 10,
         "the-impact-sdg17-2025": 9,
         "the-impact-sdg5-2026": 13,
+        "the-impact-sdg17-2026": 27,
         "the-impact-sdg13-2024": 4,
         "leiden-2025": 644,
         "leiden-impact-2025": 369,
@@ -13194,7 +13248,8 @@
         "ntu-agriculture-2025": 121,
         "the-impact-sdg8-2025": 43,
         "the-impact-sdg10-2023": 3,
-        "the-impact-sdg5-2024": 1
+        "the-impact-sdg5-2024": 1,
+        "the-impact-sdg7-2026": 45
       }
     },
     {
@@ -13291,6 +13346,7 @@
       "ranks": {
         "qs-2026": 50,
         "the-2026": 86,
+        "the-impact-sdg16-2026": 31,
         "qs-sub-social-policy-and-administration-2026": 14,
         "gras-biotechnology-2025": 18,
         "leiden-2025": 60,

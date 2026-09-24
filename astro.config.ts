@@ -11,6 +11,9 @@ import { defineConfig, fontProviders } from "astro/config";
 // metric-matched fallback faces so text set in the system fallback occupies the
 // same space as the web font and nothing shifts when it swaps in.
 export default defineConfig({
+  // Astro 7's default ("jsx") drops the line break between wrapped prose and
+  // an inline element, running words into links. `true` collapses it to a space.
+  compressHTML: true,
   site: "https://worlduniversityindex.org",
   trailingSlash: "ignore",
   build: { format: "directory" },

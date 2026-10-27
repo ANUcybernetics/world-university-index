@@ -35,9 +35,9 @@ subject, by Sustainable Development Goal, and across several editions of each),
 there is almost always one in your institution can call itself world-leading.
 
 You could look at the
-[methodology](https://worlduniversityindex.org/methodology/)
-if you like. But who's got time for that? Honestly, just grab the number and use
-it with confidence.
+[methodology](https://worlduniversityindex.org/methodology/) if you like. But
+who's got time for that? Honestly, just grab the number and use it with
+confidence.
 
 ## Data
 
@@ -61,11 +61,12 @@ pnpm update-rankings            # validate + integrity-check + report
 pnpm update-rankings --write    # also rewrite the file, normalised and sorted
 pnpm update-rankings --sources  # where each ranking is published
 pnpm update-rankings --links    # check every citation URL still resolves
+pnpm ingest-table <table.json>  # add a fetched table: match, admit, report
 ```
 
-The major rankings don't publish a clean, openly-licensed machine-readable feed
---- their tables render client-side and their terms restrict bulk reuse --- so
-each table is fetched by the host-specific method recorded in
+The major rankings don't publish a clean, openly-licensed machine-readable
+feed --- their tables render client-side and their terms restrict bulk reuse ---
+so each table is fetched by the host-specific method recorded in
 [`sources.md`](src/data/sources.md), and every figure is then checked
 individually against the publisher's own table before it lands.
 [`scripts/update-rankings.ts`](scripts/update-rankings.ts) keeps the result

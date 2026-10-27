@@ -338,6 +338,44 @@ For the record's sake: Slop University is itself a fiction (an autonomous
 publishing art project at slop.university). The Index records its figure without
 comment, exactly as it records every other institution's most flattering number.
 
+## Whole-table ingest added 2026-10 (102 tables, 609 institutions)
+
+Every table below was fetched whole, by the routes in `sources.md`, and added
+with `pnpm ingest-table`: placements for every institution already held, at any
+depth, and admission for every unmatched top-50 row that ROR could vouch for.
+That is the membership rule applied in full for the first time, and it is what
+took the Index from 163 institutions to 772. Unlike the earlier sections, these
+figures were not checked one by one. Each table's top rows (and a few mid-table
+rows) were checked against the publisher's release or university media releases;
+the rest rests on the publisher's own data.
+
+- **THE** (JSON payloads): World University Rankings 2027; all 11 subject tables
+  for 2025 and 2026; Interdisciplinary Science 2025 and 2026; Asia 2025 and
+  2026, Arab 2026 and Latin America 2026 (regional, `universe` set).
+- **ShanghaiRanking** (JSON API): ARWU 2026; all 57 GRAS subjects for 2026,
+  six of them new to the Index (telecommunication engineering, instruments,
+  civil engineering, remote sensing, robotics and statistics).
+- **CWUR** Global 2000, 2026.
+- **QS regional** (WebFetch over the xuanxiao.org English mirror): Asia 2025 and
+  2026, Europe 2025 and 2026, Latin America 2026 and 2027, Arab Region 2026
+  and 2027. Top rows agree with the QS releases, but the transcription is the
+  weakest in the dataset: tie markers come through inconsistently, Latin America
+  2027 has USP and Unicamp at 2 and 3 where QS ties them at 2, and a few rows
+  around Europe 2026 ranks 197--199 and Arab 2026 ranks 51 and 95--98 are
+  unverified.
+- **UI GreenMetric** 2024 and 2025 (Wayback captures of the overall tables). The
+  2025 top three and its 1,745-institution count match the publisher's
+  announcement.
+- **CWTS Leiden Ranking Open Edition** 2024 and 2025: P and PP(top 10%) sorts at
+  the site's defaults (fractional counting, 100-publication minimum; 2025 is
+  2020--2023 core publications). Rank is position in the sort. Anyang University
+  is omitted, its 2025 figures redacted by CWTS.
+
+Left out deliberately: Tokyo Institute of Technology (ranked under its
+pre-merger name, as with THE Japan above), "University of Massachusetts" (campus
+unspecified), Institut Mines-Télécom (a federation, not a university, in ROR),
+and Da-Yeh University (no ROR record found).
+
 ## Not included
 
 U.S. News global subject tables could not be verified from this host (anti-bot

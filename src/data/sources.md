@@ -27,13 +27,13 @@ The top-50 bar is what keeps every headline flattering, which is the whole
 premise. Admit any placement at all and institutions start headlining at 3000th
 in the world, which is not a claim anyone puts on a media release.
 
-Every institution carries a `ror` identifier ([Research Organization
-Registry](https://ror.org), CC0). It is never displayed. It exists so a row in
-one publisher's table can be matched to the same institution in another's:
-name-matching fails in both directions, missing "UNSW Sydney" against
-"University of New South Wales" and wrongly matching "Northwestern University"
-to "Lyceum-Northwestern University". Attach ids with `pnpm ror-backfill`;
-`--check` re-resolves every stored id against ROR.
+Every institution carries a `ror` identifier
+([Research Organization Registry](https://ror.org), CC0). It is never displayed.
+It exists so a row in one publisher's table can be matched to the same
+institution in another's: name-matching fails in both directions, missing "UNSW
+Sydney" against "University of New South Wales" and wrongly matching
+"Northwestern University" to "Lyceum-Northwestern University". Attach ids with
+`pnpm ror-backfill`; `--check` re-resolves every stored id against ROR.
 
 ## Tables that rank departments
 
@@ -67,26 +67,52 @@ API, and citation quotes are matched character-for-character against the live
 page (of 42 proposed quotes, six failed that check and were dropped). Propose
 and trust are separate steps, and only the second one is authoritative.
 
+Whole tables go in through `pnpm ingest-table <table.json>...`. Each fetch
+method below produces a normalised table file (the format is in the script's
+header); the script records placements for institutions already held and admits
+the top-50 rows that match nobody, taking each newcomer's name, city and ROR id
+from ROR. It admits only what ROR vouches for --- chosen or exactly named, same
+country as the publisher says, a university rather than an institute --- and
+prints the rest. Names ROR can't settle are mapped by hand in
+`scripts/ror-overrides.json`, which gets the same country check. A check that
+passes can still be wrong: a hand-picked id once named the right university's
+other campus in the same country, so look an override up rather than recall it.
+
 ## Fetch methods (host-specific, learned the hard way)
 
 - **QS / topuniversities.com** — Cloudflare + Turnstile blocked here, for both
   WebFetch and headless agent-browser. Use the `xuanxiao.org` mirror (mirrors QS
   subject + world tables) and cross-check against the QS PR Newswire release and
   university media releases. Never trust a single mirror figure without a
-  press-release cross-check.
+  press-release cross-check. The mirror is now Cloudflare-blocked for curl and
+  headless Chrome too, but WebFetch reads its English pages:
+  `xuanxiao.org/en/rankings/qs/regional/<slug>[/<year>]?page=N`, 50 rows a page,
+  with slugs `asia-university-rankings`, `europe-university-rankings`,
+  `latin-america-caribbean-overall` and `arab-region-university-rankings` (no
+  year for the latest edition). WebFetch paraphrases, so ask for rows verbatim,
+  and expect it to drop `=` tie markers and skip the odd row.
 - **THE / timeshighereducation.com** — UI is JS-rendered and ad scripts hijack
   the tab, but every ranking page ships its data in an embedded JSON payload
   (`/json/ranking_tables/...`, or the `__NEXT_DATA__`-style blob on
-  `/rankings/impact/<slug>/<year>`). Fetch and parse that directly.
-- **ARWU / shanghairanking.com** — static Nuxt/JSON payload readable with a
-  plain `curl` (`/rankings/gras/<year>/<AScode>`, `/rankings/grsssd/<year>`,
-  `/institution/<slug>`). agent-browser gets redirect-hijacked on this host —
-  use curl. Subject tables server-render only the top ~30 rows; for placements
-  below that, `/api/pub/v1/inst/<slug>` returns one institution's full ranked
-  subject list as JSON, but only for the current edition — an earlier edition
-  has to come from that year's subject table. The name cell prints the
-  institution twice followed by the country, so match on that doubled prefix:
-  a substring match will put "Columbia University" at the rank belonging to the
+  `/rankings/impact/<slug>/<year>`). Fetch and parse that directly. Table names
+  aren't the page slugs; read each from the `ranking_tables/...` string in the
+  page source. Current ones: `world_university_rankings`,
+  `asia_university_rankings`, `arabic_university_rankings`,
+  `latin_america_rankings`, `isr_university_rankings`, and per subject
+  `<subject>_rankings` (`engineering_technology_rankings`,
+  `clinical_pre_clinical_health_ran` --- truncated). There is no Asia-Pacific or
+  Sub-Saharan Africa table in this form.
+- **ARWU / shanghairanking.com** — whole tables come as JSON from
+  `/api/pub/v1/arwu/rank?version=<year>` and
+  `/api/pub/v1/gras/rank?version=<year>&subj_code=<AScode>` (plain `curl`,
+  browser UA; fields `ranking`, `univNameEn`, `region`), with subject codes
+  listed on `/rankings/gras/<year>`. agent-browser gets redirect-hijacked on
+  this host — use curl. The HTML pages (`/rankings/gras/<year>/<AScode>`,
+  `/rankings/grsssd/<year>`, `/institution/<slug>`) server-render only the top
+  ~30 rows; `/api/pub/v1/inst/<slug>` returns one institution's full ranked
+  subject list, current edition only. In the HTML, the name cell prints the
+  institution twice followed by the country, so match on that doubled prefix: a
+  substring match will put "Columbia University" at the rank belonging to the
   "University of British Columbia".
 - **U.S. News** — HTTP/2 anti-bot block on this host; subject tables could not
   be verified. Only the overall table is recorded. Don't go looking for a way
@@ -100,8 +126,23 @@ and trust are separate steps, and only the second one is authoritative.
   table. The form fields are `field`, `period_id`, `performance-dimension`,
   `ranking-indicator`, `sort-indicator`, `number-of-publications` and
   `fractional_counting`, but posting them directly answered 400 in September
-  2026 — the working parameter set needs rediscovery, so treat any Leiden
-  figure that has not been read off the rendered table as unverified.
+  2026 — the working parameter set needs rediscovery, so treat any Leiden figure
+  that has not been read off the rendered table as unverified.
+- **Leiden Open Edition / open.leidenranking.com** — GET `/ranking/<year>/list`
+  for a cookie, then POST `/Ranking<year>/Ranking<year>ListResult` with
+  `X-Requested-With: XMLHttpRequest` and
+  `field_id=0&performance_dimension=0&ranking_indicator=3&fractional_counting=true&core_pubs_only=true&number_of_publications=100&period_id=15&order_by=<p|pp_top_10>`
+  for the full HTML table (2024: `core_pub_only=false`, `period_id=14`).
+  `ranking_indicator` must be 3 for the PP(top 10%) sort or the table comes back
+  empty. Take names from each span's `data-tooltip` (the visible text is
+  abbreviated) and countries from the flag's. Rank is position in the sort; ties
+  can't be seen at the displayed precision.
+- **CWUR / cwur.org** — `/<year>.php` carries all 2000 rows in one HTML table;
+  plain `curl`.
+- **UI GreenMetric / greenmetric.ui.ac.id** — unreachable from this host. The
+  overall table is one static page (`/rankings/overall-rankings-<year>/`,
+  `table#tableranking`), so read it from a Wayback capture
+  (`web.archive.org/web/<year+1>/<url>`).
 - **RUR / roundranking.com** — the documented `.html` URL 404s; the live table
   is fed by
   `data_proc/get_data_raiting_o.php?id_year=<code>&rank=<O|T|R|I|F>&srt=rf`,
@@ -170,16 +211,23 @@ world #1 — the source line is the only tell. That is the joke.
 | QS World University Rankings (overall)                    | QS                                   | June (annual)            | 2027        | Hold 2025, 2026, 2027. Adelaide 2027 = merged "Adelaide University".                                                         |
 | QS World University Rankings by Subject                   | QS                                   | March (annual)           | 2026        | Hold 2025, 2026. ~55 disciplines; we track the ones where our institutions place well.                                       |
 | QS World University Rankings: Sustainability              | QS                                   | Nov (annual)             | 2026        | One overall table.                                                                                                           |
+| QS regional rankings (Asia, Europe, Latin America, Arab)  | QS                                   | various (annual)         | 2026–2027   | Asia 2025–26, Europe 2025–26, Latin America 2026–27, Arab Region 2026–27. `universe` set; via the WebFetch mirror route.     |
 | QS Graduate Employability Rankings                        | QS                                   | discontinued             | 2022        | Last standalone edition was 2022; folded into main methodology since.                                                        |
-| THE World University Rankings (overall)                   | THE                                  | Oct (annual)             | 2026        | 2027 due Oct 2026.                                                                                                           |
+| THE World University Rankings (overall)                   | THE                                  | Sept/Oct (annual)        | 2027        | Hold 2026, 2027. 2027 released 30 Sep 2026, individual ranks to 300.                                                         |
 | THE Sustainability Impact Ratings (was "Impact Rankings") | THE                                  | June (annual)            | 2026        | Hold 2024, 2025, 2026. Rebranded at the 2026 edition. Overall + 17 SDG tables. Most Go8 don't participate.                   |
 | THE Young University Rankings                             | THE                                  | discontinued             | 2024        | Discontinued after the 2024 edition — do not look for a 2025.                                                                |
-| ARWU Academic Ranking of World Universities (overall)     | ShanghaiRanking                      | Aug (annual)             | 2025        | 2026 due ~Aug 2026.                                                                                                          |
-| ARWU Global Ranking of Academic Subjects (GRAS)           | ShanghaiRanking                      | Nov (annual)             | 2025        | Hold 2024, 2025. 57 subjects, each at `/rankings/gras/<year>/<AScode>`.                                                      |
+| THE World University Rankings by Subject                  | THE                                  | Jan (annual)             | 2026        | Hold 2025, 2026. All 11 subjects.                                                                                            |
+| THE Interdisciplinary Science Rankings                    | THE                                  | Nov (annual)             | 2026        | Hold 2025, 2026. Scope "interdisciplinary science".                                                                          |
+| THE Asia University Rankings (regional)                   | THE                                  | Apr (annual)             | 2026        | Hold 2025, 2026. `universe` Asia.                                                                                            |
+| THE Arab University Rankings (regional)                   | THE                                  | annual                   | 2026        | `universe` the Arab region.                                                                                                  |
+| THE Latin America University Rankings (regional)          | THE                                  | annual                   | 2026        | `universe` Latin America.                                                                                                    |
+| ARWU Academic Ranking of World Universities (overall)     | ShanghaiRanking                      | Aug (annual)             | 2026        | Hold 2025, 2026.                                                                                                             |
+| ARWU Global Ranking of Academic Subjects (GRAS)           | ShanghaiRanking                      | Oct/Nov (annual)         | 2026        | Hold 2024, 2025, 2026. 57 subjects, all held for 2026.                                                                       |
 | ARWU Global Ranking of Sport Science (GRSSSD)             | ShanghaiRanking                      | annual                   | 2025        | Hold 2024, 2025.                                                                                                             |
 | U.S. News Best Global Universities (overall)              | U.S. News                            | Oct (annual)             | 2026-2027   | Subject tables blocked here (see above).                                                                                     |
-| CWUR Global 2000                                          | Center for World University Rankings | mid-year (annual)        | 2025        | 2026 due ~mid-2026.                                                                                                          |
+| CWUR Global 2000                                          | Center for World University Rankings | June (annual)            | 2026        | Hold 2025, 2026.                                                                                                             |
 | CWTS Leiden Ranking                                       | CWTS, Leiden University              | mid-year (annual)        | 2025        | Overall (P) + PP(top 10%) impact + all 5 broad-field tables. Field impact tables skewed by mega-collaboration co-authorship. |
+| CWTS Leiden Ranking Open Edition                          | CWTS, Leiden University              | Oct (annual)             | 2025        | Hold 2024, 2025. OpenAlex-based; overall (P) + PP(top 10%). CWTS says it will replace the traditional list.                  |
 | Round University Ranking (RUR)                            | RUR Rankings Agency                  | annual                   | 2026        | Overall + 4 dimensions. Opt-in data model, so many institutions are N/A.                                                     |
 | NTU Ranking                                               | National Taiwan University           | annual                   | 2025        | Overall + 8 field tables + 26 subject tables. Banded past ~800 → lower bound.                                                |
 | University Ranking by Academic Performance (URAP)         | METU (URAP Lab)                      | mid-year (annual)        | 2025-2026   | Overall + 19 field tables (field edition lags the world edition by one cycle).                                               |
@@ -190,6 +238,7 @@ world #1 — the source line is the only tell. That is the joke.
 | Three University Missions (MosIUR)                        | Association of Rating Makers         | annual                   | 2025        | Single overall table, banded past 300.                                                                                       |
 | Aggregate Ranking of Top Universities (ARTU)              | UNSW Sydney                          | annual                   | 2025        | Meta-ranking of QS/THE/ARWU; top 400 only.                                                                                   |
 | Time World's Top Universities                             | Time / Statista                      | annual (Jan)             | 2026        | Inaugural 2026 edition. Single overall table.                                                                                |
+| UI GreenMetric World University Rankings                  | Universitas Indonesia                | Dec (annual)             | 2025        | Hold 2024, 2025. Opt-in campus-sustainability ranking; via Wayback.                                                          |
 | Complete University Guide (UK, national)                  | Complete University Guide            | annual (June)            | 2027        | National (UK); `universe`. Live page Wayback-only.                                                                           |
 | Guardian University Guide (UK, national)                  | Guardian News & Media                | annual (Sept)            | 2026        | National (UK); via the Wikipedia aggregator.                                                                                 |
 | U.S. News National Universities (US, national)            | U.S. News                            | Sep (annual)             | 2026        | National (US); usnews.com blocked, via reproductions.                                                                        |
@@ -202,7 +251,10 @@ world #1 — the source line is the only tell. That is the joke.
 ## When refreshing
 
 1. For each product whose "next edition" date has passed, fetch it with the
-   method above and add it as a new set of tables (do not delete the old ones).
-2. Add the specific figures + source URLs to `PROVENANCE.md`.
+   method above into a normalised table file and run `pnpm ingest-table` on it
+   (dry run first, then `--write`). Editions are added, never replaced.
+2. Resolve what it reports as unresolved: add a looked-up id to
+   `scripts/ror-overrides.json` and re-run, or leave the row out. Record the
+   edition and fetch route in `PROVENANCE.md`.
 3. Bump "Latest held" in the table above.
 4. `pnpm update-rankings --write` to normalise and validate.

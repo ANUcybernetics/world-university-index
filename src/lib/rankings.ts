@@ -76,7 +76,8 @@ for (const c of citations) {
     list.push(c);
     citationsByRanking.set(c.ranking, list);
   }
-  const product = c.product ?? (c.ranking === undefined ? undefined : rankingsById.get(c.ranking)?.shortName);
+  const product =
+    c.product ?? (c.ranking === undefined ? undefined : rankingsById.get(c.ranking)?.shortName);
   if (product !== undefined) {
     const list = citationsByProduct.get(product) ?? [];
     list.push(c);
@@ -127,7 +128,9 @@ export function citationsBy(uni: University): readonly Citation[] {
  */
 export function isCited(rankingId: string): boolean {
   const product = rankingsById.get(rankingId)?.shortName;
-  return citationsByRanking.has(rankingId) || (product !== undefined && citationsByProduct.has(product));
+  return (
+    citationsByRanking.has(rankingId) || (product !== undefined && citationsByProduct.has(product))
+  );
 }
 
 /** Every institution recorded citing this index, deduplicated, in first-seen order. */

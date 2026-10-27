@@ -93,7 +93,9 @@ async function rorFor(name: string): Promise<string | null> {
     { headers: { "user-agent": "world-university-index (https://github.com/ANUcybernetics)" } },
   );
   if (!res.ok) return null;
-  const body = (await res.json()) as { items?: { chosen?: boolean; organization: { id: string } }[] };
+  const body = (await res.json()) as {
+    items?: { chosen?: boolean; organization: { id: string } }[];
+  };
   const chosen = body.items?.find((i) => i.chosen === true);
   return chosen?.organization.id ?? null;
 }
@@ -157,7 +159,9 @@ async function main(argv: string[]): Promise<void> {
   console.log(`\n  ${table} → ${rankingId}: ${rows.length} rows in the top ${top}\n`);
   console.log(`  ${matched.length} matched to institutions already held:`);
   for (const m of matched.toSorted((a, b) => a.rank - b.rank)) {
-    console.log(`    ${String(m.rank).padStart(3)}  ${m.name}${m.via === "ror" ? "  (matched via ROR)" : ""}`);
+    console.log(
+      `    ${String(m.rank).padStart(3)}  ${m.name}${m.via === "ror" ? "  (matched via ROR)" : ""}`,
+    );
   }
   console.log(`\n  ${unmatched.length} unmatched — candidates for admission:`);
   for (const u of unmatched) {

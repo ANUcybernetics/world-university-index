@@ -61,17 +61,17 @@ describe("parseRows", () => {
 });
 
 const fixtureDataset = (): Dataset => ({
-    rankings: [
-      {
-        id: "grsssd-sport-2025",
-        name: "Sport",
-        shortName: "S",
-        edition: "2025",
-        publisher: "p",
-        url: "https://s.test",
-        retrieved: "x",
-      },
-    ],
+  rankings: [
+    {
+      id: "grsssd-sport-2025",
+      name: "Sport",
+      shortName: "S",
+      edition: "2025",
+      publisher: "p",
+      url: "https://s.test",
+      retrieved: "x",
+    },
+  ],
   universities: [{ name: "Deakin University", country: "Australia", ranks: {} }],
 });
 

@@ -46,7 +46,10 @@ export const universitySchema = z.object({
    * "Northwestern University" vs "Lyceum-Northwestern University"). Absent for
    * institutions ROR does not list.
    */
-  ror: z.url().regex(/^https:\/\/ror\.org\/0[a-z0-9]{8}$/).optional(),
+  ror: z
+    .url()
+    .regex(/^https:\/\/ror\.org\/0[a-z0-9]{8}$/)
+    .optional(),
   ranks: z.record(z.string(), z.number().int().positive()),
   /**
    * The faculty, school or department a placement was actually won by, keyed by

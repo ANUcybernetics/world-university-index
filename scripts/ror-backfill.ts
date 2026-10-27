@@ -141,7 +141,9 @@ async function check(data: ReturnType<typeof datasetSchema.parse>): Promise<void
       bad += 1;
     }
   }
-  console.log(bad === 0 ? "\n  ✓ every stored id resolves to the right country\n" : `\n  ✗ ${bad} bad\n`);
+  console.log(
+    bad === 0 ? "\n  ✓ every stored id resolves to the right country\n" : `\n  ✗ ${bad} bad\n`,
+  );
   if (bad > 0) process.exitCode = 1;
 }
 

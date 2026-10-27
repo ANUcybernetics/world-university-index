@@ -119,11 +119,11 @@ claims that vouch for no index at all.
 
 The built site publishes the dataset as JSON alongside the pages:
 
-| Endpoint | Contents |
-| --- | --- |
+| Endpoint                 | Contents                                                                           |
+| ------------------------ | ---------------------------------------------------------------------------------- |
 | `/api/institutions.json` | every institution, with `ror`, slug, headline placement and full placement profile |
-| `/api/indices.json` | every ranking table, with placement and citation counts |
-| `/api/citations.json` | every published claim, verbatim, with its source URL |
+| `/api/indices.json`      | every ranking table, with placement and citation counts                            |
+| `/api/citations.json`    | every published claim, verbatim, with its source URL                               |
 
 Each profile page also embeds `schema.org/CollegeOrUniversity` JSON-LD carrying
 the same ROR identifier as both `identifier` and `sameAs`. The point of both is

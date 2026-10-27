@@ -151,7 +151,8 @@ function reportCitations(data: Dataset, citations: Citation[]): void {
   const known = new Set(data.universities.map((u) => u.name));
   const perProduct = new Map<string, number>();
   for (const c of citations) {
-    const product = c.product ?? (c.ranking === undefined ? undefined : byId.get(c.ranking)?.shortName);
+    const product =
+      c.product ?? (c.ranking === undefined ? undefined : byId.get(c.ranking)?.shortName);
     if (product === undefined) continue;
     perProduct.set(product, (perProduct.get(product) ?? 0) + 1);
   }

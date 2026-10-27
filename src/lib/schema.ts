@@ -172,6 +172,9 @@ const REGION_COUNTRIES: Record<Exclude<Region, "other">, readonly string[]> = {
     "Luxembourg",
     "Iceland",
     "Estonia",
+    "Hungary",
+    "Croatia",
+    "Latvia",
   ],
   asia: [
     "China",
@@ -185,6 +188,9 @@ const REGION_COUNTRIES: Record<Exclude<Region, "other">, readonly string[]> = {
     "Thailand",
     "Indonesia",
     "Macau",
+    "Vietnam",
+    "Pakistan",
+    "Kazakhstan",
   ],
 };
 

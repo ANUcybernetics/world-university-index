@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       # node + pnpm come from mise.toml, so versions never drift from local.
-      - uses: jdx/mise-action@v4
+      - uses: jdx/mise-action@v5
       - run: pnpm install --frozen-lockfile
       - name: Typecheck
         run: pnpm run typecheck

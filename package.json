@@ -11,6 +11,7 @@
     "lint": "oxlint",
     "lint:css": "stylelint \"src/**/*.css\"",
     "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "test": "vitest run",
     "test:watch": "vitest",
     "update-rankings": "tsx scripts/update-rankings.ts",
@@ -20,19 +21,19 @@
     "ingest-table": "tsx scripts/ingest-table.ts"
   },
   "dependencies": {
-    "astro": "^7.4.2"
+    "astro": "^7.4.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@types/node": "^26.6.6",
     "lightningcss": "^1.33.0",
-    "oxfmt": "^0.74.0",
-    "oxlint": "^1.89.0",
+    "oxfmt": "^0.76.0",
+    "oxlint": "^1.91.0",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
-    "vitest": "^5.0.5",
+    "vitest": "^5.1.0",
     "zod": "^4.6.7"
   },
   "engines": {

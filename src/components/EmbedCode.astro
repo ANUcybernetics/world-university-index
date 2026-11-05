@@ -17,17 +17,18 @@ const snippet = `<iframe src="${embedUrl}" width="360" height="140" style="borde
 <section class="embed" aria-labelledby="embed-heading">
   <h2 id="embed-heading" class="embed__heading">Display this result</h2>
   <p class="embed__intro">
-    Add {name}'s seal to your own site. The badge carries its source attribution, stays
-    current as new editions are published, and links back to this profile.
+    Add {name}'s seal to your own site. The badge carries its source attribution, stays current as
+    new editions are published, and links back to this profile.
   </p>
   <div class="embed__preview">
     <iframe
       src={embedHref(slug)}
       width="360"
       height="140"
-      style="border:0"
+      style="border: 0"
       title={iframeTitle}
-      loading="lazy"></iframe>
+      loading="lazy"
+    ></iframe>
   </div>
   <div class="embed__code">
     <pre class="embed__snippet" tabindex="0"><code>{snippet}</code></pre>

@@ -52,7 +52,9 @@ const isCurrent = (path: string) =>
         </a>
         <nav class="masthead__nav" aria-label="Primary">
           <ul>
-            <li><a href={href("/")} aria-current={isCurrent("/") ? "page" : undefined}>Rankings</a></li>
+            <li>
+              <a href={href("/")} aria-current={isCurrent("/") ? "page" : undefined}>Rankings</a>
+            </li>
             <li>
               <a href={href("/indices")} aria-current={isCurrent("/indices") ? "page" : undefined}>
                 Indices
@@ -79,24 +81,22 @@ const isCurrent = (path: string) =>
       <div class="container colophon__inner">
         <div class="colophon__brand">
           <Seal label="" class="colophon__mark" />
-          <p class="colophon__line">
-            <strong>{siteName}</strong>, {year} edition
-          </p>
+          <p class="colophon__line"><strong>{siteName}</strong>, {year} edition</p>
         </div>
         <p class="colophon__note">
-          A reference to the standing of the world's universities. Where an
-          institution appears in more than one international ranking, the Index
-          reports its strongest verified placement. See the <a
-            href={href("/methodology")}>methodology</a
-          >.
+          A reference to the standing of the world's universities. Where an institution appears in
+          more than one international ranking, the Index reports its strongest verified placement.
+          See the <a href={href("/methodology")}>methodology</a>.
         </p>
         <p class="colophon__meta">
-          A <a href="https://cybernetics.anu.edu.au/cybernetic-studio/" rel="external"
+          A
+          <a href="https://cybernetics.anu.edu.au/cybernetic-studio/" rel="external"
             >Cybernetic Studio</a
-          > project by <a href="https://benswift.me" rel="external">Ben Swift</a> at the
-          ANU School of Cybernetics. MIT-licensed; <a
-            href="https://github.com/ANUcybernetics/world-university-index"
-            rel="external">source on GitHub</a
+          >
+          project by <a href="https://benswift.me" rel="external">Ben Swift</a> at the ANU School of
+          Cybernetics. MIT-licensed;
+          <a href="https://github.com/ANUcybernetics/world-university-index" rel="external"
+            >source on GitHub</a
           >. The dataset is published as <a href={href("/api/institutions.json")}>JSON</a>.
         </p>
       </div>

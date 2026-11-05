@@ -79,17 +79,21 @@ const claims = citationsBy(university).map((citation) => {
             Ranked <strong>{claim} in the world</strong>{claimScope}
           </p>
           <p class="headline__source">
-            Source: <a href={best.ranking.url} rel="external">
+            Source:
+            <a href={best.ranking.url} rel="external">
               {best.ranking.name}, {best.ranking.edition}
             </a>
-            {headlineUnit && <span class="headline__unit">Placement won by its {headlineUnit}.</span>}
+            {headlineUnit && <span class="headline__unit"
+              >Placement won by its {headlineUnit}.</span
+            >}
           </p>
         </div>
       </section>
 
       <section class="full" aria-labelledby="full-heading">
         <h2 id="full-heading" class="section-heading">
-          Full ranking profile <span class="section-heading__count">{profile.length} placements</span>
+          Full ranking profile
+          <span class="section-heading__count">{profile.length} placements</span>
         </h2>
         <p class="section-intro">
           Every placement the Index records for {university.shortName ?? university.name}. The
@@ -104,77 +108,61 @@ const claims = citationsBy(university).map((citation) => {
             </tr>
           </thead>
           <tbody>
-            {
-              profile.map((p) => (
-                <tr class:list={[{ "is-best": p.ranking.id === best.ranking.id }]}>
-                  <th scope="row" class="profile-table__name">
-                    <a href={indexHref(p.ranking.id)}>
-                      {p.ranking.shortName} {p.ranking.edition}
-                    </a>
-                    {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
-                    {p.ranking.scope && <span class="profile-table__scope">{p.ranking.scope}</span>}
-                    {unitFor(university, p.ranking.id) && (
-                      <span class="profile-table__unit">{unitFor(university, p.ranking.id)}</span>
-                    )}
-                  </th>
-                  <td class="profile-table__pub">{p.ranking.publisher}</td>
-                  <td class="num">
-                    <RankBadge rank={p.rank} />
-                  </td>
-                </tr>
-              ))
-            }
+            {profile.map((p) => <tr class:list={[{ "is-best": p.ranking.id === best.ranking.id }]}>
+              <th scope="row" class="profile-table__name">
+                <a href={indexHref(p.ranking.id)}> {p.ranking.shortName} {p.ranking.edition} </a>
+                {p.ranking.id === best.ranking.id && <span class="tag">Headline</span>}
+                {p.ranking.scope && <span class="profile-table__scope">{p.ranking.scope}</span>}
+                {unitFor(university, p.ranking.id) && <span class="profile-table__unit"
+                  >{unitFor(university, p.ranking.id)}</span
+                >}
+              </th>
+              <td class="profile-table__pub">{p.ranking.publisher}</td>
+              <td class="num">
+                <RankBadge rank={p.rank} />
+              </td>
+            </tr>)}
           </tbody>
         </table>
         <p class="section-foot">
-          Banded results are recorded at the lower bound of the band. For how the headline figure
-          is selected, see the <a href={href("/methodology")}>methodology</a>.
+          Banded results are recorded at the lower bound of the band. For how the headline figure is
+          selected, see the <a href={href("/methodology")}>methodology</a>.
         </p>
       </section>
 
       <EmbedCode university={university} slug={slug} />
 
-      {
-        claims.length > 0 && (
-          <section class="claims" aria-labelledby="claims-heading">
-            <h2 id="claims-heading" class="section-heading">In their own words</h2>
-            <p class="section-intro">
-              {university.shortName ?? university.name} on the subject of its own standing, quoted
-              from its published material.
-            </p>
-            <ul class="claims__list">
-              {claims.map(({ citation, cited, rank }) => (
-                <li>
-                  <figure class="claim">
-                    <blockquote class="claim__text" cite={citation.url}>
-                      <p>{citation.quote}</p>
-                    </blockquote>
-                    <figcaption class="claim__attrib">
-                      <a href={citation.url} rel="external nofollow">Source</a>
-                      {citation.archive && (
-                        <>
-                          {", "}
-                          <a href={citation.archive} rel="external nofollow">
-                            archived
-                          </a>
-                        </>
-                      )}
-                      {", retrieved "}
-                      <time datetime={citation.retrieved}>{citation.retrieved}</time>
-                    </figcaption>
-                  </figure>
-                  {cited && rank !== undefined && (
-                    <p class="claim__index">
-                      The Index records <a href={indexHref(cited.id)}>{cited.shortName} {cited.edition}</a> at{" "}
-                      {ordinal(rank)} in the world{scopeSuffix(cited)}.
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )
-      }
+      {claims.length > 0 && <section class="claims" aria-labelledby="claims-heading">
+        <h2 id="claims-heading" class="section-heading">In their own words</h2>
+        <p class="section-intro">
+          {university.shortName ?? university.name} on the subject of its own standing, quoted from
+          its published material.
+        </p>
+        <ul class="claims__list">
+          {claims.map(({ citation, cited, rank }) => <li>
+            <figure class="claim">
+              <blockquote class="claim__text" cite={citation.url}>
+                <p>{citation.quote}</p>
+              </blockquote>
+              <figcaption class="claim__attrib">
+                <a href={citation.url} rel="external nofollow">Source</a>
+                {citation.archive && (
+                  <>
+                    {", "}
+                    <a href={citation.archive} rel="external nofollow"> archived </a>
+                  </>
+                )}
+                {", retrieved "}
+                <time datetime={citation.retrieved}>{citation.retrieved}</time>
+              </figcaption>
+            </figure>
+            {cited && rank !== undefined && <p class="claim__index">
+              The Index records <a href={indexHref(cited.id)}>{cited.shortName} {cited.edition}</a>
+              at{" "} {ordinal(rank)} in the world{scopeSuffix(cited)}.
+            </p>}
+          </li>)}
+        </ul>
+      </section>}
     </div>
   </article>
 

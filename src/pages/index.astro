@@ -35,8 +35,8 @@ const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortNam
 
   <section class="container index" aria-labelledby="index-title">
     <p class="index__lead">
-      Every institution listed at its strongest verified placement in the
-      international rankings, with the table that supplies it.
+      Every institution listed at its strongest verified placement in the international rankings,
+      with the table that supplies it.
     </p>
 
     <search class="toolbar">
@@ -54,14 +54,10 @@ const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortNam
 
         <fieldset class="segmented">
           <legend class="sr-only">Region</legend>
-          {
-            regionFilters.map((f) => (
-              <label class="segmented__option">
-                <input type="radio" name="region" value={f.key} checked={f.key === "all"} />
-                <span>{f.label}</span>
-              </label>
-            ))
-          }
+          {regionFilters.map((f) => <label class="segmented__option">
+            <input type="radio" name="region" value={f.key} checked={f.key === "all"} />
+            <span>{f.label}</span>
+          </label>)}
         </fieldset>
 
         <fieldset class="segmented">
@@ -92,47 +88,42 @@ const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortNam
         </tr>
       </thead>
       <tbody id="rows">
-        {
-          entries.map((e) => (
-            <tr
-              class="league__row"
-              data-rank={e.best.rank}
-              data-rank-overall={e.bestOverall?.rank}
-              data-source={sourceLabel(e.best.ranking)}
-              data-scope={e.best.ranking.scope ?? ""}
-              data-source-overall={e.bestOverall ? sourceLabel(e.bestOverall.ranking) : undefined}
-              data-scope-overall={e.bestOverall?.ranking.scope ?? ""}
-              data-region={regionOf(e.university.country)}
-              data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country}`.toLowerCase()}
-            >
-              <td class="league__rank">
-                <RankBadge rank={e.best.rank} tied={(tiesAll.get(e.best.rank) ?? 0) > 1} />
-              </td>
-              <th scope="row" class="league__inst">
-                <a href={universityHref(e.slug)} data-vt-name={`inst-${e.slug}`}>
-                  {e.university.name}
-                </a>
-                <span class="league__place">
-                  {e.university.city ? `${e.university.city}, ` : ""}
-                  {e.university.country}
-                </span>
-              </th>
-              <td class="league__source">
-                <span class="league__table">{sourceLabel(e.best.ranking)}</span>
-                <span class="league__scope">{e.best.ranking.scope}</span>
-              </td>
-            </tr>
-          ))
-        }
+        {entries.map((e) => <tr
+          class="league__row"
+          data-rank={e.best.rank}
+          data-rank-overall={e.bestOverall?.rank}
+          data-source={sourceLabel(e.best.ranking)}
+          data-scope={e.best.ranking.scope ?? ""}
+          data-source-overall={e.bestOverall ? sourceLabel(e.bestOverall.ranking) : undefined}
+          data-scope-overall={e.bestOverall?.ranking.scope ?? ""}
+          data-region={regionOf(e.university.country)}
+          data-name={`${e.university.name} ${e.university.shortName ?? ""} ${e.university.city ?? ""} ${e.university.country}`.toLowerCase()}
+        >
+          <td class="league__rank">
+            <RankBadge rank={e.best.rank} tied={(tiesAll.get(e.best.rank) ?? 0) > 1} />
+          </td>
+          <th scope="row" class="league__inst">
+            <a href={universityHref(e.slug)} data-vt-name={`inst-${e.slug}`}>
+              {e.university.name}
+            </a>
+            <span class="league__place">
+              {e.university.city ? `${e.university.city}, ` : ""}
+              {e.university.country}
+            </span>
+          </th>
+          <td class="league__source">
+            <span class="league__table">{sourceLabel(e.best.ranking)}</span>
+            <span class="league__scope">{e.best.ranking.scope}</span>
+          </td>
+        </tr>)}
       </tbody>
     </table>
     <p class="index__empty" id="empty" hidden>
       No institution matches that search. Try a shorter name, or clear the region filter.
     </p>
     <p class="index__foot">
-      An equals sign marks a shared position. The headline source is the ranking
-      table that supplies the placement; the scope toggle restricts it to
-      whole-of-institution tables.
+      An equals sign marks a shared position. The headline source is the ranking table that supplies
+      the placement; the scope toggle restricts it to whole-of-institution tables.
     </p>
   </section>
 
@@ -179,7 +170,7 @@ const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortNam
         .map((row) => ({ row, rank: rankOf(row, scope) }))
         .filter((x): x is { row: HTMLTableRowElement; rank: number } => x.rank !== null)
         .toSorted((a, b) => a.rank - b.rank);
-      for (let i = 0; i < ranked.length; ) {
+      for (let i = 0; i < ranked.length;) {
         let j = i + 1;
         while (j < ranked.length && ranked[j].rank === ranked[i].rank) j += 1;
         const group = ranked.slice(i, j);
@@ -206,8 +197,10 @@ const sourceLabel = (r: { shortName: string; edition: string }) => `${r.shortNam
         const table = row.querySelector<HTMLElement>(".league__table");
         const scopeEl = row.querySelector<HTMLElement>(".league__scope");
         if (num) num.textContent = String(rank);
-        if (table) table.textContent = (overall ? row.dataset.sourceOverall : row.dataset.source) ?? "";
-        if (scopeEl) scopeEl.textContent = (overall ? row.dataset.scopeOverall : row.dataset.scope) ?? "";
+        if (table)
+          table.textContent = (overall ? row.dataset.sourceOverall : row.dataset.source) ?? "";
+        if (scopeEl)
+          scopeEl.textContent = (overall ? row.dataset.scopeOverall : row.dataset.scope) ?? "";
       }
     }
 

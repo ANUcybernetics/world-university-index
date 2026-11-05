@@ -29,7 +29,10 @@ const digits = isMark ? 0 : String(rank).length;
 const numeralSize = digits <= 1 ? 54 : digits === 2 ? 48 : digits === 3 ? 40 : 32;
 const ringId = `${id}-ring`;
 const accessibleName =
-  label ?? (isMark ? "The World University Index" : `Ranked ${rank} in the world, The World University Index ${edition}`);
+  label ??
+  (isMark
+    ? "The World University Index"
+    : `Ranked ${rank} in the world, The World University Index ${edition}`);
 ---
 
 <svg
@@ -43,34 +46,32 @@ const accessibleName =
   <circle class="seal__disc" cx="60" cy="60" r="58"></circle>
   <circle class="seal__ring" cx="60" cy="60" r="52.5"></circle>
   <circle class="seal__ring seal__ring--inner" cx="60" cy="60" r="41.5"></circle>
-  {
-    isMark ? (
-      <text class="seal__letters" x="60" y="60" text-anchor="middle" dominant-baseline="central">
-        WUI
+  {isMark ? (
+    <text class="seal__letters" x="60" y="60" text-anchor="middle" dominant-baseline="central">
+      WUI
+    </text>
+  ) : (
+    <>
+      <defs>
+        <path id={ringId} d="M 60 60 m -47 0 a 47 47 0 1 1 94 0 a 47 47 0 1 1 -94 0" />
+      </defs>
+      <text class="seal__band">
+        <textPath href={`#${ringId}`} startOffset="50%" text-anchor="middle">
+          World University Index · {edition} edition ·
+        </textPath>
       </text>
-    ) : (
-      <>
-        <defs>
-          <path id={ringId} d="M 60 60 m -47 0 a 47 47 0 1 1 94 0 a 47 47 0 1 1 -94 0" />
-        </defs>
-        <text class="seal__band">
-          <textPath href={`#${ringId}`} startOffset="50%" text-anchor="middle">
-            World University Index · {edition} edition ·
-          </textPath>
-        </text>
-        <text
-          class="seal__rank"
-          x="60"
-          y="61"
-          text-anchor="middle"
-          dominant-baseline="central"
-          font-size={numeralSize}
-        >
-          {rank}
-        </text>
-      </>
-    )
-  }
+      <text
+        class="seal__rank"
+        x="60"
+        y="61"
+        text-anchor="middle"
+        dominant-baseline="central"
+        font-size={numeralSize}
+      >
+        {rank}
+      </text>
+    </>
+  )}
 </svg>
 
 <style>

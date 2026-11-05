@@ -80,58 +80,50 @@ const sections = groups
       A table nobody quotes is a spreadsheet. A table one university has put on its own website is
       an index that matters to at least somebody, and the Index treats it accordingly; the obscure
       ones most of all, since an institution that cites a ranking almost nobody has heard of has
-      told you something a well-known ranking never could. The citing institution need not appear
-      in the Index itself: {outside} of the {citations.length} claims on record come from
-      universities we do not otherwise track, and they vouch for the index just as well.
+      told you something a well-known ranking never could. The citing institution need not appear in
+      the Index itself: {outside} of the {citations.length} claims on record come from universities
+      we do not otherwise track, and they vouch for the index just as well.
     </p>
 
-    {
-      sections.map((g) => (
-        <section class="group">
-          <h2 class="group__heading">
-            {g.label} <span class="group__count">{g.rows.length} tables</span>
-          </h2>
-          <table class="list">
-            <thead>
-              <tr>
-                <th scope="col">Table</th>
-                <th scope="col" class="list__ed">Edition</th>
-                <th scope="col" class="num">Listed here</th>
-                <th scope="col" class="num">Cited by</th>
-              </tr>
-            </thead>
-            <tbody>
-              {g.rows.map(({ ranking, citations: n, product: p, placements }) => (
-                <tr>
-                  <th scope="row" class="list__name">
-                    <a href={indexHref(ranking.id)}>{ranking.scope ?? ranking.name}</a>
-                    {ranking.scope && <span class="list__index">{ranking.name}</span>}
-                  </th>
-                  <td class="list__ed">
-                    {ranking.shortName} {ranking.edition}
-                  </td>
-                  <td class="num">{placements}</td>
-                  <td class="num">
-                    {n > 0 ? (
-                      <span class="cited">{n}</span>
-                    ) : p > 0 ? (
-                      <span class="cited cited--product" title="cited in another edition">
-                        {p}
-                      </span>
-                    ) : (
-                      <span class="uncited">0</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      ))
-    }
+    {sections.map((g) => <section class="group">
+      <h2 class="group__heading">
+        {g.label} <span class="group__count">{g.rows.length} tables</span>
+      </h2>
+      <table class="list">
+        <thead>
+          <tr>
+            <th scope="col">Table</th>
+            <th scope="col" class="list__ed">Edition</th>
+            <th scope="col" class="num">Listed here</th>
+            <th scope="col" class="num">Cited by</th>
+          </tr>
+        </thead>
+        <tbody>
+          {g.rows.map(({ ranking, citations: n, product: p, placements }) => <tr>
+            <th scope="row" class="list__name">
+              <a href={indexHref(ranking.id)}>{ranking.scope ?? ranking.name}</a>
+              {ranking.scope && <span class="list__index">{ranking.name}</span>}
+            </th>
+            <td class="list__ed">{ranking.shortName} {ranking.edition}</td>
+            <td class="num">{placements}</td>
+            <td class="num">
+              {n > 0 ? (
+                <span class="cited">{n}</span>
+              ) : p > 0 ? (
+                <span class="cited cited--product" title="cited in another edition">
+                  {p}
+                </span>
+              ) : (
+                <span class="uncited">0</span>
+              )}
+            </td>
+          </tr>)}
+        </tbody>
+      </table>
+    </section>)}
     <p class="foot">
-      A count set in grey counts citations of another edition of the same index; a claim about
-      the 2020 table is still evidence about the ranking.
+      A count set in grey counts citations of another edition of the same index; a claim about the
+      2020 table is still evidence about the ranking.
     </p>
   </article>
 </Base>

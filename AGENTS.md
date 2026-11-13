@@ -6,17 +6,9 @@ international rankings. README.md explains the concept and the data model.
 
 ## Commands
 
-```sh
-pnpm dev
-pnpm typecheck       # astro check && tsc --noEmit
-pnpm lint && pnpm lint:css && pnpm format:check
-pnpm test            # vitest
-pnpm update-rankings # validate and integrity-check the dataset (CI runs it)
-pnpm build
-```
-
-The `ingest-*`, `ror-backfill` and `update-rankings` scripts are documented in
-their file headers and in README.md.
+`package.json` has the scripts. `pnpm update-rankings` validates and
+integrity-checks the dataset (CI runs it). The `ingest-*`, `ror-backfill` and
+`update-rankings` scripts are documented in their file headers and in README.md.
 
 ## Rules
 

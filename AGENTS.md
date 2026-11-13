@@ -21,8 +21,8 @@ their file headers and in README.md.
 ## Rules
 
 - Data lives in `src/data/rankings.json` and `src/data/citations.json`; the
-  schema and best-rank logic are in `src/lib/schema.ts` and `src/lib/rankings.ts`.
-  Run `pnpm update-rankings` after any data edit.
+  schema and best-rank logic are in `src/lib/schema.ts` and
+  `src/lib/rankings.ts`. Run `pnpm update-rankings` after any data edit.
 - Every figure is verified against the publisher's own table; record where in
   `src/data/PROVENANCE.md` and `src/data/sources.md`. Never invent or estimate a
   placement. Banded results (`201--250`) are recorded at the lower bound.
